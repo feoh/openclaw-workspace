@@ -84,11 +84,11 @@ def format_digest(entries, limit=25):
     today = datetime.now().strftime("%Y-%m-%d")
     lines = [f"RSS Daily Digest — {today} · {len(entries)} entries\n"]
     
-    for e in entries[:limit]:
+    for i, e in enumerate(entries[:limit], 1):
         date_str = e["date"].strftime("%Y-%m-%d") if e["date"] else "????-??-??"
-        lines.append(f"[{date_str}] {e['feed']}")
-        lines.append(f"  {e['title']}")
-        lines.append(f"  {e['url']}")
+        lines.append(f"{i}. [{date_str}] {e['feed']}")
+        lines.append(f"   {e['title']}")
+        lines.append(f"   {e['url']}")
         lines.append("")
     
     return "\n".join(lines)
