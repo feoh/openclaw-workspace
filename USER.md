@@ -3,7 +3,7 @@
 - **Name:** Christopher Anthony Patti
 - **What to call them:** Chris
 - **Pronouns:** he/him
-- **Timezone:** UTC
+- **Timezone:** EST/EDT (Eastern Time — Somerville, MA, USA)
 
 ## Interests & Hobbies
 - Science fiction, urban fantasy, graphic novels — voracious reader
