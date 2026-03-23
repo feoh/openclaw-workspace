@@ -35,6 +35,10 @@ Things like:
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
 
+## Discord Bot
+- Token stored in `.env` (DISCORD_BOT_TOKEN) — never commit this
+- Configured for Simplificus assistant on Chris's private server
+
 ## Linkding API
 - URL: https://linkding.reedfish-regulus.ts.net/api/bookmarks/ ← **trailing slash required** (POST returns 301 otherwise)
 - API Key: `<LINKDING_API_KEY>` — stored locally, never commit this
