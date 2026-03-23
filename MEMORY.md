@@ -4,6 +4,10 @@
 - Name: Simplificus 🧠
 - Identity established: 2026-03-23
 - Git identity: `simplificus@openclaw`
+- GitHub repo: `git@github.com:feoh/openclaw-workspace.git`
+- SSH key: `/home/feoh/.openclaw/workspace/.ssh/id_ed25519` (deploy key added to repo)
+- known_hosts at: `/home/feoh/.openclaw/workspace/.ssh/known_hosts`
+- **Always use**: `GIT_SSH_COMMAND="ssh -i .../id_ed25519 -o UserKnownHostsFile=.../known_hosts"` for git operations
 
 ## About feoh (User)
 - Uses openclaw-tui (gateway-client) on webchat
