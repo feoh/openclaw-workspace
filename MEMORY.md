@@ -29,7 +29,8 @@
 
 ## Linkding Integration
 - API endpoint: `https://linkding.reedfish-regulus.ts.net/api/bookmarks/` ← **trailing slash required**
-- API Key: `e8598748d64f35bd1de2ecd8dd0559a01bd9de93`
+- API Key: `<LINKDING_API_KEY>` — stored locally in `.env`, never commit this
+- Scripts read key from `LINKDING_API_KEY` env var or `.env` file
 - Tag: `toread`
 - POST format: `{"url": "<url>", "tag_names": ["toread"]}`
 - 3420+ bookmarks already saved (as of 2026-03-23)

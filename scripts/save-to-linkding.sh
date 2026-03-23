@@ -1,10 +1,22 @@
 #!/bin/bash
 # Saves new RSS articles to Linkding
+# Requires LINKDING_API_KEY env var
 
-LINKDING_URL="https://linkding.reedfish-regulus.ts.net/bookmarks"
-API_KEY="e8598748d64f35bd1de2ecd8dd0559a01bd9de93"
 TAG="toread"
 INPUT_FILE="/home/feoh/.openclaw/workspace/rss-new-articles.json"
+
+# Load .env if present
+if [[ -f "$(dirname "$0")/../.env" ]]; then
+  source "$(dirname "$0")/../.env"
+fi
+
+API_KEY="${LINKDING_API_KEY}"
+API_URL="https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
+
+if [[ -z "$API_KEY" ]]; then
+  echo "Error: LINKDING_API_KEY not set"
+  exit 1
+fi
 
 # Read articles from JSON and save each to Linkding
 jq -c '.[]' "$INPUT_FILE" | while IFS= read -r article; do
@@ -12,8 +24,7 @@ jq -c '.[]' "$INPUT_FILE" | while IFS= read -r article; do
   url=$(echo "$article" | jq -r '.url')
   feed=$(echo "$article" | jq -r '.feed')
   
-  # Create bookmark with toread tag
-  response=$(curl -s -w "\n%{http_code}" -X POST "$LINKDING_URL" \
+  response=$(curl -s -w "\n%{http_code}" -X POST "$API_URL" \
     -H "Authorization: Token $API_KEY" \
     -H "Content-Type: application/json" \
     -d "{\"url\": \"$url\", \"title\": \"$title\", \"tag_names\": [\"$TAG\"]}")

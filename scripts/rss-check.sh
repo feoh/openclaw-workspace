@@ -5,7 +5,7 @@
 WORKSPACE="/home/feoh/.openclaw/workspace"
 FEEDS_FILE="$WORKSPACE/rss-feeds.json"
 LINKDING_URL="https://linkding.reedfish-regulus.ts.net/api/bookmarks"
-API_KEY="e8598748d64f35bd1de2ecd8dd0559a01bd9de93"
+API_KEY="<LINKDING_API_KEY>"
 TAG="toread"
 
 cd "$WORKSPACE" || exit 1
@@ -21,7 +21,7 @@ WORKSPACE = "/home/feoh/.openclaw/workspace"
 FEEDS_FILE = f"{WORKSPACE}/rss-feeds.json"
 STATE_FILE = f"{WORKSPACE}/rss-state.json"
 LINKDING_URL = "https://linkding.reedfish-regulus.ts.net/bookmarks"
-API_KEY = "e8598748d64f35bd1de2ecd8dd0559a01bd9de93"
+API_KEY = "<LINKDING_API_KEY>"
 TAG = "toread"
 
 with open(FEEDS_FILE) as f:

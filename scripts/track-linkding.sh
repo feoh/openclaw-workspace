@@ -1,15 +1,28 @@
 #!/bin/bash
 # Track saved articles from Linkding for preference learning
 # Run periodically to sync saved articles tagged 'toread'
+# Requires LINKDING_API_KEY env var or .env file
 
 WORKSPACE="/home/feoh/.openclaw/workspace"
 TRACKING_FILE="$WORKSPACE/linkding-saved.json"
 LINKDING_URL="https://linkding.reedfish-regulus.ts.net/api/bookmarks"
-API_KEY="e8598748d64f35bd1de2ecd8dd0559a01bd9de93"
+API_URL="https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
 
 cd "$WORKSPACE" || exit 1
 
-python3 << 'PYTHON_SCRIPT'
+# Load .env if present
+if [[ -f "$WORKSPACE/.env" ]]; then
+  source "$WORKSPACE/.env"
+fi
+
+API_KEY="${LINKDING_API_KEY}"
+
+if [[ -z "$API_KEY" ]]; then
+  echo "Error: LINKDING_API_KEY not set"
+  exit 1
+fi
+
+python3 << PYTHON_SCRIPT
 import json
 import subprocess
 import sys
@@ -19,7 +32,7 @@ from datetime import datetime, timezone
 WORKSPACE = "/home/feoh/.openclaw/workspace"
 TRACKING_FILE = f"{WORKSPACE}/linkding-saved.json"
 LINKDING_URL = "https://linkding.reedfish-regulus.ts.net/api/bookmarks"
-API_KEY = "e8598748d64f35bd1de2ecd8dd0559a01bd9de93"
+API_KEY = os.environ.get("LINKDING_API_KEY", "")
 
 # Load existing tracking data
 try:
@@ -37,7 +50,7 @@ limit = 100
 new_count = 0
 
 while True:
-    url = f"{LINKDING_URL}/?offset={offset}&limit={limit}&tag=toread"
+    url = f"{LINKDING_URL}?offset={offset}&limit={limit}&tag=toread"
     result = subprocess.run(
         ["curl", "-s", "-H", f"Authorization: Token {API_KEY}", url],
         capture_output=True, text=True, timeout=30
@@ -62,15 +75,12 @@ while True:
         if bookmark_id and bookmark_id not in seen_ids:
             seen_ids.add(bookmark_id)
             
-            # Extract tags
-            tags = bookmark.get("tag_names", [])
-            
             article = {
                 "id": bookmark_id,
                 "url": bookmark.get("url", ""),
                 "title": bookmark.get("title", ""),
                 "description": bookmark.get("description", ""),
-                "tags": tags,
+                "tags": bookmark.get("tag_names", []),
                 "website_name": bookmark.get("website_title", ""),
                 "saved_at": bookmark.get("date_added", ""),
             }

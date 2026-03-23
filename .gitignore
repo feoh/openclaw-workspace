@@ -1,3 +1,7 @@
 
 # SSH keys - NEVER commit these
 .ssh/
+
+# Local secrets - never commit
+.env
+.env.local

@@ -37,7 +37,7 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ## Linkding API
 - URL: https://linkding.reedfish-regulus.ts.net/api/bookmarks/ ← **trailing slash required** (POST returns 301 otherwise)
-- API Key: `e8598748d64f35bd1de2ecd8dd0559a01bd9de93`
+- API Key: `<LINKDING_API_KEY>` — stored locally, never commit this
 - Tag for "toread": `toread`
 - Known working POST format: `{"url": "<url>", "tag_names": ["toread"]}`
 - Linkding already has 3420+ bookmarks saved (as of 2026-03-23)

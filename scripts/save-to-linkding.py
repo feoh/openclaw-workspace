@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 LINKDING_URL = "https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
-API_KEY = "e8598748d64f35bd1de2ecd8dd0559a01bd9de93"
+API_KEY = "<LINKDING_API_KEY>"
 INPUT_FILE = "/home/feoh/.openclaw/workspace/rss-new-articles.json"
 
 # Load articles
