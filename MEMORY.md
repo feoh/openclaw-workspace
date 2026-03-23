@@ -20,8 +20,17 @@
 - 19 feeds configured (see rss-feeds.opml)
 - OPML source: Miniflux export
 - Script: `scripts/rss-digest.py` (feedparser-based, clean & reliable)
+- **Numbered entries** for easy selection: "save #3, #7, #12"
 - Cron job: Daily at 08:00 UTC (cron ID: b7c00f31-369b-4cc6-998c-02205611b747)
 - Last run: 2026-03-23 (first digest delivered)
+- Workflow: user says "save #N" → I parse numbers, look up URLs, POST to linkding
+
+## Linkding Integration
+- API endpoint: `https://linkding.reedfish-regulus.ts.net/api/bookmarks/` ← **trailing slash required**
+- API Key: stored in TOOLS.md
+- Tag: `toread`
+- POST format: `{"url": "<url>", "tag_names": ["toread"]}`
+- 3420+ bookmarks already saved (as of 2026-03-23)
 
 ### Feed list (19 total):
 **All:**

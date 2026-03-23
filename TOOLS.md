@@ -35,11 +35,12 @@ Things like:
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
 
-### Linkding (Read-it-later / bookmarks)
-
-- URL: https://linkding.reedfish-regulus.ts.net/bookmarks
-- API Key: e8598748d64f35bd1de2ecd8dd0559a01bd9de93
-- Tag for "toread": toread
+## Linkding API
+- URL: https://linkding.reedfish-regulus.ts.net/api/bookmarks/ ← **trailing slash required** (POST returns 301 otherwise)
+- API Key: `e8598748d64f35bd1de2ecd8dd0559a01bd9de93`
+- Tag for "toread": `toread`
+- Known working POST format: `{"url": "<url>", "tag_names": ["toread"]}`
+- Linkding already has 3420+ bookmarks saved (as of 2026-03-23)
 
 ### RSS Feeds
 
