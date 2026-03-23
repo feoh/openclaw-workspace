@@ -30,8 +30,17 @@ FEEDS = [
     ("matklad", "https://matklad.github.io", "https://matklad.github.io/feed.xml"),
     ("Ars Technica", "https://arstechnica.com", "https://arstechnica.com/feed/?t=d46dc635cfe2031785f81a4b0c4f7f73da4f3bbf"),
     ("Kagi Blog", "https://blog.kagi.com", "https://blog.kagi.com/rss.xml"),
+    ("Fujinet News", "https://fujinet.online", "https://fujinet.online/feed/"),
     ("Zed A. Shaw", "https://zedshaw.com", "https://zedshaw.com/feed.atom"),
 ]
+
+FEED_CATEGORIES = {
+    "All": ["Terence Eden's Blog", "Unfinished Bitness", "Fujinet News"],
+    "Fun": ["Blind Not Dumb", "John P. Murphy", "Zarf Updates"],
+    "Python": ["Aeracode", "Anthony Shaw's blog", "Deciphering Glyph", "Hynek Schlawack", "Daniel Roy Greenfeld", "Michael Kennedy", "Ned Batchelder's blog", "Simon Willison's Weblog", "Tall, Snarky Canadian"],
+    "Rust": ["Chris Morgan's blog", "matklad"],
+    "Technology": ["Ars Technica", "Kagi Blog", "Zed A. Shaw", "Fujinet News"],
+}
 
 def parse_entry(entry, feed_title, blog_url):
     """Extract title, url, and date from a feedparser entry."""

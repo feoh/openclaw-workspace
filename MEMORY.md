@@ -62,6 +62,7 @@
 
 **Technology:**
 - Ars Technica — https://arstechnica.com/feed/?t=...
+- Fujinet News — https://fujinet.online/feed/
 - Kagi Blog — https://blog.kagi.com/rss.xml
 - Zed A. Shaw — https://zedshaw.com/feed.atom
 

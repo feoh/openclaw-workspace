@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <opml version="2.0">
  <head>
  <title>Miniflux</title>
@@ -6,33 +6,34 @@
  </head>
  <body>
  <outline text="All">
- <outline title="Terence Eden's Blog" text="Terence Eden's Blog" xmlUrl="https://shkspr.mobi/blog/feed/" htmlUrl="https://shkspr.mobi/blog" type="rss"></outline>
- <outline title="Unfinished Bitness" text="Unfinished Bitness" xmlUrl="https://unfinishedbitness.info/feed/" htmlUrl="https://unfinishedbitness.info" type="rss"></outline>
+ <outline title="Terence Eden's Blog" text="Terence Eden's Blog" xmlUrl="https://shkspr.mobi/blog/feed/" htmlUrl="https://shkspr.mobi/blog" type="rss" />
+ <outline title="Unfinished Bitness" text="Unfinished Bitness" xmlUrl="https://unfinishedbitness.info/feed/" htmlUrl="https://unfinishedbitness.info" type="rss" />
  </outline>
  <outline text="Fun">
- <outline title="Blind Not Dumb" text="Blind Not Dumb" xmlUrl="https://www.feoh.org/feed.atom" htmlUrl="https://www.feoh.org/" type="rss"></outline>
- <outline title="John P. Murphy" text="John P. Murphy" xmlUrl="https://johnpmurphy.net/feed/" htmlUrl="https://johnpmurphy.net" description="Award-nominated author of science fiction and fantasy" type="rss"></outline>
- <outline title="Zarf Updates" text="Zarf Updates" xmlUrl="https://blog.zarfhome.com/feeds/posts/default" htmlUrl="https://blog.zarfhome.com/" type="rss"></outline>
+ <outline title="Blind Not Dumb" text="Blind Not Dumb" xmlUrl="https://www.feoh.org/feed.atom" htmlUrl="https://www.feoh.org/" type="rss" />
+ <outline title="John P. Murphy" text="John P. Murphy" xmlUrl="https://johnpmurphy.net/feed/" htmlUrl="https://johnpmurphy.net" description="Award-nominated author of science fiction and fantasy" type="rss" />
+ <outline title="Zarf Updates" text="Zarf Updates" xmlUrl="https://blog.zarfhome.com/feeds/posts/default" htmlUrl="https://blog.zarfhome.com/" type="rss" />
  </outline>
  <outline text="Python">
- <outline title="Aeracode" text="Aeracode" xmlUrl="https://aeracode.org/feed/atom/" htmlUrl="https://www.aeracode.org/" type="rss"></outline>
- <outline title="Anthony Shaw's blog" text="Anthony Shaw's blog" xmlUrl="https://tonybaloney.github.io/rss.xml" htmlUrl="https://tonybaloney.github.io/#blog" type="rss"></outline>
- <outline title="Deciphering Glyph" text="Deciphering Glyph" xmlUrl="https://blog.glyph.im/feeds/all.atom.xml" htmlUrl="https://blog.glyph.im/" type="rss"></outline>
- <outline title="Hynek Schlawack" text="Hynek Schlawack" xmlUrl="https://hynek.me/index.xml" htmlUrl="https://hynek.me/" type="rss"></outline>
- <outline title="Inside the head of Daniel Roy Greenfeld" text="Inside the head of Daniel Roy Greenfeld" xmlUrl="https://daniel.feldroy.com/feeds/atom.xml" htmlUrl="https://daniel.feldroy.com" type="rss"></outline>
- <outline title="Michael Kennedy" text="Michael Kennedy" xmlUrl="https://mkennedy.codes/index.xml" htmlUrl="https://mkennedy.codes/" type="rss"></outline>
- <outline title="Ned Batchelder's blog" text="Ned Batchelder's blog" xmlUrl="https://nedbatchelder.com/blog/rss.xml" htmlUrl="https://nedbatchelder.com/blog" type="rss"></outline>
- <outline title="Simon Willison's Weblog" text="Simon Willison's Weblog" xmlUrl="https://simonwillison.net/atom/everything/" htmlUrl="http://simonwillison.net/" type="rss"></outline>
- <outline title="Tall, Snarky Canadian" text="Tall, Snarky Canadian" xmlUrl="https://snarky.ca/rss/" htmlUrl="https://snarky.ca/" type="rss"></outline>
+ <outline title="Aeracode" text="Aeracode" xmlUrl="https://aeracode.org/feed/atom/" htmlUrl="https://www.aeracode.org/" type="rss" />
+ <outline title="Anthony Shaw's blog" text="Anthony Shaw's blog" xmlUrl="https://tonybaloney.github.io/rss.xml" htmlUrl="https://tonybaloney.github.io/#blog" type="rss" />
+ <outline title="Deciphering Glyph" text="Deciphering Glyph" xmlUrl="https://blog.glyph.im/feeds/all.atom.xml" htmlUrl="https://blog.glyph.im/" type="rss" />
+ <outline title="Hynek Schlawack" text="Hynek Schlawack" xmlUrl="https://hynek.me/index.xml" htmlUrl="https://hynek.me/" type="rss" />
+ <outline title="Inside the head of Daniel Roy Greenfeld" text="Inside the head of Daniel Roy Greenfeld" xmlUrl="https://daniel.feldroy.com/feeds/atom.xml" htmlUrl="https://daniel.feldroy.com" type="rss" />
+ <outline title="Michael Kennedy" text="Michael Kennedy" xmlUrl="https://mkennedy.codes/index.xml" htmlUrl="https://mkennedy.codes/" type="rss" />
+ <outline title="Ned Batchelder's blog" text="Ned Batchelder's blog" xmlUrl="https://nedbatchelder.com/blog/rss.xml" htmlUrl="https://nedbatchelder.com/blog" type="rss" />
+ <outline title="Simon Willison's Weblog" text="Simon Willison's Weblog" xmlUrl="https://simonwillison.net/atom/everything/" htmlUrl="http://simonwillison.net/" type="rss" />
+ <outline title="Tall, Snarky Canadian" text="Tall, Snarky Canadian" xmlUrl="https://snarky.ca/rss/" htmlUrl="https://snarky.ca/" type="rss" />
  </outline>
  <outline text="Rust">
- <outline title="Chris Morgan's blog" text="Chris Morgan's blog" xmlUrl="https://chrismorgan.info/feed.xml" htmlUrl="https://chrismorgan.info" type="rss"></outline>
- <outline title="matklad" text="matklad" xmlUrl="https://matklad.github.io/feed.xml" htmlUrl="https://matklad.github.io" type="rss"></outline>
+ <outline title="Chris Morgan's blog" text="Chris Morgan's blog" xmlUrl="https://chrismorgan.info/feed.xml" htmlUrl="https://chrismorgan.info" type="rss" />
+ <outline title="matklad" text="matklad" xmlUrl="https://matklad.github.io/feed.xml" htmlUrl="https://matklad.github.io" type="rss" />
  </outline>
  <outline text="Technology">
- <outline title="Ars Technica" text="Ars Technica" xmlUrl="https://arstechnica.com/feed/?t=d46dc635cfe2031785f81a4b0c4f7f73da4f3bbf" htmlUrl="https://arstechnica.com" type="rss"></outline>
- <outline title="Kagi Blog" text="Kagi Blog" xmlUrl="https://blog.kagi.com/rss.xml" htmlUrl="https://blog.kagi.com" type="rss"></outline>
- <outline title="Zed A. Shaw" text="Zed A. Shaw" xmlUrl="https://zedshaw.com/feed.atom" htmlUrl="https://zedshaw.com/" type="rss"></outline>
+ <outline title="Ars Technica" text="Ars Technica" xmlUrl="https://arstechnica.com/feed/?t=d46dc635cfe2031785f81a4b0c4f7f73da4f3bbf" htmlUrl="https://arstechnica.com" type="rss" />
+ <outline title="Fujinet News" text="Fujinet News" xmlUrl="https://fujinet.online/feed/" htmlUrl="https://fujinet.online" type="rss" />
+ <outline title="Kagi Blog" text="Kagi Blog" xmlUrl="https://blog.kagi.com/rss.xml" htmlUrl="https://blog.kagi.com" type="rss" />
+ <outline title="Zed A. Shaw" text="Zed A. Shaw" xmlUrl="https://zedshaw.com/feed.atom" htmlUrl="https://zedshaw.com/" type="rss" />
  </outline>
  </body>
 </opml>
