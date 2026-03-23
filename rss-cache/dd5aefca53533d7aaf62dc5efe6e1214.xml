@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="https://nedbatchelder.com/rssfull2html.xslt" media="screen" ?>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://purl.org/rss/1.0/">
+	<channel rdf:about="https://nedbatchelder.com/blog">
+		<title>Ned Batchelder's blog</title>
+		<link>https://nedbatchelder.com/blog</link>
+		<description>Ned Batchelder's personal blog.</description>
+		<dc:language>en-US</dc:language>
+		<image rdf:resource="https://nedbatchelder.com/pix/rss-banner.gif"/>
+		<items>
+			<rdf:Seq>
+				<rdf:li resource="https://nedbatchelder.com/blog/202603/humanjson"/><rdf:li resource="https://nedbatchelder.com/blog/202602/pytest_parameter_functions"/><rdf:li resource="https://nedbatchelder.com/blog/202602/edtext"/><rdf:li resource="https://nedbatchelder.com/blog/202601/testing_exceptions_and_caches"/><rdf:li resource="https://nedbatchelder.com/blog/202601/no_more_html"/><rdf:li resource="https://nedbatchelder.com/blog/202512/generating_data_shapes_with_hypothesis"/><rdf:li resource="https://nedbatchelder.com/blog/202512/a_testing_conundrum"/><rdf:li resource="https://nedbatchelder.com/blog/202511/autism_adulthood_3rd_edition"/><rdf:li resource="https://nedbatchelder.com/blog/202511/why_your_mock_breaks_later"/><rdf:li resource="https://nedbatchelder.com/blog/202511/three_releases_one_new_organization"/>
+			</rdf:Seq>
+		</items>
+	</channel>
+	<image rdf:about="https://nedbatchelder.com/pix/rss-banner.gif">
+		<title>Ned Batchelder's blog</title>
+		<link>https://nedbatchelder.com/blog</link>
+		<url>https://nedbatchelder.com/pix/rss-banner.gif</url>
+	</image>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202603/humanjson">
+		<title>Human.json</title>
+		<link>https://nedbatchelder.com/blog/202603/humanjson</link>
+		
+		<dc:date>2026-03-22T13:28:53-04:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p><a href="https://codeberg.org/robida/human.json" rel="external noopener">Human.json</a> is a new
+idea for asserting that a site is authored by a person, and for vouching for
+other sites&#8217; authorship. I&#8217;ve added one to this site.</p><p>It&#8217;s a fun idea, and I&#8217;ve joined in, but to be honest, I have some concerns.
+When I made my human.json file, I looked through my browser history, and saw a
+number of sites that were clearly personal sites that I liked. But if I list
+one, am I claiming to know that there is no AI content on that site? I can&#8217;t
+know that for sure.</p><p>I haven&#8217;t let this stop me from adding my own
+<a href="https://nedbatchelder.com/human.json">/human.json</a>, and I&#8217;ll be interested to see what
+comes of it.</p><p>Human.json isn&#8217;t a new idea. There have been a number of attempts to add
+structured data to web pages:</p><ul>
+
+<li><a rel="external noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta"><code>&lt;meta name="author"&gt;</code> tags</a> are a simple
+way to claim authorship. I was surprised to see that this site didn&#8217;t have it,
+so I added it.</li>
+
+<li><a href="https://json-ld.org/" rel="external noopener">JSON-LD</a> is a way to embed structured
+metadata into a page.</li>
+
+<li><a href="https://en.wikipedia.org/wiki/FOAF" rel="external noopener">FOAF</a> (Friend of a Friend)
+was an earlier attempt to model interpersonal relationships with structured
+data, as was <a href="https://gmpg.org/xfn/" rel="external noopener">XFN</a>.</li>
+
+<li><a href="https://humanstxt.org/" rel="external noopener">humans.txt</a> is not structured, it&#8217;s a
+.txt file. This makes it all the stranger: if it&#8217;s free-form text to be read by
+people, why not an HTML page?</li>
+
+</ul><p>These ideas are all appealing in their ways, but I don&#8217;t think the messy
+complicated real world will yield to our desire for structure and
+categories.</p><p>To get a sense of the current state, I wrote a <a rel="external noopener" href="https://github.com/nedbat/human_spider">simple web
+crawler</a> to explore human.json, meta tags, and JSON-LD. Currently it finds
+214 vouched sites and 60 people&#8217;s names across 40 human.json files. This is a
+very small number, but the proposal is only two weeks old.</p><p>Like any hand-edited files, human.json files are strict: four of the
+human.json files I found had errors. But beyond simple editing mistakes, people
+use structured data incorrectly. As an example, <a rel="external noopener" href="https://www.flickr.com/photos/leahoswald/">Flickr</a>
+embeds JSON-LD that claims there&#8217;s a person named &#8220;Flickr&#8221;, right next to where
+it says there&#8217;s a website named Flickr and an organization named Flickr.</p><p>Flickr&#8217;s goof about being a person isn&#8217;t such a big deal. But the goal of
+human.json is to indicate human authorship. If I were using AI to generate web
+content (ugh, &#8220;content&#8221;), I&#8217;d do whatever I could to mark it as human. The
+vouching is meant to build a web of trust, but it will be easy for the network
+to spring a leak and grant trust to sites that don&#8217;t deserve it.</p><p>Human.json wants to declare a binary categorization: your content is
+AI-generated or it isn&#8217;t.  What about a site with 100% human-written text and
+also AI artwork? Should it be vouched for? The world doesn&#8217;t often provide us
+with tidy yes/no distinctions.</p><p>There is already
+<a href="https://codeberg.org/robida/human.json/issues" rel="external noopener">discussion</a> about
+how to address some of these issues, but I think at heart structured data like
+this is trying to sweep back the sea of complex human reality.</p><p>I don&#8217;t mean to be overly negative. I love these &#8220;small web&#8221; touches. I like
+anything that gets people talking to each other. When I found errors in
+human.json files, I sent emails to the authors, and got nice emails in return.
+Connection!</p><p>I like that human.json is simple; I don&#8217;t like that it is simplistic. But we
+can&#8217;t blame human.json for that, it&#8217;s a common pitfall in
+<a href="https://nedbatchelder.com/blog/tag/semweb">all attempts to organize the messy world</a>.</p><p>I&#8217;ve added my file. We&#8217;ll see where it goes.</p>
+]]></description>
+	</item>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202602/pytest_parameter_functions">
+		<title>Pytest parameter functions</title>
+		<link>https://nedbatchelder.com/blog/202602/pytest_parameter_functions</link>
+		
+		<dc:date>2026-02-27T06:53:40-05:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p>Pytest&#8217;s parametrize is a great feature for writing tests without repeating
+yourself needlessly. (If you haven&#8217;t seen it before, read
+<a href="https://nedbatchelder.com/blog/202508/starting_with_pytests_parametrize">Starting with pytest’s parametrize</a> first).
+When the data gets complex, it can help to use functions to build the
+data parameters.</p><p>I&#8217;ve been working on <a href="https://github.com/nedbat/linklint" rel="external noopener">a project
+involving multi-line data</a>, and the parameterized test data was getting
+awkward to create and maintain. I created helper functions to make it nicer.
+The actual project is a bit gnarly, so I&#8217;ll use a simpler example to
+demonstrate.</p><p>Here&#8217;s a function that takes a multi-line string and returns two numbers,
+the lengths of the shortest and longest non-blank lines:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">non_blanks</span><span class="p">(</span><span class="n">text</span><span class="p">:</span>&#xA0;<span class="nb">str</span><span class="p">)</span>&#xA0;<span class="o">-&gt;</span>&#xA0;<span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span>&#xA0;<span class="nb">int</span><span class="p">]:</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="sd">&quot;&quot;&quot;Stats&#xA0;of&#xA0;non-blank&#xA0;lines:&#xA0;shortest&#xA0;and&#xA0;longest&#xA0;lengths.&quot;&quot;&quot;</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">lengths</span>&#xA0;<span class="o">=</span>&#xA0;<span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">ln</span><span class="p">)</span>&#xA0;<span class="k">for</span>&#xA0;<span class="n">ln</span>&#xA0;<span class="ow">in</span>&#xA0;<span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>&#xA0;<span class="k">if</span>&#xA0;<span class="n">ln</span><span class="p">]</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="nb">min</span><span class="p">(</span><span class="n">lengths</span><span class="p">),</span>&#xA0;<span class="nb">max</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>We can test it with a simple parameterized test with two test cases:</p><blockquote class="code"><div class="source"><pre class="python"><span class="kn">import</span><span class="w">&#xA0;</span><span class="nn">pytest</span>
+<br><span class="kn">from</span><span class="w">&#xA0;</span><span class="nn">non_blanks</span><span class="w">&#xA0;</span><span class="kn">import</span>&#xA0;<span class="n">non_blanks</span>
+<br>
+<br><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="s2">&quot;text,&#xA0;short,&#xA0;long&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">[</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="s2">&quot;abcde</span><span class="se">\n</span><span class="s2">a</span><span class="se">\n</span><span class="s2">abc</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>&#xA0;<span class="mi">1</span><span class="p">,</span>&#xA0;<span class="mi">5</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<br><span class="s2">A&#xA0;long&#xA0;line</span>
+<br><span class="s2">The&#xA0;next&#xA0;line&#xA0;is&#xA0;blank:</span>
+<br>
+<br><span class="s2">Short.</span>
+<br><span class="s2">Much&#xA0;much&#xA0;longer&#xA0;line,&#xA0;more&#xA0;than&#xA0;anyone&#xA0;thought.</span>
+<br><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>&#xA0;<span class="mi">6</span><span class="p">,</span>&#xA0;<span class="mi">48</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">]</span>
+<br><span class="p">)</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_non_blanks</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>&#xA0;<span class="n">short</span><span class="p">,</span>&#xA0;<span class="n">long</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">non_blanks</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>&#xA0;<span class="o">==</span>&#xA0;<span class="p">(</span><span class="n">short</span><span class="p">,</span>&#xA0;<span class="n">long</span><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>I really dislike how the multi-line string breaks the indentation flow, so I
+wrap strings like that in <a rel="external noopener" href="https://docs.python.org/3/library/textwrap.html#textwrap.dedent">textwrap.dedent</a>:</p><blockquote class="code"><div class="source"><pre class="python"><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="s2">&quot;text,&#xA0;short,&#xA0;long&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">[</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="s2">&quot;abcde</span><span class="se">\n</span><span class="s2">a</span><span class="se">\n</span><span class="s2">abc</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>&#xA0;<span class="mi">1</span><span class="p">,</span>&#xA0;<span class="mi">5</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;A&#xA0;long&#xA0;line</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;The&#xA0;next&#xA0;line&#xA0;is&#xA0;blank:</span>
+<br>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Short.</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Much&#xA0;much&#xA0;longer&#xA0;line,&#xA0;more&#xA0;than&#xA0;anyone&#xA0;thought.</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&quot;&quot;&quot;</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="mi">6</span><span class="p">,</span>&#xA0;<span class="mi">48</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">]</span>
+<br><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>(For brevity, this and following examples only show the parametrize
+decorator, the test function itself stays the same.)</p><p>This looks nicer, but I have to remember to use dedent, which adds a little
+bit of visual clutter. I also need to remember that first backslash so that the
+string won&#8217;t start with a newline.</p><p>As the test data gets more elaborate, I might not want to have it all inline
+in the decorator. I&#8217;d like to have some of the large data in its own file:</p><blockquote class="code"><div class="source"><pre class="python"><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="s2">&quot;text,&#xA0;short,&#xA0;long&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">[</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="s2">&quot;abcde</span><span class="se">\n</span><span class="s2">a</span><span class="se">\n</span><span class="s2">abc</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>&#xA0;<span class="mi">1</span><span class="p">,</span>&#xA0;<span class="mi">5</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;A&#xA0;long&#xA0;line</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;The&#xA0;next&#xA0;line&#xA0;is&#xA0;blank:</span>
+<br>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Short.</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Much&#xA0;much&#xA0;longer&#xA0;line,&#xA0;more&#xA0;than&#xA0;anyone&#xA0;thought.</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&quot;&quot;&quot;</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="mi">6</span><span class="p">,</span>&#xA0;<span class="mi">48</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;gettysburg.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(),</span>&#xA0;<span class="mi">18</span><span class="p">,</span>&#xA0;<span class="mi">80</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">]</span>
+<br><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>Now things are getting complicated. Here&#8217;s where a function can help us.
+Each test case needs a string and three numbers. The string is sometimes
+provided explicitly, sometimes read from a file.</p><p>We can use a function to create the correct data for each case from its
+most convenient form. We&#8217;ll take a string and use it as either a file name or
+literal data. We&#8217;ll deal with the initial newline, and dedent the multi-line
+strings:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">nb_case</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>&#xA0;<span class="n">short</span><span class="p">,</span>&#xA0;<span class="n">long</span><span class="p">):</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="sd">&quot;&quot;&quot;Create&#xA0;data&#xA0;for&#xA0;test_non_blanks.&quot;&quot;&quot;</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">if</span>&#xA0;<span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>&#xA0;<span class="ow">in</span>&#xA0;<span class="n">text</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;Multi-line&#xA0;string:&#xA0;it&#39;s&#xA0;actual&#xA0;data.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">if</span>&#xA0;<span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>&#xA0;<span class="o">==</span>&#xA0;<span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;Remove&#xA0;a&#xA0;first&#xA0;newline</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">text</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">text</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">else</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;One-line&#xA0;string:&#xA0;it&#39;s&#xA0;a&#xA0;file&#xA0;name.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">text</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Path</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="p">(</span><span class="n">text</span><span class="p">,</span>&#xA0;<span class="n">short</span><span class="p">,</span>&#xA0;<span class="n">long</span><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>Now the test data is more direct:</p><blockquote class="code"><div class="source"><pre class="python"><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="s2">&quot;text,&#xA0;short,&#xA0;long&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">[</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">nb_case</span><span class="p">(</span><span class="s2">&quot;abcde</span><span class="se">\n</span><span class="s2">a</span><span class="se">\n</span><span class="s2">abc</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>&#xA0;<span class="mi">1</span><span class="p">,</span>&#xA0;<span class="mi">5</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">nb_case</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;A&#xA0;long&#xA0;line</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;The&#xA0;next&#xA0;line&#xA0;is&#xA0;blank:</span>
+<br>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Short.</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Much&#xA0;much&#xA0;longer&#xA0;line,&#xA0;more&#xA0;than&#xA0;anyone&#xA0;thought.</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&quot;&quot;&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="mi">6</span><span class="p">,</span>&#xA0;<span class="mi">48</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">nb_case</span><span class="p">(</span><span class="s2">&quot;gettysburg.txt&quot;</span><span class="p">,</span>&#xA0;<span class="mi">18</span><span class="p">,</span>&#xA0;<span class="mi">80</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">]</span>
+<br><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>One nice thing about parameterized tests is that pytest creates a distinct ID
+for each one. The helps with reporting failures and with selecting tests to run.
+But the ID is made from the test data. Here, our last test case has an ID using
+the entire Gettysburg Address, over 1500 characters. It was
+<a rel="external noopener" href="https://en.wikipedia.org/wiki/Gettysburg_Address">very short for a speech</a>, but it&#8217;s very long for an ID!</p><p>This is what the pytest output looks like with our current IDs:</p><blockquote class="code"><div class="source"><pre class="text"><span>test_non_blank.py::test_non_blanks[abcde\na\nabc\n-1-5]&#xA0;PASSED</span>
+<br><span>test_non_blank.py::test_non_blanks[A&#xA0;long&#xA0;line\nThe&#xA0;next&#xA0;line&#xA0;is&#xA0;blank:\n\nShort.\nMuch&#xA0;much&#xA0;longer&#xA0;line,&#xA0;more&#xA0;than&#xA0;anyone&#xA0;thought.\n-6-48]&#xA0;PASSED</span>
+<br><span>test_non_blank.py::test_non_blanks[Four&#xA0;score&#xA0;and&#xA0;seven&#xA0;years&#xA0;ago&#xA0;our&#xA0;fathers&#xA0;brought&#xA0;forth&#xA0;on&#xA0;this&#xA0;continent,&#xA0;a\nnew&#xA0;nation,&#xA0;conceived&#xA0;in&#xA0;Liberty,&#xA0;and&#xA0;dedicated&#xA0;to&#xA0;the&#xA0;proposition&#xA0;that&#xA0;all&#xA0;men\nare&#xA0;created&#xA0;equal.\n\nNow&#xA0;we&#xA0;are&#xA0;engaged&#xA0;in&#xA0;a&#xA0;great&#xA0;civil&#xA0;war,&#xA0;testing&#xA0;whether&#xA0;that&#xA0;nation,&#xA0;or&#xA0;any\nnation&#xA0;so&#xA0;conceived&#xA0;and&#xA0;so&#xA0;dedicated,&#xA0;can&#xA0;long&#xA0;endure.&#xA0;We&#xA0;are&#xA0;met&#xA0;on&#xA0;a&#xA0;great\nbattle-field&#xA0;of&#xA0;that&#xA0;war.&#xA0;We&#xA0;have&#xA0;come&#xA0;to&#xA0;dedicate&#xA0;a&#xA0;portion&#xA0;of&#xA0;that&#xA0;field,&#xA0;as&#xA0;a\nfinal&#xA0;resting&#xA0;place&#xA0;for&#xA0;those&#xA0;who&#xA0;here&#xA0;gave&#xA0;their&#xA0;lives&#xA0;that&#xA0;that&#xA0;nation&#xA0;might\nlive.&#xA0;It&#xA0;is&#xA0;altogether&#xA0;fitting&#xA0;and&#xA0;proper&#xA0;that&#xA0;we&#xA0;should&#xA0;do&#xA0;this.\n\nBut,&#xA0;in&#xA0;a&#xA0;larger&#xA0;sense,&#xA0;we&#xA0;can&#xA0;not&#xA0;dedicate&#xA0;\u2013&#xA0;we&#xA0;can&#xA0;not&#xA0;consecrate&#xA0;we&#xA0;can&#xA0;not\nhallow&#xA0;\u2013&#xA0;this&#xA0;ground.&#xA0;The&#xA0;brave&#xA0;men,&#xA0;living&#xA0;and&#xA0;dead,&#xA0;who&#xA0;struggled&#xA0;here,&#xA0;have\nconsecrated&#xA0;it&#xA0;far&#xA0;above&#xA0;our&#xA0;poor&#xA0;power&#xA0;to&#xA0;add&#xA0;or&#xA0;detract.&#xA0;The&#xA0;world&#xA0;will&#xA0;little\nnote,&#xA0;nor&#xA0;long&#xA0;remember&#xA0;what&#xA0;we&#xA0;say&#xA0;here,&#xA0;but&#xA0;it&#xA0;can&#xA0;never&#xA0;forget&#xA0;what&#xA0;they&#xA0;did\nhere.&#xA0;It&#xA0;is&#xA0;for&#xA0;us&#xA0;the&#xA0;living,&#xA0;rather,&#xA0;to&#xA0;be&#xA0;dedicated&#xA0;here&#xA0;to&#xA0;the&#xA0;unfinished\nwork&#xA0;which&#xA0;they&#xA0;who&#xA0;fought&#xA0;here&#xA0;have&#xA0;thus&#xA0;far&#xA0;so&#xA0;nobly&#xA0;advanced.&#xA0;It&#xA0;is&#xA0;rather\nfor&#xA0;us&#xA0;to&#xA0;be&#xA0;here&#xA0;dedicated&#xA0;to&#xA0;the&#xA0;great&#xA0;task&#xA0;remaining&#xA0;before&#xA0;us&#xA0;that&#xA0;from\nthese&#xA0;honored&#xA0;dead&#xA0;we&#xA0;take&#xA0;increased&#xA0;devotion&#xA0;to&#xA0;that&#xA0;cause&#xA0;for&#xA0;which&#xA0;they&#xA0;gave\nthe&#xA0;last&#xA0;full&#xA0;measure&#xA0;of&#xA0;devotion&#xA0;\u2013&#xA0;that&#xA0;we&#xA0;here&#xA0;highly&#xA0;resolve&#xA0;that&#xA0;these&#xA0;dead\nshall&#xA0;not&#xA0;have&#xA0;died&#xA0;in&#xA0;vain&#xA0;that&#xA0;this&#xA0;nation,&#xA0;under&#xA0;God,&#xA0;shall&#xA0;have&#xA0;a&#xA0;new&#xA0;birth\nof&#xA0;freedom&#xA0;\u2013&#xA0;and&#xA0;that&#xA0;government&#xA0;of&#xA0;the&#xA0;people,&#xA0;by&#xA0;the&#xA0;people,&#xA0;for&#xA0;the&#xA0;people,\nshall&#xA0;not&#xA0;perish&#xA0;from&#xA0;the&#xA0;earth.\n-18-80]&#xA0;PASSED</span>
+<br></pre></div>
+</blockquote><p>Even that first shortest test has an awkward and hard to use test name.</p><p>For more control over the test data, instead of creating tuples to use as
+test cases, you can use <a rel="external noopener" href="https://docs.pytest.org/en/stable/reference/reference.html#pytest.param">pytest.param</a> to create the
+internal parameters object that pytest needs. Each of these can have an explicit
+ID assigned. Pytest will still assign an ID if you don&#8217;t provide one.</p><p>Here&#8217;s an updated <code>nb_case()</code> function using pytest.param:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">nb_case</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>&#xA0;<span class="n">short</span><span class="p">,</span>&#xA0;<span class="n">long</span><span class="p">,</span>&#xA0;<span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">if</span>&#xA0;<span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>&#xA0;<span class="ow">in</span>&#xA0;<span class="n">text</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;Multi-line&#xA0;string:&#xA0;it&#39;s&#xA0;actual&#xA0;data.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">if</span>&#xA0;<span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>&#xA0;<span class="o">==</span>&#xA0;<span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;Remove&#xA0;a&#xA0;first&#xA0;newline</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">text</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">text</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">else</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;One-line&#xA0;string:&#xA0;it&#39;s&#xA0;a&#xA0;file&#xA0;name.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="nb">id</span>&#xA0;<span class="o">=</span>&#xA0;<span class="nb">id</span>&#xA0;<span class="ow">or</span>&#xA0;<span class="n">text</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">text</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Path</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="n">pytest</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>&#xA0;<span class="n">short</span><span class="p">,</span>&#xA0;<span class="n">long</span><span class="p">,</span>&#xA0;<span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>Now we can provide IDs for test cases. The ones reading from a file will use
+the file name as the ID:</p><blockquote class="code"><div class="source"><pre class="python"><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="s2">&quot;text,&#xA0;short,&#xA0;long&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">[</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">nb_case</span><span class="p">(</span><span class="s2">&quot;abcde</span><span class="se">\n</span><span class="s2">a</span><span class="se">\n</span><span class="s2">abc</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>&#xA0;<span class="mi">1</span><span class="p">,</span>&#xA0;<span class="mi">5</span><span class="p">,</span>&#xA0;<span class="nb">id</span><span class="o">=</span><span class="s2">&quot;little&quot;</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">nb_case</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;A&#xA0;long&#xA0;line</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;The&#xA0;next&#xA0;line&#xA0;is&#xA0;blank:</span>
+<br>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Short.</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Much&#xA0;much&#xA0;longer&#xA0;line,&#xA0;more&#xA0;than&#xA0;anyone&#xA0;thought.</span>
+<br><span class="s2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&quot;&quot;&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="mi">6</span><span class="p">,</span>&#xA0;<span class="mi">48</span><span class="p">,</span>&#xA0;<span class="nb">id</span><span class="o">=</span><span class="s2">&quot;four&quot;</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">nb_case</span><span class="p">(</span><span class="s2">&quot;gettysburg.txt&quot;</span><span class="p">,</span>&#xA0;<span class="mi">18</span><span class="p">,</span>&#xA0;<span class="mi">80</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">]</span>
+<br><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>Now our tests have useful IDs:</p><blockquote class="code"><div class="source"><pre class="text"><span>test_non_blank.py::test_non_blanks[little]&#xA0;PASSED</span>
+<br><span>test_non_blank.py::test_non_blanks[four]&#xA0;PASSED</span>
+<br><span>test_non_blank.py::test_non_blanks[gettysburg.txt]&#xA0;PASSED</span>
+<br></pre></div>
+</blockquote><p>The exact details of my <code>case()</code> function aren&#8217;t important here. Your
+tests will need different helpers, and you might make different decisions about
+what to do for these tests. But a function like this lets you write your complex
+test cases in the way you like best to make your tests as concise, expressive
+and readable as you want.</p>
+]]></description>
+	</item>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202602/edtext">
+		<title>EdText</title>
+		<link>https://nedbatchelder.com/blog/202602/edtext</link>
+		
+		<dc:date>2026-02-09T07:34:11-05:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p>I have a new small project: <a rel="external noopener" href="https://github.com/nedbat/edtext">edtext</a> provides text
+selection and manipulation functions inspired by the <a rel="external noopener" href="https://www.gnu.org/software/ed/manual/ed_manual.html#Line-addressing">classic ed
+text editor</a>.</p><p>I&#8217;ve long used <a rel="external noopener" href="https://cog.readthedocs.io/">cog</a> to build documentation and HTML
+presentations. Cog interpolates text from elsewhere, like source code or
+execution output. Often I don&#8217;t want the full source file or all of the lines of
+output. I want to be able to choose the lines, and sometimes I need to tweak the
+lines with a regex to get the results I want.</p><p>Long ago I wrote my own <a rel="external noopener" href="https://github.com/nedbat/blank_prz/blob/master/cogutil.py#L32-L45">ad-hoc function</a> to include a
+file and over the years it had grown &#8220;organically&#8221;, to use a positive word.  It
+had become baroque and confusing. Worse, it still didn&#8217;t do all the things I
+needed.</p><p>The old function has 16 arguments (!), nine of which are for selecting the
+lines of text:</p><blockquote class="code"><div class="source"><pre class="python"><span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<br><span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<br><span class="n">start_has</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<br><span class="n">end_has</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<br><span class="n">start_from</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<br><span class="n">end_at</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<br><span class="n">start_nth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<br><span class="n">end_nth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<br><span class="n">line_count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<br></pre></div>
+</blockquote><p>Recently I started a new presentation, and when I couldn&#8217;t express what I
+needed with these nine arguments, I thought of a better way: the
+<a rel="external noopener" href="https://www.gnu.org/software/ed/manual/ed_manual.html#Line-addressing">ed text editor</a> has concise mechanisms for addressing lines
+of text. Ed addressing evolved into vim and sed, and probably other things too,
+so it might already be familiar to you.</p><p>I wrote <a rel="external noopener" href="https://github.com/nedbat/edtext">edtext</a> to replace my ad-hoc function that I
+was copying from project to project.  Edtext lets me select subsets of lines
+using ed/sed/vim address ranges.  Now if I have a source file like this with
+section-marking comments:</p><blockquote class="code"><div class="source"><pre class="python"><span class="kn">import</span><span class="w">&#xA0;</span><span class="nn">pytest</span>
+<br>
+<br><span class="c1">#&#xA0;section1</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">six_divided</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="mi">6</span>&#xA0;<span class="o">/</span>&#xA0;<span class="n">x</span>
+<br>
+<br><span class="c1">#&#xA0;Check&#xA0;the&#xA0;happy&#xA0;paths</span>
+<br>
+<br><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="s2">&quot;x,&#xA0;expected&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">[</span>&#xA0;<span class="p">(</span><span class="mi">4</span><span class="p">,</span>&#xA0;<span class="mf">1.5</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mi">3</span><span class="p">,</span>&#xA0;<span class="mf">2.0</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mi">2</span><span class="p">,</span>&#xA0;<span class="mf">3.0</span><span class="p">),</span>&#xA0;<span class="p">]</span>
+<br><span class="p">)</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_six_divided</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>&#xA0;<span class="n">expected</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">six_divided</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">expected</span>
+<br><span class="c1">#&#xA0;end</span>
+<br>
+<br><span class="c1">#&#xA0;section2</span>
+<br><span class="c1">#&#xA0;etc....</span>
+<br></pre></div>
+</blockquote><p>then with an <code>include_file</code> helper that reads the file and gives me an
+<code>EdText</code> object, I can select just section1 with:</p><blockquote class="code"><div class="source"><pre class="python"><span class="n">include_file</span><span class="p">(</span><span class="s2">&quot;test_six_divided.py&quot;</span><span class="p">)[</span><span class="s2">&quot;/#&#xA0;section1/+;/#&#xA0;end/-&quot;</span><span class="p">]</span>
+<br></pre></div>
+</blockquote><p>EdText allows slicing with a string containing an ed address range. Ed
+addresses often (but don&#8217;t always) use regexes, and they have a similar powerful
+compact feeling.  &#8220;/# section1/&#8221; finds the next line containing that string, and
+the &#8220;+&#8221; suffix adds one, so our range starts with the line after the section1
+comment.  The semicolon means to look for the end line starting from the start
+line, then we find &#8220;# end&#8221;, and the &#8220;-&#8221; suffix means subtract one. So our range
+ends with the line before the &#8220;# end&#8221; comment, giving us:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">six_divided</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="mi">6</span>&#xA0;<span class="o">/</span>&#xA0;<span class="n">x</span>
+<br>
+<br><span class="c1">#&#xA0;Check&#xA0;the&#xA0;happy&#xA0;paths</span>
+<br>
+<br><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="s2">&quot;x,&#xA0;expected&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">[</span>&#xA0;<span class="p">(</span><span class="mi">4</span><span class="p">,</span>&#xA0;<span class="mf">1.5</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mi">3</span><span class="p">,</span>&#xA0;<span class="mf">2.0</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mi">2</span><span class="p">,</span>&#xA0;<span class="mf">3.0</span><span class="p">),</span>&#xA0;<span class="p">]</span>
+<br><span class="p">)</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_six_divided</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>&#xA0;<span class="n">expected</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">six_divided</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">expected</span>
+<br></pre></div>
+</blockquote><p>Most of ed addressing is implemented, and there&#8217;s a <code>sub()</code> method to
+make regex replacements on selected lines. I can run pytest, put the output into
+an EdText object, then use:</p><blockquote class="code"><div class="source"><pre class="python"><span class="n">pytest_edtext</span><span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>&#xA0;<span class="s2">&quot;/collected/,$-&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;g/====&quot;</span><span class="p">,</span>&#xA0;<span class="sa">r</span><span class="s2">&quot;0.0\ds&quot;</span><span class="p">,</span>&#xA0;<span class="s2">&quot;0.01s&quot;</span><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>This slice uses two address ranges. The first selects just the first line,
+the pytest command itself. The second range gets the lines from &#8220;collected&#8221; to
+the second-to-last line. Slicing gives me a new EdText object, then I use
+<code>.sub()</code> to tweak the output: on any line containing &#8220;====&#8221;, change the
+total time to &#8220;0.01s&#8221; so that slight variations in the duration of the test run
+doesn&#8217;t cause needless changes in the output.</p><p>It was very satisfying to write <a rel="external noopener" href="https://github.com/nedbat/edtext">edtext</a>: it&#8217;s small in
+scope, but useful. It has a full test suite. It might even be done!</p>
+]]></description>
+	</item>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202601/testing_exceptions_and_caches">
+		<title>Testing: exceptions and caches</title>
+		<link>https://nedbatchelder.com/blog/202601/testing_exceptions_and_caches</link>
+		
+		<dc:date>2026-01-25T15:32:21-05:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p>Two testing-related things I found recently.</p><h1 id="h_unified_exception_testing">Unified exception testing<a class="headerlink" aria-label="Link to this header" href="#h_unified_exception_testing"></a></h1><p>Kacper Borucki blogged about <a rel="external noopener" href="https://borutzki.github.io/2026/01/15/how-to-parametrize-exception-testing-in-pytest.html">parameterizing exception
+testing</a>, and linked to <a rel="external noopener" href="https://docs.pytest.org/en/stable/example/parametrize.html#parametrizing-conditional-raising">pytest docs</a> and a
+<a rel="external noopener" href="https://stackoverflow.com/questions/20274987/how-to-use-pytest-to-check-that-error-is-not-raised/68012715#68012715">StackOverflow answer</a> with similar approaches.</p><p>The common way to test exceptions is to use
+<a rel="external noopener" href="https://docs.pytest.org/en/7.1.x/how-to/assert.html#assertions-about-expected-exceptions"><code>pytest.raises</code></a> as a context manager, and have
+separate tests for the cases that succeed and those that fail.  Instead, this
+approach lets you unify them.</p><p>I tweaked it to this, which I think reads nicely:</p><blockquote class="code"><div class="source"><pre class="python"><span class="kn">from</span><span class="w">&#xA0;</span><span class="nn">contextlib</span><span class="w">&#xA0;</span><span class="kn">import</span>&#xA0;<span class="n">nullcontext</span>&#xA0;<span class="k">as</span>&#xA0;<span class="n">produces</span>
+<br>
+<br><span class="kn">import</span><span class="w">&#xA0;</span><span class="nn">pytest</span>
+<br><span class="kn">from</span><span class="w">&#xA0;</span><span class="nn">pytest</span><span class="w">&#xA0;</span><span class="kn">import</span>&#xA0;<span class="n">raises</span>
+<br>
+<br><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="s2">&quot;example_input,&#xA0;result&quot;</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">[</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="mi">3</span><span class="p">,</span>&#xA0;<span class="n">produces</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="mi">2</span><span class="p">,</span>&#xA0;<span class="n">produces</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="mi">1</span><span class="p">,</span>&#xA0;<span class="n">produces</span><span class="p">(</span><span class="mi">6</span><span class="p">)),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="mi">0</span><span class="p">,</span>&#xA0;<span class="n">raises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">)),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span>&#xA0;<span class="n">raises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">)),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">],</span>
+<br><span class="p">)</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_division</span><span class="p">(</span><span class="n">example_input</span><span class="p">,</span>&#xA0;<span class="n">result</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">with</span>&#xA0;<span class="n">result</span>&#xA0;<span class="k">as</span>&#xA0;<span class="n">e</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="p">(</span><span class="mi">6</span>&#xA0;<span class="o">/</span>&#xA0;<span class="n">example_input</span><span class="p">)</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">e</span>
+<br></pre></div>
+</blockquote><p>One parameterized test that covers both good and bad outcomes. Nice.</p><h1 id="h_antilru">AntiLRU<a class="headerlink" aria-label="Link to this header" href="#h_antilru"></a></h1><p>The <a rel="external noopener" href="https://docs.python.org/3/library/functools.html#functools.lru_cache"><code>@functools.lru_cache</code></a> decorator (and its
+convenience cousin <code>@cache</code>) are good ways to save the result of a function
+so that you don&#8217;t have to compute it repeatedly.  But, they hide an implicit
+global in your program: the dictionary of cached results.</p><p>This can interfere with testing. Your tests should all be isolated from each
+other. You don&#8217;t want a side effect of one test to affect the outcome of another
+test. The hidden global dictionary will do just that. The first test calls the
+cached function, then the second test gets the cached value, not a newly
+computed one.</p><p>Ideally, lru_cache would only be used on <em>pure</em> functions: the result only depends on the arguments.
+If it&#8217;s only used for pure functions, then you don&#8217;t need to worry about interactions between tests
+because the answer will be the same for the second test anyway.</p><p>But lru_cache is used on functions that pull information from the
+environment, perhaps from a network API call.  The tests might mock out the API
+to check the behavior under different API circumstances. Here&#8217;s where the
+interference is a real problem.</p><p>The lru_cache decorator makes a <code>.clear_cache</code> method available on each
+decorated function. I had some code that explicitly called that method on the
+cached functions. But then I added a new cached function, forgot to update the
+conftest.py code that cleared the caches, and my tests were failing.</p><p>A more convenient approach is provided by
+<a rel="external noopener" href="https://pypi.org/project/pytest-antilru/">pytest-antilru</a>: it&#8217;s a pytest plugin that monkeypatches
+<code>@lru_cache</code> to track all of the cached functions, and clears them all
+between tests. The caches are still in effect during each test, but can&#8217;t
+interfere between them.</p><p>It works great. I was able to get rid of all of the manually maintained cache
+clearing in my conftest.py.</p>
+]]></description>
+	</item>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202601/no_more_html">
+		<title>No more .html</title>
+		<link>https://nedbatchelder.com/blog/202601/no_more_html</link>
+		
+		<dc:date>2026-01-02T13:24:12-05:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p>This morning I shared a link to this site, and the recipient said, &#8220;it looks
+like a file.&#8221; I thought they meant the page was all black and white with no
+color. No, they were talking about the URL, which ended with &#8220;.html&#8221;.</p><p>This site started <a href="https://nedbatchelder.com/blog/200203/my_first_job_ever">almost 24 years ago</a> as
+a static site: a pile of .html files created on my machine and uploaded to the
+server. The URLs naturally had .html extensions. It was common in web sites of
+the time.</p><p>Over the years, the technology has changed. In 2008, it was still a static
+site on the host, but <a href="https://nedbatchelder.com/blog/200801/permalinks_gravatars_and_django">produced with
+Django</a> running locally. In 2021, it became a
+<a href="https://nedbatchelder.com/blog/202109/real_django_site">real Django site</a> on the host.</p><p>Through all these changes, the URLs remained the same—they still had
+the old-fashioned .html extension. I was used to them, so it never struck me as
+odd. But when it was pointed out today, it suddenly seemed obviously out of
+date.</p><p>So now the site prefers URLs with no extension.  The fashion in URLs changed
+quite some time ago: for 2026, I&#8217;m going to party like it&#8217;s 2006!</p><p>The old URLs still work, but get a permanent redirect to the modern style.
+If you notice anything amiss,
+<a href="https://nedbatchelder.com/blog/202004/please_report_bugs_in_this_site">please let me know</a>, as
+always.</p>
+]]></description>
+	</item>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202512/generating_data_shapes_with_hypothesis">
+		<title>Generating data shapes with Hypothesis</title>
+		<link>https://nedbatchelder.com/blog/202512/generating_data_shapes_with_hypothesis</link>
+		
+		<dc:date>2025-12-21T11:43:00-05:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p>In my last blog post (<a href="https://nedbatchelder.com/blog/202512/a_testing_conundrum">A testing conundrum</a>), I described
+trying to test my Hasher class which hashes nested data. I couldn&#8217;t get
+Hypothesis to generate usable data for my test.  I wanted to assert that two
+equal data items would hash equally, but Hypothesis was finding pairs like
+<code>[0]</code> and <code>[False]</code>. These are equal but hash differently because the
+hash takes the types into account.</p><p>In the blog post I said,</p><blockquote><div><p>If I had a schema for the data I would be comparing, I could use it to
+steer Hypothesis to generate realistic data.  But I don&#8217;t have that
+schema...</p></div></blockquote><p>I don&#8217;t want a fixed schema for the data Hasher would accept, but tests to
+compare data generated from the same schema.  It shouldn&#8217;t compare a list of
+ints to a list of bools.  Hypothesis is good at generating things randomly.
+Usually it generates data randomly, but we can also use it to generate schemas
+randomly!</p><h1 id="h_hypothesis_basics">Hypothesis basics<a class="headerlink" aria-label="Link to this header" href="#h_hypothesis_basics"></a></h1><p>Before describing my solution, I&#8217;ll take a quick detour to describe how
+Hypothesis works.</p><p>Hypothesis calls their randomness machines &#8220;strategies&#8221;. Here is a strategy
+that will produce random integers between -99 and 1000:</p><blockquote class="code"><div class="source"><pre class="python"><span class="kn">import</span><span class="w">&#xA0;</span><span class="nn">hypothesis.strategies</span><span class="w">&#xA0;</span><span class="k">as</span><span class="w">&#xA0;</span><span class="nn">st</span>
+<br><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">min_value</span><span class="o">=-</span><span class="mi">99</span><span class="p">,</span>&#xA0;<span class="n">max_value</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>Strategies can be composed:</p><blockquote class="code"><div class="source"><pre class="python"><span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">min_value</span><span class="o">=-</span><span class="mi">99</span><span class="p">,</span>&#xA0;<span class="n">max_value</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>This will produce lists of integers from -99 to 1000. The lists will have up
+to 50 elements.</p><p>Strategies are used in tests with the <code>@given</code> decorator, which takes a
+strategy and runs the test a number of times with different example data drawn
+from the strategy.  In your test you check a desired property that holds true
+for any data the strategy can produce.</p><p>To demonstrate, here&#8217;s a test of sum() that checks that summing a list of
+numbers in two halves gives the same answer as summing the whole list:</p><blockquote class="code"><div class="source"><pre class="python"><span class="kn">from</span><span class="w">&#xA0;</span><span class="nn">hypothesis</span><span class="w">&#xA0;</span><span class="kn">import</span>&#xA0;<span class="n">given</span><span class="p">,</span>&#xA0;<span class="n">strategies</span>&#xA0;<span class="k">as</span>&#xA0;<span class="n">st</span>
+<br>
+<br><span class="nd">@given</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">min_value</span><span class="o">=-</span><span class="mi">99</span><span class="p">,</span>&#xA0;<span class="n">max_value</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">50</span><span class="p">))</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;We&#xA0;don&#39;t&#xA0;have&#xA0;to&#xA0;test&#xA0;sum(),&#xA0;this&#xA0;is&#xA0;just&#xA0;an&#xA0;example!</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">mid</span>&#xA0;<span class="o">=</span>&#xA0;<span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>&#xA0;<span class="o">//</span>&#xA0;<span class="mi">2</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>&#xA0;<span class="o">==</span>&#xA0;<span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">[:</span><span class="n">mid</span><span class="p">])</span>&#xA0;<span class="o">+</span>&#xA0;<span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">:])</span>
+<br></pre></div>
+</blockquote><p>By default, Hypothesis will run the test 100 times, each with a different
+randomly generated list of numbers.</p><h1 id="h_schema_strategies">Schema strategies<a class="headerlink" aria-label="Link to this header" href="#h_schema_strategies"></a></h1><p>The solution to my data comparison problem is to have Hypothesis generate a
+random schema in the form of a strategy, then use that strategy to generate two
+examples. Doing this repeatedly will get us pairs of data that have the same
+&#8220;shape&#8221; that will work well for our tests.</p><p>This is kind of twisty, so let&#8217;s look at it in pieces.  We start with a list
+of strategies that produce primitive values:</p><blockquote class="code"><div class="source"><pre class="python"><span class="n">primitives</span>&#xA0;<span class="o">=</span>&#xA0;<span class="p">[</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">none</span><span class="p">(),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">booleans</span><span class="p">(),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">min_value</span><span class="o">=-</span><span class="mi">1000</span><span class="p">,</span>&#xA0;<span class="n">max_value</span><span class="o">=</span><span class="mi">10_000_000</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">floats</span><span class="p">(</span><span class="n">min_value</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span>&#xA0;<span class="n">max_value</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">binary</span><span class="p">(</span><span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+<br><span class="p">]</span>
+<br></pre></div>
+</blockquote><p>Then a list of strategies that produce hashable values, which are all the
+primitives, plus tuples of any of the primitives:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">tuples_of</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="sd">&quot;&quot;&quot;Make&#xA0;a&#xA0;strategy&#xA0;for&#xA0;tuples&#xA0;of&#xA0;some&#xA0;other&#xA0;strategy.&quot;&quot;&quot;</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">)</span>
+<br>
+<br><span class="c1">#&#xA0;List&#xA0;of&#xA0;strategies&#xA0;that&#xA0;produce&#xA0;hashable&#xA0;data.</span>
+<br><span class="n">hashables</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">primitives</span>&#xA0;<span class="o">+</span>&#xA0;<span class="p">[</span><span class="n">tuples_of</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>&#xA0;<span class="k">for</span>&#xA0;<span class="n">s</span>&#xA0;<span class="ow">in</span>&#xA0;<span class="n">primitives</span><span class="p">]</span>
+<br></pre></div>
+</blockquote><p>We want to be able to make nested dictionaries with leaves of some other
+type.  This function takes a leaf-making strategy and produces a strategy to
+make those dictionaries:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">nested_dicts_of</span><span class="p">(</span><span class="n">leaves</span><span class="p">):</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="sd">&quot;&quot;&quot;Make&#xA0;a&#xA0;strategy&#xA0;for&#xA0;recursive&#xA0;dicts&#xA0;with&#xA0;leaves&#xA0;from&#xA0;another&#xA0;strategy.&quot;&quot;&quot;</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">recursive</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">leaves</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">lambda</span>&#xA0;<span class="n">children</span><span class="p">:</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">dictionaries</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>&#xA0;<span class="n">children</span><span class="p">,</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">max_leaves</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">)</span>
+<br></pre></div>
+</blockquote><p>Finally, here&#8217;s our strategy that makes schema strategies:</p><blockquote class="code"><div class="source"><pre class="python"><span class="n">nested_data_schemas</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">recursive</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">sampled_from</span><span class="p">(</span><span class="n">primitives</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">lambda</span>&#xA0;<span class="n">children</span><span class="p">:</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">one_of</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">children</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span>&#xA0;<span class="n">s</span><span class="p">:</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">s</span><span class="p">,</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">children</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tuples_of</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">sampled_from</span><span class="p">(</span><span class="n">hashables</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span>&#xA0;<span class="n">s</span><span class="p">:</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">sets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">children</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">nested_dicts_of</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">max_leaves</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<br><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>For debugging, it&#8217;s helpful to generate an example strategy from this
+strategy, and then an example from that, many times:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">for</span>&#xA0;<span class="n">_</span>&#xA0;<span class="ow">in</span>&#xA0;<span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">nested_data_schemas</span><span class="o">.</span><span class="n">example</span><span class="p">()</span><span class="o">.</span><span class="n">example</span><span class="p">()))</span>
+<br></pre></div>
+</blockquote><p>Hypothesis is good at making data we&#8217;d never think to try ourselves. Here is
+some of what it made:</p><blockquote class="code"><div class="source"><pre class="python"><span class="p">[</span><span class="kc">None</span><span class="p">,</span>&#xA0;<span class="kc">None</span><span class="p">,</span>&#xA0;<span class="kc">None</span><span class="p">,</span>&#xA0;<span class="kc">None</span><span class="p">,</span>&#xA0;<span class="kc">None</span><span class="p">]</span>
+<br><span class="p">{}</span>
+<br><span class="p">[{</span><span class="kc">False</span><span class="p">},</span>&#xA0;<span class="p">{</span><span class="kc">False</span><span class="p">,</span>&#xA0;<span class="kc">True</span><span class="p">},</span>&#xA0;<span class="p">{</span><span class="kc">False</span><span class="p">,</span>&#xA0;<span class="kc">True</span><span class="p">},</span>&#xA0;<span class="p">{</span><span class="kc">False</span><span class="p">,</span>&#xA0;<span class="kc">True</span><span class="p">}]</span>
+<br><span class="p">{(</span><span class="mf">1.9</span><span class="p">,</span>&#xA0;<span class="mf">80.64553337755876</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="o">-</span><span class="mf">41.30770818038395</span><span class="p">,</span>&#xA0;<span class="mf">9.42967906108538</span><span class="p">,</span>&#xA0;<span class="o">-</span><span class="mf">58.835811641800085</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mf">31.102786990742203</span><span class="p">,),</span>&#xA0;<span class="p">(</span><span class="mf">28.2724197133397</span><span class="p">,</span>&#xA0;<span class="mf">6.103515625e-05</span><span class="p">,</span>&#xA0;<span class="o">-</span><span class="mf">84.35107066147154</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mf">7.436329211943294e-263</span><span class="p">,),</span>&#xA0;<span class="p">(</span><span class="o">-</span><span class="mf">17.335739410320514</span><span class="p">,</span>&#xA0;<span class="mf">1.5029061311609365e-292</span><span class="p">,</span>&#xA0;<span class="o">-</span><span class="mf">8.17077562035881</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="o">-</span><span class="mf">8.029363284353857e-169</span><span class="p">,</span>&#xA0;<span class="mf">49.45840191722425</span><span class="p">,</span>&#xA0;<span class="o">-</span><span class="mf">15.301768150196054</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mf">5.960464477539063e-08</span><span class="p">,</span>&#xA0;<span class="mf">1.1518373121077722e-213</span><span class="p">),</span>&#xA0;<span class="p">(),</span>&#xA0;<span class="p">(</span><span class="o">-</span><span class="mf">0.3262457914511714</span><span class="p">,)}</span>
+<br><span class="p">[</span><span class="sa">b</span><span class="s1">&#39;+nY2~</span><span class="se">\xaf\x8d</span><span class="s1">*</span><span class="se">\xbb\xbf</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb5\xae\xa2\x1a</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xb6\xab\xaf</span><span class="s1">Ei</span><span class="se">\xc3</span><span class="s1">C</span><span class="se">\xab</span><span class="s1">&quot;</span><span class="se">\xe1</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xf0\x07\xdf\xf5\x99</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;2</span><span class="se">\x06\xd4\xee</span><span class="s1">-</span><span class="se">\xca\xee\x9f\xe4</span><span class="s1">W&#39;</span><span class="p">]</span>
+<br><span class="p">{</span><span class="s1">&#39;fV&#39;</span><span class="p">:</span>&#xA0;<span class="p">[</span><span class="mf">81.37177374286324</span><span class="p">,</span>&#xA0;<span class="mf">3.082323424992609e-212</span><span class="p">,</span>&#xA0;<span class="mf">3.089885728465406e-151</span><span class="p">,</span>&#xA0;<span class="o">-</span><span class="mf">9.51475773638932e-86</span><span class="p">,</span>&#xA0;<span class="o">-</span><span class="mf">17.061851038597922</span><span class="p">],</span>&#xA0;<span class="s1">&#39;J»</span><span class="se">\x0c\x86</span><span class="s1">肭|</span><span class="se">\x88\x03\x8a</span><span class="s1">U&#39;</span><span class="p">:</span>&#xA0;<span class="p">[</span><span class="mf">29.549966208819654</span><span class="p">]}</span>
+<br><span class="p">[{},</span>&#xA0;<span class="o">-</span><span class="mf">68.48316192397687</span><span class="p">]</span>
+<br><span class="kc">None</span>
+<br><span class="p">[</span><span class="s1">&#39;</span><span class="se">\x85\U0004bf04</span><span class="s1">°&#39;</span><span class="p">,</span>&#xA0;<span class="s1">&#39;pB</span><span class="se">\x07</span><span class="s1">iQT&#39;</span><span class="p">,</span>&#xA0;<span class="s1">&#39;TRUE&#39;</span><span class="p">,</span>&#xA0;<span class="s1">&#39;</span><span class="se">\x1a</span><span class="s1">5ùZâ</span><span class="se">\U00048752</span><span class="s1">+¹</span><span class="se">\U0005fdf8</span><span class="s1">ê&#39;</span><span class="p">,</span>&#xA0;<span class="s1">&#39;</span><span class="se">\U000fe0b9</span><span class="s1">m*¤</span><span class="se">\U000b9f1e</span><span class="s1">&#39;</span><span class="p">]</span>
+<br><span class="p">(</span><span class="mf">14.232866652585258</span><span class="p">,</span>&#xA0;<span class="o">-</span><span class="mf">31.193835515904652</span><span class="p">,</span>&#xA0;<span class="mf">62.29850355163285</span><span class="p">)</span>
+<br><span class="p">{</span><span class="s1">&#39;&#39;</span><span class="p">:</span>&#xA0;<span class="p">{</span><span class="s1">&#39;&#39;</span><span class="p">:</span>&#xA0;<span class="kc">None</span><span class="p">,</span>&#xA0;<span class="s1">&#39;Ã</span><span class="se">\U000be8de</span><span class="s1">§</span><span class="se">\n</span><span class="s1">È</span><span class="se">\U00093608</span><span class="s1">u&#39;</span><span class="p">:</span>&#xA0;<span class="kc">None</span><span class="p">,</span>&#xA0;<span class="s1">&#39;Y</span><span class="se">\U000709e4</span><span class="s1">¥ùU)GE</span><span class="se">\U000dddc5</span><span class="s1">¬&#39;</span><span class="p">:</span>&#xA0;<span class="kc">None</span><span class="p">}}</span>
+<br><span class="p">[{(),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe7</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">)},</span>&#xA0;<span class="p">{(),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;l</span><span class="se">\xc6\x80\xdf\x16\x91</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x10</span><span class="s1">,&#39;</span><span class="p">)},</span>&#xA0;<span class="p">{(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xbb\xfb\x1c\xf6\xcd\xff\x93\xe0\xec\xed</span><span class="s1">&#39;</span><span class="p">,),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;g&#39;</span><span class="p">,),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x8e</span><span class="s1">9I</span><span class="se">\xcd</span><span class="s1">gs</span><span class="se">\xaf\xd1\xec\xf7</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x94\xe6</span><span class="s1">#&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;?</span><span class="se">\xc9\xa0\x01</span><span class="s1">~$k&#39;</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x8f\xba\xe6\xfe\x92</span><span class="s1">n</span><span class="se">\xc7</span><span class="s1">K</span><span class="se">\x98\xbb</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x92\xaa\xe8\xa6</span><span class="s1">s&#39;</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;f</span><span class="se">\x98</span><span class="s1">_</span><span class="se">\xb3\xd7</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xf4</span><span class="s1">+</span><span class="se">\xf7\xbc</span><span class="s1">U8RV&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xda\xb0</span><span class="s1">&#39;</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;D&#39;</span><span class="p">,),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xab\xe9\xf6\xe9</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;7Zr</span><span class="se">\xb7\x0b</span><span class="s1">l</span><span class="se">\xb6\x92\xb8\xad</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x8f\xe4</span><span class="s1">]</span><span class="se">\x8f</span><span class="s1">&#39;</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xcf\xfb\xd4\xce\x12\xe2</span><span class="s1">U</span><span class="se">\x94</span><span class="s1">mt&#39;</span><span class="p">,),</span>&#xA0;<span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x9e</span><span class="s1">V</span><span class="se">\x11</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xc5\x88\xde\x8d\xba</span><span class="s1">?</span><span class="se">\xeb</span><span class="s1">&#39;</span><span class="p">),</span>&#xA0;<span class="p">()},</span>&#xA0;<span class="p">{(</span><span class="sa">b</span><span class="s1">&#39;}&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe9\xd6\x89\x8b</span><span class="s1">&#39;</span><span class="p">)},</span>&#xA0;<span class="p">{(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xcb</span><span class="s1">`&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xfd</span><span class="s1">&#39;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s1">&#39;w</span><span class="se">\x19</span><span class="s1">@</span><span class="se">\xee</span><span class="s1">&#39;</span><span class="p">),</span>&#xA0;<span class="p">()}]</span>
+<br><span class="p">((),</span>&#xA0;<span class="p">(),</span>&#xA0;<span class="p">())</span>
+<br></pre></div>
+</blockquote><h1 id="h_finally_writing_the_test">Finally writing the test<a class="headerlink" aria-label="Link to this header" href="#h_finally_writing_the_test"></a></h1><p>Time to use all of this in a test:</p><blockquote class="code"><div class="source"><pre class="python"><span class="nd">@given</span><span class="p">(</span><span class="n">nested_data_schemas</span><span class="o">.</span><span class="n">flatmap</span><span class="p">(</span><span class="k">lambda</span>&#xA0;<span class="n">s</span><span class="p">:</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">tuples</span><span class="p">(</span><span class="n">s</span><span class="p">,</span>&#xA0;<span class="n">s</span><span class="p">)))</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_same_schema</span><span class="p">(</span><span class="n">data_pair</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">data1</span><span class="p">,</span>&#xA0;<span class="n">data2</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">data_pair</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span><span class="p">,</span>&#xA0;<span class="n">h2</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">(),</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">if</span>&#xA0;<span class="n">data1</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">data2</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">else</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;Strictly&#xA0;speaking,&#xA0;unequal&#xA0;data&#xA0;could&#xA0;produce&#xA0;equal&#xA0;hashes,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;but&#xA0;it&#39;s&#xA0;very&#xA0;unlikely,&#xA0;so&#xA0;test&#xA0;for&#xA0;it&#xA0;anyway.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">!=</span>&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br></pre></div>
+</blockquote><p>Here I use the .flatmap() method to draw an example from the
+<code>nested_data_schemas</code> strategy and call the provided lambda with the drawn
+example, which is itself a strategy. The lambda uses <code>st.tuples</code> to make
+tuples with two examples drawn from the strategy. So we get one data schema, and
+two examples from it as a tuple passed into the test as <code>data_pair</code>. The
+test then unpacks the data, hashes them, and makes the appropriate
+assertion.</p><p>This works great: the tests pass. To check that the test was working well, I
+made some breaking tweaks to the Hasher class. If Hypothesis is configured to
+generate enough examples, it finds data examples demonstrating the failures.</p><p>I&#8217;m pleased with the results. Hypothesis is something I&#8217;ve been wanting to
+use more, so I&#8217;m glad I took this chance to learn more about it and get it
+working for these tests.  To be honest, this is way more than I needed to test
+my Hasher class.  But once I got started, I wanted to get it right, and learning
+is always good.</p><p>I&#8217;m a bit concerned that the standard setting (100 examples) isn&#8217;t enough to
+find the planted bugs in Hasher. There are many parameters in my strategies that
+could be tweaked to keep Hypothesis from wandering too broadly, but I don&#8217;t know
+how to decide what to change.</p><h1 id="h_actually">Actually<a class="headerlink" aria-label="Link to this header" href="#h_actually"></a></h1><p>The code in this post is different than the actual code I ended up with.
+Mostly this is because I was working on the code while I was writing this post,
+and discovered some problems that I wanted to fix. For example, the
+<code>tuples_of</code> function makes homogeneous tuples: varying lengths with
+elements all of the same type. This is not the usual use of tuples (see
+<a href="https://nedbatchelder.com/blog/201608/lists_vs_tuples">Lists vs. Tuples</a>).  Adapting for heterogeneous tuples added
+more complexity, which was interesting to learn, but I didn&#8217;t want to go back
+and add it here.</p><p>You can look at the <a rel="external noopener" href="https://github.com/coveragepy/coveragepy/blob/582ea59724f2df097c2dd9e1bad372be430ff512/tests/strategies.py">final strategies.py</a> to see
+that and other details, including type hints for everything, which was a journey
+of its own.</p><h1 id="h_postscript_ai_assistance">Postscript: AI assistance<a class="headerlink" aria-label="Link to this header" href="#h_postscript_ai_assistance"></a></h1><p>I would not have been able to come up with all of this by myself. Hypothesis
+is very powerful, but requires a new way of thinking about things. It&#8217;s twisty
+to have functions returning strategies, and especially strategies producing
+strategies. The docs don&#8217;t have many examples, so it can be hard to get a
+foothold on the concepts.</p><p>Claude helped me by providing initial code, answering questions, debugging
+when things didn&#8217;t work out, and so on. If you are interested,
+<a href="https://claude.ai/share/3b7e7e02-36e2-4824-acaf-6d4ab5e41cbd" rel="external noopener">this is
+one of the discussions I had with it</a>.</p>
+]]></description>
+	</item>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202512/a_testing_conundrum">
+		<title>A testing conundrum</title>
+		<link>https://nedbatchelder.com/blog/202512/a_testing_conundrum</link>
+		
+		<dc:date>2025-12-18T05:30:06-05:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p><b>Update:</b> I found a solution which I describe in
+<a href="https://nedbatchelder.com/blog/202512/generating_data_shapes_with_hypothesis">Generating data shapes with Hypothesis</a>.</p><p>In coverage.py, I have a class for computing the fingerprint of a data
+structure.  It&#8217;s used to avoid doing duplicate work when re-processing the same
+data won&#8217;t add to the outcome.  It&#8217;s designed to work for nested data, and to
+canonicalize things like set ordering.  The slightly simplified code looks like
+this:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">class</span><span class="w">&#xA0;</span><span class="nc">Hasher</span><span class="p">:</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="sd">&quot;&quot;&quot;Hashes&#xA0;Python&#xA0;data&#xA0;for&#xA0;fingerprinting.&quot;&quot;&quot;</span>
+<br>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">def</span><span class="w">&#xA0;</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>&#xA0;<span class="o">-&gt;</span>&#xA0;<span class="kc">None</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">hash</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">hashlib</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;sha3_256&quot;</span><span class="p">)</span>
+<br>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">def</span><span class="w">&#xA0;</span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>&#xA0;<span class="n">v</span><span class="p">:</span>&#xA0;<span class="n">Any</span><span class="p">)</span>&#xA0;<span class="o">-&gt;</span>&#xA0;<span class="kc">None</span><span class="p">:</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="sd">&quot;&quot;&quot;Add&#xA0;`v`&#xA0;to&#xA0;the&#xA0;hash,&#xA0;recursively&#xA0;if&#xA0;needed.&quot;&quot;&quot;</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">match</span>&#xA0;<span class="n">v</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">case</span>&#xA0;<span class="kc">None</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">pass</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">case</span>&#xA0;<span class="nb">str</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">case</span>&#xA0;<span class="nb">bytes</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">case</span>&#xA0;<span class="nb">int</span><span class="p">()</span>&#xA0;<span class="o">|</span>&#xA0;<span class="nb">float</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">case</span>&#xA0;<span class="nb">tuple</span><span class="p">()</span>&#xA0;<span class="o">|</span>&#xA0;<span class="nb">list</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">for</span>&#xA0;<span class="n">e</span>&#xA0;<span class="ow">in</span>&#xA0;<span class="n">v</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">case</span>&#xA0;<span class="nb">dict</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">for</span>&#xA0;<span class="n">k</span><span class="p">,</span>&#xA0;<span class="n">kv</span>&#xA0;<span class="ow">in</span>&#xA0;<span class="nb">sorted</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kv</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">case</span>&#xA0;<span class="nb">set</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">case</span><span class="w">&#xA0;</span><span class="k">_</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">raise</span>&#xA0;<span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can&#39;t&#xA0;hash&#xA0;</span><span class="si">{</span><span class="n">v</span><span class="w">&#xA0;</span><span class="si">=&#xA0;}</span><span class="s2">&quot;</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<br>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">def</span><span class="w">&#xA0;</span><span class="nf">digest</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>&#xA0;<span class="o">-&gt;</span>&#xA0;<span class="nb">bytes</span><span class="p">:</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="sd">&quot;&quot;&quot;Get&#xA0;the&#xA0;full&#xA0;binary&#xA0;digest&#xA0;of&#xA0;the&#xA0;hash.&quot;&quot;&quot;</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="bp">self</span><span class="o">.</span><span class="n">hash</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br></pre></div>
+</blockquote><p>To test this, I had some basic tests like:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_string_hashing</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;Same&#xA0;strings&#xA0;hash&#xA0;the&#xA0;same.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;Different&#xA0;strings&#xA0;hash&#xA0;differently.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;Hello,&#xA0;world!&quot;</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;Goodbye!&quot;</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h3</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h3</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;Hello,&#xA0;world!&quot;</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">!=</span>&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">h3</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_dict_hashing</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;The&#xA0;order&#xA0;of&#xA0;keys&#xA0;doesn&#39;t&#xA0;affect&#xA0;the&#xA0;hash.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span>&#xA0;<span class="mi">17</span><span class="p">,</span>&#xA0;<span class="s2">&quot;b&quot;</span><span class="p">:</span>&#xA0;<span class="mi">23</span><span class="p">})</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;b&quot;</span><span class="p">:</span>&#xA0;<span class="mi">23</span><span class="p">,</span>&#xA0;<span class="s2">&quot;a&quot;</span><span class="p">:</span>&#xA0;<span class="mi">17</span><span class="p">})</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br></pre></div>
+</blockquote><p>The last line in the update() method adds a dot to the running hash. That was
+to solve a problem covered by this test:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_dict_collision</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;Nesting&#xA0;matters.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span>&#xA0;<span class="mi">17</span><span class="p">,</span>&#xA0;<span class="s2">&quot;b&quot;</span><span class="p">:</span>&#xA0;<span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span>&#xA0;<span class="mi">1</span><span class="p">,</span>&#xA0;<span class="s2">&quot;d&quot;</span><span class="p">:</span>&#xA0;<span class="mi">2</span><span class="p">}})</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span>&#xA0;<span class="mi">17</span><span class="p">,</span>&#xA0;<span class="s2">&quot;b&quot;</span><span class="p">:</span>&#xA0;<span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span>&#xA0;<span class="mi">1</span><span class="p">},</span>&#xA0;<span class="s2">&quot;d&quot;</span><span class="p">:</span>&#xA0;<span class="mi">2</span><span class="p">})</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">!=</span>&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br></pre></div>
+</blockquote><p>The most recent change to Hasher was to add the set() clause. There (and in
+dict()), we are sorting the elements to canonicalize them. The idea is that
+equal values should hash equally and unequal values should not. Sets and dicts
+are equal regardless of their iteration order, so we sort them to get the same
+hash.</p><p>I added a test of the set behavior:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_set_hashing</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">update</span><span class="p">({(</span><span class="mi">1</span><span class="p">,</span>&#xA0;<span class="mi">2</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mi">3</span><span class="p">,</span>&#xA0;<span class="mi">4</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mi">5</span><span class="p">,</span>&#xA0;<span class="mi">6</span><span class="p">)})</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">update</span><span class="p">({(</span><span class="mi">5</span><span class="p">,</span>&#xA0;<span class="mi">6</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mi">1</span><span class="p">,</span>&#xA0;<span class="mi">2</span><span class="p">),</span>&#xA0;<span class="p">(</span><span class="mi">3</span><span class="p">,</span>&#xA0;<span class="mi">4</span><span class="p">)})</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h3</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h3</span><span class="o">.</span><span class="n">update</span><span class="p">({(</span><span class="mi">1</span><span class="p">,</span>&#xA0;<span class="mi">2</span><span class="p">)})</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">!=</span>&#xA0;<span class="n">h3</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br></pre></div>
+</blockquote><p>But I wondered if there was a better way to test this class.  My small
+one-off tests weren&#8217;t addressing the full range of possibilities. I could read
+the code and feel confident, but wouldn&#8217;t a more comprehensive test be better?
+This is a pure function: inputs map to outputs with no side-effects or other
+interactions. It should be very testable.</p><p>This seemed like a good candidate for property-based testing. The
+<a rel="external noopener" href="https://hypothesis.readthedocs.io/en/latest/index.html">Hypothesis</a> library would let me generate data, and I
+could check that the desired properties of the hash held true.</p><p>It took me a while to get the Hypothesis strategies wired up correctly.
+I ended up with this, but there might be a simpler way:</p><blockquote class="code"><div class="source"><pre class="python"><span class="kn">from</span><span class="w">&#xA0;</span><span class="nn">hypothesis</span><span class="w">&#xA0;</span><span class="kn">import</span>&#xA0;<span class="n">strategies</span>&#xA0;<span class="k">as</span>&#xA0;<span class="n">st</span>
+<br>
+<br><span class="n">scalar_types</span>&#xA0;<span class="o">=</span>&#xA0;<span class="p">[</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">none</span><span class="p">(),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">booleans</span><span class="p">(),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">floats</span><span class="p">(</span><span class="n">allow_infinity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>&#xA0;<span class="n">allow_nan</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">text</span><span class="p">(),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">binary</span><span class="p">(),</span>
+<br><span class="p">]</span>
+<br>
+<br><span class="n">scalars</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">one_of</span><span class="p">(</span><span class="o">*</span><span class="n">scalar_types</span><span class="p">)</span>
+<br>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">tuples_of</span><span class="p">(</span><span class="n">strat</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">strat</span><span class="p">,</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">)</span>
+<br>
+<br><span class="n">hashable_types</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">scalar_types</span>&#xA0;<span class="o">+</span>&#xA0;<span class="p">[</span><span class="n">tuples_of</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>&#xA0;<span class="k">for</span>&#xA0;<span class="n">s</span>&#xA0;<span class="ow">in</span>&#xA0;<span class="n">scalar_types</span><span class="p">]</span>
+<br>
+<br><span class="c1">#&#xA0;Homogeneous&#xA0;sets:&#xA0;all&#xA0;elements&#xA0;same&#xA0;type.</span>
+<br><span class="n">homogeneous_sets</span>&#xA0;<span class="o">=</span>&#xA0;<span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">sampled_from</span><span class="p">(</span><span class="n">hashable_types</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="o">.</span><span class="n">flatmap</span><span class="p">(</span><span class="k">lambda</span>&#xA0;<span class="n">s</span><span class="p">:</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">sets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<br><span class="p">)</span>
+<br>
+<br><span class="c1">#&#xA0;Full&#xA0;nested&#xA0;Python&#xA0;data.</span>
+<br><span class="n">python_data</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">recursive</span><span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">scalars</span><span class="p">,</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">lambda</span>&#xA0;<span class="n">children</span><span class="p">:</span>&#xA0;<span class="p">(</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">children</span><span class="p">,</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="o">|</span>&#xA0;<span class="n">tuples_of</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="o">|</span>&#xA0;<span class="n">homogeneous_sets</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="o">|</span>&#xA0;<span class="n">st</span><span class="o">.</span><span class="n">dictionaries</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">text</span><span class="p">(),</span>&#xA0;<span class="n">children</span><span class="p">,</span>&#xA0;<span class="n">max_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="p">),</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">max_leaves</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<br><span class="p">)</span>
+<br></pre></div>
+</blockquote><p>This doesn&#8217;t make completely arbitrary nested Python data: sets are forced to
+have elements all of the same type or I wouldn&#8217;t be able to sort them.
+Dictionaries only have strings for keys. But this works to generate data similar
+to the real data we hash. I wrote this simple test:</p><blockquote class="code"><div class="source"><pre class="python"><span class="kn">from</span><span class="w">&#xA0;</span><span class="nn">hypothesis</span><span class="w">&#xA0;</span><span class="kn">import</span>&#xA0;<span class="n">given</span>
+<br>
+<br><span class="nd">@given</span><span class="p">(</span><span class="n">python_data</span><span class="p">)</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_one</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;Hashing&#xA0;the&#xA0;same&#xA0;thing&#xA0;twice.</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br></pre></div>
+</blockquote><p>This didn&#8217;t find any failures, but this is the easy test: hashing the same
+thing twice produces equal hashes.  The trickier test is to get two different
+data structures, and check that their equality matches their hash equality:</p><blockquote class="code"><div class="source"><pre class="python"><span class="nd">@given</span><span class="p">(</span><span class="n">python_data</span><span class="p">,</span>&#xA0;<span class="n">python_data</span><span class="p">)</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_two</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span>&#xA0;<span class="n">data2</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">Hasher</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>
+<br>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">if</span>&#xA0;<span class="n">data1</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">data2</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">==</span>&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">else</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">h1</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>&#xA0;<span class="o">!=</span>&#xA0;<span class="n">h2</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<br></pre></div>
+</blockquote><p>This immediately found problems, but not in my code:</p><blockquote class="code"><div class="source"><pre class="text"><span>&gt;&#xA0;assert&#xA0;h1.digest()&#xA0;==&#xA0;h2.digest()</span>
+<br><span>E&#xA0;AssertionError:&#xA0;assert&#xA0;b&#39;\x80\x15\xc9\x05...&#39;&#xA0;==&#xA0;b&#39;\x9ap\xebD...&#39;</span>
+<br><span>E</span>
+<br><span>E&#xA0;&#xA0;&#xA0;At&#xA0;index&#xA0;0&#xA0;diff:&#xA0;b&#39;\x80&#39;&#xA0;!=&#xA0;b&#39;\x9a&#39;</span>
+<br><span>E</span>
+<br><span>E&#xA0;&#xA0;&#xA0;Full&#xA0;diff:</span>
+<br><span>E&#xA0;&#xA0;&#xA0;-&#xA0;(b&#39;\x9ap\xebD...)&#39;</span>
+<br><span>E&#xA0;&#xA0;&#xA0;+&#xA0;(b&#39;\x80\x15\xc9\x05...)&#39;</span>
+<br><span>E&#xA0;Falsifying&#xA0;example:&#xA0;test_two(</span>
+<br><span>E&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;data1=(False,&#xA0;False,&#xA0;False),</span>
+<br><span>E&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;data2=(False,&#xA0;False,&#xA0;0),</span>
+<br><span>E&#xA0;)</span>
+<br></pre></div>
+</blockquote><p>Hypothesis found that (False, False, False) is equal to (False, False, 0),
+but they hash differently. This is correct. The Hasher class takes the types of
+the values into account in the hash. False and 0 are equal, but they are
+different types, so they hash differently. The same problem shows up for
+<code>0 == 0.0</code> and <code>0.0 == -0.0</code>.  The theory of my
+test was incorrect: some values that are equal should hash differently.</p><p>In my real code, this isn&#8217;t an issue. I won&#8217;t ever be comparing values like
+this to each other.  If I had a schema for the data I would be comparing, I
+could use it to steer Hypothesis to generate realistic data.  But I don&#8217;t have
+that schema, and I&#8217;m not sure I want to maintain that schema. This Hasher is
+useful as it is, and I&#8217;ve been able to reuse it in new ways without having to
+update a schema.</p><p>I could write a smarter equality check for use in the tests, but that would
+roughly approximate the code in Hasher itself. Duplicating product code in the
+tests is a good way to write tests that pass but don&#8217;t tell you anything
+useful.</p><p>I could exclude bools and floats from the test data, but those are actual
+values I need to handle correctly.</p><p>Hypothesis was useful in that it didn&#8217;t find any failures others than the
+ones I described.  I can&#8217;t leave those tests in the automated test suite because
+I don&#8217;t want to manually examine the failures, but at least this gave me more
+confidence that the code is good as it is now.</p><p>Testing is a challenge unto itself. This brought it home to me again. It&#8217;s
+not easy to know precisely what you want code to do, and it&#8217;s not easy to
+capture that intent in tests. For now, I&#8217;m leaving just the simple tests. If
+anyone has ideas about how to test Hasher more thoroughly, I&#8217;m all ears.</p>
+]]></description>
+	</item>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202511/autism_adulthood_3rd_edition">
+		<title>Autism Adulthood, 3rd edition</title>
+		<link>https://nedbatchelder.com/blog/202511/autism_adulthood_3rd_edition</link>
+		
+		<dc:date>2025-11-18T07:47:30-05:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p>Today is the publication of the third edition of <a rel="external noopener" href="http://www.amazon.com/dp/1510784128?tag=nedbatchelder-20">Autism
+Adulthood: Insights and Creative Strategies for a Fulfilling Life</a>.  It&#8217;s my
+wife <a rel="external noopener" href="https://susansenator.com">Susan</a>&#8217;s book collecting stories and experiences from
+people all along the autism spectrum, from the self-diagnosed to the
+profound.</p><div class="figurep"><a rel="external noopener" href="http://www.amazon.com/dp/1510784128?tag=nedbatchelder-20"><figure><picture><source type="image/webp" srcset="https://nedbatchelder.com/iv/webp/pix/aathird.jpg.webp"><img src="https://nedbatchelder.com/pix/aathird.jpg" alt="The cover of Autism Adulthood: a person raising their arms in celebration, silhouetted against a dawning sky" class="darkline" width="300"></picture></figure></a></div><p>The book includes dozens of interviews with autistic adults, their parents,
+caregivers, researchers, and professionals.  Everyone&#8217;s experience of autism is
+different.  Reading others&#8217; stories and perspectives can give us a glimpse into
+other possibilities for ourselves and our loved ones.</p><p>If you have someone in your life on the spectrum, or are on it yourself, I
+guarantee you will find new ways to understand the breadth of what autism means
+and what it can be.</p><p>Susan has also written <a rel="external noopener" href="https://susansenator.com/books.html">two other non-fiction autism
+books</a>, including a memoir of our early days with our son Nat.  Of course I
+highly recommend all of them.</p>
+]]></description>
+	</item>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202511/why_your_mock_breaks_later">
+		<title>Why your mock breaks later</title>
+		<link>https://nedbatchelder.com/blog/202511/why_your_mock_breaks_later</link>
+		
+		<dc:date>2025-11-16T07:55:48-05:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p>In <a href="https://nedbatchelder.com/blog/201908/why_your_mock_doesnt_work">Why your mock doesn’t work</a> I explained this rule of
+mocking:</p><blockquote><div><p>Mock where the object is used, <strong>not</strong> where it&#8217;s
+defined.</p></div></blockquote><p>That blog post explained why that rule was important: often a mock doesn&#8217;t
+work at all if you do it wrong.  But in some cases, the mock will work even if
+you don&#8217;t follow this rule, and then it can break much later. Why?</p><p>Let&#8217;s say you have code like this:</p><blockquote class="code"><div class="source"><pre class="python"><span class="c1">#&#xA0;user.py</span>
+<br>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">get_user_settings</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">with</span>&#xA0;<span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;~/settings.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">())</span>&#xA0;<span class="k">as</span>&#xA0;<span class="n">f</span><span class="p">:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<br>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">add_two_settings</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">settings</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">get_user_settings</span><span class="p">()</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">return</span>&#xA0;<span class="n">settings</span><span class="p">[</span><span class="s2">&quot;opt1&quot;</span><span class="p">]</span>&#xA0;<span class="o">+</span>&#xA0;<span class="n">settings</span><span class="p">[</span><span class="s2">&quot;opt2&quot;</span><span class="p">]</span>
+<br></pre></div>
+</blockquote><p>You write a simple test:</p><blockquote class="code"><div class="source"><pre class="python"><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_add_two_settings</span><span class="p">():</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;NOTE:&#xA0;need&#xA0;to&#xA0;create&#xA0;~/settings.json&#xA0;for&#xA0;this&#xA0;to&#xA0;work:</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="c1">#&#xA0;&#xA0;&#xA0;{&quot;opt1&quot;:&#xA0;10,&#xA0;&quot;opt2&quot;:&#xA0;7}</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">add_two_settings</span><span class="p">()</span>&#xA0;<span class="o">==</span>&#xA0;<span class="mi">17</span>
+<br></pre></div>
+</blockquote><p>As the comment in the test points out, the test will only pass if you create
+the correct settings.json file in your home directory. This is bad: you don&#8217;t
+want to require finicky environments for your tests to pass.</p><p>The thing we want to avoid is opening a real file, so it&#8217;s a natural impulse
+to mock out <code>open()</code>:</p><blockquote class="code"><div class="source"><pre class="python"><span class="c1">#&#xA0;test_user.py</span>
+<br>
+<br><span class="kn">from</span><span class="w">&#xA0;</span><span class="nn">io</span><span class="w">&#xA0;</span><span class="kn">import</span>&#xA0;<span class="n">StringIO</span>
+<br><span class="kn">from</span><span class="w">&#xA0;</span><span class="nn">unittest.mock</span><span class="w">&#xA0;</span><span class="kn">import</span>&#xA0;<span class="n">patch</span>
+<br>
+<br><span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;builtins.open&quot;</span><span class="p">)</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_add_two_settings</span><span class="p">(</span><span class="n">mock_open</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="n">mock_open</span><span class="o">.</span><span class="n">return_value</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">StringIO</span><span class="p">(</span><span class="s1">&#39;{&quot;opt1&quot;:&#xA0;10,&#xA0;&quot;opt2&quot;:&#xA0;7}&#39;</span><span class="p">)</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="k">assert</span>&#xA0;<span class="n">add_two_settings</span><span class="p">()</span>&#xA0;<span class="o">==</span>&#xA0;<span class="mi">17</span>
+<br></pre></div>
+</blockquote><p>Nice, the test works without needing to create a file in our home
+directory!</p><h1 id="h_much_later">Much later...<a class="headerlink" aria-label="Link to this header" href="#h_much_later"></a></h1><p>One day your test suite <a rel="external noopener" href="https://github.com/coveragepy/coveragepy/issues/2083">fails with an error</a> like:</p><blockquote class="code"><div class="source"><pre class="pytb"><span class="x">...</span>
+<br>&#xA0;&#xA0;File&#xA0;<span class="nb">&quot;.../site-packages/coverage/python.py&quot;</span>,&#xA0;line&#xA0;<span class="m">55</span>,&#xA0;in&#xA0;<span class="n">get_python_source</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="n">source_bytes</span>&#xA0;<span class="o">=</span>&#xA0;<span class="n">read_python_source</span><span class="p">(</span><span class="n">try_filename</span><span class="p">)</span>
+<br>&#xA0;&#xA0;File&#xA0;<span class="nb">&quot;.../site-packages/coverage/python.py&quot;</span>,&#xA0;line&#xA0;<span class="m">39</span>,&#xA0;in&#xA0;<span class="n">read_python_source</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="k">return</span>&#xA0;<span class="n">source</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">,</span>&#xA0;<span class="sa">b</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<br><span class="w">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="pm">~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^</span>
+<br><span class="gr">TypeError</span>:&#xA0;<span class="n">replace()&#xA0;argument&#xA0;1&#xA0;must&#xA0;be&#xA0;str,&#xA0;not&#xA0;bytes</span>
+<br></pre></div>
+</blockquote><p>What happened!? Coverage.py code runs during your tests, invoked by the
+Python interpreter.  The mock in the test changed the builtin <code>open</code>, so
+any use of it anywhere during the test is affected. In some cases, coverage.py
+needs to read your source code to record the execution properly.  When that
+happens, coverage.py unknowingly uses the mocked <code>open</code>, and bad things
+happen.</p><p>When you use a mock, patch it where it&#8217;s used, not where it&#8217;s defined.  In
+this case, the patch would be:</p><blockquote class="code"><div class="source"><pre class="python"><span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;myproduct.user.open&quot;</span><span class="p">)</span>
+<br><span class="k">def</span><span class="w">&#xA0;</span><span class="nf">test_add_two_settings</span><span class="p">(</span><span class="n">mock_open</span><span class="p">):</span>
+<br>&#xA0;&#xA0;&#xA0;&#xA0;<span class="o">...</span>&#xA0;<span class="n">etc</span>&#xA0;<span class="o">...</span>
+<br></pre></div>
+</blockquote><p>With a mock like this, the coverage.py code would be unaffected.</p><p>Keep in mind: it&#8217;s not just coverage.py that could trip over this mock. There
+could be other libraries used by your code, or you might use <code>open</code>
+yourself in another part of your product.  Mocking the definition means
+<em>anything</em> using the object will be affected.  Your intent is to only
+mock in one place, so target that place.</p><h1 id="h_postscript">Postscript<a class="headerlink" aria-label="Link to this header" href="#h_postscript"></a></h1><p>I decided to add some code to coverage.py to defend against this kind of
+over-mocking.  There is <a rel="external noopener" href="https://github.com/search?type=code&amp;q=patch+builtins.open+language%3APython+path%3A%22test%22">a lot of over-mocking out
+there</a>, and this problem only shows up in coverage.py with Python 3.14. It&#8217;s
+not happening to many people yet, but it will happen more and more as people
+start testing with 3.14. I didn&#8217;t want to have to answer this question many
+times, and I didn&#8217;t want to force people to fix their mocks.</p><p>From a certain perspective, I shouldn&#8217;t have to do this. They are in the
+wrong, not me.  But this will reduce the overall friction in the universe. And
+<a rel="external noopener" href="https://github.com/coveragepy/coveragepy/commit/961fc5b4a1c40bec6e0d1908b6fb43b84a5d8c6b#diff-7a060a25115604cc3bc99075e1366afb84075101dcb0aef22d80f8f67c0c4593R30">the fix</a> was really simple:</p><blockquote class="code"><div class="source"><pre class="python"><span class="nb">open</span>&#xA0;<span class="o">=</span>&#xA0;<span class="nb">open</span>
+<br></pre></div>
+</blockquote><p>This is a top-level statement in my module, so it runs when the module is
+imported, long before any tests are run.  The assignment to <code>open</code> will
+create a global in my module, using the current value of <code>open</code>, the one
+found in the builtins. This saves the original <code>open</code> for use in my module
+later, isolated from how builtins might be changed later.</p><p>This is an ad-hoc fix: it only defends one builtin. Mocking other builtins
+could still break coverage.py.  But <code>open</code> is a common one, and this will
+keep things working smoothly for those cases. And there&#8217;s precedent: I&#8217;ve
+already been using a more involved technique to <a rel="external noopener" href="https://github.com/coveragepy/coveragepy/commit/3b8f4a0b86f8796f1e7925b9c6593a9d5198b437">defend
+against mocking of the <code>os</code> module</a> for ten years.</p><h1 id="h_even_better">Even better!<a class="headerlink" aria-label="Link to this header" href="#h_even_better"></a></h1><p>No blog post about mocking is complete without encouraging a number of other
+best practices, some of which could get you out of the mocking mess:</p><ul>
+
+<li>Use <code>autospec=True</code> to make your mocks strictly behave like the
+original object: see <a href="https://nedbatchelder.com/blog/202202/why_your_mock_still_doesnt_work">Why your mock still doesn’t work</a>.</li>
+
+<li>Make assertions about how your mock was called to be sure everything is
+connected up properly.</li>
+
+<li>Use verified fakes instead of auto-generated mocks: <a rel="external noopener" href="https://pythonspeed.com/articles/verified-fakes/">Fast
+tests for slow services: why you should use verified fakes</a>.</li>
+
+<li>Separate your code so that computing functions like our
+<code>add_two_settings</code> don&#8217;t also do I/O. This makes the functions easier to
+test in the first place. Take a look at <a rel="external noopener" href="https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell">Function Core,
+Imperative Shell</a>.</li>
+
+<li>Dependency injection lets you explicitly pass test-specific objects where
+they are needed instead of relying on implicit access to a mock.</li>
+
+</ul>
+]]></description>
+	</item>
+	
+	<item rdf:about="https://nedbatchelder.com/blog/202511/three_releases_one_new_organization">
+		<title>Three releases, one new organization</title>
+		<link>https://nedbatchelder.com/blog/202511/three_releases_one_new_organization</link>
+		
+		<dc:date>2025-11-09T18:27:02-05:00</dc:date>
+		<dc:creator>Ned Batchelder</dc:creator>
+		<description><![CDATA[<p>It&#8217;s been a busy, bumpy week with coverage.py. Some things did not go
+smoothly, and I didn&#8217;t handle everything as well as I could have.</p><p>It started with trying to fix <a rel="external noopener" href="https://github.com/coveragepy/coveragepy/issues/2064">issue 2064</a> about
+conflicts between the &#8220;sysmon&#8221; measurement core and a concurrency setting.</p><p>To measure your code, coverage.py needs to know what code got executed. To
+know that, it collects execution events from the Python interpreter. CPython now
+has two mechanisms for this: trace functions and sys.monitoring.  Coverage.py
+has two implementations of a trace function (in C and in Python), and an
+implementation of a sys.monitoring listener.  These three components are the
+measurement cores, known as &#8220;ctrace&#8221;, &#8220;pytrace&#8221;, and &#8220;sysmon&#8221;.</p><p>The fastest is sysmon, but there are coverage.py features it doesn&#8217;t yet
+support.  With Python 3.14, sysmon is the default core.  Issue 2064 complained
+that when the defaulted core conflicted with an explicit concurrency choice, the
+conflict resulted in an error.  I agreed with the issue: since the core was
+defaulted, it shouldn&#8217;t be an error, we should choose a different core.</p><p>But I figured if you explicitly asked for the sysmon core and also a
+conflicting setting, that should be an error because you&#8217;ve got two settings
+that can&#8217;t be used together.</p><p>Implementing all that got a little involved because of &#8220;metacov&#8221;: coverage.py
+coverage-measuring itself.  The sys.monitoring facility in Python was added in
+3.12, but wasn&#8217;t fully fleshed out enough to do branch coverage until 3.14. When
+we measure ourselves, we use branch coverage, so 3.12 and 3.13 needed some
+special handling to avoid causing the error that sysmon plus branch coverage
+would cause.</p><p>I got it all done, and <a rel="external noopener" href="https://coverage.readthedocs.io/en/7.11.3/changes.html#version-7-11-1-2025-11-07">released 7.11.1</a> on Friday.</p><p>Soon, <a rel="external noopener" href="https://github.com/coveragepy/coveragepy/issues/2077">issue 2077</a> arrived. Another fix in 7.11.1
+involved some missing branches when using the sysmon core.  That fix required
+parsing the source code during execution.  But sometimes the &#8220;code&#8221; can&#8217;t be
+parsed: Jinja templates compile html files to Python and use the html file as
+the file name for the code. When coverage.py tries to parse the html file as
+Python, of course it fails. My fix didn&#8217;t account for this.  I fixed that on
+Saturday and <a rel="external noopener" href="https://coverage.readthedocs.io/en/7.11.3/changes.html#version-7-11-2-2025-11-08">released 7.11.2</a>.</p><p>In the meantime, <a rel="external noopener" href="https://github.com/coveragepy/coveragepy/issues/2076">issue 2076</a> and <a rel="external noopener" href="https://github.com/coveragepy/coveragepy/issues/2078">issue
+2078</a> both pointed out that now some settings combinations that used to
+produce warnings now produced errors. This is a breaking change, they said, and
+should not have been released as a patch version.</p><p>To be honest, my first reaction was that it wasn&#8217;t that big a deal, the
+settings were in conflict. Fix the settings and all will be well.  It&#8217;s hard to
+remember all of the possibilities when making changes like this, it&#8217;s easy to
+make mistakes, and semantic versioning is bound to have judgement calls anyway.
+I had already spent a while getting 7.11.1 done, and .2 followed just a day
+later. I was annoyed and didn&#8217;t want to have to re-think everything.</p><p>But the more I thought about it, I decided they were right: it does break
+pipelines that used to work.  And falling back to a different core is fine: the
+cores differ in speed and compatibility but (for the most part) produce the same
+results. Changing the requested core with a warning is a fine way to deal with
+the settings conflict without stopping test suites from running.</p><p>So I just <a rel="external noopener" href="https://coverage.readthedocs.io/en/7.11.3/changes.html#version-7-11-3-2025-11-09">released 7.11.3</a> to go back to the older
+behavior. Maybe I won&#8217;t have to do another release tomorrow!</p><p>While all this was going on, I also moved the code from my personal GitHub
+account to a new <a href="https://github.com/coveragepy" rel="external noopener">coveragepy GitHub
+organization</a>!</p><p>Coverage.py is basically a one-man show. Maybe the GitHub organization will
+make others feel more comfortable chiming in, but I doubt it. I&#8217;d like to have
+more people to talk through changes with.  Maybe I wouldn&#8217;t have had to make
+three releases in three days if someone else had been around as a sounding
+board.</p><p>I&#8217;m in the <a rel="external noopener" href="https://discord.gg/RBw567RyWc">#coverage-py</a> channel if you want to talk
+about any aspect of coverage.py, or I can be reached in
+<a href="https://nedbatchelder.com/site/aboutned">lots of other ways</a>. I&#8217;d love to talk to
+you.</p>
+]]></description>
+	</item>
+	
+</rdf:RDF>

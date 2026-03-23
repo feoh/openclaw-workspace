@@ -1,0 +1,1403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><link
+    href="https://matklad.github.io/feed.xml"
+    rel="self"
+    type="application/atom+xml"
+  /><link
+    href="https://matklad.github.io"
+    rel="alternate"
+    type="text/html"
+  /><updated>2026-03-23T00:50:17.192Z</updated><id
+  >https://matklad.github.io/feed.xml</id><title type="html"
+  >matklad</title><subtitle>matklad&#039;s Arts&amp;Crafts</subtitle><author
+  ><name>Alex Kladov</name></author><entry><title type="text"
+    >Consensus Board Game</title><link
+      href="https://matklad.github.io/2026/03/19/consensus-board-game.html"
+      rel="alternate"
+      type="text/html"
+      title="Consensus Board Game"
+    /><published>2026-03-19T00:00:00+00:00</published><updated
+    >2026-03-19T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/03/19/consensus-board-game</id><author><name
+      >Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[I have an early adulthood trauma from struggling to understand consensus amidst a myriad of poor explanations. I am overcompensating for that by adding my own attempts to the fray. Today, I want to draw a series of pictures which could be helpful. You can see this post as a set of missing illustrations for Notes on Paxos, or, alternatively, you can view that post as a more formal narrative counter-part for the present one.]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/03/19/consensus-board-game.html"
+    ><![CDATA[
+<header>
+  <h1>Consensus Board Game</h1>
+  <time class="meta" datetime="2026-03-19">Mar 19, 2026</time>
+</header>
+<p>I have an early adulthood trauma from struggling to understand consensus amidst a myriad of poor
+explanations. I am overcompensating for that by adding my own attempts to the fray. Today, I
+want to draw a series of pictures which could be helpful. You can see this post as a set of
+missing illustrations for
+<a href="https://matklad.github.io/2020/11/01/notes-on-paxos.html"><em>Notes on Paxos</em></a>, or, alternatively,
+you can view <em>that</em> post as a more formal narrative counter-part for the present one.</p>
+<p>The idea comes from my <a href="https://tigerbeetle.com/blog/2025-11-22-mathematics-of-consensus/">mathematics of consensus</a>
+lecture, with versions in <a href="https://www.youtube.com/watch?v=thY12Wnrmyw">English</a> and
+<a href="https://www.youtube.com/watch?v=h8nj65jvXl0">Russian</a>.</p>
+<section id="The-Preamble">
+
+<h2><a href="#The-Preamble">The Preamble</a></h2>
+<p>I am going to <em>aggressively</em> hand wave the details away, please refer to
+<a href="https://matklad.github.io/2020/11/01/notes-on-paxos.html"><em>Notes</em></a> for filling in the blanks.</p>
+<p>And, before we begin, I want to stress again that here I am focusing strictly on the <em>mathematics</em>
+behind the algorithm, on the logical structure of the universe that makes some things impossible, and
+others doable. Consensus is but a small part of the engineering behind real data management systems,
+and I might do something about <em>pragmatics</em> of consensus at some point, just not today ;)</p>
+</section>
+<section id="The-Problem">
+
+<h2><a href="#The-Problem">The Problem</a></h2>
+<p>There’s a committee of five members that tries to choose a color for a bike shed, but
+the committee members are not entirely reliable. We want to arrive at a decision even if some
+members of the committee are absent.</p>
+</section>
+<section id="The-Vote">
+
+<h2><a href="#The-Vote">The Vote</a></h2>
+<p>The fundamental idea underpinning consensus is simple majority vote. If R0, … R4 are the five
+committee members, we can use the following board to record the votes:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-03-19-consensus-board-game/blank.svg">
+</figure>
+<p>A successful vote looks like this:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-03-19-consensus-board-game/red-wins.svg">
+</figure>
+<p>Here, red collected 3 out of 5 votes and wins. Note that R4 hasn’t voted yet. It might, or might not
+do so eventually, but that won’t affect the outcome.</p>
+<p>The problem with voting is that it can get stuck like this:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-03-19-consensus-board-game/stuck.svg">
+</figure>
+<p>Here, we have two votes for red, two votes for blue, but the potential tie-breaker, R4,  voted for
+green, the rascal!</p>
+<p>To solve split vote, we are going to designate R0 as the committee’s leader, make it choose the
+color, and allow others only to approve. Note that meaningful voting still takes place, as
+someone might abstain from voting — you need at least 50% turnout for the vote to be complete:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-03-19-consensus-board-game/leader.svg">
+</figure>
+<p>Here, R0, the leader (marked with yellow napoleonic bicorne), choose red, R2 and R3 acquiesced, so
+the red “won”, even as R1 and R4 abstained (x signifies absence of a vote).</p>
+<p>The problem with <em>this</em> is that our designated leader might be unavailable itself:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-03-19-consensus-board-game/leader-dead.svg">
+</figure>
+</section>
+<section id="The-Board">
+
+<h2><a href="#The-Board">The Board</a></h2>
+<p>Which brings us to the central illustration that I wanted to share. What are we going to do now is
+to <em>multiply</em> our voting. Instead of conducting just one vote with a designated leader, the
+committee will conduct a series of concurrent votes, where the leaders rotate in round-robin
+pattern. This gives rise to the following half-infinite 2D board on which the game of consensus is
+played:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-03-19-consensus-board-game/board-blank.svg">
+</figure>
+<p>Each column plays independently. If you are a leader in a column, and your cell is blank, you can
+choose whatever color. If you are a follower, you need to wait until column’s leader decision, and
+then you can either fill the same color, or you can abstain. After several rounds the board might
+end up looking like this:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-03-19-consensus-board-game/board-filled.svg">
+</figure>
+<p>The benefit of our 2D setup is that, if any committee member is unavailable, <em>their</em> columns might
+get stuck, but, as long as the majority is available, some column somewhere might still complete.
+The drawback is that, while individual column’s decision is clear and unambiguous, the outcome of the
+board as whole is undefined. In the above example, there’s a column where red wins, and a column
+where blue wins.</p>
+<p>So what we are going to do is to scrap the above board as invalid, and instead <em>require</em> that any
+two columns that achieved majorities <em>must</em> agree on the color. In other words, the outcome of the
+entire board is the outcome of any of its columns, whichever finishes first, and the safety
+condition is that no two colors can reach majorities in different columns.</p>
+<p>Let’s take a few steps back when the board wasn’t yet hosed, and try to think about the choice of
+the next move from the perspective of R3:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-03-19-consensus-board-game/board-choice.svg">
+</figure>
+<p>As R3 and the leader for your column, you need to pick a color which won’t conflict with any past
+or <em>future</em> decisions in other columns. Given that there are some greens and blues already, it
+<em>feels</em> like maybe you shouldn’t pick red… But it could be the case that the three partially
+filled columns won’t move anywhere in the future, and the first column gets a solid red line! Tough
+choices! You need to worry about the future <em>and</em> the infinite number of columns to your right!</p>
+<p>Luckily, the problem can be made much easier if we assume that everyone plays by the same rules, in
+which case it’s enough to only worry about the columns to your left. Suppose that you, and everyone
+else is carefully choosing their moves to not conflict with the columns to the left. Then, if you
+chose red, your column wins, and subsequently some buffoon on the right chooses green, it’s <em>their</em>
+problem, because you are to their left.</p>
+<p>So let’s just focus on the left part of the board. Again, it seems like blue or green might be good
+bets, as they are already present on the board, but there’s a chance that the first column will
+eventually vote for red. To prevent that, what we are going to do is to collect a majority of
+participants (R0, R2, R3) and require them to commit to <em>not</em> voting in the first columns. Actually,
+for that matter, let’s prevent them from voting in <em>any</em> column to the left:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-03-19-consensus-board-game/board-x.svg">
+</figure>
+<p>Here, you asked R0, R2 and R3 to abstain from casting further votes in the first three columns,
+signified by black x. With this picture, we can now be sure that red can not win in the first column
+— no color can win there, because only two out of the five votes are available there!</p>
+<p>Still, we have the choice between green and blue, which one should we pick? The answer is the
+rightmost. R2, the participant that picked blue in the column to our immediate left, was executing
+the same algorithm. If they picked blue, they did it because they knew for certain that the second
+column can’t eventually vote for green. R2 got a different majority of participants to abstain from
+voting in the second column, and, while we, as R3, don’t know which majority that was, we know that
+it exists because we know that R2 did pick blue, and we assume fair play.</p>
+<hr>
+<p>That’s all for today, that’s the trick that makes consensus click, in the abstract. In a full
+distributed system the situation is more complicated. Each participant only sees its own row, the
+board as a whole remains concealed. Participants can learn something about others’ state by
+communicating, but the knowledge isn’t strongly anchored at time. By the time a response is received
+the answer could as well be obsolete. And yet, the above birds-eye view can be implemented in a few
+exchanges of messages.</p>
+<p>Please see the
+<a href="https://matklad.github.io/2020/11/01/notes-on-paxos.html"><em>Notes</em></a>
+for further details.</p>
+</section>
+]]></content></entry><entry
+  ><title type="text">JJ LSP Follow Up</title><link
+      href="https://matklad.github.io/2026/03/05/jj-lsp-followup.html"
+      rel="alternate"
+      type="text/html"
+      title="JJ LSP Follow Up"
+    /><published>2026-03-05T00:00:00+00:00</published><updated
+    >2026-03-05T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/03/05/jj-lsp-followup</id><author><name
+      >Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[In Majjit LSP, I described an idea of implementing Magit style UX for jj once and for all, leveraging LSP protocol. I've learned today that the upcoming 3.18 version of LSP has a feature to make this massively less hacky: Text Document Content Request]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/03/05/jj-lsp-followup.html"
+    ><![CDATA[
+<header>
+  <h1>JJ LSP Follow Up</h1>
+  <time class="meta" datetime="2026-03-05">Mar 5, 2026</time>
+</header>
+<p>In <a href="https://matklad.github.io/2024/12/13/majjit-lsp.html"><em>Majjit LSP</em></a>, I described an idea of
+implementing <a href="https://magit.vc">Magit</a> style UX for <a href="https://www.jj-vcs.dev">jj</a> once and for all, leveraging
+LSP protocol. I’ve learned today that the upcoming 3.18 version of LSP has a feature to make this
+massively less hacky:
+<a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.18/specification/#workspace_textDocumentContent" class="display"><em>Text Document Content Request</em></a></p>
+<p>LSP can now provide virtual documents, which aren’t actually materialized on disk. So this:</p>
+
+<figure>
+
+<img alt="" src="https://github.com/user-attachments/assets/f65cedf9-5fa8-4506-b8bb-2e55e1ee1913" width="856" height="620">
+</figure>
+<p>can now be such a virtual document, where highlighting is provided by semantic tokens, things like
+“check out this commit” are code actions, and “goto definition” jumps from the diff in the virtual
+file to a real file in the working tree.</p>
+<p>Exciting!</p>
+]]></content></entry><entry
+  ><title type="text">Against Query Based Compilers</title><link
+      href="https://matklad.github.io/2026/02/25/against-query-based-compilers.html"
+      rel="alternate"
+      type="text/html"
+      title="Against Query Based Compilers"
+    /><published>2026-02-25T00:00:00+00:00</published><updated
+    >2026-02-25T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/02/25/against-query-based-compilers</id><author
+    ><name>Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[Query based compilers are all the rage these days, so it feels only appropriate to chart some treacherous shoals in those waters.]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/02/25/against-query-based-compilers.html"
+    ><![CDATA[
+<header>
+  <h1>Against Query Based Compilers</h1>
+  <time class="meta" datetime="2026-02-25">Feb 25, 2026</time>
+</header>
+<p><a href="https://thunderseethe.dev/posts/compiler-education-deserves-a-revoluation/">Query based compilers are all the rage</a>
+these days, so it feels only appropriate to chart some treacherous shoals in those waters.</p>
+<p>A query-based compiler is a straightforward application of the idea of incremental computations to,
+you guessed it, compiling. A compiler is just a simple text transformation program, implemented as a
+lot of functions. You could visualize a <em>run</em> of a compiler on a particular input source code as a
+graph of function calls:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-02-25-against-query-based-compilers/1.svg">
+</figure>
+<p>Here, schematically, squares are inputs like file text or compiler’s command line arguments, <code>g</code> is
+an intermediate function (e.g, type checking), which is called twice, with different arguments, and
+<code>f</code> and <code>h</code> are top-level functions (compile executable, or compute completions for LSP).</p>
+<p>Looking at this picture, it’s obvious how to make our compiler “incremental” — if an input changes,
+it’s enough to re-compute only the results on path from the changed input to the root “query”:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-02-25-against-query-based-compilers/2.svg">
+</figure>
+<p>A little more thinking, and you can derive “early cutoff” optimization:</p>
+
+<figure>
+
+<img alt="" src="/assets/2026-02-25-against-query-based-compilers/3.svg">
+</figure>
+<p>If an input to the function changes, but its result doesn’t (e.g, function type is not affected by
+whitespace change), you can stop change propagation early.</p>
+<p>And that’s … basically it. The beauty of the scheme is its silvery-bullety hue — it can be
+applied without thinking to any computation, and, with a touch of meta programming, you won’t even
+have to change code of the compiler significantly.</p>
+<p><a href="https://simon.peytonjones.org/assets/pdfs/build-systems-jfp.pdf"><em>Build Systems à la Carte</em></a> is the
+canonical paper to read here. In a build system, a query is an opaque process whose inputs and
+outputs are file. In a query-based compiler, queries are just functions.</p>
+<hr>
+<p>The reason why we want this in the first place is incremental compilation — in IDE context
+specifically, the compiler needs to react to a stream of tiny edits, and its time budget is about
+100ms. Big-O thinking is useful here: the time to react to the change should be proportional to the
+size of the change, and not the overall size of the codebase. O(1) change leads to O(1) update
+of the O(N) codebase.</p>
+<p>Similar big-O thinking also demonstrates the principal limitation of the scheme — the update work
+can’t be smaller than the change in the result.</p>
+<p>An example. Suppose our “compiler” makes a phrase upper-case:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line">compile(&quot;hello world&quot;) == &quot;HELLO WORLD&quot;</span></code></pre>
+
+</figure>
+<p>This is easy to incrementalize, as changing a few letters in the input changes only a few letters in
+the output:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line">compile(&quot;hallo world&quot;) == &quot;HALLO WORLD&quot;</span></code></pre>
+
+</figure>
+<p>But suppose now our “compiler” is a hashing or encryption function:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line">compile(&quot;hello world&quot;) == &quot;a948904f2f0&quot;</span>
+<span class="line">compile(&quot;hallo world&quot;) == &quot;a7336983eca&quot;</span></code></pre>
+
+</figure>
+<p>This is provably impossible to make usefully incremental. The encryption <em>can</em> be implemented
+as a graph of function calls, and you <em>can</em> apply the general incremental recipe to it. It just
+won’t be very fast.</p>
+<p>The reason for that is the avalanche property — for good encryption, a change in any bit of input
+should flip roughly half of the bits of the output. So just the work of changing the output
+(completely ignoring the work to compute what needs to be changed) is O(N), not O(1).</p>
+
+<figure class="blockquote">
+<blockquote><p>The effectiveness of query-based compiler is limited by
+the dependency structure of the source language.</p>
+</blockquote>
+
+</figure>
+<p>A particularly nasty effect here is that even if you have only <em>potential</em> avalanche, where a
+certain kind of change <em>could</em> affect large fraction of the output, even if it usually doesn’t, your
+incremental engine likely will spend some CPU time or memory to confirm the absence of dependency.</p>
+<hr>
+<p>In my</p>
+<p><span class="display"><a href="https://rust-analyzer.github.io/blog/2020/07/20/three-architectures-for-responsive-ide.html"><em>Three Architectures For Responsive IDE</em></a>,</span>
+query-based compilation is presented as a third, fall-back option. I still think that that’s
+basically true: as a language designer, I think it’s worth listening to your inner
+<a href="https://grugbrain.dev">Grug</a> and push the need for queries as far down the compilation pipeline as
+possible, sticking to more direct approaches. <em>Not</em> doing queries is simpler, faster, and simpler to
+make faster (profiling a query-based compiler is a special genre of hurdle racing).</p>
+<p>Zig and Rust provide for a nice comparison. In Zig, every file can be parsed completely in
+isolation, so compilation starts by parsing all files independently and in parallel. Because in Zig
+every name needs to be explicitly declared (there’s no <code>use *</code>), name resolution also can run on a
+per-file basis, without queries. Zig goes even further, and directly converts untyped AST into IR,
+emitting a whole bunch of errors in the process (e.g, “<code>var</code> doesn’t need to be mutable”). See
+<span class="display"><a href="https://mitchellh.com/zig/astgen"><em>Zig AstGen: AST =&gt; ZIR</em></a></span>
+for details. By the time compiler gets to tracked queries, the data it has to work with is already
+pretty far from the raw source code, but only because Zig <em>language</em> is carefully designed to allow
+this.</p>
+<p>In contrast, you can’t really parse a file in Rust. Rust macros generate new source code, so parsing
+can’t be finished until all the macros are expanded. Expanding macros requires name resolution,
+which, in Rust, is a crate-wide, rather than a file-wide operation. Its a fundamental property of
+the language that typing something in <code>a.rs</code> can change parsing results for <code>b.rs</code>, and that forces
+fine-grained dependency tracking and invalidation to the very beginning of the front-end.</p>
+<p>Similarly, the nature of the trait system is such that <code>impl</code> blocks relevant to a particular method
+call can be found almost anywhere. For every trait method call, you get a dependency on the <code>impl</code>
+block that supplies the implementation, but you <em>also</em> get a dependency on non-existence of
+conflicting <code>impl</code>s in every other file!</p>
+<p>Again, refer to the
+<a href="https://rust-analyzer.github.io/blog/2020/07/20/three-architectures-for-responsive-ide.html"><em>Three Architectures</em></a>
+for positive ideas, but the general trick is to leverage language semantics to manually cut the
+compilation tasks into somewhat coarse-grained chunks which are independent by definition (of the
+source language). Grug builds an incremental map-reduce compiler for his language:</p>
+<ul>
+<li>
+<p>Recursive directory walk finds all files to be compiled.</p>
+</li>
+<li>
+<p>In parallel, independently, each file is parsed, name-resolved, and lowered. As much as possible,
+language features (and errors) are syntax driven and not type driven, and can be processed at this
+stage.</p>
+</li>
+<li>
+<p>In parallel, a “summary” is extracted from each file, which is essentially just a list of types
+and signatures, with function bodies empty.</p>
+</li>
+<li>
+<p>Sequentially, a “signature evaluation” phase is run on this set of summaries, which turns type
+references in signatures into actual types, dealing with mutual dependencies between files. This
+phase is re-run whenever a summary of a file changes. Conversely, changes to the body of any
+function do not invalidate resolved signatures.</p>
+</li>
+<li>
+<p>In parallel, every function’s body is type-checked, and lowered to type-and-layout resolved IR,
+applying function-local optimizations.</p>
+</li>
+<li>
+<p>Sequentially, a thin-lto style set of analyses are run on compiled functions, making inlining
+decisions and computing call-graph dependent attributes like function purity.</p>
+</li>
+<li>
+<p>In parallel, each function is codegened to machine code with unresolved references to other
+functions (relocations).</p>
+</li>
+<li>
+<p>Sequentially, functions are concatenated into an executable file, receiving an address.</p>
+</li>
+<li>
+<p>In parallel, all relocations are resolved to now known addresses.</p>
+</li>
+</ul>
+<p>The above scheme works only if the language has a property that changing the body of function <code>foo</code>
+(not touching its signature) can’t introduce type errors into an unrelated function <code>bar</code>.</p>
+<hr>
+<p>Another trick that becomes less available if you blindly apply queries are in-place updates.
+Consider a language with package declarations and fully qualified names, like Kotlin:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">package</span> org.example</span>
+<span class="line"></span>
+<span class="line"><span class="hl-function"><span class="hl-keyword">fun</span> <span class="hl-title">printMessage</span><span class="hl-params">()</span></span> { <span class="hl-comment">/*...*/</span> }</span>
+<span class="line"><span class="hl-keyword">class</span> <span class="hl-title class_">Message</span> { <span class="hl-comment">/*...*/</span> }</span></code></pre>
+
+</figure>
+<p>A compiler for this language probably wants to maintain a map of all public declarations, where the
+keys are fully qualified names, and values are declarations themselves. If you approach the problem
+of computing this map with query eyes, you might have a base per-file query that returns a map of
+file’s declarations, and then a recursive per-directory query. And you’ll probably have some kind of
+structural sharing of the maps, such that changing a single file updates only the “spine”, without
+actually copying most of the other entries.</p>
+<p>But there’s a more direct way to make this sort of structure responsive to changes. You need only
+two “queries” — per file, and global. When a file changes, you look at the <em>previous</em> version of
+the map for this file, compute a diff of added or removed declarations, and then apply this diff to
+the global map.</p>
+<p>Zig is planning to use a similar approach to incrementalize linking — rather than producing a new
+binary gluing mostly unchanged chunks of machine code, the idea is to in-place patch the previous
+binary.</p>
+<hr>
+<p>If you like this article, you might be interested in some other adjacent stuff I’ve written over the
+years, roughly in the order of importance:</p>
+<ul>
+<li>
+<a href="https://rust-analyzer.github.io/blog/2020/07/20/three-architectures-for-responsive-ide.html">Three Architectures for a Responsive IDE</a>
+</li>
+<li>
+<a href="https://rust-analyzer.github.io/blog/2023/07/24/durable-incrementality.html">Durable Incrementality</a>
+</li>
+<li>
+<a href="https://matklad.github.io/2023/05/06/zig-language-server-and-cancellation.html">Zig Language Server And Cancellation</a>
+</li>
+<li>
+<a href="https://matklad.github.io/2023/05/21/resilient-ll-parsing-tutorial.html">Resilient LL Parsing Tutorial</a>
+</li>
+<li>
+<a href="https://rust-analyzer.github.io/blog/2019/11/13/find-usages.html">Find Usages</a>
+</li>
+<li>
+<a href="https://rust-analyzer.github.io/blog/2023/12/26/the-heart-of-a-language-server.html">The Heart of a Language Server</a>
+</li>
+<li>
+<a href="https://rust-analyzer.github.io/blog/2020/09/28/how-to-make-a-light-bulb.html">How to Make a 💡?</a>
+</li>
+<li>
+<a href="https://matklad.github.io/2023/10/12/lsp-could-have-been-better.html">LSP could have been better</a>
+</li>
+<li>
+<a href="https://matklad.github.io/2023/08/01/on-modularity-of-lexical-analysis.html">On Modularity of Lexical Analysis</a>
+</li>
+<li>
+<a href="https://matklad.github.io/2020/11/11/yde.html">Why an IDE?</a>
+</li>
+</ul>
+]]></content></entry><entry
+  ><title type="text">Wrapping Code Comments</title><link
+      href="https://matklad.github.io/2026/02/21/wrapping-code-comments.html"
+      rel="alternate"
+      type="text/html"
+      title="Wrapping Code Comments"
+    /><published>2026-02-21T00:00:00+00:00</published><updated
+    >2026-02-21T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/02/21/wrapping-code-comments</id><author
+    ><name>Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[I was today years old when I realized that:]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/02/21/wrapping-code-comments.html"
+    ><![CDATA[
+<header>
+  <h1>Wrapping Code Comments</h1>
+  <time class="meta" datetime="2026-02-21">Feb 21, 2026</time>
+</header>
+<p>I was today years old when I realized that:</p>
+<ul>
+<li>
+Code and code comments ideally should be wrapped to a different column.
+</li>
+<li>
+For comments, the width should be relative to the start of the comment.
+</li>
+</ul>
+<p>It’s a good idea to limit line length to about 100 columns. This is a physical limit, the width at
+which you can still comfortably fit two editors side by side (see
+<a href="https://matklad.github.io/2025/11/28/size-matters.html"><em>Size Matters</em></a>). Note an apparent
+contradiction: the optimal width for readable prose is usually taken to be narrower, 60–70 columns.
+The contradiction is resolved by noticing that, for code, indentation eats into usable space.
+Typically, code is much less typographically dense than prose.</p>
+<p>Still, I find comment blocks easier to read when they are  wrapped narrower than the surrounding
+code. I want lines to be wrapped at 100, and <em>content</em> of comments to be wrapped at 70 (unless that
+pushes overall line to be longer than 100). That is, I want layout like this (using 20/30 rulers
+instead of 70/100, for illustrative purposes):</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-comment">// Top level comments</span></span>
+<span class="line"><span class="hl-comment">// can be this wide.</span></span>
+<span class="line"><span class="hl-keyword">const</span> S = <span class="hl-keyword">struct</span> {</span>
+<span class="line">    <span class="hl-comment">// Nested comments are</span></span>
+<span class="line">    <span class="hl-comment">// also this wide, but</span></span>
+<span class="line">    <span class="hl-comment">// are shifted right.</span></span>
+<span class="line">    <span class="hl-keyword">fn</span><span class="hl-function"> f</span>() <span class="hl-type">void</span> {</span>
+<span class="line">        <span class="hl-keyword">switch</span> (value) {</span>
+<span class="line">            <span class="hl-numbers">0</span> =&gt; {</span>
+<span class="line">                <span class="hl-comment">// But there is</span></span>
+<span class="line">                <span class="hl-comment">// a hard limit.</span></span>
+<span class="line">            }</span>
+<span class="line">        }</span>
+<span class="line">    }</span>
+<span class="line">}</span></code></pre>
+
+</figure>
+<p>This feels obvious in retrospect, but notably isn’t be well-supported by the tools? The
+<a href="https://marketplace.visualstudio.com/items?itemName=stkb.rewrap">VS Code extension</a> I use allows
+configuring dedicated fill column for comments, but doesn’t make it <em>relative</em>, so indented comment
+blocks are always narrower than top-level ones. Emacs <code>M-q</code> also doesn’t do relative wrapping out of
+the box!</p>
+<hr>
+<p>Aside on hard-wrapping: should we bother with wrapping comments at all? Can’t we rely on our editor
+to implement soft-wrapping? The problem with soft-wrapping is that you can’t soft-wrap text
+correctly without understanding its meaning. Consider a markdown list:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line">A list:</span>
+<span class="line">  * item one,</span>
+<span class="line">  * item two.</span></code></pre>
+
+</figure>
+<p>If the first item is long enough to necessitate wrapping, the wrapped line should also be indented,
+which requires parsing the text as markdown first:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line">A list:</span>
+<span class="line">  * item one which is long enough</span>
+<span class="line">    necessitate wrapping,</span>
+<span class="line">  * item two.</span></code></pre>
+
+</figure>
+]]></content></entry><entry
+  ><title type="text">Diagnostics Factory</title><link
+      href="https://matklad.github.io/2026/02/16/diagnostics-factory.html"
+      rel="alternate"
+      type="text/html"
+      title="Diagnostics Factory"
+    /><published>2026-02-16T00:00:00+00:00</published><updated
+    >2026-02-16T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/02/16/diagnostics-factory</id><author><name
+      >Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[In Error Codes For Control Flow, I explained that Zig's strongly-typed error codes solve the handling half of error management, leaving reporting to the users. Today, I want to describe my personal default approach to the reporting problem, that is, showing the user a useful error message.]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/02/16/diagnostics-factory.html"
+    ><![CDATA[
+<header>
+  <h1>Diagnostics Factory</h1>
+  <time class="meta" datetime="2026-02-16">Feb 16, 2026</time>
+</header>
+<p>In
+<span class="display"><a href="https://matklad.github.io/2025/11/06/error-codes-for-control-flow.html"><em>Error Codes For Control Flow</em></a>,</span>
+I explained that Zig’s strongly-typed error codes solve the “handling” half of error management,
+leaving “reporting” to the users. Today, I want to describe my personal default approach to
+the reporting problem, that is, showing the user a useful error message.</p>
+<p>The approach is best described in the negative: <em>avoid</em> thinking about error payloads, and what
+the type of error should be. Instead, provide a set of functions for constructing errors.</p>
+<p>To give a concrete example, in TigerBeetle’s
+<a href="https://github.com/tigerbeetle/tigerbeetle/blob/0.16.73/src/tidy.zig#L54-L188"><code>tidy.zig</code></a>
+(a project-specific linting script, another useful meta-pattern), we define errors as follows:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">const</span> Errors = <span class="hl-keyword">struct</span> {</span>
+<span class="line">    <span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span><span class="hl-function"> add_long_line</span>(</span>
+<span class="line">        errors: <span class="hl-operator">*</span>Errors,</span>
+<span class="line">        file: SourceFile,</span>
+<span class="line">        line_index: <span class="hl-type">usize</span>,</span>
+<span class="line">    ) <span class="hl-type">void</span> { ... }</span>
+<span class="line"></span>
+<span class="line">    <span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span><span class="hl-function"> add_banned</span>(</span>
+<span class="line">        errors: <span class="hl-operator">*</span>Errors,</span>
+<span class="line">        file: SourceFile,</span>
+<span class="line">        offset: <span class="hl-type">usize</span>,</span>
+<span class="line">        banned_item: []<span class="hl-keyword">const</span> <span class="hl-type">u8</span>,</span>
+<span class="line">        replacement: []<span class="hl-keyword">const</span> <span class="hl-type">u8</span>,</span>
+<span class="line">    ) <span class="hl-type">void</span> { ... }</span>
+<span class="line"></span>
+<span class="line">    <span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span><span class="hl-function"> add_dead_declaration</span>(...) <span class="hl-type">void</span> { ... }</span>
+<span class="line"></span>
+<span class="line">    ...</span>
+<span class="line">};</span></code></pre>
+
+</figure>
+<p>and the call-site looks like this:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">fn</span><span class="hl-function"> tidy_file</span>(file: SourceFile, errors: <span class="hl-operator">*</span>Errors) <span class="hl-type">void</span> {</span>
+<span class="line">    <span class="hl-comment">// ...</span></span>
+<span class="line">    <span class="hl-keyword">var</span> line_index: <span class="hl-type">usize</span> = <span class="hl-numbers">0</span>;</span>
+<span class="line">    <span class="hl-keyword">while</span> (lines.next()) <span class="hl-operator">|</span>line<span class="hl-operator">|</span> : (line_index <span class="hl-operator">+=</span> <span class="hl-numbers">1</span>) {</span>
+<span class="line">        <span class="hl-keyword">const</span> line_length = line_length(line);</span>
+<span class="line">        <span class="hl-keyword">if</span> (line_length &gt; <span class="hl-numbers">100</span> <span class="hl-keyword">and</span> <span class="hl-operator">!</span>contains_url(line)) {</span>
+<span class="line">            errors.add_long_line(file, line_index);</span>
+<span class="line">        }</span>
+<span class="line">    }</span>
+<span class="line">}</span></code></pre>
+
+</figure>
+<p>In this case, I collect multiple errors so I don’t return right away. Fail fast would look like
+this:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line">errors.add_long_line(file, line_index);</span>
+<span class="line"><span class="hl-keyword">return</span> <span class="hl-keyword">error</span>.Tidy;</span></code></pre>
+
+</figure>
+<p>Note that the error code is intentionally independent of the specific error produced.</p>
+<hr>
+<p>Some interesting properties of the solution:</p>
+<ul>
+<li>
+The error representation is a set of constructor functions, the calling code doesn’t care what
+<em>actually</em> happens inside. This is why the error factory is my <em>default</em> solution — I don’t have
+to figure out up-front what I’ll do with the errors, and I can change my mind later.
+</li>
+<li>
+There’s a natural place to convert information from the form available at the place where we emit
+the error to a form useful for the user. In <code>add_banned</code> above, the caller passes in a absolute
+offset in a file, and it is resolved to line number and column inside (tip: use <code>line_index</code> for
+0-based internal indexes, and <code>line_number</code> for user-visible 1-based ones). Contrast this with a
+traditional error as sum-type approach, where there’s a sharp syntactic discontinuity between
+constructing a variant directly and calling a helper function.
+</li>
+<li>
+This syntactic uniformity in turn allows easily grepping for all error locations:
+<span class="display"><code>rg 'errors.add_'</code>.</span>
+</li>
+<li>
+Similarly, there’s one central place that enumerates all possible errors (which is either a
+benefit or a drawback).
+</li>
+</ul>
+<p>A less trivial property is that this structure enables polymorphism. In fact, in the <code>tidy.zig</code>
+code, there are two different representations of errors. When running the script, errors are
+directly emitted to stderr. But when testing it, errors are collected into an in-memory buffer:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span><span class="hl-function"> add_banned</span>(</span>
+<span class="line">    errors: <span class="hl-operator">*</span>Errors,</span>
+<span class="line">    file: SourceFile,</span>
+<span class="line">    offset: <span class="hl-type">usize</span>,</span>
+<span class="line">    banned_item: []<span class="hl-keyword">const</span> <span class="hl-type">u8</span>,</span>
+<span class="line">    replacement: []<span class="hl-keyword">const</span> <span class="hl-type">u8</span>,</span>
+<span class="line">) <span class="hl-type">void</span> {</span>
+<span class="line">    errors.emit(</span>
+<span class="line">        <span class="hl-string">&quot;{s}:{d}: error: {s} is banned, use {s}<span class="hl-string">\n</span>&quot;</span>,</span>
+<span class="line">        .{</span>
+<span class="line">            file.path, file.line_number(offset),</span>
+<span class="line">            banned_item, replacement,</span>
+<span class="line">        },</span>
+<span class="line">    );</span>
+<span class="line">}</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">fn</span><span class="hl-function"> emit</span>(</span>
+<span class="line">    errors: <span class="hl-operator">*</span>Errors,</span>
+<span class="line">    <span class="hl-keyword">comptime</span> fmt: []<span class="hl-keyword">const</span> <span class="hl-type">u8</span>,</span>
+<span class="line">    args: <span class="hl-type">anytype</span>,</span>
+<span class="line">) <span class="hl-type">void</span> {</span>
+<span class="line">    <span class="hl-keyword">comptime</span> assert(fmt[fmt.len <span class="hl-operator">-</span> <span class="hl-numbers">1</span>] <span class="hl-operator">==</span> <span class="hl-string">&#x27;<span class="hl-string">\n</span>&#x27;</span>);</span>
+<span class="line">    errors.count <span class="hl-operator">+=</span> <span class="hl-numbers">1</span>;</span>
+<span class="line">    <span class="hl-keyword">if</span> (errors.captured) <span class="hl-operator">|</span><span class="hl-operator">*</span>captured<span class="hl-operator">|</span> {</span>
+<span class="line">        captured.writer(errors.gpa).print(fmt, args)</span>
+<span class="line">            <span class="hl-keyword">catch</span> <span class="hl-built_in">@panic</span>(<span class="hl-string">&quot;OOM&quot;</span>);</span>
+<span class="line">    } <span class="hl-keyword">else</span> {</span>
+<span class="line">        std.debug.print(fmt, args);</span>
+<span class="line">    }</span>
+<span class="line">}</span></code></pre>
+
+</figure>
+<p>There isn’t a giant <code>union(enum)</code> of all errors, because it’s not needed for the present use-case.</p>
+<p>This pattern can be further extended to a full-fledged diagnostics framework with error builders,
+spans, ANSI colors and such, but that is tangential to the main idea here: even when “programming in
+the small”, it might be a good idea to avoid constructing enums directly, and mandate an
+intermediate function call.</p>
+<hr>
+<p>Two more meta observations here:</p>
+<p><em>First</em>, the entire pattern is of course the expression of duality between a sum of two types and a
+product of two functions (the visitor pattern)</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">fn</span> <span class="hl-title function_">foo</span>() <span class="hl-punctuation">-&gt;</span> <span class="hl-type">Result</span>&lt;T, E&gt;;</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">fn</span> <span class="hl-title function_">bar</span>(ok: <span class="hl-keyword">impl</span> <span class="hl-title class_">FnOnce</span>(T), err: <span class="hl-keyword">impl</span> <span class="hl-title class_">FnOnce</span>(E));</span></code></pre>
+
+</figure>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">enum</span> <span class="hl-title class_">Result</span>&lt;T, E&gt; {</span>
+<span class="line">    <span class="hl-title function_ invoke__">Ok</span>(T),</span>
+<span class="line">    <span class="hl-title function_ invoke__">Err</span>(E),</span>
+<span class="line">}</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">trait</span> <span class="hl-title class_">Result</span>&lt;T, E&gt; {</span>
+<span class="line">    <span class="hl-keyword">fn</span> <span class="hl-title function_">ok</span>(<span class="hl-keyword">self</span>, T);</span>
+<span class="line">    <span class="hl-keyword">fn</span> <span class="hl-title function_">err</span>(<span class="hl-keyword">self</span>, E);</span>
+<span class="line">}</span></code></pre>
+
+</figure>
+<p><em>Second</em>, every abstraction is a thin film separating two large bodies of code. Any interface has
+two sides, the familiar one presented to the user, and the other, hidden one, presented to the
+implementor. Often, default language machinery pushes you towards using the same construct for both
+but that can be suboptimal. It’s natural for the user and the provider of the abstraction to
+disagree on the optimal interface, and to evolve independently. Using a single big enum for errors
+couples error emitting and error reporting code, as they have to meet in the middle. In contrast,
+the factory solution is optimal for producer (they literally just pass whatever they already have on
+hand, without any extra massaging of data), and is flexible for consumer(s).</p>
+]]></content></entry><entry
+  ><title type="text">Justifying text-wrap: pretty</title><link
+      href="https://matklad.github.io/2026/02/14/justifying-text-wrap-pretty.html"
+      rel="alternate"
+      type="text/html"
+      title="Justifying text-wrap: pretty"
+    /><published>2026-02-14T00:00:00+00:00</published><updated
+    >2026-02-14T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/02/14/justifying-text-wrap-pretty</id><author
+    ><name>Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[Something truly monumental happened in the world of software development in 2025. Safari shipped a reasonable implementation of text-wrap: pretty: https://webkit.org/blog/16547/better-typography-with-text-wrap-pretty/. We are getting closer and closer to the cutting-edge XV-century technology. Beautiful paragraphs!]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/02/14/justifying-text-wrap-pretty.html"
+    ><![CDATA[
+<header>
+  <h1>Justifying text-wrap: pretty</h1>
+  <time class="meta" datetime="2026-02-14">Feb 14, 2026</time>
+</header>
+<style>
+p { text-wrap: pretty; }
+</style>
+<p>Something truly monumental happened in the world of software development in 2025. Safari shipped a
+reasonable implementation of <code>text-wrap: pretty</code>:
+<span class="display"><a href="https://webkit.org/blog/16547/better-typography-with-text-wrap-pretty/" class="url">https://webkit.org/blog/16547/better-typography-with-text-wrap-pretty/</a>.</span> We are getting
+closer and closer to the cutting-edge XV-century technology. Beautiful paragraphs!</p>
+
+<figure>
+
+<img alt="Gutenberg bible Old Testament Epistle of St Jerome" src="https://upload.wikimedia.org/wikipedia/commons/2/27/Gutenberg_bible_Old_Testament_Epistle_of_St_Jerome.jpg" width="2009" height="2877">
+</figure>
+<p>We are not quite there yet, hence the present bug report.</p>
+<hr>
+<p>A naive way to break text into lines to form a paragraph of a given width is greediness: add the
+next word to the current line if it fits, otherwise start a new line. The result is unlikely to be
+pretty — sometimes it makes sense to try to squeeze one more word on a line to make the lines more
+balanced overall. Johannes Gutenberg did this sort of thing manually, to produce a beautiful page
+above. In 1981, Knuth and Plass figured out a way to teach computers to do this, using dynamic
+programming, for line breaking in TeX.</p>
+<p>Inexplicably, until 2025, browsers stuck with the naive greedy algorithm, subjecting generations of
+web users to ugly typography. To be fair, the problem in a browser is harder version than the one
+solved by Gutenberg, Plass, and Knuth. In print, the size of the page is fixed, so you can compute
+optimal line breaking once, offline. In the web context, the window width is arbitrary and even
+changes dynamically, so the line-breaking has to be “online”. On the other hand, XXI century
+browsers have a bit more compute resources than we had in 1980 or even 1450!</p>
+<hr>
+<p>Making lines approximately equal in terms of number of characters is only half-way through towards a
+beautiful paragraph. No matter how you try, the length won’t be exactly the same, so, if you want
+both the left and the right edges of the page to be aligned, you also need to fudge the spaces
+between the words a bit. In CSS,
+<span class="display"><code>text-wrap: pretty</code></span>
+asks the browser to select line breaks in an intelligent way to make lines roughly equal, and
+<span class="display"><code>text-align: justify</code></span>
+adjusts whitespace to make them equal exactly.</p>
+<p>Although Safari is the first browser to ship a non-joke implementation of <code>text-wrap</code>, the
+combination with <code>text-align</code> looks ugly, as you can see in this very blog post. To pin the ugliness
+down, the whitespace between the words is blown out of proportion. Here’s the same justified
+paragraph with and without <code>text-wrap: pretty</code>:</p>
+<figure class="two-col">
+    <img alt="" width="375" height="202" style="max-width: 40%; border: 1px solid black;"
+        src="https://github.com/user-attachments/assets/adf77eec-9e33-4900-b761-23a604892b2f">
+    <img alt="" width="375" height="202" style="max-width: 40%; border: 1px solid black;"
+        src="https://github.com/user-attachments/assets/75a7e7a8-0d34-448a-877c-4368567fe598">
+</figure>
+<p>The paragraph happens to look ok with greedy line-breaking. But the “smart” algorithm decides to add
+an entire line to it, which requires inflating all the white space proportionally. By itself, either
+of</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-selector-tag">p</span> {</span>
+<span class="line">    text-wrap: pretty;</span>
+<span class="line">    <span class="hl-attribute">text-align</span>: justify;</span>
+<span class="line">}</span></code></pre>
+
+</figure>
+<p>looks alright. It’s just the combination of the two that is broken.</p>
+<hr>
+<p>This behavior is a natural consequence of implementation. My understanding is that the dynamic
+programming scoring function aims to get each line close to the target width, and is penalized for
+deviations. Crucially, the actual max width of a paragraph is fixed: while a line can be arbitrary
+shorter, it can’t be any longer, otherwise it’ll overflow. For this reason, the dynamic programming
+sets the target width to be a touch narrower than the paragraph. That way, it’s possible to both
+under and overshoot, leading to better balance overall. As per
+<a href="https://webkit.org/blog/16547/better-typography-with-text-wrap-pretty/#:~:text=And%20here’s%20how%20the%20same%20text%20looks">original article</a>:</p>
+
+<figure class="blockquote">
+<blockquote><p>The browser aims to wrap each line sooner than the maximum limit of the text box. It wraps
+within the range, definitely after the magenta line, and definitely before the red line.</p>
+
+<figure>
+
+<img alt="" src="https://webkit.org/wp-content/uploads/demo-2-light.png" width="1728" height="1099">
+</figure>
+</blockquote>
+
+</figure>
+<p>But if you subsequently justify all the way to the red line, the systematic overshoot will manifest
+itself as too wide inter-word space!</p>
+<p>WebKit devs, you are awesome for shipping this feature ahead of everyone else, please fix this small
+wrinkle such that I can make my blog look the way I had intended all along ;-)</p>
+]]></content></entry><entry
+  ><title type="text">Programming Aphorisms</title><link
+      href="https://matklad.github.io/2026/02/11/programming-aphorisms.html"
+      rel="alternate"
+      type="text/html"
+      title="Programming Aphorisms"
+    /><published>2026-02-11T00:00:00+00:00</published><updated
+    >2026-02-11T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/02/11/programming-aphorisms</id><author
+    ><name>Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[A meta programming post --- looking at my thought process when coding and trying to pin down what is programming knowledge. Turns out, a significant fraction of that is just reducing new problems to a vocabulary of known tricks. This is a personal, descriptive post, not a prescriptive post for you.]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/02/11/programming-aphorisms.html"
+    ><![CDATA[
+<header>
+  <h1>Programming Aphorisms</h1>
+  <time class="meta" datetime="2026-02-11">Feb 11, 2026</time>
+</header>
+<p>A meta programming post — looking at my thought process when coding and trying to pin down what is
+programming “knowledge”. Turns out, a significant fraction of that is just reducing new problems to
+a vocabulary of known tricks. This is a personal, descriptive post, not a prescriptive post for you.</p>
+<p>It starts with a question posted on Ziggit. The background here is that Zig is in the process of
+removing ambient IO capabilities. Currently, you can access program environment from anywhere via
+<span class="display"><code>std.process.getEnvVarOwned</code>.</span>
+In the next Zig version, you’ll have to thread
+<span class="display"><code>std.process.Environ.Map</code></span>
+from main down to every routine that needs access to the environment. In this user’s case, they have
+a <code>readHistory</code> function which used to look up the path to the history file in the environment, and
+they are wondering how to best model that in the new Zig. The options on the table are:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span><span class="hl-function"> readHistory</span>(</span>
+<span class="line">    io: std.Io,</span>
+<span class="line">    alloc: Allocator,</span>
+<span class="line">    file: std.Io.File,</span>
+<span class="line">) ReadHistoryError<span class="hl-operator">!</span><span class="hl-type">void</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span><span class="hl-function"> readHistory</span>(</span>
+<span class="line">    io: std.Io,</span>
+<span class="line">    alloc: Allocator,</span>
+<span class="line">    maybe_environ_map: ?<span class="hl-operator">*</span>std.process.Environ.Map,</span>
+<span class="line">) ReadHistoryError<span class="hl-operator">!</span><span class="hl-type">void</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span><span class="hl-function"> readHistory</span>(</span>
+<span class="line">    io: std.Io,</span>
+<span class="line">    alloc: Allocator,</span>
+<span class="line">    maybe_absolute_path: ?[]<span class="hl-keyword">const</span> <span class="hl-type">u8</span>,</span>
+<span class="line">    maybe_environ_map: ?<span class="hl-operator">*</span>std.process.Environ.Map,</span>
+<span class="line">) ReadHistoryError<span class="hl-operator">!</span><span class="hl-type">void</span>;</span></code></pre>
+
+</figure>
+<p>My starting point would instead be this:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">pub</span> <span class="hl-keyword">const</span> HistoryOptions = <span class="hl-keyword">struct</span> {</span>
+<span class="line">    file: []<span class="hl-keyword">const</span> <span class="hl-type">u8</span>,</span>
+<span class="line"></span>
+<span class="line">    <span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span><span class="hl-function"> from_environment</span>(</span>
+<span class="line">        environment: <span class="hl-operator">*</span><span class="hl-keyword">const</span> std.process.Environ.Map,</span>
+<span class="line">    ) HistoryOptions;</span>
+<span class="line">};</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span><span class="hl-function"> readHistory</span>(</span>
+<span class="line">    io: std.Io,</span>
+<span class="line">    gpa: Allocator,</span>
+<span class="line">    options: HistoryOptions,</span>
+<span class="line">) ReadHistoryError<span class="hl-operator">!</span><span class="hl-type">void</span>;</span></code></pre>
+
+</figure>
+<p>In terms of meta programming, what I find fascinating is that this, for me, is both immediate (I
+don’t have to think about it), but also is clearly decomposable into multiple factoids I’ve
+accumulated before. Here’s a deconstruction of what I did here, the verbal “labels” I use to think
+about what I did, and where I had learned to do that:</p>
+<p><em>First</em>, I “raised the abstraction level” by giving <em>it</em> a name and a type (<code>HistoryOptions</code>). This
+is a rare transformation which I learned and named myself. Naming is important for my thinking and
+communicating process. “Let’s raise abstraction level” is a staple code review comment of mine.</p>
+<p><em>Second</em>, I avoided “midlayer mistake” by making sure that every aspect of options is
+user-configurable. Easy to do in Zig, where all fields are public. I learned about
+<a href="https://lwn.net/Articles/336262/">midlayer mistake</a> from a GitHub comment by
+<a href="https://joshtriplett.org">Josh Triplett</a>.</p>
+<p><em>Third</em>, I provided a “shortcut”, the
+<span class="display"><code>from_environment</code></span>
+convenience function that cuts across abstraction layers. I learned the “shortcut” aphorism from
+<a href="https://spookylukey.github.io/django-views-the-right-way/detail-view.html#discussion-layering-violations-shortcuts-vs-mixins"><em>Django Views — The Right Way</em>.</a>
+Germane to the present article, I read that post a decade after I had touched Django the last time.
+It was useless to me on the object level. On the meta level, reading the article solidified and
+<em>named</em> several programming tricks for me. See reverberations in
+<a href="https://rust-analyzer.github.io/blog/2020/09/28/how-to-make-a-light-bulb.html"><em>How to Make a 💡?</em>.</a></p>
+<p><em>Fourth</em>, I instinctively renamed <code>alloc</code> to “gpa” (in opposition to “arena”), the naming I spotted
+in the Zig compiler.</p>
+<p><em>Fifth</em>, I named the configuration parameter “options”, not <code>config</code>, <code>props</code> or <code>params</code>, a naming
+scheme I learned at TigerBeetle.</p>
+<p><em>Sixth</em>, I made sure that the signature follows “positional DI” scheme. Arguments that are
+dependencies, resources with unique types are injected positionally (and have canonical names like
+<code>io</code> or <code>gpa</code>). Arguments that <em>directly</em> vary the behavior of function (as opposed to affecting
+transitive callees) are passed by name, in the <code>Options</code> struct.</p>
+<p>To be specific, I don’t claim that my snippet is the right way to do this! I have no idea, as I
+don’t have access to the full context. Rather, if I were <em>actually</em> solving the problem, the snippet
+above would be my initial starting point for further iteration.</p>
+<p>Note that I also don’t explain <em>why</em> I am doing the above six things, I only name them and point at
+the origin. Actually explaining the <em>why</em> would take a blog post of its own for every one of them.</p>
+<p>And this is I think the key property of my thought process — I have a bag of tricks, where the
+tricks are named. Inside my mind, this label points both to the actual trick (code to type),
+as well as a justification for it (in what context that would be a good trick to use).</p>
+<p>And I use these tricks all the time, literally! Just answering in passing to a forum comment makes
+me grab a handful! A lot of my knowledge is structured like a book of coding aphorisms.</p>
+<hr>
+<p>Meta meta — how come I have acquired all those tricks? I read voraciously, random commits, issues,
+jumping enthusiastically into rabbit holes and going on wiki trips. The key skill here is
+recognizing an aphorism once you see it. Reading Ziggit is part of trick-acquisition routine for
+me. Having learned the trick, I remember it, where “remembering” is an act of active recall at the
+opportune moment. This recall powers “horizontal gene transfer” across domains, stealing shortcuts
+from Django and midlayer mistake from the kernel. Did you notice that applying “horizontal gene
+transfer” to the domain of software engineering tacit knowledge is horizontal gene transfer? When
+entering a new domain, I actively seek out the missing tricks. I am relatively recent in Zig, but
+all the above tricks are either Zig native, or at least Zig adapted. Every once in a while, I
+“invent” a trick of my own. For example, “positional DI” is something I only verbalized last year.
+This doesn’t mean I hadn’t been doing that before, just that the activity wasn’t mentally labeled as
+a separate thing you can deliberately do. I had the idea, now I also have an aphorism.</p>
+]]></content></entry><entry
+  ><title type="text">CI In a Box</title><link
+      href="https://matklad.github.io/2026/02/06/ci-in-a-box.html"
+      rel="alternate"
+      type="text/html"
+      title="CI In a Box"
+    /><published>2026-02-06T00:00:00+00:00</published><updated
+    >2026-02-06T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/02/06/ci-in-a-box</id><author><name
+      >Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[I wrote box, a thin wrapper around ssh for running commands on remote machines. I want a box-shaped interface for CI:]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/02/06/ci-in-a-box.html"
+    ><![CDATA[
+<header>
+  <h1>CI In a Box</h1>
+  <time class="meta" datetime="2026-02-06">Feb 6, 2026</time>
+</header>
+<p>I wrote <a href="https://matklad.github.io/2026/01/20/vibecoding-2.html"><code>box</code></a>, a thin wrapper around ssh
+for running commands on remote machines. I want a box-shaped interface for CI:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">const</span> repository = <span class="hl-string">&quot;git@forge.com/me/my-project&quot;</span>;</span>
+<span class="line"><span class="hl-keyword">const</span> commit_sha = <span class="hl-title class_">Deno</span>.<span class="hl-property">env</span>[<span class="hl-string">&quot;COMMIT&quot;</span>];</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">const</span> runners = <span class="hl-keyword">await</span> <span class="hl-title class_">Promise</span>.<span class="hl-title function_">all</span>(</span>
+<span class="line">    [<span class="hl-string">&quot;windows-latest&quot;</span>, <span class="hl-string">&quot;mac-latest&quot;</span>, <span class="hl-string">&quot;linux-latest&quot;</span>]</span>
+<span class="line">        .<span class="hl-title function_">map</span>(<span class="hl-function">(<span class="hl-params">os</span>) =&gt;</span> $<span class="hl-string">`box create <span class="hl-subst">${os}</span>`</span>)</span>
+<span class="line">);</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">await</span> <span class="hl-title class_">Promise</span>.<span class="hl-title function_">all</span>(runners.<span class="hl-title function_">map</span>(<span class="hl-keyword">async</span> ($runner) =&gt; {</span>
+<span class="line">    <span class="hl-keyword">await</span> $<span class="hl-string">`box run <span class="hl-subst">${runner}</span></span></span>
+<span class="line"><span class="hl-string">        git clone <span class="hl-subst">${repository}</span> .`</span>;</span>
+<span class="line"></span>
+<span class="line">    <span class="hl-keyword">await</span> $<span class="hl-string">`box run <span class="hl-subst">${runner}</span></span></span>
+<span class="line"><span class="hl-string">        git switch --detach <span class="hl-subst">${commit_sha}</span>`</span>;</span>
+<span class="line"></span>
+<span class="line">    <span class="hl-keyword">await</span> $<span class="hl-string">`box run <span class="hl-subst">${runner}</span></span></span>
+<span class="line"><span class="hl-string">        ./zig/download.ps1`</span>;</span>
+<span class="line"></span>
+<span class="line">    <span class="hl-keyword">await</span> $<span class="hl-string">`box run <span class="hl-subst">${runner}</span></span></span>
+<span class="line"><span class="hl-string">        ./zig/zig build test`</span>;</span>
+<span class="line">}));</span></code></pre>
+
+</figure>
+<p>That is, the controlling CI machine runs a user-supplied script, whose status code will be the
+ultimate result of a CI run. The script doesn’t run the project’s tests directly. Instead, it shells out
+to a proxy binary that forwards the command to a runner box with whichever OS, CPU, and other
+environment required.</p>
+<p>The hard problems are in the
+<span class="display"><code>["windows-latest", "mac-latest", "linux-latest"]</code></span>
+part:</p>
+<ul>
+<li>
+One of them is not UNIX.
+</li>
+<li>
+One of them has licensing&amp;hardware constraints that make per-minute billed VMs tricky (but not
+impossible, as GitHub Actions does that).
+</li>
+<li>
+All of them are moving targets, and require <em>someone</em> to do the OS upgrade work, which
+<a href="https://www.azabani.com/2025/12/18/shoestring-web-engine-ci.html#:~:text=have%20to%20be-,done%20by%20hand,-.%20And%20this%20is">might involve pointing and clicking</a>.
+</li>
+</ul>
+<p>CI discourse amuses me — everyone complains about bad YAML, and it <em>is</em> bad, but most of the
+YAML (and associated reproducibility and debugging problems) is avoidable. Pick an appropriate
+position on a dial that includes</p>
+<ul>
+<li>
+writing a bash script,
+</li>
+<li>
+writing a script
+<a href="https://www.teamten.com/lawrence/writings/java-for-everything.html">in the language you already use</a>,
+</li>
+<li>
+using a
+<a href="https://neugierig.org/software/blog/2026/01/smallest-build-system.html">small build system</a>,
+</li>
+<li>
+using a medium-sized one like <code>make</code> or <code>zig build</code>, or
+</li>
+<li>
+using a large one like <code>nix</code> or <code>buck2</code>.
+</li>
+</ul>
+<p>What you can’t just do by writing a smidgen of text is getting the heterogeneous fleet of runners.
+And you need heterogeneous fleet of runners if some of the software you are building is
+cross-platform.</p>
+<hr>
+<p>If you go that way, be mindful that</p>
+
+<figure class="blockquote">
+<blockquote><p>The SSH wire protocol only takes a single string as the command, with the expectation that it
+should be passed to a shell by the remote end.</p>
+</blockquote>
+<figcaption><cite><a href="https://www.chiark.greenend.org.uk/~cjwatson/blog/ssh-quoting.html">Colin Watson on SSH quoting</a></cite></figcaption>
+</figure>
+<p>In other words, while SSH supports syntax like
+<span class="display"><code>ssh $HOST cmd arg1 arg2</code>,</span>
+it just blindly intersperses all arguments with a space. Amusing to think that our entire cloud
+infrastructure is built on top of <a href="https://matklad.github.io/2021/07/30/shell-injection.html">shell injection</a>!</p>
+<p>This, and the need to ensure no processes are left behind unintentionally after executing a remote
+command, means that you can’t “just” use SSH here if you are building something solid.</p>
+]]></content></entry><entry
+  ><title type="text">make.ts</title><link
+      href="https://matklad.github.io/2026/01/27/make-ts.html"
+      rel="alternate"
+      type="text/html"
+      title="make.ts"
+    /><published>2026-01-27T00:00:00+00:00</published><updated
+    >2026-01-27T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/01/27/make-ts</id><author><name
+      >Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[Up Enter Up Up Enter Up Up Up Enter]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/01/27/make-ts.html"
+    ><![CDATA[
+<header>
+  <h1>make.ts</h1>
+  <time class="meta" datetime="2026-01-27">Jan 27, 2026</time>
+</header>
+<p><kbd><kbd>Up Enter</kbd></kbd> <kbd><kbd>Up Up Enter</kbd></kbd> <kbd><kbd>Up Up Up Enter</kbd></kbd></p>
+<p>Sounds familiar? This is how I historically have been running benchmarks and other experiments
+requiring a repeated sequence of commands — type them manually once, then rely on shell history
+(and maybe some terminal splits) for reproduction. These past few years I’ve arrived at a much better
+workflow pattern — <code>make.ts</code>. I was forced to adapt it once I started working with multiprocess
+applications, where manually entering commands is borderline infeasible. In retrospect, I should
+have adapted the workflow years earlier.</p>
+<section id="The-Pattern">
+
+<h2><a href="#The-Pattern">The Pattern</a></h2>
+<p>Use a (gitignored) file for interactive scripting. Instead of entering a command directly into the
+terminal, write it to a file first, and then run the file. For me, I type stuff into <code>make.ts</code> and
+then run <code>./make.ts</code> in my terminal (Ok, I need <em>one</em> <kbd><kbd>Up Enter</kbd></kbd> for that).</p>
+<p>I want to be clear here, I am not advocating writing “proper” scripts, just capturing your
+interactive, ad-hoc command to a persistent file. Of course any command that you want to execute
+<em>repeatedly</em> belongs to the build system. The surprising thing is that even more complex one-off
+commands benefit from running through file, because it will take you several tries to get them
+right!</p>
+<p>There are many benefits relative to <kbd><kbd>Up Up Up</kbd></kbd> workflow:</p>
+<ul>
+<li>
+Real commands tend to get large, and it is so much nicer to use a real 2D text editor rather than
+shell’s line editor.
+</li>
+<li>
+If you need more than one command, you can write several commands, and still run them all with a
+single key (before <code>make.ts</code>, I was prone to constructing rather horrific &amp;&amp; conjuncts for this
+reason).
+</li>
+<li>
+With a sequence of command outlined, you nudge yourself towards incrementally improving them,
+making them idempotent, and otherwise investing into your own workflow for the next few minutes,
+without falling into the YAGNI pit from the outset.
+</li>
+<li>
+At some point you might realize after, say, running a series of ad-hoc benchmarks interactively,
+that you’d rather write a proper script which executes a collection of benchmarks with varying
+parameters. With the file approach, you already have the meat of the script implemented, and you
+only need to wrap in a couple of fors and ifs.
+</li>
+<li>
+Finally, if you happen to work with multi-process projects, you’ll find it easier to manage
+concurrency declaratively, spawning a tree of processes from a single script, rather than
+switching between terminal splits.
+</li>
+</ul>
+</section>
+<section id="Details">
+
+<h2><a href="#Details">Details</a></h2>
+<p>Use a consistent filename for the script. I use <code>make.ts</code>, and so there’s a <code>make.ts</code> in the root
+of most projects I work on. Correspondingly, I have <code>make.ts</code> line in project’s <code>.git/info/exclude</code>
+— the <code>.gitignore</code> file which is not shared. The fixed name reduces fixed costs — whenever I
+need complex interactivity I don’t need to come up with a name for a new file, I open my
+pre-existing <code>make.ts</code>, wipe whatever was there and start hacking. Similarly, I have <code>./make.ts</code> in
+my shell history, so
+<a href="https://fishshell.com/docs/current/interactive.html#autosuggestions">fish autosuggestions</a>
+work for me. At one point, I had a VS Code task to run <code>make.ts</code>, though I now use
+<a href="https://matklad.github.io/2025/08/31/vibe-coding-terminal-editor.html">terminal editor</a>.</p>
+<p>Start the script with hash bang,
+<span class="display"><code>#!/usr/bin/env -S deno run --allow-all</code></span>
+in my case, and
+<span class="display"><code>chmod a+x make.ts</code></span>
+the file, to make it easy to run.</p>
+<p>Write the script in a language that:</p>
+<ul>
+<li>
+you are comfortable with,
+</li>
+<li>
+doesn’t require huge setup,
+</li>
+<li>
+makes it easy to spawn subprocesses,
+</li>
+<li>
+has good support for concurrency.
+</li>
+</ul>
+<p>For me, that is TypeScript. Modern JavaScript is sufficiently ergonomic, and structural, gradual
+typing is a sweet spot that gives you reasonable code completion, but still allows brute-forcing any
+problem by throwing enough stringly dicts at it.</p>
+<p>JavaScript’s tagged template syntax is brilliant for scripting use-cases:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">function</span> <span class="hl-title function_">$</span>(<span class="hl-params">literal, ...interpolated</span>) {</span>
+<span class="line">  <span class="hl-variable language_">console</span>.<span class="hl-title function_">log</span>({ literal, interpolated });</span>
+<span class="line">}</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">const</span> dir = <span class="hl-string">&quot;hello, world&quot;</span>;</span>
+<span class="line">$<span class="hl-string">`ls <span class="hl-subst">${dir}</span>`</span>;</span></code></pre>
+
+</figure>
+<p>prints</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-punctuation">{</span></span>
+<span class="line">    literal<span class="hl-punctuation">:</span> <span class="hl-punctuation">[</span> <span class="hl-string">&quot;ls &quot;</span><span class="hl-punctuation">,</span> <span class="hl-string">&quot;&quot;</span> <span class="hl-punctuation">]</span><span class="hl-punctuation">,</span></span>
+<span class="line">    interpolated<span class="hl-punctuation">:</span> <span class="hl-punctuation">[</span> <span class="hl-string">&quot;hello, world&quot;</span> <span class="hl-punctuation">]</span></span>
+<span class="line"><span class="hl-punctuation">}</span></span></code></pre>
+
+</figure>
+<p>What happens here is that <code>$</code> gets a list of literal string fragments inside the backticks, and
+then, separately, a list of values to be interpolated in-between. It <em>could</em> concatenate everything
+to just a single string, but it doesn’t have to. This is precisely what is required for process
+spawning, where you want to pass an array of strings to the <code>exec</code> syscall.</p>
+<p>Specifically, I use <a href="https://github.com/dsherret/dax">dax</a> library with Deno, which is excellent as
+a single-binary batteries-included scripting environment
+(see <a href="https://matklad.github.io/2023/02/12/a-love-letter-to-deno.html">&lt;3 Deno</a>). Bun has a dax-like
+library in the box and is a good alternative (though I personally stick with Deno because of
+<code>deno fmt</code> and <code>deno lsp</code>). You could also use famous zx, though be mindful that it
+<a href="https://google.github.io/zx/configuration#shell">uses your shell as a middleman</a>, something I
+consider to be sloppy (<a href="https://julialang.org/blog/2012/03/shelling-out-sucks/">explanation</a>).</p>
+<p>While <code>dax</code> makes it convenient to spawn a single program, <code>async/await</code> is excellent for herding a
+slither of processes:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">await</span> <span class="hl-title class_">Promise</span>.<span class="hl-title function_">all</span>([</span>
+<span class="line">    $<span class="hl-string">`sleep 5`</span>,</span>
+<span class="line">    $<span class="hl-string">`sleep 10`</span>,</span>
+<span class="line">]);</span></code></pre>
+
+</figure>
+</section>
+<section id="Concrete-Example">
+
+<h2><a href="#Concrete-Example">Concrete Example</a></h2>
+<p>Here’s how I applied this pattern earlier today. I wanted to measure how TigerBeetle cluster
+recovers from the crash of the primary. The manual way to do that would be to create a bunch of ssh
+sessions for several cloud machines, format datafiles, start replicas, and then create some load. I
+<em>almost</em> started to split my terminal up, but then figured out I can do it the smart way.</p>
+<p>The first step was cross-compiling the binary, uploading it to the cloud machines, and running the
+cluster
+(using my <a href="https://matklad.github.io/2026/01/20/vibecoding-2.html">box</a> from the other week):</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-meta">#!/usr/bin/env -S deno run --allow-all</span></span>
+<span class="line"><span class="hl-keyword">import</span> $ <span class="hl-keyword">from</span> <span class="hl-string">&quot;jsr:@david/dax@0.44.2&quot;</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`./zig/zig build -Drelease -Dtarget=x86_64-linux`</span>;</span>
+<span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`box sync 0-5 ./tigerbeetle`</span>;</span>
+<span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`box run 0-5</span></span>
+<span class="line"><span class="hl-string">    ./tigerbeetle format --cluster=0 --replica-count=6 --replica=?? 0_??.tigerbeetle`</span>;</span>
+<span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`box run 0-5</span></span>
+<span class="line"><span class="hl-string">    ./tigerbeetle start --addresses=?0-5? 0_??.tigerbeetle`</span>;</span></code></pre>
+
+</figure>
+<p>Running the above the second time, I realized that I need to kill the old cluster first, so two new
+commands are “interactively” inserted:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`./zig/zig build -Drelease -Dtarget=x86_64-linux`</span>;</span>
+<span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`box sync 0-5 ./tigerbeetle`</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`box run 0-5 rm 0_??.tigerbeetle`</span>.<span class="hl-title function_">noThrow</span>();</span>
+<span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`box run 0-5 pkill tigerbeetle`</span>.<span class="hl-title function_">noThrow</span>();</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`box run 0-5</span></span>
+<span class="line"><span class="hl-string">    ./tigerbeetle format --cluster=0 --replica-count=6 --replica=?? 0_??.tigerbeetle`</span>;</span>
+<span class="line"><span class="hl-keyword">await</span> $<span class="hl-string">`box run 0-5</span></span>
+<span class="line"><span class="hl-string">    ./tigerbeetle start --addresses=?0-5? 0_??.tigerbeetle`</span>;</span></code></pre>
+
+</figure>
+<p>At this point, my investment in writing this file and not just entering the commands one-by-one
+already paid off!</p>
+<p>The next step is to run the benchmark load in parallel with the cluster:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">await</span> <span class="hl-title class_">Promise</span>.<span class="hl-title function_">all</span>([</span>
+<span class="line">    $<span class="hl-string">`box run 0-5 ./tigerbeetle start     --addresses=?0-5? 0_??.tigerbeetle`</span>,</span>
+<span class="line">    $<span class="hl-string">`box run 6   ./tigerbeetle benchmark --addresses=?0-5?`</span>,</span>
+<span class="line">])</span></code></pre>
+
+</figure>
+<p>I don’t need two terminals for two processes, and I get to copy-paste-edit the mostly same command.</p>
+<p>For the next step, I actually want to kill one of the replicas, and I also want to capture live
+logs, to see in real-time how the cluster reacts. This is where <code>0-5</code> multiplexing syntax of box
+falls short, but, given that this is JavaScript, I can just write a for loop:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">const</span> replicas = <span class="hl-title function_">range</span>(<span class="hl-number">6</span>).<span class="hl-title function_">map</span>(<span class="hl-function">(<span class="hl-params">it</span>) =&gt;</span></span>
+<span class="line">    $<span class="hl-string">`box run <span class="hl-subst">${it}</span></span></span>
+<span class="line"><span class="hl-string">        ./tigerbeetle start --addresses=?0-5? 0_??.tigerbeetle</span></span>
+<span class="line"><span class="hl-string">        &amp;&gt; logs/<span class="hl-subst">${it}</span>.log`</span></span>
+<span class="line">        .<span class="hl-title function_">noThrow</span>()</span>
+<span class="line">        .<span class="hl-title function_">spawn</span>()</span>
+<span class="line">);</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">await</span> <span class="hl-title class_">Promise</span>.<span class="hl-title function_">all</span>([</span>
+<span class="line">    $<span class="hl-string">`box run 6 ./tigerbeetle benchmark --addresses=?0-5?`</span>,</span>
+<span class="line">    (<span class="hl-keyword">async</span> () =&gt; {</span>
+<span class="line">        <span class="hl-keyword">await</span> $.<span class="hl-title function_">sleep</span>(<span class="hl-string">&quot;20s&quot;</span>);</span>
+<span class="line">        <span class="hl-variable language_">console</span>.<span class="hl-title function_">log</span>(<span class="hl-string">&quot;REDRUM&quot;</span>);</span>
+<span class="line">        <span class="hl-keyword">await</span> $<span class="hl-string">`box run 1 pkill tigerbeetle`</span>;</span>
+<span class="line">    })(),</span>
+<span class="line">]);</span>
+<span class="line"></span>
+<span class="line">replicas.<span class="hl-title function_">forEach</span>(<span class="hl-function">(<span class="hl-params">it</span>) =&gt;</span> it.<span class="hl-title function_">kill</span>());</span>
+<span class="line"><span class="hl-keyword">await</span> <span class="hl-title class_">Promise</span>.<span class="hl-title function_">all</span>(replicas);</span></code></pre>
+
+</figure>
+<p>At this point, I do need two terminals. One runs <code>./make.ts</code> and shows the log from the benchmark
+itself, the other runs <code>tail -f logs/2.log</code> to watch the next replica to become primary.</p>
+<p>I have definitelly crossed the line where writing a script makes sense, but the neat thing is that
+the gradual evolution up to this point. There isn’t a discontinuity where I need to spend 15
+minutes trying to shape various ad-hoc commands from five terminals into a single coherent script, it
+was in the file to begin with.</p>
+<p>And then the script is easy to evolve. Once you realize that it’s a good idea to also run the same
+benchmark against a different, baseline version TigerBeetle, you replace <code>./tigerbeetle</code> with
+<code>./${tigerbeetle}</code> and wrap everything into</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">async</span> <span class="hl-keyword">function</span> <span class="hl-title function_">benchmark</span>(<span class="hl-params">tigerbeetle: <span class="hl-built_in">string</span></span>) {</span>
+<span class="line">    <span class="hl-comment">// ...</span></span>
+<span class="line">}</span>
+<span class="line"></span>
+<span class="line"><span class="hl-keyword">const</span> tigerbeetle = <span class="hl-title class_">Deno</span>.<span class="hl-property">args</span>[<span class="hl-number">0</span>]</span>
+<span class="line"><span class="hl-keyword">await</span> <span class="hl-title function_">benchmark</span>(tigerbeetle);</span></code></pre>
+
+</figure>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-title function_">$</span> ./make.ts tigerbeetle-baseline</span>
+<span class="line"><span class="hl-title function_">$</span> ./make.ts tigerbeetle</span></code></pre>
+
+</figure>
+<p>A bit more hacking, and you end up with a repeatable benchmark schedule for a matrix of parameters:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">for</span> (<span class="hl-keyword">const</span> attempt <span class="hl-keyword">of</span> [<span class="hl-number">0</span>, <span class="hl-number">1</span>])</span>
+<span class="line"><span class="hl-keyword">for</span> (<span class="hl-keyword">const</span> tigerbeetle <span class="hl-keyword">of</span> [<span class="hl-string">&quot;baseline&quot;</span>, <span class="hl-string">&quot;tigerbeetle&quot;</span>])</span>
+<span class="line"><span class="hl-keyword">for</span> (<span class="hl-keyword">const</span> mode <span class="hl-keyword">of</span> [<span class="hl-string">&quot;normal&quot;</span>, <span class="hl-string">&quot;viewchange&quot;</span>]) {</span>
+<span class="line">    <span class="hl-keyword">const</span> results = $.<span class="hl-title function_">path</span>(</span>
+<span class="line">        <span class="hl-string">`./results/<span class="hl-subst">${tigerbeetle}</span>-<span class="hl-subst">${mode}</span>-<span class="hl-subst">${attempt}</span>`</span>,</span>
+<span class="line">    );</span>
+<span class="line">    <span class="hl-keyword">await</span> <span class="hl-title function_">benchmark</span>(tigerbeetle, mode, results);</span>
+<span class="line">}</span></code></pre>
+
+</figure>
+<p>That’s the gist of it. Don’t let the shell history be your source, capture it into the file first!</p>
+</section>
+]]></content></entry><entry
+  ><title type="text">Considering Strictly Monotonic Time</title><link
+      href="https://matklad.github.io/2026/01/23/strictly-monotonic-time.html"
+      rel="alternate"
+      type="text/html"
+      title="Considering Strictly Monotonic Time"
+    /><published>2026-01-23T00:00:00+00:00</published><updated
+    >2026-01-23T00:00:00+00:00</updated><id
+    >https://matklad.github.io/2026/01/23/strictly-monotonic-time</id><author
+    ><name>Alex Kladov</name></author><summary
+      type="html"
+    ><![CDATA[Monotonic time is a frequently used, load bearing abstraction. Monotonicity is often enforced using the following code:]]></summary><content
+      type="html"
+      xml:base="https://matklad.github.io/2026/01/23/strictly-monotonic-time.html"
+    ><![CDATA[
+<header>
+  <h1>Considering Strictly Monotonic Time</h1>
+  <time class="meta" datetime="2026-01-23">Jan 23, 2026</time>
+</header>
+<p>Monotonic time is a frequently used, load bearing abstraction. Monotonicity is often enforced using
+the following code:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">fn</span><span class="hl-function"> now</span>(clock: <span class="hl-operator">*</span>Clock) Instant {</span>
+<span class="line">    <span class="hl-keyword">const</span> t_raw = os_time_monotonic();</span>
+<span class="line"></span>
+<span class="line">    <span class="hl-keyword">const</span> t = <span class="hl-built_in">@max</span>(t_raw, clock.guard);</span>
+<span class="line">    assert(t &gt;= clock.guard);</span>
+<span class="line">    assert(t &gt;= t_raw);</span>
+<span class="line"></span>
+<span class="line">    clock.guard = t;</span>
+<span class="line">    <span class="hl-keyword">return</span> t;</span>
+<span class="line">}</span></code></pre>
+
+</figure>
+<p>That is, ask the OS about the current monotonic time, but don’t trust the result too much and clamp
+it using an in-process guard. Under normal scenarios, you can trust the OS promise of monotonicity,
+but, empirically, there’s a long tail of different scenarios where the promise isn’t upheld:
+<a href="https://github.com/rust-lang/rust/pull/56988" class="display url">https://github.com/rust-lang/rust/pull/56988</a></p>
+<p>Today I realized that, if you are doing the above, you might as well force the time to be <em>strictly</em>
+monotonic:</p>
+
+<figure class="code-block">
+
+
+<pre><code><span class="line"><span class="hl-keyword">const</span> t = <span class="hl-built_in">@max</span>(t_raw, clock.guard <span class="hl-operator">+</span> 1ns);</span>
+<span class="line">assert(t &gt; clock.guard);</span></code></pre>
+
+</figure>
+<p>The benefit of strict monotonicity is that you can tighten asserts,
+<span class="display"><code>assert(past &lt;= present)</code></span>
+can become
+<span class="display"><code>assert(past &lt; present)</code></span>
+and that <em>additionally</em> catches the bug where you pass in <em>exactly</em> the same instance.
+In other words, the <code>&lt;=</code> version explicitly allows either query-ing the time again, or using the old
+value directly.</p>
+<p>Conversely, with strictly monotonic time, you know that if you see two numerically identical time
+instances, they must have been ultimately derived from the exact same call to <code>now()</code>. Time becomes
+fundamentally less ambiguous.</p>
+<p>The constraint here is that the resolution of the time value (<em>not</em> the clock resolution) needs to
+be high enough, to make sure that repeated <code>+1</code> don’t move you into the future, but nanosecond
+precision seems fine for that.</p>
+]]></content></entry></feed>

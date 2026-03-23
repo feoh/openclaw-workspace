@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
+  <channel>
+    <title>Kagi Blog</title>
+    <link>https://blog.kagi.com/</link>
+    <description>Kagi is creating a novel search engine and a web browser. Read tales from Kagi on this blog.</description>
+    <generator>kagi-blog-v2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Mar 2026 12:00:50 GMT</lastBuildDate>
+    <atom:link href="https://blog.kagi.com/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://icons.feedercdn.com/kagi.com</url>
+      <title>Kagi Blog</title>
+      <link>https://blog.kagi.com/</link>
+      <width>32</width>
+      <height>32</height>
+    </image>
+    <webfeeds:icon>https://icons.feedercdn.com/kagi.com</webfeeds:icon>
+    <webfeeds:logo>https://icons.feedercdn.com/kagi.com</webfeeds:logo>
+    <item>
+      <title>Small Web Just Got Bigger</title>
+      <link>https://blog.kagi.com/small-web-updates</link>
+      <guid isPermaLink="false">kagi-blog-post-13</guid>
+      <pubDate>Thu, 12 Mar 2026 12:00:50 GMT</pubDate>
+      <description>Small Web, the non-commercial part of the internet made by real people, has always been at the heart of what we do at Kagi. Today, we&#39;re adding to the Small Web experience with new browser extensions,...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi Translate Arrives on Mobile</title>
+      <link>https://blog.kagi.com/kagi-translate-mobile</link>
+      <guid isPermaLink="false">kagi-blog-post-1</guid>
+      <pubDate>Tue, 03 Feb 2026 12:00:31 GMT</pubDate>
+      <description>Kagi Translate is now available as an app for Android and iOS! The mobile release brings the same high-quality, customizable, and private translations of Kagi Translate to your smartphone, making it easy to translate voice, text,...</description>
+      <category>Announcements</category>
+    </item>
+    <item>
+      <title>Waiting for dawn in search: Search index, Google rulings and impact on Kagi</title>
+      <link>https://blog.kagi.com/waiting-dawn-search</link>
+      <guid isPermaLink="false">kagi-blog-post-2</guid>
+      <pubDate>Wed, 21 Jan 2026 12:00:48 GMT</pubDate>
+      <description>This blog post is a follow-up to Dawn of a new era in Search, published last year. A lot has changed: the legal case has advanced, AI has become the central battleground, and the need for...</description>
+      <category>Perspectives</category>
+    </item>
+    <item>
+      <title>Orion 1.0 ✴︎ Browse Beyond</title>
+      <link>https://blog.kagi.com/orion</link>
+      <guid isPermaLink="false">kagi-blog-post-3</guid>
+      <pubDate>Tue, 25 Nov 2025 12:00:45 GMT</pubDate>
+      <description>After six years of relentless development, Orion for MacOS 1.0 is here. What started as a vision initiated by our founder, Vladimir Prelovac, has now come to fruition on Mac, iPhone, and iPad. Today, Orion for...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi Hub Belgrade: A home base for Kagi members worldwide</title>
+      <link>https://blog.kagi.com/kagi-hub</link>
+      <guid isPermaLink="false">kagi-blog-post-14</guid>
+      <pubDate>Fri, 21 Nov 2025 12:00:31 GMT</pubDate>
+      <description>We’re excited to announce that Kagi Hub Belgrade is now open! Our first office doubles as a free coworking space for all Kagi members. Reservations will be available from December 15th, and you can make your...</description>
+      <category>Community</category>
+    </item>
+    <item>
+      <title>Introducing Kagi Assistants</title>
+      <link>https://blog.kagi.com/kagi-assistants</link>
+      <guid isPermaLink="false">kagi-blog-post-15</guid>
+      <pubDate>Thu, 20 Nov 2025 12:00:02 GMT</pubDate>
+      <description>TL;DR Today we&#39;re releasing two research assistants: Quick Assistant and Research Assistant (previously named Ki during beta). Kagi&#39;s Research Assistant happened to top a popular benchmark (SimpleQA) when we ran it in August 2025. This was...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>LLMs are bullshitters. But that doesn&#39;t mean they&#39;re not useful.</title>
+      <link>https://blog.kagi.com/llms</link>
+      <guid isPermaLink="false">kagi-blog-post-4</guid>
+      <pubDate>Wed, 19 Nov 2025 12:00:04 GMT</pubDate>
+      <description>Note: This is a personal essay by Matt Ranger, Kagi&#39;s head of ML In 1986, Harry Frankfurt wrote On Bullshit. He differentiates a lying from bullshitting: Lying means you have a concept of what is true,...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Introducing SlopStop: Community-driven AI slop detection in Kagi Search</title>
+      <link>https://blog.kagi.com/slopstop</link>
+      <guid isPermaLink="false">kagi-blog-post-16</guid>
+      <pubDate>Wed, 12 Nov 2025 12:00:14 GMT</pubDate>
+      <description>Your collective defense against AI-generated spam and content farms We made it our mission to prevent the web from becoming useless and a harmful space. That’s why today, Kagi Search introduces the first community-driven system to...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Introducing Kagi News</title>
+      <link>https://blog.kagi.com/kagi-news</link>
+      <guid isPermaLink="false">kagi-blog-post-17</guid>
+      <pubDate>Tue, 30 Sep 2025 12:00:34 GMT</pubDate>
+      <description>A comprehensive daily press review with global news. Fully private, with sources openly curated by our community. News is broken. We all know it, but we&#39;ve somehow accepted it as inevitable. The endless notifications. The clickbait...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Building a Better Web Takes a Village: Introducing Kagi Specials</title>
+      <link>https://blog.kagi.com/kagi-specials</link>
+      <guid isPermaLink="false">kagi-blog-post-18</guid>
+      <pubDate>Wed, 03 Sep 2025 12:00:29 GMT</pubDate>
+      <description>Our curation of privacy-first projects worth knowing and supporting Nothing excites us more than bringing together people who believe the web should respect its users and put their interests first. At a time where it feels...</description>
+      <category>Community</category>
+    </item>
+    <item>
+      <title>The many benefits of paying for search</title>
+      <link>https://blog.kagi.com/the-many-benefits-of-paying-for-search</link>
+      <guid isPermaLink="false">kagi-blog-post-19</guid>
+      <pubDate>Mon, 18 Aug 2025 12:00:02 GMT</pubDate>
+      <description>&quot;Wait, you PAY for search?&quot; We get this reaction a lot about Kagi. And honestly? We’re not surprised. For 25+ years, we&#39;ve all been trained to think search should be free. But here&#39;s the thing: free...</description>
+      <category>Guides</category>
+    </item>
+    <item>
+      <title>Celebrating 50K users with Kagi free search portal, Kagi for libraries, and more...</title>
+      <link>https://blog.kagi.com/50K</link>
+      <guid isPermaLink="false">kagi-blog-post-20</guid>
+      <pubDate>Mon, 09 Jun 2025 12:00:50 GMT</pubDate>
+      <description>Just last week, we celebrated three years since Kagi was launched. We shared our vision and roadmap with you and this week, we are already at the next milestone - Kagi reaching 50,000 members! We reached...</description>
+      <category>Announcements</category>
+    </item>
+    <item>
+      <title>Kagi status update: First three years</title>
+      <link>https://blog.kagi.com/first-three-years</link>
+      <guid isPermaLink="false">kagi-blog-post-21</guid>
+      <pubDate>Mon, 02 Jun 2025 12:00:42 GMT</pubDate>
+      <description>Three years ago, Kagi officially launched with a splash on popular technology forum Hacker News (to which we are eternally grateful for helping put Kagi on the map). The top comment in the thread said: I&#39;ve...</description>
+      <category>Company</category>
+    </item>
+    <item>
+      <title>Kagi Assistant is now available to all users!</title>
+      <link>https://blog.kagi.com/assistant-for-all</link>
+      <guid isPermaLink="false">kagi-blog-post-22</guid>
+      <pubDate>Thu, 17 Apr 2025 12:00:57 GMT</pubDate>
+      <description>At Kagi, our mission is simple: to humanise the web. We want to deliver a search experience that prioritises human needs, allowing you to explore the web effectively, privately, and without manipulation. We evaluate new technologies...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Introducing Privacy Pass authentication for Kagi Search</title>
+      <link>https://blog.kagi.com/kagi-privacy-pass</link>
+      <guid isPermaLink="false">kagi-blog-post-23</guid>
+      <pubDate>Thu, 13 Feb 2025 12:00:10 GMT</pubDate>
+      <description>Today we are announcing a new privacy feature coming to Kagi Search. Privacy Pass is an authentication protocol first introduced by Davidson et al., in [1], and recently standardized by the IETF as RFCs [2—4]. Our...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi for Teams</title>
+      <link>https://blog.kagi.com/kagi-teams</link>
+      <guid isPermaLink="false">kagi-blog-post-24</guid>
+      <pubDate>Thu, 05 Dec 2024 12:00:29 GMT</pubDate>
+      <description>To satisfy the growing demand for our services in work environments, we are launching Kagi for Teams - bringing our unmatched quality, privacy-focused search and AI tools to businesses worldwide. While most enterprise tools force you...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi Translate - We speak your language</title>
+      <link>https://blog.kagi.com/kagi-translate</link>
+      <guid isPermaLink="false">kagi-blog-post-25</guid>
+      <pubDate>Thu, 07 Nov 2024 12:00:27 GMT</pubDate>
+      <description>Today, we&#39;re introducing Kagi Translate. It&#39;s not revolutionary - it&#39;s simply a better translation service. Our combination of advanced language models and precise output selection delivers translations that surpass existing solutions, including Google Translate and DeepL....</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi Swag Store</title>
+      <link>https://blog.kagi.com/mountains-of-cotton</link>
+      <guid isPermaLink="false">kagi-blog-post-26</guid>
+      <pubDate>Fri, 06 Sep 2024 12:00:17 GMT</pubDate>
+      <description>Dear Kagi Community, Remember those t-shirts we promised? Well, hold onto your search bars, because they’re finally ready to ship! TL;DR: Kagi Store. And let’s just say, the journey to get here...</description>
+      <category>Company</category>
+    </item>
+    <item>
+      <title>Announcing The Assistant</title>
+      <link>https://blog.kagi.com/announcing-assistant</link>
+      <guid isPermaLink="false">kagi-blog-post-27</guid>
+      <pubDate>Wed, 04 Sep 2024 12:00:10 GMT</pubDate>
+      <description>Yes, the rumours are true! Kagi has been thoughtfully integrating AI into...</description>
+      <category>Announcements</category>
+    </item>
+    <item>
+      <title>Dawn of a new era in Search: Balancing innovation, competition, and public good</title>
+      <link>https://blog.kagi.com/dawn-new-era-search</link>
+      <guid isPermaLink="false">kagi-blog-post-28</guid>
+      <pubDate>Thu, 29 Aug 2024 12:00:59 GMT</pubDate>
+      <description>Google search is in the news. Judge Amit Mehta ruled that Google search is a monopoly and is behaving in a manner that suppresses search competition with their distribution agreements. The debate on this has started,...</description>
+      <category>Guides</category>
+    </item>
+    <item>
+      <title>What&#39;s next for Kagi?</title>
+      <link>https://blog.kagi.com/what-is-next-for-kagi</link>
+      <guid isPermaLink="false">kagi-blog-post-29</guid>
+      <pubDate>Thu, 30 May 2024 12:00:09 GMT</pubDate>
+      <description>Two years ago, on June 1st, 2022, Kagi introduced a search engine that challenged the ad-supported version of the web. Kagi Search instead works for you, the user, and not an advertiser paying for your attention....</description>
+      <category>Company</category>
+    </item>
+    <item>
+      <title>Kagi + Wolfram</title>
+      <link>https://blog.kagi.com/kagi-wolfram</link>
+      <guid isPermaLink="false">kagi-blog-post-30</guid>
+      <pubDate>Mon, 04 Mar 2024 12:00:25 GMT</pubDate>
+      <description>Building a search engine is hard. Delivering accurate and reliable search results requires processing vast amounts of data, understanding complex queries, and constantly evolving to meet user expectations. In an era where AI-generated content is becoming...</description>
+      <category>Announcements</category>
+    </item>
+    <item>
+      <title>Celebrating our first 20,000 members</title>
+      <link>https://blog.kagi.com/celebrating-20k</link>
+      <guid isPermaLink="false">kagi-blog-post-31</guid>
+      <pubDate>Wed, 24 Jan 2024 12:00:07 GMT</pubDate>
+      <description>Update: We shipped the t-shirts. -- Dear Kagi community, Today, we’re happy and proud to have reached 20,000 paying members, including over 1,500 families all over the world, in our community. We have come a very...</description>
+      <category>Company</category>
+    </item>
+    <item>
+      <title>Unlimited Kagi searches for $10 per month</title>
+      <link>https://blog.kagi.com/unlimited-searches-for-10</link>
+      <guid isPermaLink="false">kagi-blog-post-32</guid>
+      <pubDate>Thu, 21 Sep 2023 12:00:55 GMT</pubDate>
+      <description>This year has been extraordinary for Kagi. We had tremendous support from our customers, and we want to start this by taking a moment to say thank you. We really appreciate it. Since we launched Kagi,...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi Small Web</title>
+      <link>https://blog.kagi.com/small-web</link>
+      <guid isPermaLink="false">kagi-blog-post-33</guid>
+      <pubDate>Thu, 07 Sep 2023 12:00:30 GMT</pubDate>
+      <description>As a part of our ongoing pursuit to humanize the web, we are pleased to announce the launch of the Kagi Small Web initiative. What is Kagi Small Web? To begin with, while there is no...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi now accepts Paypal, EUR and Bitcoin (Lightning) payments</title>
+      <link>https://blog.kagi.com/accepting-paypal-bitcoin</link>
+      <guid isPermaLink="false">kagi-blog-post-34</guid>
+      <pubDate>Thu, 31 Aug 2023 12:00:18 GMT</pubDate>
+      <description>One of the most frequently requested features on Kagi has been the expansion of our payment methods so that more people can more easilly enjoy the benefits of Kagi Search. We are happy to announce that...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi raises $670K</title>
+      <link>https://blog.kagi.com/safe-round</link>
+      <guid isPermaLink="false">kagi-blog-post-36</guid>
+      <pubDate>Wed, 28 Jun 2023 12:00:01 GMT</pubDate>
+      <description>Kagi has successfully raised $670K in a SAFE note investment round, marking our first external fundraise to date. This was made possible with the participation of 42 accredited investors, most of whom are actual Kagi users....</description>
+      <category>Company</category>
+    </item>
+    <item>
+      <title>Updates to Kagi pricing plans - More searches, unrestricted AI tools</title>
+      <link>https://blog.kagi.com/plan-changes</link>
+      <guid isPermaLink="false">kagi-blog-post-37</guid>
+      <pubDate>Tue, 23 May 2023 12:00:30 GMT</pubDate>
+      <description>We are thrilled to announce significant enhancements to our pricing plans, taking effect immediately. These modifications come as a direct result of cost savings we&#39;ve recently achieved, which we are more than happy to share with...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>New features in the Orion Browser</title>
+      <link>https://blog.kagi.com/orion-new-features</link>
+      <guid isPermaLink="false">kagi-blog-post-38</guid>
+      <pubDate>Thu, 04 May 2023 12:00:43 GMT</pubDate>
+      <description>Orion beta 0.99.124 has just landed and is bringing over 160 new features, improvements, and bug fixes, making this our most significant release ever. The full release notes will detail all improvements, and we will mention...</description>
+      <category>Announcements</category>
+    </item>
+    <item>
+      <title>Enhancements to the Kagi search experience</title>
+      <link>https://blog.kagi.com/search-enhancements</link>
+      <guid isPermaLink="false">kagi-blog-post-39</guid>
+      <pubDate>Wed, 03 May 2023 12:00:50 GMT</pubDate>
+      <description>We are pleased to announce newly enhanced search results across various search features. Kagi&#39;s goal from day one was to provide the best search results. Today, we are adding significant improvements to continue our steady progress...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Introducing the Kagi Family Plan</title>
+      <link>https://blog.kagi.com/family-plan</link>
+      <guid isPermaLink="false">kagi-blog-post-40</guid>
+      <pubDate>Fri, 31 Mar 2023 12:00:13 GMT</pubDate>
+      <description>We&#39;re thrilled to announce the launch of the Kagi Family Plan, a new way for families to enjoy the power of Kagi Search together. The Kagi Family Plan is perfect for families wanting to search smarter,...</description>
+      <category>Announcements</category>
+    </item>
+    <item>
+      <title>Summarize anything with the Universal Summarizer</title>
+      <link>https://blog.kagi.com/universal-summarizer</link>
+      <guid isPermaLink="false">kagi-blog-post-41</guid>
+      <pubDate>Thu, 23 Mar 2023 12:00:45 GMT</pubDate>
+      <description>Universal Summarizer is an AI-powered tool for instantly summarizing just about any content of any type and any length, by simply providing a URL address (and soon by uploading a file). Universal Summarizer in action One...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi&#39;s approach to AI in search</title>
+      <link>https://blog.kagi.com/kagi-ai-search</link>
+      <guid isPermaLink="false">kagi-blog-post-42</guid>
+      <pubDate>Thu, 16 Mar 2023 12:00:28 GMT</pubDate>
+      <description>Kagi Search is pleased to announce the introduction of three AI features into our product offering. We&#39;d like to discuss how we see AI&#39;s role in search, what are the challenges and our AI integration philosophy....</description>
+      <category>Guides</category>
+    </item>
+    <item>
+      <title>Update to Kagi Search pricing</title>
+      <link>https://blog.kagi.com/update-kagi-search-pricing</link>
+      <guid isPermaLink="false">kagi-blog-post-43</guid>
+      <pubDate>Wed, 08 Mar 2023 12:00:20 GMT</pubDate>
+      <description>UPDATE: This blog post is old and does not reflect current plans or pricing. You can find current plans and prices here . --- It has been a while since our last update, and we have...</description>
+      <category>Announcements</category>
+    </item>
+    <item>
+      <title>Kagi Search - New Features</title>
+      <link>https://blog.kagi.com/kagi-search-dec22-update</link>
+      <guid isPermaLink="false">kagi-blog-post-45</guid>
+      <pubDate>Thu, 22 Dec 2022 12:00:27 GMT</pubDate>
+      <description>We’d like to give an update about the most important things happening at Kagi in the last three months. As a reminder you can manage your subscription or upgrade to a premium Kagi account [here] (https://kagi.com/settings?p=billing)....</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi status update: First three months</title>
+      <link>https://blog.kagi.com/status-update-first-three-months</link>
+      <guid isPermaLink="false">kagi-blog-post-48</guid>
+      <pubDate>Thu, 01 Sep 2022 12:00:52 GMT</pubDate>
+      <description>Kagi search and Orion browser officially entered public beta exactly three months ago. We thought we&#39;d give a full status update. If you are new to Kagi - Kagi search is an attempt to make the...</description>
+      <category>Company</category>
+    </item>
+    <item>
+      <title>Kagi passes an independent security audit</title>
+      <link>https://blog.kagi.com/security-audit</link>
+      <guid isPermaLink="false">kagi-blog-post-49</guid>
+      <pubDate>Mon, 29 Aug 2022 12:00:22 GMT</pubDate>
+      <description>Update: We passed a security audit when we launched to establish our baseline security, which was very important for us. As any security researcher knows, these audits can be invalidated with the very next deployment to...</description>
+      <category>Announcements</category>
+    </item>
+    <item>
+      <title>Kagi search and Orion browser enter public beta</title>
+      <link>https://blog.kagi.com/kagi-orion-public-beta</link>
+      <guid isPermaLink="false">kagi-blog-post-50</guid>
+      <pubDate>Wed, 01 Jun 2022 12:00:13 GMT</pubDate>
+      <description>Web tracking and ads are becoming a personal and societal problem. Browsing and searching the web sensibly has become all but impossible. In response, today we are launching the public beta of two essential tools that...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Kagi search features</title>
+      <link>https://blog.kagi.com/kagi-features</link>
+      <guid isPermaLink="false">kagi-blog-post-51</guid>
+      <pubDate>Tue, 31 May 2022 12:00:39 GMT</pubDate>
+      <description>New: More features in our Dec 22 update and May 23 update. These may be the most surprising Kagi features for new users. No ads No matter how hard you try, you will never see any...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Orion browser features</title>
+      <link>https://blog.kagi.com/orion-features</link>
+      <guid isPermaLink="false">kagi-blog-post-52</guid>
+      <pubDate>Tue, 31 May 2022 12:00:24 GMT</pubDate>
+      <description>Orion may be a newcomer to the market, but it comes loaded with features. These may be the most surprising parts of Orion for new users. Update: Read an update to this post from May 2023...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>Towards conceptual generalization in the embedding space</title>
+      <link>https://blog.kagi.com/physical-embeddings-whitepaper</link>
+      <guid isPermaLink="false">kagi-blog-post-53</guid>
+      <pubDate>Fri, 06 Dec 2019 12:00:16 GMT</pubDate>
+      <description>_(This is a whitepaper published in the early days of Kagi AI research)_ A neural network in a self-driving car may properly react in most situations based on billions of images it has seen. But if...</description>
+      <category>Guides</category>
+    </item>
+    <item>
+      <title>Taking web search through the last mile</title>
+      <link>https://blog.kagi.com/last-mile-for-web-search</link>
+      <guid isPermaLink="false">kagi-blog-post-55</guid>
+      <pubDate>Sun, 01 Dec 2019 12:00:50 GMT</pubDate>
+      <description>_(This piece first appeared on the kagi.ai blog a few short years ago. Considering the rapid pace of AI advancements since then, it seems like a different era. Despite the passage of time, the core principles...</description>
+      <category>Product</category>
+    </item>
+    <item>
+      <title>The Age of PageRank is Over</title>
+      <link>https://blog.kagi.com/age-pagerank-over</link>
+      <guid isPermaLink="false">kagi-blog-post-56</guid>
+      <pubDate>Sat, 09 Nov 2019 12:00:26 GMT</pubDate>
+      <description>When Sergey Brin and Larry Page came up with the concept of PageRank in their seminal paper The Anatomy of a Large-Scale Hypertextual Web Search Engine (Sergey Brin and Lawrence Page, Stanford University, 1998) they profoundly...</description>
+      <category>Perspectives</category>
+    </item>
+  </channel>
+</rss>

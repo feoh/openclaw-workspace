@@ -1,0 +1,572 @@
+[
+  {
+    "title": "Bored of eating your own dogfood? Try smelling your own farts!",
+    "url": "https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/",
+    "date": "2026-03-22 12:34:07",
+    "feed": "Terence Eden's Blog"
+  },
+  {
+    "title": "I'm OK being left behind, thanks!",
+    "url": "https://shkspr.mobi/blog/2026/03/im-ok-being-left-behind-thanks/",
+    "date": "2026-03-20 12:34:02",
+    "feed": "Terence Eden's Blog"
+  },
+  {
+    "title": "Use Chameleon templates in the Robyn web framework",
+    "url": "https://mkennedy.codes/posts/use-chameleon-templates-in-the-robyn-web-framework/",
+    "date": "2026-03-19 16:18:41",
+    "feed": "Michael Kennedy"
+  },
+  {
+    "title": "Fire and forget (or never) with Python\u2019s asyncio",
+    "url": "https://mkennedy.codes/posts/fire-and-forget-or-never-with-python-s-asyncio/",
+    "date": "2026-03-18 20:22:27",
+    "feed": "Michael Kennedy"
+  },
+  {
+    "title": "Finding the right Bottom Hole paper",
+    "url": "https://shkspr.mobi/blog/2026/03/finding-the-right-bottom-hole-paper/",
+    "date": "2026-03-18 12:34:37",
+    "feed": "Terence Eden's Blog"
+  },
+  {
+    "title": "Some updates to ActivityBot",
+    "url": "https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/",
+    "date": "2026-03-16 12:34:57",
+    "feed": "Terence Eden's Blog"
+  },
+  {
+    "title": "Book Review: Robots in Space - The Secret Lives of Our Planetary Explorers by Dr Ezzy Pearson \u2605\u2605\u2605\u2bea\u2606",
+    "url": "https://shkspr.mobi/blog/2026/03/book-review-robots-in-space-the-secret-lives-of-our-planetary-explorers-by-dr-ezzy-pearson/",
+    "date": "2026-03-15 12:34:48",
+    "feed": "Terence Eden's Blog"
+  },
+  {
+    "title": "Small Web Just Got Bigger",
+    "url": "https://blog.kagi.com/small-web-updates",
+    "date": "2026-03-12 12:00:50",
+    "feed": "Kagi Blog"
+  },
+  {
+    "title": "Will AI Kill Open Source?",
+    "url": "https://mkennedy.codes/posts/will-ai-kill-open-source/",
+    "date": "2026-03-12 11:39:47",
+    "feed": "Michael Kennedy"
+  },
+  {
+    "title": "What hyper-personal software looks like",
+    "url": "https://mkennedy.codes/posts/what-hyper-personal-software-looks-like/",
+    "date": "2026-03-06 11:32:30",
+    "feed": "Michael Kennedy"
+  },
+  {
+    "title": "State of WASI support for CPython: March 2026",
+    "url": "https://snarky.ca/state-of-wasi-support-for-cpython-march-2026/",
+    "date": "2026-03-02 19:28:41",
+    "feed": "Hynek Schlawack"
+  },
+  {
+    "title": "State of WASI support for CPython: March 2026",
+    "url": "https://snarky.ca/state-of-wasi-support-for-cpython-march-2026/",
+    "date": "2026-03-02 19:28:41",
+    "feed": "Tall, Snarky Canadian"
+  },
+  {
+    "title": "Total Recall",
+    "url": "https://unfinishedbitness.info/2026/03/01/total-recall/",
+    "date": "2026-03-01 22:44:03",
+    "feed": "Unfinished Bitness"
+  },
+  {
+    "title": "CLI subcommands with lazy imports",
+    "url": "https://snarky.ca/subcommands-with-lazy-imports/",
+    "date": "2026-02-21 22:37:06",
+    "feed": "Hynek Schlawack"
+  },
+  {
+    "title": "CLI subcommands with lazy imports",
+    "url": "https://snarky.ca/subcommands-with-lazy-imports/",
+    "date": "2026-02-21 22:37:06",
+    "feed": "Tall, Snarky Canadian"
+  },
+  {
+    "title": "A8 C Library v1.60",
+    "url": "https://unfinishedbitness.info/2026/02/21/a8-c-library-v1-60/",
+    "date": "2026-02-21 17:12:40",
+    "feed": "Unfinished Bitness"
+  },
+  {
+    "title": "One Click Atari!",
+    "url": "https://unfinishedbitness.info/2026/02/15/one-click-atari/",
+    "date": "2026-02-15 20:55:32",
+    "feed": "Unfinished Bitness"
+  },
+  {
+    "title": "Dr. Love",
+    "url": "https://unfinishedbitness.info/2026/02/13/dr-love/",
+    "date": "2026-02-14 01:46:15",
+    "feed": "Unfinished Bitness"
+  },
+  {
+    "title": "Raw+DC: The ORM pattern of 2026?",
+    "url": "https://mkennedy.codes/posts/raw-dc-the-orm-pattern-of-2026/",
+    "date": "2026-02-09 19:29:08",
+    "feed": "Michael Kennedy"
+  },
+  {
+    "title": "Kagi Translate Arrives on Mobile",
+    "url": "https://blog.kagi.com/kagi-translate-mobile",
+    "date": "2026-02-03 12:00:31",
+    "feed": "Kagi Blog"
+  },
+  {
+    "title": "Atari 8 Bit & SQL",
+    "url": "https://unfinishedbitness.info/2026/02/01/atari-8-bit-sql/",
+    "date": "2026-02-02 01:18:52",
+    "feed": "Unfinished Bitness"
+  },
+  {
+    "title": "Waiting for dawn in search: Search index, Google rulings and impact on Kagi",
+    "url": "https://blog.kagi.com/waiting-dawn-search",
+    "date": "2026-01-21 12:00:48",
+    "feed": "Kagi Blog"
+  },
+  {
+    "title": "Orion 1.0 \u2734\ufe0e Browse Beyond",
+    "url": "https://blog.kagi.com/orion",
+    "date": "2025-11-25 12:00:45",
+    "feed": "Kagi Blog"
+  },
+  {
+    "title": "Should I rewrite the Python Launcher for Unix in Python?",
+    "url": "https://snarky.ca/should-i-rewrite-the-python-launcher-for-unix-in-python/",
+    "date": "2025-11-22 00:18:34",
+    "feed": "Hynek Schlawack"
+  },
+  {
+    "title": "Should I rewrite the Python Launcher for Unix in Python?",
+    "url": "https://snarky.ca/should-i-rewrite-the-python-launcher-for-unix-in-python/",
+    "date": "2025-11-22 00:18:34",
+    "feed": "Tall, Snarky Canadian"
+  },
+  {
+    "title": "Kagi Hub Belgrade: A home base for Kagi members worldwide",
+    "url": "https://blog.kagi.com/kagi-hub",
+    "date": "2025-11-21 12:00:31",
+    "feed": "Kagi Blog"
+  },
+  {
+    "title": "The varying strictness of TypedDict",
+    "url": "https://snarky.ca/the-varying-strictness-of-typeddict/",
+    "date": "2025-11-20 21:18:15",
+    "feed": "Hynek Schlawack"
+  },
+  {
+    "title": "The varying strictness of TypedDict",
+    "url": "https://snarky.ca/the-varying-strictness-of-typeddict/",
+    "date": "2025-11-20 21:18:15",
+    "feed": "Tall, Snarky Canadian"
+  },
+  {
+    "title": "New Short Fiction for 2025",
+    "url": "https://johnpmurphy.net/2025/11/19/new-short-fiction-for-2025/",
+    "date": "2025-11-20 01:54:30",
+    "feed": "John P. Murphy"
+  },
+  {
+    "title": "Why it took 4 years to get a lock files specification",
+    "url": "https://snarky.ca/why-it-took-4-years-to-get-a-lock-files-specification/",
+    "date": "2025-10-11 03:46:57",
+    "feed": "Hynek Schlawack"
+  },
+  {
+    "title": "Why it took 4 years to get a lock files specification",
+    "url": "https://snarky.ca/why-it-took-4-years-to-get-a-lock-files-specification/",
+    "date": "2025-10-11 03:46:57",
+    "feed": "Tall, Snarky Canadian"
+  },
+  {
+    "title": "Python has had async for 10 years -- why isn't it more popular?",
+    "url": "https://tonybaloney.github.io/posts/why-isnt-python-async-more-popular.html",
+    "date": "2025-09-02 00:00:00",
+    "feed": "Anthony Shaw's blog"
+  },
+  {
+    "title": "Performance Benchmarking LLM Models",
+    "url": "https://tonybaloney.github.io/posts/performance-benchmarking-llm-models.html",
+    "date": "2025-08-27 00:00:00",
+    "feed": "Anthony Shaw's blog"
+  },
+  {
+    "title": "Using an LLM in GitHub Actions",
+    "url": "https://tonybaloney.github.io/posts/using-llm-in-github-actions.html",
+    "date": "2025-08-14 00:00:00",
+    "feed": "Anthony Shaw's blog"
+  },
+  {
+    "title": "Can DeepSeek-R1 improve the performance of one of the worlds oldest codebases?",
+    "url": "https://tonybaloney.github.io/posts/can-reasoning-models-optimize-20-year-old-code.html",
+    "date": "2025-01-30 00:00:00",
+    "feed": "Anthony Shaw's blog"
+  },
+  {
+    "title": "Can you prompt LLMs to admit when they don't know the answer?",
+    "url": "https://tonybaloney.github.io/posts/the-big-fib-can-you-prompt-llms-to-tell-the-truth.html",
+    "date": "2025-01-06 00:00:00",
+    "feed": "Anthony Shaw's blog"
+  },
+  {
+    "title": "The Woman Who Kicked Me Out of the Country",
+    "url": "https://johnpmurphy.net/2024/08/18/the-woman-who-kicked-me-out-of-the-country/",
+    "date": "2024-08-19 00:38:28",
+    "feed": "John P. Murphy"
+  },
+  {
+    "title": "How I Beta Read",
+    "url": "https://johnpmurphy.net/2024/07/22/how-i-beta-read/",
+    "date": "2024-07-23 00:45:41",
+    "feed": "John P. Murphy"
+  },
+  {
+    "title": "Readercon Schedule, and What\u2019s New",
+    "url": "https://johnpmurphy.net/2024/07/04/readercon-schedule-and-whats-new/",
+    "date": "2024-07-05 01:00:34",
+    "feed": "John P. Murphy"
+  },
+  {
+    "title": "Boskone 2024 Schedule",
+    "url": "https://johnpmurphy.net/2024/01/28/boskone-2024-schedule/",
+    "date": "2024-01-28 16:11:39",
+    "feed": "John P. Murphy"
+  },
+  {
+    "title": "Goodbye Blog Comments, You Were Fun While You Lasted",
+    "url": "https://www.feoh.org/posts/goodbye-blog-comments-you-were-fun-while-you-lasted.html",
+    "date": null,
+    "feed": "Blind Not Dumb"
+  },
+  {
+    "title": "Think Different: Asahi Linux On An M2 Macbook Pro",
+    "url": "https://www.feoh.org/posts/think-different-asahi-linux-on-an-m2-macbook-pro.html",
+    "date": null,
+    "feed": "Blind Not Dumb"
+  },
+  {
+    "title": "NiceGUI: Awesome Python Dynamic Websites For The Web Dev Impaired!",
+    "url": "https://www.feoh.org/posts/nicegui-awesome-dynamic-websites-for-people-who-write-ugly-html.html",
+    "date": null,
+    "feed": "Blind Not Dumb"
+  },
+  {
+    "title": "Pycon US 2025: This Year Was a Life Changer",
+    "url": "https://www.feoh.org/posts/pycon-us-2025-this-year-was-a-life-changer.html",
+    "date": null,
+    "feed": "Blind Not Dumb"
+  },
+  {
+    "title": "Hacking The Wetware 3: Veritas Liberabit Vos",
+    "url": "https://www.feoh.org/posts/veritas-liberabit-vos-the-truth-will-set-you-free.html",
+    "date": null,
+    "feed": "Blind Not Dumb"
+  },
+  {
+    "title": "GDC: gloom and haruspicy",
+    "url": "https://blog.zarfhome.com/2026/03/gdc-gloom",
+    "date": null,
+    "feed": "Zarf Updates"
+  },
+  {
+    "title": "Visible Zorker: March status report",
+    "url": "https://blog.zarfhome.com/2026/03/visible-zorker-march",
+    "date": null,
+    "feed": "Zarf Updates"
+  },
+  {
+    "title": "Twine and Zork at GDC",
+    "url": "https://blog.zarfhome.com/2026/03/twine-zork-gdc",
+    "date": null,
+    "feed": "Zarf Updates"
+  },
+  {
+    "title": "The Game Narrative Kaleidoscope",
+    "url": "https://blog.zarfhome.com/2026/03/the-game-narrative-kaleidoscope",
+    "date": null,
+    "feed": "Zarf Updates"
+  },
+  {
+    "title": "1989 in context",
+    "url": "https://blog.zarfhome.com/2026/02/1989-in-context",
+    "date": null,
+    "feed": "Zarf Updates"
+  },
+  {
+    "title": "An Electromagnetic Force",
+    "url": "https://www.aeracode.org/2024/06/05/emf-2024/",
+    "date": null,
+    "feed": "Aeracode"
+  },
+  {
+    "title": "The Cloud Is Just My Basement's Computers",
+    "url": "https://www.aeracode.org/2023/11/13/cloud-servers-basement/",
+    "date": null,
+    "feed": "Aeracode"
+  },
+  {
+    "title": "Life-Critical Side Projects",
+    "url": "https://www.aeracode.org/2023/11/06/life-critical-side-projects/",
+    "date": null,
+    "feed": "Aeracode"
+  },
+  {
+    "title": "I am, approximately, here",
+    "url": "https://www.aeracode.org/2023/07/25/approximately-here/",
+    "date": null,
+    "feed": "Aeracode"
+  },
+  {
+    "title": "A Takah\u0113 refactor, as a treat",
+    "url": "https://www.aeracode.org/2023/04/29/refactor-treat/",
+    "date": null,
+    "feed": "Aeracode"
+  },
+  {
+    "title": "What Is Code Review For?",
+    "url": "https://blog.glyph.im/2026/03/what-is-code-review-for.html",
+    "date": null,
+    "feed": "Deciphering Glyph"
+  },
+  {
+    "title": "How To Argue With Me About AI, If You Must",
+    "url": "https://blog.glyph.im/2026/01/how-to-argue-with-me-about-ai.html",
+    "date": null,
+    "feed": "Deciphering Glyph"
+  },
+  {
+    "title": "The Next Thing Will Not Be Big",
+    "url": "https://blog.glyph.im/2026/01/the-next-thing-will-not-be-big.html",
+    "date": null,
+    "feed": "Deciphering Glyph"
+  },
+  {
+    "title": "The \u201cDependency Cutout\u201d Workflow Pattern, Part I",
+    "url": "https://blog.glyph.im/2025/11/dependency-cutout-workflow-pattern.html",
+    "date": null,
+    "feed": "Deciphering Glyph"
+  },
+  {
+    "title": "The Futzing Fraction",
+    "url": "https://blog.glyph.im/2025/08/futzing-fraction.html",
+    "date": null,
+    "feed": "Deciphering Glyph"
+  },
+  {
+    "title": "TIL: Default code block languages for mkdocs",
+    "url": "https://daniel.feldroy.com/posts/til-2025-11-default-code-block-languages-for-mkdocs",
+    "date": null,
+    "feed": "Daniel Roy Greenfeld"
+  },
+  {
+    "title": "Adding Type Hints to my Blog",
+    "url": "https://daniel.feldroy.com/posts/2025-12-adding-type-hints-to-my-blog",
+    "date": null,
+    "feed": "Daniel Roy Greenfeld"
+  },
+  {
+    "title": "Writing tools to download everything",
+    "url": "https://daniel.feldroy.com/posts/2026-01-downloading-everything",
+    "date": null,
+    "feed": "Daniel Roy Greenfeld"
+  },
+  {
+    "title": "We moved to Manila!",
+    "url": "https://daniel.feldroy.com/posts/2026-02-we-moved-to-manila",
+    "date": null,
+    "feed": "Daniel Roy Greenfeld"
+  },
+  {
+    "title": "Recap of 2025 and Resolutions for 2026",
+    "url": "https://daniel.feldroy.com/posts/2026-01-recap-resolutions",
+    "date": null,
+    "feed": "Daniel Roy Greenfeld"
+  },
+  {
+    "title": "Human.json",
+    "url": "https://nedbatchelder.com/blog/202603/humanjson",
+    "date": null,
+    "feed": "Ned Batchelder's blog"
+  },
+  {
+    "title": "Pytest parameter functions",
+    "url": "https://nedbatchelder.com/blog/202602/pytest_parameter_functions",
+    "date": null,
+    "feed": "Ned Batchelder's blog"
+  },
+  {
+    "title": "EdText",
+    "url": "https://nedbatchelder.com/blog/202602/edtext",
+    "date": null,
+    "feed": "Ned Batchelder's blog"
+  },
+  {
+    "title": "Testing: exceptions and caches",
+    "url": "https://nedbatchelder.com/blog/202601/testing_exceptions_and_caches",
+    "date": null,
+    "feed": "Ned Batchelder's blog"
+  },
+  {
+    "title": "No more .html",
+    "url": "https://nedbatchelder.com/blog/202601/no_more_html",
+    "date": null,
+    "feed": "Ned Batchelder's blog"
+  },
+  {
+    "title": "Beats now have notes",
+    "url": "https://simonwillison.net/2026/Mar/23/beats-now-have-notes/#atom-everything",
+    "date": null,
+    "feed": "Simon Willison's Weblog"
+  },
+  {
+    "title": "Starlette 1.0 skill",
+    "url": "https://simonwillison.net/2026/Mar/23/starlette-1-skill/#atom-everything",
+    "date": null,
+    "feed": "Simon Willison's Weblog"
+  },
+  {
+    "title": "Experimenting with Starlette 1.0 with Claude skills",
+    "url": "https://simonwillison.net/2026/Mar/22/starlette/#atom-everything",
+    "date": null,
+    "feed": "Simon Willison's Weblog"
+  },
+  {
+    "title": "PCGamer Article Performance Audit",
+    "url": "https://simonwillison.net/2026/Mar/22/pcgamer-audit/#atom-everything",
+    "date": null,
+    "feed": "Simon Willison's Weblog"
+  },
+  {
+    "title": "JavaScript Sandboxing Research",
+    "url": "https://simonwillison.net/2026/Mar/22/javascript-sandboxing-research/#atom-everything",
+    "date": null,
+    "feed": "Simon Willison's Weblog"
+  },
+  {
+    "title": "U+: pretty Unicode code point literals for Rust",
+    "url": "https://chrismorgan.info/blog/U+/",
+    "date": null,
+    "feed": "Chris Morgan's blog"
+  },
+  {
+    "title": "Don\u2019t use the Unlicense: it\u2019s an inferior license wrapped in an atrocious name.",
+    "url": "https://chrismorgan.info/blog/unlicense/",
+    "date": null,
+    "feed": "Chris Morgan's blog"
+  },
+  {
+    "title": "#[cfg_attr(\u2026, path = \u2026)] for platform-specific module implementations",
+    "url": "https://chrismorgan.info/blog/rust-cfg_attr-mod-path/",
+    "date": null,
+    "feed": "Chris Morgan's blog"
+  },
+  {
+    "title": "make me a sandwich",
+    "url": "https://chrismorgan.info/blog/make-me-a-sandwich/",
+    "date": null,
+    "feed": "Chris Morgan's blog"
+  },
+  {
+    "title": "Using make and git diff for a simple and powerful test harness",
+    "url": "https://chrismorgan.info/blog/make-and-git-diff-test-harness/",
+    "date": null,
+    "feed": "Chris Morgan's blog"
+  },
+  {
+    "title": "Consensus Board Game",
+    "url": "https://matklad.github.io/2026/03/19/consensus-board-game.html",
+    "date": null,
+    "feed": "matklad"
+  },
+  {
+    "title": "JJ LSP Follow Up",
+    "url": "https://matklad.github.io/2026/03/05/jj-lsp-followup.html",
+    "date": null,
+    "feed": "matklad"
+  },
+  {
+    "title": "Against Query Based Compilers",
+    "url": "https://matklad.github.io/2026/02/25/against-query-based-compilers.html",
+    "date": null,
+    "feed": "matklad"
+  },
+  {
+    "title": "Wrapping Code Comments",
+    "url": "https://matklad.github.io/2026/02/21/wrapping-code-comments.html",
+    "date": null,
+    "feed": "matklad"
+  },
+  {
+    "title": "Diagnostics Factory",
+    "url": "https://matklad.github.io/2026/02/16/diagnostics-factory.html",
+    "date": null,
+    "feed": "matklad"
+  },
+  {
+    "title": "What Is Code Review For?",
+    "url": "https://blog.glyph.im/2026/03/what-is-code-review-for.html",
+    "date": null,
+    "feed": "Ars Technica"
+  },
+  {
+    "title": "How To Argue With Me About AI, If You Must",
+    "url": "https://blog.glyph.im/2026/01/how-to-argue-with-me-about-ai.html",
+    "date": null,
+    "feed": "Ars Technica"
+  },
+  {
+    "title": "The Next Thing Will Not Be Big",
+    "url": "https://blog.glyph.im/2026/01/the-next-thing-will-not-be-big.html",
+    "date": null,
+    "feed": "Ars Technica"
+  },
+  {
+    "title": "The \u201cDependency Cutout\u201d Workflow Pattern, Part I",
+    "url": "https://blog.glyph.im/2025/11/dependency-cutout-workflow-pattern.html",
+    "date": null,
+    "feed": "Ars Technica"
+  },
+  {
+    "title": "The Futzing Fraction",
+    "url": "https://blog.glyph.im/2025/08/futzing-fraction.html",
+    "date": null,
+    "feed": "Ars Technica"
+  },
+  {
+    "title": "The Beggar Barons",
+    "url": "https://zedshaw.com/blog/2022-02-05-the-beggar-barons/",
+    "date": null,
+    "feed": "Zed A. Shaw"
+  },
+  {
+    "title": "Sometimes, It's Fun to Die",
+    "url": "https://zedshaw.com/blog/2021-04-08-sometimes-its-fun-to-die/",
+    "date": null,
+    "feed": "Zed A. Shaw"
+  },
+  {
+    "title": "The Most Zed Story About a Knife",
+    "url": "https://zedshaw.com/blog/2020-10-08-the-most-zed-story-about-a-knife/",
+    "date": null,
+    "feed": "Zed A. Shaw"
+  },
+  {
+    "title": "Authoritarianism of Code",
+    "url": "https://zedshaw.com/blog/2020-10-07-authoritarianism-of-code/",
+    "date": null,
+    "feed": "Zed A. Shaw"
+  },
+  {
+    "title": "The Empathy Gatekeepers of Code",
+    "url": "https://zedshaw.com/blog/2020-10-04-the-empathy-gatekeepers-of-code/",
+    "date": null,
+    "feed": "Zed A. Shaw"
+  }
+]

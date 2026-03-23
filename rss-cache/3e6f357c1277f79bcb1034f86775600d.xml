@@ -1,0 +1,895 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet href="https://www.feoh.org/assets/xml/atom.xsl" type="text/xsl media="all"?>
+<feed xml:lang="en" xmlns="http://www.w3.org/2005/Atom">
+  <title>Blind Not Dumb</title>
+  <id>https://www.feoh.org/feed.atom</id>
+  <updated>2026-02-02T15:25:24Z</updated>
+  <author>
+    <name>Chris Patti</name>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://www.feoh.org/feed.atom"/>
+  <link rel="alternate" type="text/html" href="https://www.feoh.org/"/>
+  <generator uri="https://getnikola.com/">Nikola</generator>
+  <entry>
+    <title>Goodbye Blog Comments, You Were Fun While You Lasted</title>
+    <id>https://www.feoh.org/posts/goodbye-blog-comments-you-were-fun-while-you-lasted.html</id>
+    <updated>2026-02-02T10:21:40-05:00</updated>
+    <published>2026-02-02T10:21:40-05:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/goodbye-blog-comments-you-were-fun-while-you-lasted.html"/>
+    <summary type="html">&lt;p&gt;To the 5-10 actual humans who wrote actual comments on actual posts in this blog through the years: You have my sincere
+and heart felt thanks!&lt;/p&gt;
+&lt;p&gt;But in point of fact 99.999% of what goes into my comments at IntenseDebate are spam. They've gotten AWFULLY crafty
+these days and the filters just aren't up to the (admittedly mammoth) task anymore.&lt;/p&gt;
+&lt;p&gt;So I've just removed them. I'm going to find a way to put this in each post, but if you have anything to say about one
+of my posts I'd LOVE to hear from you!&lt;/p&gt;
+&lt;p&gt;You can drop me an email at feoh at feoh dot org or get in touch on the Fediverse (Come on in, the water's fine!) at
+@feoh@oldbytes.space.&lt;/p&gt;</summary>
+    <category term="admin" label="admin"/>
+    <category term="administrivia" label="administrivia"/>
+    <category term="comments" label="comments"/>
+    <category term="spam" label="spam"/>
+  </entry>
+  <entry>
+    <title>Think Different: Asahi Linux On An M2 Macbook Pro</title>
+    <id>https://www.feoh.org/posts/think-different-asahi-linux-on-an-m2-macbook-pro.html</id>
+    <updated>2025-12-11T18:57:35-05:00</updated>
+    <published>2025-12-11T18:57:35-05:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/think-different-asahi-linux-on-an-m2-macbook-pro.html"/>
+    <summary type="html">&lt;h2&gt;Fair Warning&lt;/h2&gt;
+&lt;p&gt;I am a pragmatist. If the idea of someone using Snap to install software fills you with inchoate rage, shop elsewhere
+and, forgive me, but maybe reconsider your life choices :)&lt;/p&gt;
+&lt;p&gt;Also, Asahi is still a diamond in the rough. Please do read the &lt;a href="https://asahilinux.org/docs/platform/feature-support/overview/"&gt;Supported
+Features&lt;/a&gt; for your particular hardware &lt;strong&gt;very&lt;/strong&gt;
+carefully to ensure that Asahi will meet your needs.&lt;/p&gt;
+&lt;h2&gt;It's Not Me, Mac, It's You.&lt;/h2&gt;
+&lt;p&gt;Over the last few years it has become ever more increasingly clear to me that, to put it simply and as objectively as I
+can, Apple's target customer's needs and my needs are drifting further and further apart.&lt;/p&gt;
+&lt;p&gt;The Mac has always been a bit of a rainbow farting unicorn. It is a computer that people who &lt;strong&gt;love&lt;/strong&gt; computers also
+love to use, but it's also a computer you can confidently give to grandma and grandpa and know that they'll be just fine
+(either through their own cleverness or the fact that AppleCare is never more than a phone call away).&lt;/p&gt;
+&lt;p&gt;I don't in any way blame Apple for this. The computer market is dwindling at an alarming rate. More and more people can
+do everything they need on their tablets or even their phones, so companies that want to stay in the game are being
+forced to make some hard decisions.&lt;/p&gt;
+&lt;p&gt;The last straw for me was their recent "glass" redesign. I'm partially blind and low vision, and making everything &lt;em&gt;even
+more translucent and harder to see&lt;/em&gt;* has convinced me utterly that accessibility is no longer a priority for them.&lt;/p&gt;
+&lt;p&gt;Evasive action is called for.&lt;/p&gt;
+&lt;p&gt;I don't currently own a laptop of my own, but 3 years ago, lured by the siren song of its incredible battery life, when
+I started work at MIT I chose a 16" M2 Macbook Pro.&lt;/p&gt;
+&lt;p&gt;Since I recently adopted Linux with KDE on my primary workhorse desktop computer at home, I was chuffed to learn that
+the &lt;a href="https://asahilinux.org"&gt;Asahi Linux Project&lt;/a&gt; has, after moving through a few other Linux flavors, settled upon the
+amazing &lt;a href="https://kde.org"&gt;KDE Desktop&lt;/a&gt; running on top of &lt;a href="https://www.fedoraproject.org"&gt;Fedora Linux&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I'll be writing a separate post about how much I'm enjoying KDE. There's SO much to explore there, and for someone like
+me who enjoys hyper-optimizing their workflow and environment? It's a gold mine!&lt;/p&gt;
+&lt;p&gt;But today, I want to talk about finding ways to leverage Asahi. It's still very much a work in progress, and one might
+even say a labor of love created by a truly amazing group of brilliant engineers and open source contributors.&lt;/p&gt;
+&lt;p&gt;There's no doubt that there are a few rough edges, but even so I have taken a machine that had become a regular source
+of frustration and turned it into the amazing intellectual spring board it had the potential to become!&lt;/p&gt;
+&lt;p&gt;So let's get started!&lt;/p&gt;
+&lt;h2&gt;Installing&lt;/h2&gt;
+&lt;p&gt;While you definitely don't want to ask Grandpa to install Asahi Linux on his Mac without a more technically savvy friend
+standing by, the actual process is very straightforward if you pay careful attention and follow directions.&lt;/p&gt;
+&lt;h3&gt;Choices&lt;/h3&gt;
+&lt;p&gt;The first real choice you'll be confronted with is how much disk space to allocate to Asahi. Of course, this is up to
+you, but as my lovely wife is fond of saying, I am all about the extremes. Everything or nothing, winning or losing,
+BRING IT! :)&lt;/p&gt;
+&lt;p&gt;So I chose the 'min' option to leave the minimal amount of space required for MacOS behind and use the rest to dive into
+the brave new world of Asahi.&lt;/p&gt;
+&lt;p&gt;Pay &lt;strong&gt;very&lt;/strong&gt; careful attention to the section of the installation instructions where it tells you what to do after
+reboot. This is where most new folks stumble so it pays to print the instructions out or have them handy on a tablet for
+a careful re-read as you go.&lt;/p&gt;
+&lt;p&gt;Once you're booted into Fedora, it's smooth sailing and you're in Linux just like you would be on an Intel machine!&lt;/p&gt;
+&lt;h2&gt;Moving In's Easy. Unpacking? Not So Much!&lt;/h2&gt;
+&lt;p&gt;I won't bore you with the details of the process I use to set up a new computer. I'll probably write that up as a
+separate article as well, but the bottom line is I use the IMO excellent strategy of making my Linux home directory into
+a Git repository, so managing my dot files works just like any other work with Github I do every day, and setting up a
+new machine is as easy as running a tiny &lt;a href="https://gist.github.com/feoh/3bcde14af243d1bc626aad0f652fe49c"&gt;shell script&lt;/a&gt;
+shell script I have on a Github Gist.&lt;/p&gt;
+&lt;p&gt;I stole this strategy from an &lt;a href="https://www.atlassian.com/git/tutorials/dotfiles"&gt;Atlassian blog post&lt;/a&gt; and it's been a
+life changer. No more struggling with whether a given dot file is up to date, or remembering whether I made changes over
+there and forgot to copy them. It's all in Git. Done and dusted!&lt;/p&gt;
+&lt;h2&gt;The Devil's In The Details - Software!&lt;/h2&gt;
+&lt;p&gt;While many of the tools I use day to day are handily contained in Fedora's standard repositories and are either a trip
+to KDE Discovery or a 'dnf install' away, there are a number of problem children that proved harder to get going. These
+tools are core to my day to day work so getting them right is important. I wanted to share my experiences here in the
+hope that I can save you some work, and maybe even invite you to tell me how I can do it better!&lt;/p&gt;
+&lt;h3&gt;Obsidian Note Taking&lt;/h3&gt;
+&lt;p&gt;The only way I was able to make this work is by downloading the AppImage. Head on over to &lt;a href="https://obsidian.md"&gt;The Obsidian
+Website&lt;/a&gt; and Click the "Get Obsidian for Linux (AppImage)" link. Be sure to down download  the ARM64
+version or you will be sad :)&lt;/p&gt;
+&lt;p&gt;On Intel systems, I normally integrate AppImages with my desktop using the excellent
+&lt;a href="https://github.com/TheAssassin/AppImageLauncher"&gt;AppImageLauncher&lt;/a&gt; but I haven't been able to get it to work on Asahi.
+I can install it but it does nothing when I double click the AppImage from Dolphin. On Intel it pops up a dialog and
+offers to register your new app with KDE.&lt;/p&gt;
+&lt;p&gt;I seem to have managed to get it registered in KDE using the &lt;a href="https://github.com/ryonakano/pinit"&gt;Pin It!&lt;/a&gt; utility
+installed from Discover, but I'm not quite sure what I did so you may need to fiddle a bit (Sorry, awfully vague I
+know!).&lt;/p&gt;
+&lt;h3&gt;Vivaldi Browser&lt;/h3&gt;
+&lt;p&gt;This one was a bit tricky, I tried the various RPMs with zero success, but ultimately decided to give the Snap from the
+snap store a try, and it worked like a champ! Just run &lt;code&gt;snap install vivaldi&lt;/code&gt; and you're good to go!&lt;/p&gt;
+&lt;h3&gt;Zoom Teleconferencing&lt;/h3&gt;
+&lt;p&gt;What I thought was going to end in a trail of turns actually turned out alright!&lt;/p&gt;
+&lt;p&gt;I could not for love or money get the Zoom Workspace app to run properly or join a meeting, but in the end analysis,
+installing the Chrome extension in Vivaldi and just joining meetings with the web version works great! I can even share
+my entire screen!&lt;/p&gt;
+&lt;h3&gt;Slack&lt;/h3&gt;
+&lt;p&gt;This is IMO the one truly sad story in my personal Asahi journey. Slack does not as of yet ship &lt;em&gt;any&lt;/em&gt; ARM binaries at
+all. It's Intel or GTFO in Slack's book. Jerks.&lt;/p&gt;
+&lt;p&gt;I realize that it's a matter of getting funded for a niche platform, but then be more friendly to third party developers
+who would be &lt;strong&gt;happy&lt;/strong&gt; to build clients if you'd only let them in!&lt;/p&gt;
+&lt;p&gt;Ultimately, I ended up using Vivalidi's PWA (Persistent Web Application) feature to just make the web version of Slack
+into its own "app".  This isn't great in any number of ways, but it's the best I've got at the moment.&lt;/p&gt;
+&lt;p&gt;People have recommended &lt;a href="https://github.com/andirsun/Slacky"&gt;Slacky&lt;/a&gt; but all I could get out of that was that Slack was
+unable to load. Grump :)&lt;/p&gt;
+&lt;p&gt;I'll keep updating this as I go with any learning I can share. Please get in touch on the Fediverse if you have
+questions or are thinking of trying this yourself. I'd love to hear from you! I'm &lt;a href="https://oldbytes.space/@feoh"&gt;@feoh@oldbytes.space there&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I hope you have as much fun as I did transforming your Mac into a lean, mean KDE Linux machine!&lt;/p&gt;</summary>
+    <category term="asahi" label="asahi"/>
+    <category term="linux" label="linux"/>
+    <category term="m2" label="m2"/>
+    <category term="mac" label="mac"/>
+    <category term="macbook" label="macbook"/>
+    <category term="macos" label="macos"/>
+  </entry>
+  <entry>
+    <title>NiceGUI: Awesome Python Dynamic Websites For The Web Dev Impaired!</title>
+    <id>https://www.feoh.org/posts/nicegui-awesome-dynamic-websites-for-people-who-write-ugly-html.html</id>
+    <updated>2025-08-03T20:11:54-04:00</updated>
+    <published>2025-08-03T20:11:54-04:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/nicegui-awesome-dynamic-websites-for-people-who-write-ugly-html.html"/>
+    <summary type="html">&lt;h3&gt;Confession&lt;/h3&gt;
+&lt;p&gt;I have a guilty confession to make: The idea of trying to come up to speed with modern front
+end web development fills me with inchoate dread.&lt;/p&gt;
+&lt;p&gt;Javascript, Typescript, React.js, advanced CSS, CORS - all of it just makes my head spin.&lt;/p&gt;
+&lt;p&gt;It's not that I don't think these are all worthy skills to have, I &lt;em&gt;do&lt;/em&gt;! But the truth is I
+still feel like I really want to solidify my transition from Python novice to Journeyman and
+one day even with blood, sweat, tears, and a little luck ascend the lofty mountain top to
+Expert!&lt;/p&gt;
+&lt;p&gt;So when the fine folks over at &lt;a href="https://pybit.es/"&gt;Pybites&lt;/a&gt; mentioned it as a suggestion for
+their "Summer of Pybites Code 2025" competition, I thought it was worth a look.&lt;/p&gt;
+&lt;p&gt;I was pleasantly surprised!&lt;/p&gt;
+&lt;h3&gt;It's Surprisingly Eaasy!&lt;/h3&gt;
+&lt;p&gt;Here's how you create an input form with a prompt that lets you enter some text:&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre class="code literal-block"&gt;  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;card&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Search for images"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"quasar"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bind_value&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"search_text"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"outlined"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Search"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;on_click&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search_image_request&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+    &lt;span class="n"&gt;ui&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Pretty straight forward, right? The ui.card() just gives our input box a nice fancy border.&lt;/p&gt;
+&lt;p&gt;The ui.input bit is mostly self explanatory other than the .bind_value() which simply stores
+the result of our input into the search_text property.&lt;/p&gt;
+&lt;p&gt;The ui.button line is what it says on the tin as well, with the addition of that lambda in
+the on_click event which simply calls our search_image_request() function when we click the
+Submit button.&lt;/p&gt;
+&lt;p&gt;You can see what this looks like along with the results of a search:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="An Example NiceGUI application I built showing a text
+input" src="https://www.feoh.org/images/NiceGUI_Blog_Example.png"&gt;&lt;/p&gt;
+&lt;p&gt;Needless to say, this is pretty neat! I can make very intuitive API calls to create
+interactive user interface components on a dynamic web page! NiceGUI even handles creating a
+server for your app, although you can deploy it other ways as well.&lt;/p&gt;
+&lt;p&gt;So until the day comes when I can devote myself to learning how to build for the modern web,
+it's really "Nice" to know that there are tools out there that &lt;em&gt;are&lt;/em&gt; within my reach to help
+me build beautiful interactive web apps in my favorite programming language - Python!&lt;/p&gt;
+&lt;h3&gt;Potential Down Sides&lt;/h3&gt;
+&lt;h4&gt;Javascript All The Way Down&lt;/h4&gt;
+&lt;p&gt;NiceGUI is a Python wrapper over &lt;a href="https://quasar.dev"&gt;Quasar&lt;/a&gt; - an "Enterprise Ready"
+Javascript framework written atop &lt;a href="https://vuejs.org/"&gt;Vue.js&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you try to view the web pages it generates with anything other than a Javascript enabled,
+modern web browser, you're out of luck. I suspect people with screen readers and the like
+don't have a chance.&lt;/p&gt;
+&lt;p&gt;It's possible that Quasar implements the proper Aria roles to make the generated sites more
+accessible in a modern browser, but I have no real idea honestly.&lt;/p&gt;
+&lt;h4&gt;Edge Cases Can Bite You&lt;/h4&gt;
+&lt;p&gt;One of the things I really struggled with when initially trying to use NiceGUI is the fact
+that if you enclose a &lt;code&gt;ui.image&lt;/code&gt; inside a &lt;code&gt;ui.card&lt;/code&gt; or any other container, you must either
+manually style the container large enough to eocompass the image, or instead use the
+&lt;code&gt;ui.interactive_image&lt;/code&gt; which will apparently handle this case more smoothly.&lt;/p&gt;
+&lt;p&gt;If you don't, you'll find as I did that you get ... Nothing. Your image simply doesn't
+display. This lead to a bunch of head scratching on my part, until the nice folks over at
+NiceGUI pointed me in the right direction.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Despite the potential issues, I think NiceGUI is a really handy tool to have in one's belt
+for those moments when you just &lt;em&gt;really&lt;/em&gt; need to build a quick and dirty interface for
+something that renders to a web browser. The API is very approachable, and the folks behind
+the project couldn't be more welcoming and helpful.&lt;/p&gt;
+&lt;p&gt;I'm very glad to have taken the time to learn NiceGUI. Give it a go and let me know what you
+think!&lt;/p&gt;</summary>
+    <category term="dynamic" label="dynamic"/>
+    <category term="python" label="python"/>
+    <category term="ui" label="ui"/>
+    <category term="web" label="web"/>
+    <category term="website" label="website"/>
+  </entry>
+  <entry>
+    <title>Pycon US 2025: This Year Was a Life Changer</title>
+    <id>https://www.feoh.org/posts/pycon-us-2025-this-year-was-a-life-changer.html</id>
+    <updated>2025-05-22T21:23:31-04:00</updated>
+    <published>2025-05-22T21:23:31-04:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/pycon-us-2025-this-year-was-a-life-changer.html"/>
+    <summary type="html">&lt;h3&gt;Pycon US 2025 WAS Amazing!&lt;/h3&gt;
+&lt;p&gt;There will be a ton of blog posts coming out right about now, gushing about how amazing Pycon US 2025 was. This will be one of them, but I hope to offer something more as well.&lt;/p&gt;
+&lt;h3&gt;Find Ways To Connect. Go Deep&lt;/h3&gt;
+&lt;p&gt;It can be very easy to attend any technical conference, shuffle from talk to talk, try to sponge up as much as your brain will allow. That's not BAD per-se, but if you do this you're missing some of the most potentially impactful benefits of your Pycon experience!&lt;/p&gt;
+&lt;h4&gt;Engage With Talk Authors&lt;/h4&gt;
+&lt;p&gt;Were you inspired by a particular talk? Did it give you an idea for a direction you could take a project you're working on, or maybe an idea for a whole new project?&lt;/p&gt;
+&lt;p&gt;If you were, reach out to the talk's author! You might even bump into them at the conference, and if you're an extrovert or enjoy meeting new people, introduce yourself and tell them what a great job they did!&lt;/p&gt;
+&lt;p&gt;But if you don't, or in personal socializing just isn't your jam, get in touch online! Most talk authors will show a slide with their social media contact info, github usernames, and even email. Get in touch! If you're polite and appreciative I can all but guarantee they'll be glad to hear from you, and you might just make a new friend or career connection as a result!&lt;/p&gt;
+&lt;h2&gt;The Talks Were SO Good!&lt;/h2&gt;
+&lt;p&gt;I've been to more than a few technical conferences in my time, and while I've seen some good ones from other conferences, the quality of Pycon talks is in my opinion consistently very high.&lt;/p&gt;
+&lt;p&gt;The talks are out on Youtube already, so I can link to them directly this year!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First up, I'm going to give my inner bleeding heart liberal free reign and mention the positively AWESOME keynote from &lt;a href="https://youtu.be/ydVmzg_SJLw?si=f7TTJcGTIblt73dg"&gt;Corey Doctorow&lt;/a&gt;. It's truly outstanding and will give you insights into why the internet and big tech are as they are today and how we might be able to fix them.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://youtu.be/RrsVi1P6n0w?si=SEpaCNZdSa3ZKOe0"&gt;Zoom, Enhance: Asyncio's New Introspection Powers&lt;/a&gt; doesn't sound like much but core developers Pablo and Yuriy go positively BANANAS in this talk. I won't say more because that would spoil it :) Seriously though, if you're a heavy Async IO user you shouldn't miss this.&lt;/li&gt;
+&lt;li&gt;I was incredibly inspired by Paul Ganssle's &lt;a href="https://youtu.be/NNbq-o5HODY?si=TT2bYbSDSW8ZW-_X"&gt;Programming For Yourself&lt;/a&gt; where we learn about how he tried to teach his child perfect pitch. It's beautiful and sweet and says so much about what I value in computing!&lt;/li&gt;
+&lt;li&gt;Lynn Root's Keynote (Video not available yet) was amazing. She was SO incredibly brave to make this. It's about her life's journey and how giving herself permission to play cured a severe burnout induced crisis.&lt;/li&gt;
+&lt;li&gt;There was also a talk by Pablo on the new remote debugging features in 3.14 but it's not on Youtube yet as near as I can tell. This is my favorite new feature for 3.14!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Sprints - And YOU!&lt;/h3&gt;
+&lt;p&gt;After Pycon's talks are over and the main conference ends, a remarkable thing happens. Many of the open source projects you know and love gather in meeting rooms in the conference venue, mentor new contributors and generally get work done.&lt;/p&gt;
+&lt;p&gt;Where do YOU come in you might ask? Imagine having the opportunity to contribute to some of your favorite projects while working cheek to jowl with the amazing people who create and maintain them!&lt;/p&gt;
+&lt;p&gt;I worked on CPython this week, and it was an experience I will never forget!&lt;/p&gt;
+&lt;p&gt;They had a "First Time CPython Contributor" room this year, which is where I was. I sat beside living legend and this year's PSF Python Programmer In Residence Lukasz Lenga helping him with the swank new REPL Python got in 3.13 and that's greatly improved in 3.14!&lt;/p&gt;
+&lt;p&gt;I even landed a tiny edge case fix! I still can't believe it. I won't lie, working on CPython was a stretch for me. It's a very complex code base, and yet, &lt;a href="https://github.com/python/cpython/issues/128066"&gt;here it is&lt;/a&gt;. Hearing Lukasz say "Congratulations, You're a CPython Contributor!" made my year :)&lt;/p&gt;
+&lt;p&gt;It was also such a pleasure sitting with, working along side, and sharing laughs with Lukasz, Pablo, and a cast of others including people whose work I have admired for more than a decade.&lt;/p&gt;
+&lt;h3&gt;All Good Things&lt;/h3&gt;
+&lt;p&gt;I always learn a lot by attending tech conferences. Last year's Pycon left me positively reeling with new information and ideas for directions to take it.&lt;/p&gt;
+&lt;p&gt;But this year was something entirely different and much, MUCH more valuable. I made friends! The Python community is such an amazingly warm, kind, welcoming place.&lt;/p&gt;
+&lt;p&gt;I was given a calabash gourd and bombilla (drinking straw) for Mate by a lovely woman from Python Argentina. She'd just met me!&lt;/p&gt;
+&lt;p&gt;The warmth and genuine connection I made with SO many people defies description so I won't even try. It's like being love bombed in the best possible way.&lt;/p&gt;
+&lt;p&gt;Now, the conference and sprints are over, and here I sit in my hotel too excited to sleep and also eager to get on the plane, get home and share some of this good mood and love with my wife who bore &lt;em&gt;way&lt;/em&gt; more than her share of the load for the week I was gone and couldn't have been more supportive.&lt;/p&gt;
+&lt;p&gt;If you've never been to a tech conference before and are even vaguely interested in Python, I can't recommend it enough! And if you're already a Pythonista and haven't been, DO IT! You won't regret it!&lt;/p&gt;
+&lt;p&gt;If you can't afford to come, financial aid is available. Come join us next year!&lt;/p&gt;</summary>
+    <category term="development" label="development"/>
+    <category term="personal" label="personal"/>
+    <category term="python" label="python"/>
+    <category term="social" label="social"/>
+    <category term="sprints" label="sprints"/>
+  </entry>
+  <entry>
+    <title>Hacking The Wetware 3: Veritas Liberabit Vos</title>
+    <id>https://www.feoh.org/posts/veritas-liberabit-vos-the-truth-will-set-you-free.html</id>
+    <updated>2024-09-28T20:33:02-04:00</updated>
+    <published>2024-09-28T20:33:02-04:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/veritas-liberabit-vos-the-truth-will-set-you-free.html"/>
+    <summary type="html">&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;We all lie to ourselves all the time. It's a part of the human condition.&lt;/p&gt;
+&lt;p&gt;But some lies are more harmful than others, and if you're not straight with
+yourself about where your actual skill set is at, it can easily become an
+obstacle to personal and career growth that will prey on your mind and create
+stress on your life that you could avoid if you arm yourself with the right
+tools and have the courage to see things as they truly are.&lt;/p&gt;
+&lt;p&gt;Veritas Liberabit Vos: Or in English, the truth will set you free.&lt;/p&gt;
+&lt;h2&gt;Of Boiled Frogs and Thoughtless Choices&lt;/h2&gt;
+&lt;p&gt;Moving through a career in technology can feel a lot like skiing downhill while
+juggling, where at any given moment any number of the objects you're juggling
+can be &lt;em&gt;on fire&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;So it's very easy to find yourself moving in a direction you might think is
+wrong when you get a moment to breathe.&lt;/p&gt;
+&lt;p&gt;For the first 20 years of my career I got along just fine with my limited coding
+skills. I could whip out a shell script or some simple process oriented code in
+no time flat, and by and large that's &lt;em&gt;all I needed to do&lt;/em&gt; when I worked as a
+systems administrator or even release engineer.&lt;/p&gt;
+&lt;p&gt;But over the last 10 years, as I transitioned into a devops/platform engineering
+role, those skills just didn't cut it.&lt;/p&gt;
+&lt;p&gt;But that's not what I told myself.&lt;/p&gt;
+&lt;p&gt;It's not like I actually thought "Oh hey I don't need to learn anything new, I'm
+GREAT!", it's more like I just &lt;em&gt;focused&lt;/em&gt; my work on the blazing forest fire that
+was right in front of me, or even choose to pick up a shovel and muck out the
+stables instead of noticing that my co-workers were taking more risks by taking
+on more challenging and complex tasks.&lt;/p&gt;
+&lt;p&gt;It's more like I convinced myself that if I could be seen to be working &lt;em&gt;really
+hard&lt;/em&gt; nobody would notice that there was this giant gaping hole in my skill set.&lt;/p&gt;
+&lt;p&gt;Understanding how you ended up where you are right now is &lt;em&gt;important&lt;/em&gt; as it can
+help you understand the ways in which you'll need to change in thought, action
+and behavior in order to get where you know you really need to be.&lt;/p&gt;
+&lt;h2&gt;Science!!!&lt;/h2&gt;
+&lt;p&gt;One of the most difficult aspects of any situation like this is cutting through
+all the &lt;em&gt;feelings&lt;/em&gt; involved and trying to come to a fact based understanding of
+the realities of the situation.&lt;/p&gt;
+&lt;p&gt;This is &lt;em&gt;really really hard&lt;/em&gt;! We're talking about effectively teasing out a core
+part of your being, your abilities and talents, and putting them under a
+microscope. Measuring them with calipers and a ruler and ideally even attaching
+quantifiable values to them.&lt;/p&gt;
+&lt;p&gt;But there are tools that can help. In my case where I was trying to grow a set
+of software development skills, I found platforms like
+&lt;a href="https://pybit.es/"&gt;Pybites&lt;/a&gt; and &lt;a href="https://exercism.org/"&gt;Exercism&lt;/a&gt; to be
+tremendously helpful. The key is a very clear demarcation between success and
+failure. Without that doing any kind of assessment becomes much tougher due to
+subjectivity.&lt;/p&gt;
+&lt;p&gt;Obviously I gave these specific examples for my particular case, you have to
+figure out what deficit you're trying to address and come up with your own.&lt;/p&gt;
+&lt;h2&gt;You Need a Concrete Plan&lt;/h2&gt;
+&lt;p&gt;OK, so now you've admitted to yourself that things aren't where they need to be.
+Great! That's the first step, now what are you going to do about it?&lt;/p&gt;
+&lt;p&gt;Come up with a quantifiable, reasonable goal, and set yourself a reasonable due
+date for completion.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This is a moment where our ambition can work against us&lt;/em&gt;. If you say "OK I want
+to be able to successfully and correctly code 1 exercise a day and attain X rank
+within the next two months".&lt;/p&gt;
+&lt;p&gt;How realistic is that, &lt;em&gt;really&lt;/em&gt;? Are you working full time? Do you have other
+stressors or drains on your time that you simply cannot change? These kinds of
+obstacles are there for &lt;em&gt;everyone&lt;/em&gt;. The trick is how we choose to handle them.&lt;/p&gt;
+&lt;h2&gt;Optimize For Success&lt;/h2&gt;
+&lt;p&gt;Be realistic with yourself. Plan for success and give yourself the space you
+need to succeed! We've all found ourselves wallowing in that feeling of extreme
+disappointment because some lofty goal we set for ourselves didn't happen.&lt;/p&gt;
+&lt;p&gt;Make your goals small and attainable, because optimizing for success builds the
+self confidence we need to power through the challenges that come our way in the
+future!&lt;/p&gt;
+&lt;h2&gt;Optimize For Success Part 2: Deliberate Practice and Resources&lt;/h2&gt;
+&lt;p&gt;In the book &lt;em&gt;Peak: Secrets From The New Science of Expertise&lt;/em&gt; the authors
+describe the concept of "deliberate practice".&lt;/p&gt;
+&lt;p&gt;The idea is that unguided practice alone can be a very inefficient way to
+learn. Having a coach, teacher or even a competent study buddy can accelerate your
+velocity and improve your chance of success enormously.&lt;/p&gt;
+&lt;p&gt;I found one example they gave to explain this rather apt: A person looking to
+perfect their gold swing could practice at a driving range hundreds of
+&lt;em&gt;thousands&lt;/em&gt; of times, repeating the &lt;em&gt;exact&lt;/em&gt; same bad form and crappy results
+every single time.&lt;/p&gt;
+&lt;p&gt;If your situation isn't like mine, and there aren't platforms designed for your
+specific need, what about your community? Could you get coaching from a mentor?
+People are often surprisingly willing to help someone out towards improving
+their career.&lt;/p&gt;
+&lt;p&gt;Local meet-ups can be good for this, giving you an opportunity to network and
+chat with other like minded folks who can help you on your way.&lt;/p&gt;
+&lt;p&gt;Finding a more supportive work environment might be an option for you as well. I
+know that in my situation I moved from a fairly high octane megacorp job to
+working at MIT and that was one of the best career decisions I've ever made.&lt;/p&gt;
+&lt;p&gt;People in this environment have &lt;em&gt;time&lt;/em&gt; to support me. For years everyone assumed
+that because I have 30 years in that I had outstanding software development
+chops. And like I admitted above, that just wasn't the case.&lt;/p&gt;
+&lt;p&gt;At MIT, my manager and co-workers actually have the time to walk me through
+things, occasionally even explaining like I'm 5 and going &lt;em&gt;very&lt;/em&gt; slowly, but it
+turns out that's something I needed all along but never got, in part because I
+was so busy telling myself everything was fine that I never really &lt;em&gt;asked&lt;/em&gt; for
+it in any kind of sincere, assertive way.&lt;/p&gt;
+&lt;h2&gt;Self Confidence Through Right Action&lt;/h2&gt;
+&lt;p&gt;Whatever your plan of action is, and whatever your outcomes may be, you should
+&lt;em&gt;give yourself credit&lt;/em&gt; for the steps you're taking to get your career on track.&lt;/p&gt;
+&lt;p&gt;If you're putting the work in, and moving the needle, even if it's moving more
+slowly than you'd like, please for goodness sake try to &lt;em&gt;feel really good about
+that&lt;/em&gt; because you are doing way more than a huge swath of the population that
+just stays locked hopelessly in place, waiting for some magical rescuer to come
+take them away to a better place.&lt;/p&gt;
+&lt;p&gt;I hope this helps someone break out of the paralysis and self doubt that can
+come from this problem. Good luck!&lt;/p&gt;</summary>
+  </entry>
+  <entry>
+    <title>Git Submodules are awful but occasionally necessary.</title>
+    <id>https://www.feoh.org/posts/git-submodules-are-awful-but-occasionally-necessary.html</id>
+    <updated>2024-01-09T23:09:31-05:00</updated>
+    <published>2024-01-09T23:09:31-05:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/git-submodules-are-awful-but-occasionally-necessary.html"/>
+    <summary type="html">&lt;p&gt;&lt;img alt="Yo Dawg I Hear You Like Dotfiles In Your Dotfiles" src="https://www.feoh.org/images/YoDawgDotFiles.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Intro&lt;/h2&gt;
+&lt;p&gt;One of the beautiful things about powerful tools is that they enable you to do
+easy things easily but also more complicated things as well.&lt;/p&gt;
+&lt;p&gt;Git is the perfect example of this. It represents an incredible amount of
+innovation in mainstream widely adopted version control systems, but it has some
+of the worst UX of any software I've ever used, and that includes Nortel switch
+administration consoles where all input was in the form of numeric codes :)&lt;/p&gt;
+&lt;h2&gt;Git Submodules&lt;/h2&gt;
+&lt;p&gt;Git submodules are a fractal of bad UX, which is almost assuredly why they
+generate such incredibly strong feelings among the Git using community. Mention
+that you use submodules in various technical communities chat rooms and you
+might as well have lobbed a hand grenade into their midst without having had the
+decency to shout "FIRE IN THE HOLE!" first.&lt;/p&gt;
+&lt;p&gt;However, I encountered a very particular use case that to mind virtually
+necessitated their use. I would welcome any alternatives people may come up with
+other than "Don't do that".&lt;/p&gt;
+&lt;p&gt;Let me explain.&lt;/p&gt;
+&lt;h2&gt;The Plot Thickens&lt;/h2&gt;
+&lt;p&gt;I manage my dot files using Github, and in particular I utilize a variation on
+the method laid out
+&lt;a href="https://www.ackama.com/what-we-think/the-best-way-to-store-your-dotfiles-a-bare-git-repository-explained/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can read the article for details, but the upshot is that my home directory
+actually contains a &lt;a href="https://github.com/feoh/git_dotfiles"&gt;Git repository&lt;/a&gt; that houses my dot files, so I can revise
+them to my heart's content and enjoy all the benefits that managing source code
+in Github brings to the table.&lt;/p&gt;
+&lt;p&gt;Now, here's where the need for submodules comes in.&lt;/p&gt;
+&lt;p&gt;I co-maintain a moderately popular Neovim project called
+&lt;a href="https://github.com/nvim-lua/kickstart.nvim"&gt;kickstart.nvim&lt;/a&gt;. As such I need to
+be able to check out the latest revisions and test them on my own system to see
+how they integrate with my own customizations.&lt;/p&gt;
+&lt;p&gt;Given that, being able to simply &lt;code&gt;git pull&lt;/code&gt; the latest is critical.&lt;/p&gt;
+&lt;p&gt;So we have a "Yo dawg, I hear you like dotfiles in your dotfiles!" situation
+here. Git submodules to the rescue!&lt;/p&gt;
+&lt;p&gt;I won't go into the details around adding a submodule to your existing project,
+that's covered elsewhere in way more detail than I have time for here, but you
+can see the net result in the repo I linked above.&lt;/p&gt;
+&lt;p&gt;I have kickstart.nvim checked out as a submodule of my main git dotfiles
+project, so I can always pull down the latest changes from the master repository
+into my own personalized fork for testing.&lt;/p&gt;
+&lt;h2&gt;Traps for the Unwary&lt;/h2&gt;
+&lt;p&gt;As I mention above, Git submodules represent a loaded footgun and they are
+&lt;em&gt;extremely&lt;/em&gt; easy to mis-use to the point where you wind up with a tangle of
+wires shooting sparks in your git workspace trapped in an unendingly frustrating
+purgatory of bad error messages, unclear working states and an utterly obtuse
+route back to the "happy path".&lt;/p&gt;
+&lt;p&gt;How do I avoid this? I Keep It Simple, Stupid :)&lt;/p&gt;
+&lt;h2&gt;Simple Rules For My Simple Mind - Using Submodules Sanely&lt;/h2&gt;
+&lt;p&gt;I follow a few simple rules that keep things understandable. The key is not
+trying to do too much.&lt;/p&gt;
+&lt;h3&gt;Avoid them wherever possible&lt;/h3&gt;
+&lt;p&gt;Seriously, unless you have a use case like mine, they &lt;em&gt;are&lt;/em&gt; a faff. You're
+better off avoiding them if you can, but if you can't or can't see a way to
+avoid them, then read on!&lt;/p&gt;
+&lt;h3&gt;Treat your checked out submodules as read-only.&lt;/h3&gt;
+&lt;p&gt;Make any changes in a separate workspace for that project where you can branch,
+fork and modify to your heart's content.&lt;/p&gt;
+&lt;p&gt;It's really tempting to just ignore this rule and make changes in your
+submodule. I can just HEAR you saying "But Chris, it's git. It SHOULD work!" and
+the truth is - &lt;em&gt;in a perfect world, it does!&lt;/em&gt;. But you and I both know the world
+we live in is far from perfect, and if humans can be counted on for anything
+it's an utter lack of consistency and discipline when the chips are down and
+time is of the essence.&lt;/p&gt;
+&lt;p&gt;So save yourself the heartache, make your changes elsewhere, and then simply
+run:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git submodule update --remote&lt;/code&gt; potentially adding --force if things don't seem
+to be updating properly.&lt;/p&gt;
+&lt;h3&gt;Don't be afraid to nuke and pave!&lt;/h3&gt;
+&lt;p&gt;Assuming you're following my rule above, you can always simply nuke your
+submodule and start over. Remember if you go this route that you'll likely need
+to delete the .gitmodules directory in your project as they contain important
+state for your submodules.&lt;/p&gt;
+&lt;p&gt;Seriously, this can be a &lt;em&gt;huge&lt;/em&gt; win when you find yourself thinking "OK what the
+blue blazes is &lt;em&gt;going on&lt;/em&gt;?" and chances are good that if you choose to use
+submodules, this day &lt;em&gt;will&lt;/em&gt; come!&lt;/p&gt;
+&lt;h2&gt;Unless you know better...&lt;/h2&gt;
+&lt;p&gt;As I've mentioned several times, submodules are indeed a pain, but for my needs
+as outlined here I can't think of a better way to implement this. Do you know of
+one? Have you found a minimal faff way to implement this without manually
+copying new revisions from one Github project into another?&lt;/p&gt;
+&lt;p&gt;If you do, I'm all ears! You can reach me on the Fediverse - 
+@feoh@oldbytes.space or via email - feoh at feoh dot org. Or leave a comment
+here if that works for you. In any case I look forward to hearing from you, even
+if you think I'm full of malarkey :)&lt;/p&gt;
+&lt;h2&gt;Update: Someone knew better! Git subtree!&lt;/h2&gt;
+&lt;p&gt;If you're a technical person in 2024 and you're not on the Fediverse, you're
+missing out. It doesn't have the dank memes and crap posting Twitter does, but
+some of us consider that a feature :)&lt;/p&gt;
+&lt;p&gt;When I wrote this post, I sent a copy there and asked "Does anyone know
+better?". Thankfully I received an incredibly helpful
+&lt;a href="https://cybersecurity.theater/@varx/111731694640751156"&gt;response&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It turns out there's a much better alternative to git submodules, and they're
+called Git subtrees. They're awesome :)&lt;/p&gt;
+&lt;p&gt;You can find all about them
+&lt;a href="https://www.atlassian.com/git/tutorials/git-subtree"&gt;here&lt;/a&gt;. Once you set a
+subtree up, it checks out automatically with the rest of your repository.&lt;/p&gt;
+&lt;p&gt;I'm delighted thus far!&lt;/p&gt;</summary>
+    <category term="bestpractices" label="bestpractices"/>
+    <category term="control" label="control"/>
+    <category term="git" label="git"/>
+    <category term="scm" label="scm"/>
+    <category term="submodules" label="submodules"/>
+    <category term="subtree" label="subtree"/>
+    <category term="vcs" label="vcs"/>
+    <category term="version" label="version"/>
+  </entry>
+  <entry>
+    <title>Why do YOU Homelab?</title>
+    <id>https://www.feoh.org/posts/why-do-you-homelab.html</id>
+    <updated>2023-12-01T17:20:29-05:00</updated>
+    <published>2023-12-01T17:20:29-05:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/why-do-you-homelab.html"/>
+    <summary type="html">&lt;p&gt;&lt;img alt="XKCD Comic About Self Hosting" src="https://imgs.xkcd.com/comics/hard_reboot.png"&gt;&lt;/p&gt;
+&lt;h2&gt;The Internet is a Dangerous Place These Days (Introduction)&lt;/h2&gt;
+&lt;p&gt;In this day and age, you really are taking a risk if you're not running some
+form of ad blocking. Heck, even &lt;a href="https://www.wired.com/story/security-roundup-even-cia-nsa-use-ad-blockers/"&gt;CISA is telling government agencies this&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So I mentioned on the Fediverse that I was thinking about going back to using
+&lt;a href="https://pi-hole.net/"&gt;Pi-hole&lt;/a&gt; for this. It's quick to set up, super
+convenient, and all around does the job well.&lt;/p&gt;
+&lt;p&gt;At this, -dsr-, a long time online acquaintance whose opinions I respect, piped in with this:&lt;/p&gt;
+&lt;iframe src="https://tilde.zone/@dashdsrdash/111449235781879573/embed" width="400" allowfullscreen="allowfullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Generally, when he speaks, I listen. His skill as a system administrator is formidable
+and to say that he has helped me out from time to time would be an understatement.&lt;/p&gt;
+&lt;p&gt;So I started down the rabbit hole of doing what he suggested and installing BIND in a VM
+and getting it set to use DNSRBL to perform the same kind of ad blocking Pi-hole does.&lt;/p&gt;
+&lt;p&gt;And then I realized something: This is absolutely positively the &lt;em&gt;wrong&lt;/em&gt; tool for my use case.&lt;/p&gt;
+&lt;p&gt;Why? I'll answer that, but before I do, let's get down to the business of this post.&lt;/p&gt;
+&lt;h2&gt;Why &lt;em&gt;I&lt;/em&gt; Homelab&lt;/h2&gt;
+&lt;p&gt;Over the last few years, people interested in technology have enjoyed an incredibly bounty of
+free and open source software. It's not just possible but &lt;em&gt;easy&lt;/em&gt; to do things that would in
+past eras have taken incredible amounts of effort and physical hardware with a few hours
+of spare time, a relatively small amount of money, and maybe a smidgen of space on a desk somewhere.&lt;/p&gt;
+&lt;p&gt;There are all kinds of reasons one might wish to run various bits and bobs of infrastructure at home,
+and sometimes trying to figure out which rabbit hole to go down can be dizzying and maybe even a bit
+intimidating, and answering the Why question may be able to help you as it did me.&lt;/p&gt;
+&lt;p&gt;I run a bunch of my infrastructure at home myself rather than relying on cloud vendors because ultimately
+I want to enhance my privacy and, more importantly to me, take control of my technology life in a day and
+age when books can vanish from your Kindle in the dead of night, never to return, music you love can
+sink beneath the waves when your streaming service and a record company get into a tiff, and software you
+purchased with actual money can evaporate into a puff of bits because some company somewhere decided it 
+wasn't profitable enough.&lt;/p&gt;
+&lt;p&gt;I'm not primarily doing it as a way to build skills for my career. I do feel like any time I flex my
+technical muscle I'm improving myself career wise though.&lt;/p&gt;
+&lt;h2&gt;Why Others Might Homelab&lt;/h2&gt;
+&lt;p&gt;There are all kinds of great reasons to run your own server hardware and software at home that don't 
+match those I cited above. I want to cover a couple of them here.&lt;/p&gt;
+&lt;h3&gt;Building Your Systems / Network Administration Skills&lt;/h3&gt;
+&lt;p&gt;Depending on what you do for work, it can be incredibly hard to constantly evolve all the skills the
+job market is looking for in new hires. Whether you're currently working or looking for work, being
+able to honestly claim "Oh yeah, I've done that. I set it up in my Homelab" is a fabulous answer to
+have during an interview, and you can certainly add these new found skills to your resume so long as
+you're VERY honest with yourself about your &lt;em&gt;actual&lt;/em&gt; level of mastery. Don't fall prey to the 
+&lt;a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect"&gt;Dunning Kreuger Effect&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;For example during my last job search I was finding employers REALLY wanted
+Kubernetes experience, so I set up Rancher in some VMs running on one of the ProxMox servers I have here. It was great and I 
+learned a tun.&lt;/p&gt;
+&lt;p&gt;This is where -dsr-'s toot above really comes in. He's absolutely right, setting up BIND instead of
+a Pi-hole is most decidedly &lt;em&gt;not&lt;/em&gt; hard for anyone with a reasonable degree of comfort with UNIX
+systems and infrastructure, and you win familiarity with one of the most important pieces of 
+infrastructure software in the world - bind.&lt;/p&gt;
+&lt;h3&gt;The Chance To Experiment With Zero Consequences&lt;/h3&gt;
+&lt;p&gt;I don't know about you, but after 30 years working in the technology sector, I've lost count of the
+number of times I was asked to build some really &lt;em&gt;truly&lt;/em&gt; complex piece of software or infrastructure,
+live, without a net. No test environments, no dry runs.&lt;/p&gt;
+&lt;p&gt;You'd better be good at running downhill while juggling chainsaws, because that's what you'll be asked
+to do. Over and over and &lt;em&gt;OVER&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;With a homelab, you can play, blow stuff up, shrug your shoulders and enjoy the satisfaction of knowing
+that you learned something from your failure and will know what to do next time.&lt;/p&gt;
+&lt;p&gt;This is what life as a technology professional &lt;em&gt;should&lt;/em&gt; be like everywhere, but
+all too frequently isn't.&lt;/p&gt;
+&lt;h2&gt;Why I Ultimately Chose Pi-hole&lt;/h2&gt;
+&lt;p&gt;The answer is very simple: My lovely wife :)&lt;/p&gt;
+&lt;p&gt;In order to be an effective solution for us, she needs to be able to control the ad blocker we use.&lt;/p&gt;
+&lt;p&gt;The most critical thing is that she herself be able to add exceptions to the block list. With Pi-hole,
+that's as easy as surfing to the web address of Pi-hole's admin and entering a value.&lt;/p&gt;
+&lt;p&gt;There is absolutely positively &lt;em&gt;zero&lt;/em&gt; chance of her learning a UNIX editor, much less BIND's configuration file format.&lt;/p&gt;
+&lt;p&gt;It's not that she couldn't do it if she wanted to, but she REALLY doesn't want to! Computers are appliances to her.&lt;/p&gt;
+&lt;p&gt;So, for my purposes, any desire to hone my sysadmin skills is irrelevant, at least for the purposes of this particular
+decision.&lt;/p&gt;
+&lt;p&gt;So, why do &lt;em&gt;you&lt;/em&gt; homelab?&lt;/p&gt;</summary>
+    <category term="homelab" label="homelab"/>
+    <category term="infrastructure" label="infrastructure"/>
+    <category term="nerdlife" label="nerdlife"/>
+    <category term="philosophy" label="philosophy"/>
+    <category term="selfhosting" label="selfhosting"/>
+    <category term="technology" label="technology"/>
+  </entry>
+  <entry>
+    <title>A Mac User's Survival Guide For Buying A PC Laptop</title>
+    <id>https://www.feoh.org/posts/a-mac-users-survival-guide-for-buying-a-pc-laptop.html</id>
+    <updated>2023-07-18T09:58:05-04:00</updated>
+    <published>2023-07-18T09:58:05-04:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/a-mac-users-survival-guide-for-buying-a-pc-laptop.html"/>
+    <summary type="html">&lt;p&gt;&lt;img alt="&amp;quot;Scream&amp;quot; by xuhulk is licensed under CC BY-SA 2.0." src="https://www.feoh.org/images/Scream.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Why Are We Here?&lt;/h2&gt;
+&lt;p&gt;Mac users tend to be a rather opinionated lot. We generally love our Macs for
+all kinds of reasons - the interface, the hardware, the polish - the list goes
+on.&lt;/p&gt;
+&lt;p&gt;But life is complicated, and there are all kinds of situations that might make a
+dyed in the wool Mac user choose to buy a PC laptop.&lt;/p&gt;
+&lt;p&gt;For myself, the motivation was simple. Apple had about a 5 year stretch where
+they manufactured nothing but &lt;em&gt;epic turds&lt;/em&gt; for laptops. I don't choose such a
+vulgar turn of phrase lightly. As someone who has literally been a Mac fan for
+decades (My first Mac was a Motorola 68XXX CPU based Quadra tower. Yes I'm old)
+I was appalled at how far the quality had fallen. I won't go into it here as
+that's not the point of the article, but let me just offer this one hint:
+Butterfly keyboards.&lt;/p&gt;
+&lt;p&gt;So anyway, the pandemic was just starting to kick up and I realized that I
+REALLY needed a personal laptop. So here we are.&lt;/p&gt;
+&lt;p&gt;This isn't going to be exhaustive, I'm just going to cover some of the more
+salient points you may not have been aware of, having lived the sheltered Mac
+life as I did :)&lt;/p&gt;
+&lt;p&gt;Also note these are my opinions. I'm not by any means an expert, I just wanted
+to share what I learned in hopes it might help someone.&lt;/p&gt;
+&lt;h2&gt;Choosing a Vendor&lt;/h2&gt;
+&lt;p&gt;Which laptop maker you choose will depend largely on what's most important to
+you. If ultra expandability is your think, you should probably check out
+&lt;a href="https://frame.work/"&gt;Framework&lt;/a&gt;. If you care less about portability and want a
+luggable gaming rig, I'd give
+&lt;a href="https://www.dell.com/en-us/gaming/alienware"&gt;Alienware&lt;/a&gt; a look.&lt;/p&gt;
+&lt;p&gt;As for myself, I need something that would be sincerely portable, and I
+absolutely require a &lt;em&gt;really&lt;/em&gt; good keyboard, as well as good warranty support
+because fixing it myself wasn't a thing, so I chose
+&lt;a href="https://www.lenovo.com/us/en/pc/"&gt;Lenovo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are plenty of other choices, but hopefully this will at least get you
+going.&lt;/p&gt;
+&lt;h2&gt;Screen&lt;/h2&gt;
+&lt;p&gt;One of the biggest nasty surprises I was in store for in my PC laptop buying
+experience was the screen. Mac laptops have, near as I can tell, always shipped
+with gorgeous, bright, high resolution screens.&lt;/p&gt;
+&lt;p&gt;This isn't always the case in the PC world, so if you're like me and picky about
+screens (in my case, I'm low vision, I NEED a large bright display), you need to
+be careful here.&lt;/p&gt;
+&lt;h3&gt;To Matte or Not To Matte&lt;/h3&gt;
+&lt;p&gt;Every time I mention nit count and screens, people who likely know more than I
+do about this stuff remind me that having a Matte screen can make a significant
+impact on the amount of perceived glare. That makes sense to me, but I have yet
+to have the opportunity to test matte and non matte screens side by side so I
+have no personal opinion on this. If I ever buy a PC laptop again though, I'll
+be sure to look for a matte screen. With glare being such a serious problem for
+me, it certainly can't hurt!&lt;/p&gt;
+&lt;h3&gt;It's All About The Nits&lt;/h3&gt;
+&lt;p&gt;The Lenovo T15 gen2 I bought is a lovely laptop in many ways, but the screen is
+totally unsuitable for me. At 15" and 300 nits, the display always leaves my
+eyes straining and can't handle use in outdoor daylight situations at all.&lt;/p&gt;
+&lt;p&gt;This is a deal breaker for me, so if it is for you, be &lt;em&gt;sure&lt;/em&gt; to pay attention
+to how many nits your display has and whether or not it's big enough for your
+needs.&lt;/p&gt;
+&lt;p&gt;There are PC laptop models out there that match the 1000 nit gorgeousness of a
+Mac laptop's screen, you just need to be sure the one you pick is one of those
+models :)&lt;/p&gt;
+&lt;h2&gt;Keyboard&lt;/h2&gt;
+&lt;p&gt;As consumer demand has driven vendors to make laptops thinner, their keyboards
+have, in my opinion, suffered. Thankfully Lenovo realized that not everyone is
+willing to live with a mushy keyboard with no key travel, so their Thinkpad line
+all have keyboards ranging from good to excellent. The keyboard on my T15 was
+quite good with nice key travel and just enough tactile feedback to let my wrist
+know it can stop pressing. I tend to unfortunately CAVEMAN SMASH mushy
+keyboards, and then it hurts :)&lt;/p&gt;
+&lt;p&gt;Alienware laptops also generally have superlative keyboards, but as I said those
+are often more luggables than truly portable, so, it's all about the trade-offs
+:)&lt;/p&gt;
+&lt;p&gt;Unfortunately, it's very hard to shop for a keyboard that fits you through the
+mail. You may need to phone a friend or find a local computer store where you
+can actually lay hands on that model laptop to try it out yourself.&lt;/p&gt;
+&lt;h2&gt;Ports&lt;/h2&gt;
+&lt;p&gt;Be sure you get any adapters you'll need. PCs are more likely to have
+DisplayPort ports for monitor / video connections than HDMI, so you may need to
+go buy an adapter for your monitor.&lt;/p&gt;
+&lt;p&gt;You'll also likely see an actual wired network (Ethernet) port, because unlike
+Apple, PC vendors recognize that in many places wifi is dodgy as heck and having
+a wired network connection can be a godsend.&lt;/p&gt;
+&lt;h2&gt;Warranty&lt;/h2&gt;
+&lt;p&gt;If you're like me, when you buy Apple hardware, you ALWAYS buy Applecare to go
+with it.&lt;/p&gt;
+&lt;p&gt;Be careful about your laptop of choice's warranty options. One thing I really
+like about Lenovo in this regard is that they have good warranty service &lt;em&gt;and&lt;/em&gt;
+the warranty attaches to the machine, not the person, so if you want to sell
+your laptop, the warranty travels right along with it.&lt;/p&gt;
+&lt;p&gt;I've seen several laptop vendors offer a 1 year parts and labor warranty by
+default, and that's it. I generally like to be sure I can get more out of my
+investment than that, but opinions vary on whether or not warranty service is a
+good idea. Just bear in mind that if you don't have one and you break it, you'll
+need to either fix it yourself or hope for the best at a local computer repair
+shop.&lt;/p&gt;
+&lt;h2&gt;Closing&lt;/h2&gt;
+&lt;p&gt;Now that Apple has gone back to making excellent laptops, I don't see myself
+buying a PC for myself in the near future, but having done it once, if I ever do
+again at least I'll know what to look for. I hope this helps you make a purchase
+you're happy with.&lt;/p&gt;
+&lt;p&gt;Whatever you choose, have fun and happy computing!&lt;/p&gt;</summary>
+    <category term="buying" label="buying"/>
+    <category term="laptop" label="laptop"/>
+    <category term="mac" label="mac"/>
+    <category term="pc" label="pc"/>
+    <category term="survival" label="survival"/>
+  </entry>
+  <entry>
+    <title>Windows Papercuts for *NIX Developers</title>
+    <id>https://www.feoh.org/posts/windows-papercuts-for-nix-developers.html</id>
+    <updated>2023-07-04T13:42:31-04:00</updated>
+    <published>2023-07-04T13:42:31-04:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/windows-papercuts-for-nix-developers.html"/>
+    <summary type="html">&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;If you're used to developing on *NIX systems, coming to Windows can be a bit of
+a shock.&lt;/p&gt;
+&lt;p&gt;My goal in writing this article is to point out some of the pain points and,
+where I know they exist, some work-arounds.&lt;/p&gt;
+&lt;p&gt;Note that I'm talking about &lt;em&gt;native&lt;/em&gt; Windows here. If WSL meets your needs and
+your environment allows it (not everyone's does. Many IT orgs turn it off) then
+bully for you but this article isn't about that :) I think WSL is both an
+incredible tool for developers and an awesome feat of engineering. I wish more
+Linux folks appreciated this. Anyway :)&lt;/p&gt;
+&lt;p&gt;So let's get started!&lt;/p&gt;
+&lt;h3&gt;The Paper Cuts&lt;/h3&gt;
+&lt;h4&gt;The C Compiler&lt;/h4&gt;
+&lt;p&gt;For most of us, having a standard raft of development tools on hand is par for
+the course. We just expect gcc and make to be there at our beck and call, and
+the fact that they're not can cause some tools to fail spectacularly.&lt;/p&gt;
+&lt;p&gt;For instance, whenever I start my editor of choice (Neovim) I'm greeted with:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Neovim C Compiler Error on Windows" src="https://www.feoh.org/images/windows_nvim_c_boom.png"&gt;&lt;/p&gt;
+&lt;p&gt;Having spoken to some experts, apparently it's considered &lt;em&gt;really&lt;/em&gt; bad form to
+leave your C compiler on the PATH on Windows. I suspect this is because malware
+on Windows is such an incredibly pervasive problem.&lt;/p&gt;
+&lt;p&gt;I get that, but then we should probably either modify our tool-chains to not
+expect that as a default or maybe create documentation to help people understand
+the happy path.&lt;/p&gt;
+&lt;p&gt;As near as I can tell, the 'standard' set of c/c++ tools on Windows is Microsoft
+Visual Studio. The free "Community" version works just fine though the installer
+is a bit of a jank-fest.&lt;/p&gt;
+&lt;p&gt;That thing provides a prompt shortcut called "Powershell for VS XXXX" and you
+can use that to get a shell that has the usual build tools available.&lt;/p&gt;
+&lt;p&gt;Not a great solution though, since the experts say not to run that way as a
+default, but having your editor blow up on start just-up isn't a great feel.&lt;/p&gt;
+&lt;h4&gt;The Shell&lt;/h4&gt;
+&lt;p&gt;While you certainly &lt;em&gt;can&lt;/em&gt; run tools like bash or zsh on Windows, unless you
+&lt;em&gt;really&lt;/em&gt; know what you're doing, this is not the happy path. You're in Rome. Do
+what the Romans do and you won't regret it :)&lt;/p&gt;
+&lt;p&gt;The good news here is that the native tools are now really quite good. Gone are
+the days when CMD.EXE was your only choice. You now have Powershell and it's
+really quite awesome.&lt;/p&gt;
+&lt;p&gt;Here are a couple of tips to make your Powershell experience awesome and help
+you appreciate what this environment has to offer.&lt;/p&gt;
+&lt;h5&gt;Oh My Posh&lt;/h5&gt;
+&lt;p&gt;This one's gotten a lot of press and let me tell you it's incredibly well
+deserved. It's like the oh my zsh of Windows shell prompts :)&lt;/p&gt;
+&lt;p&gt;Mine shows me git status and whether my last command's exit code indicates
+success or failure, as well as what Git branch I'm on. Here's what it looks
+like:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="What My Oh My Posh Prompt Looks Like" src="https://www.feoh.org/images/OhMyPoshScreenshot.png"&gt;&lt;/p&gt;
+&lt;p&gt;I wrote some about Oh My Posh in my &lt;a href="https://www.feoh.org/posts/getting_started_with_python_on_windows_2021_edition_push_the_easy_button.html"&gt;previous article on Windows for Python
+Developers&lt;/a&gt;.&lt;/p&gt;
+&lt;h5&gt;PSFzf&lt;/h5&gt;
+&lt;p&gt;One of the biggest productivity boost for me in recent memory was when I
+integrated &lt;a href="https://github.com/junegunn/fzf"&gt;fzf&lt;/a&gt; the fuzzy finder into my
+workflow.&lt;/p&gt;
+&lt;p&gt;With a single keystroke I can find any file or directory on my system.
+Navigation becomes effortless and the endless sequence of &lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;pwd&lt;/code&gt; commands
+melt away in a burst of productivity goodness :)&lt;/p&gt;
+&lt;p&gt;Thankfully, Powershell offers all these benefits as well via
+&lt;a href="https://github.com/kelleyma49/PSFzf"&gt;PSFzf&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here's what it looks like. In this case I wanted to edit my Neovim main
+configuration file &lt;code&gt;init.lua&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Edit my init.lua file" src="https://www.feoh.org/images/psfzf.png"&gt;&lt;/p&gt;
+&lt;h4&gt;The Console / Terminal&lt;/h4&gt;
+&lt;p&gt;For long time *NIX users, one of the biggest bones of contention for a
+long time was the Windows console. To put it kindly, it was god awful, mostly
+because it maintained compatibility with the Antideluvian DOS console.&lt;/p&gt;
+&lt;p&gt;Happily, we now have a fairly decent solution &lt;a href="https://github.com/microsoft/terminal"&gt;Windows
+Terminal&lt;/a&gt;. I say fairly decent because
+it's still not quite up to par with your favorite &lt;em&gt;NIX terminal, but the fine
+folks behind this open source project are working &lt;/em&gt;really* hard to change that,
+and the progress they've made here has been nothing short of miraculous. Mad
+props to these folks for fixing by far the biggest deal breaker for many around
+working in Windows!&lt;/p&gt;
+&lt;p&gt;They've even recently added an easier UI for editing settings, but you can also
+still go edit the JSON yourself if that's your jam :)&lt;/p&gt;
+&lt;p&gt;It's not perfect, but this is an incredibly flexible tool with a ton of depth
+and it's been exciting to watch it evolve.&lt;/p&gt;
+&lt;h4&gt;The Windows Desktop/GUI&lt;/h4&gt;
+&lt;p&gt;I'm sure there will be folks who aren't happy with this one but my take? Just
+ignore it.&lt;/p&gt;
+&lt;p&gt;Windows is pretty good about making EVERYTHING accessible from the keyboard, and
+many things are also accessible from the command line. If you just avoid
+graphical interfaces wherever possible, and if you're anything like me, you'll
+see your productivity levels soar and your frustration levels plummet.&lt;/p&gt;
+&lt;h4&gt;Packaging&lt;/h4&gt;
+&lt;p&gt;One of the big pain points coming from *NIX is the lack of a 'real' package
+manager.&lt;/p&gt;
+&lt;p&gt;I use the &lt;code&gt;winget&lt;/code&gt; tool that comes bundled with Windows 11. It's officially
+supported by Microsoft and lets me install most if not all of the commercial
+apps I use.&lt;/p&gt;
+&lt;p&gt;It has the further advantage that it will write a JSON blob with all the
+packages you have installed, so you can get your software up to snuff with a
+single Powershell invocation.&lt;/p&gt;
+&lt;p&gt;But there are other popular options as well, namely
+&lt;a href="https://github.com/ScoopInstaller/Scoop"&gt;Scoop&lt;/a&gt; and
+&lt;a href="https://chocolatey.org/"&gt;Chocolatey&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To be honest I wish MSFT had worked a bit harder to maintain compatibility with
+these other projects so we don't have multiple separate package namespaces.
+Can't have everything I guess.&lt;/p&gt;
+&lt;h4&gt;Where Do I Put?&lt;/h4&gt;
+&lt;p&gt;One of the things I continue to struggle with is the simple expedient of "Where
+do I PUT things?". On UNIX based systems, pretty much everything user or
+configuration related lives in $HOME. Not so on Windows.&lt;/p&gt;
+&lt;p&gt;As just an example, my Neovim configuration lives in something like
+&lt;code&gt;$HOME\AppData\Local\nvim.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In some respects, I get it. Keeping application configuration separate is a good
+thing, but navigating where to put what can feel like a bit of a morass for the
+uninitiated.&lt;/p&gt;
+&lt;p&gt;Maybe once I get a better understanding of the lay of the land, I can create a
+cheat sheet for UNIX users.&lt;/p&gt;
+&lt;h3&gt;Fin&lt;/h3&gt;
+&lt;p&gt;That's all I have for now, but I may update this post as time permits or if
+various situations I detail here improve. Thanks for reading!&lt;/p&gt;</summary>
+    <category term="compiler" label="compiler"/>
+    <category term="neovim" label="neovim"/>
+    <category term="powershell" label="powershell"/>
+    <category term="python" label="python"/>
+    <category term="windows" label="windows"/>
+  </entry>
+  <entry>
+    <title>Hacking the Wetware 2 - Antipatterns (Burn Out &amp; The Ego Trap)</title>
+    <id>https://www.feoh.org/posts/hacking-wetware-antipatterns.html</id>
+    <updated>2023-01-23T13:20:57-05:00</updated>
+    <published>2023-01-19T21:16:21-05:00</published>
+    <author>
+      <name>Chris Patti</name>
+    </author>
+    <link rel="alternate" type="text/html" href="https://www.feoh.org/posts/hacking-wetware-antipatterns.html"/>
+    <summary type="html">&lt;p&gt;&lt;img alt="&amp;quot;Boiling Frog&amp;quot; by DonkeyHotey is licensed under CC BY-SA 2.0." src="https://www.feoh.org/images/Boiling_The_Frog.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Of Burn Out And Boiled Frogs&lt;/h3&gt;
+&lt;p&gt;I can't speak for everyone, but as for my own experience, burn out can be tough to self diagnose because it happens slowly, 
+by degrees.&lt;/p&gt;
+&lt;p&gt;It's a state of mind where pushing yourself even a little bit, even to do the things you'd normally
+do as a matter of course, feels incredibly difficult. It's that feeling of knowing you need to do something but being
+unable to actually complete the thoughts or actions necessary to actually get it done.&lt;/p&gt;
+&lt;p&gt;Often, at least for me, it's a result of having to perform the same set of tasks over and over again in a stressful situation.&lt;/p&gt;
+&lt;p&gt;Human brains simply weren't designed to be subjected to a constant diet of stress combined with cognitively challenging tasks
+and an overall lack of novelty or variation.&lt;/p&gt;
+&lt;p&gt;Understanding this can go a long way for preventing it, but even so, especially in the technology industry, it can happen to
+anyone.&lt;/p&gt;
+&lt;p&gt;Changing things up with your work load can sometimes help, but other times the source of the stress or conditions around your
+work mean that even varying your worrk may not be enough.&lt;/p&gt;
+&lt;p&gt;There's a really superlative book on this topic I can strongly recommend - &lt;a href="https://www.goodreads.com/book/show/327.Why_Zebras_Don_t_Get_Ulcers"&gt;Why Zebras Don't Get Ulcers&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;How Does One Un-Boil a Frog?&lt;/h3&gt;
+&lt;p&gt;There are a few things I have found to be helpful through the years in recovering from burn out.&lt;/p&gt;
+&lt;h4&gt;Do Something Fun &amp;amp; DIFFERENT. Pick Up a New Hobby!&lt;/h4&gt;
+&lt;p&gt;As a part of recovering from my most recent bout of burn out I've started learning how to play the piano/keyboard. A key
+aspect in this being effective is that it's something VERY different from the activity that got you here. For me,
+learning an entirely new skill that has nothing to do with computers has been satisfying and fulfilling.&lt;/p&gt;
+&lt;p&gt;Tech projects can be good too provided they're well and truly disconnected from the work that's burning you out and don't
+end up being a source of stress themselves!&lt;/p&gt;
+&lt;p&gt;Why not go for some long walks/hikes in the woods? Go for a nice bicycle ride? Finding fun activities that are also exercise
+can be good on many levels!&lt;/p&gt;
+&lt;h4&gt;Give Yourself a Break&lt;/h4&gt;
+&lt;p&gt;As professionals we put a ton of pressure on ourselves. Everybody wants to be a superstar and nobody likes to think about losing,
+even when losing a tiny and actually almost meaningless skirmish can feel like you've lost the war.&lt;/p&gt;
+&lt;p&gt;It can be difficult to zoom out and gain that perspective in the moment, but it's important to try and figure it out. Having
+solid support systems can be very helpful here, whether it's your spouse, a good friend, or even a therapist. Speaking of...&lt;/p&gt;
+&lt;h4&gt;Get Help If You Need It&lt;/h4&gt;
+&lt;p&gt;Many of us were raised to think of therapy as a thing for "crazy people" - that nebulous other that SURELY isn't us! We're 
+stronger than that and more self sufficient.&lt;/p&gt;
+&lt;p&gt;Except, when push comes to shove, we're all human. We all need mechanisms in our lives to help provide balance and an outside
+perspective to keep us grounded and help avoid boiled frog syndrome.&lt;/p&gt;
+&lt;p&gt;I myself use &lt;a href="https://www.betterhelp.com/"&gt;BetterHelp&lt;/a&gt; and have found it incredibly useful.&lt;/p&gt;
+&lt;h4&gt;Gratitude&lt;/h4&gt;
+&lt;p&gt;This may sound a bit wu or perhaps irrelevant to some, but I have recently found it to be a powerful tool for shaping the way I
+think about things in a positive direction.&lt;/p&gt;
+&lt;p&gt;Taking a moment to zoom out from whatever I'm thinking or feeling and &lt;em&gt;appreciate&lt;/em&gt; the fact that I live a life of such incredible
+privilege helps me gain some much needed perspective. &lt;/p&gt;
+&lt;p&gt;Clearly I'm not the only one, I found &lt;a href="https://www.youtube.com/watch?v=ZBduBppB8r0"&gt;this Youtube video&lt;/a&gt; on the topic really helpful.&lt;/p&gt;
+&lt;h3&gt;The Ego Trap&lt;/h3&gt;
+&lt;p&gt;There's something else I want to talk about. This may not apply to you, but if it does, maybe I can help.&lt;/p&gt;
+&lt;p&gt;Many of us who work in technology take a lot of pride in our work. We may even, if we're lucky enough to
+go to work for what some might consider an 'elite' company, attain positions with a fair bit of cachet in
+the industry.&lt;/p&gt;
+&lt;p&gt;This can create yet another variety of boiled frog - the ego trap. Where your very identity becomes bound up
+in your job. It's not just "I work for BigCo" - it's "I AM BigCo".&lt;/p&gt;
+&lt;p&gt;I can't imagine that anyone who's fallen for this would even admit to it in the moment. It's the kind of clarity
+many of us only get when our situation changes out from under us and we're forced to confront an unpleasant
+reality.&lt;/p&gt;
+&lt;p&gt;Remember, no matter how excited you are to be working for any particular company at a particular job, at the end
+of the day it's JUST a job. &lt;/p&gt;
+&lt;p&gt;Cliches about health being the only thing that matters aside, this situation can create some incredibly intense
+tunnel vision:&lt;/p&gt;
+&lt;p&gt;"I WILL find a way to maintain the status quo!".&lt;/p&gt;
+&lt;p&gt;Thing is, maybe you &lt;em&gt;Can't&lt;/em&gt; and moreover maybe you &lt;em&gt;shouldn't&lt;/em&gt;! For your own sake and perhaps for that of your
+employer.&lt;/p&gt;
+&lt;p&gt;Sometimes, the only winning move is embracing your limitations and accepting that you can only do so much so fast.&lt;/p&gt;
+&lt;p&gt;I don't mean to say that one should just meekly accept defeat, but sometimes winning is having the wisdom to
+tactically retreat and formulate a better plan for success :)&lt;/p&gt;
+&lt;p&gt;Skills can be built upon and improved, and taking ownership of that process and the will to make it happen can itself be
+incredibly empowering!&lt;/p&gt;</summary>
+    <category term="burn-out" label="burn-out"/>
+    <category term="burnout" label="burnout"/>
+    <category term="career" label="career"/>
+    <category term="health" label="health"/>
+    <category term="mental-health" label="mental-health"/>
+    <category term="mind" label="mind"/>
+    <category term="technology" label="technology"/>
+    <category term="work" label="work"/>
+  </entry>
+</feed>

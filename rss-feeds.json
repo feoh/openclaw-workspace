@@ -1,0 +1,24 @@
+{
+  "feeds": [
+    {"title": "Terence Eden's Blog", "url": "https://shkspr.mobi/blog/feed/"},
+    {"title": "Unfinished Bitness", "url": "https://unfinishedbitness.info/feed/"},
+    {"title": "Blind Not Dumb", "url": "https://www.feoh.org/feed.atom"},
+    {"title": "John P. Murphy", "url": "https://johnpmurphy.net/feed/"},
+    {"title": "Zarf Updates", "url": "https://blog.zarfhome.com/feeds/posts/default"},
+    {"title": "Aeracode", "url": "https://aeracode.org/feed/atom/"},
+    {"title": "Anthony Shaw's blog", "url": "https://tonybaloney.github.io/rss.xml"},
+    {"title": "Deciphering Glyph", "url": "https://blog.glyph.im/feeds/all.atom.xml"},
+    {"title": "Hynek Schlawack", "url": "https://hynek.me/index.xml"},
+    {"title": "Inside the head of Daniel Roy Greenfeld", "url": "https://daniel.feldroy.com/feeds/atom.xml"},
+    {"title": "Michael Kennedy", "url": "https://mkennedy.codes/index.xml"},
+    {"title": "Ned Batchelder's blog", "url": "https://nedbatchelder.com/blog/rss.xml"},
+    {"title": "Simon Willison's Weblog", "url": "https://simonwillison.net/atom/everything/"},
+    {"title": "Tall, Snarky Canadian", "url": "https://snarky.ca/rss/"},
+    {"title": "Chris Morgan's blog", "url": "https://chrismorgan.info/feed.xml"},
+    {"title": "matklad", "url": "https://matklad.github.io/feed.xml"},
+    {"title": "Ars Technica", "url": "https://arstechnica.com/feed/?t=d46dc635cfe2031785f81a4b0c4f7f73da4f3bbf"},
+    {"title": "Kagi Blog", "url": "https://blog.kagi.com/rss.xml"},
+    {"title": "Zed A. Shaw", "url": "https://zedshaw.com/feed.atom"}
+  ],
+  "last_seen_ids": {}
+}

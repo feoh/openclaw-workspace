@@ -1,0 +1,699 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>https://daniel.feldroy.com/</id>
+  <title>Inside the head of Daniel Roy Greenfeld</title>
+  <updated>2026-03-19T04:05:21.503630+00:00</updated>
+  <author>
+    <name>Daniel Roy Greenfeld</name>
+    <email>daniel@feldroy.com</email>
+    <uri>https://daniel.feldroy.com</uri>
+  </author>
+  <link href="https://daniel.feldroy.com" rel="alternate"/>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator>
+  <logo>https://f004.backblazeb2.com/file/daniel-feldroy-com/public/images/profile.jpg</logo>
+  <rights>All rights reserved 2026, Daniel Roy Greenfeld</rights>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/til-2025-11-default-code-block-languages-for-mkdocs</id>
+    <title>TIL: Default code block languages for mkdocs</title>
+    <updated>2025-11-22T12:08:34.618632+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;When using &lt;a href="https://squidfunk.github.io/mkdocs-material/"&gt;Mkdocs with Material&lt;/a&gt;, you can set default languages for code blocks in your &lt;code&gt;mkdocs.yml&lt;/code&gt; configuration file. This is particularly useful for inline code examples that may not have explicit language tags.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;markdown_extensions&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;pymdownx.highlight&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;default_lang&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;python&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can see what this looks like in practice with Air's API reference for forms here: &lt;a href="https://feldroy.github.io/air/api/forms/"&gt;feldroy.github.io/air/api/forms/&lt;/a&gt;. With this configuration, any code block without a specified language defaults to Python syntax highlighting, making documentation clearer and more consistent.&lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/til-2025-11-default-code-block-languages-for-mkdocs"/>
+    <summary>Really useful for making inline code examples have code highlighting.</summary>
+    <category term="TIL"/>
+    <category term="python"/>
+    <category term="markdown"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2025-11-22T12:08:34.618632+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2025-12-adding-type-hints-to-my-blog</id>
+    <title>Adding Type Hints to my Blog</title>
+    <updated>2025-12-11T08:25:02.790731+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;I've decided to add static type checking to my &lt;a href="https://github.com/pydanny/daniel.feldroy.com"&gt;blog engine project&lt;/a&gt;. The tool I chose is &lt;a href="https://pyrefly.org/"&gt;pyrefly&lt;/a&gt;, a fast, Rust-based library for checking types in Python.&lt;/p&gt;
+&lt;h3 id="installing-pyrefly-with-uv"&gt;Installing Pyrefly with UV&lt;/h3&gt;
+&lt;p&gt;My project uses &lt;code&gt;uv&lt;/code&gt; for package management. To install &lt;code&gt;pyrefly&lt;/code&gt; as a development-only dependency, I ran the following command:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;uv&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;pyrefly&lt;span class="w"&gt; &lt;/span&gt;--dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;pyrefly&lt;/code&gt; is a Rust-based Python tool, so its package includes pre-compiled binaries. This makes the package larger (around 10MB) than a pure Python equivalent. This can be an issue with a slower connection. However, &lt;code&gt;uv&lt;/code&gt; caches the downloaded package, making subsequent installations of the same version much faster.&lt;/p&gt;
+&lt;h3 id="running-the-first-type-check"&gt;Running the First Type Check&lt;/h3&gt;
+&lt;p&gt;With &lt;code&gt;pyrefly&lt;/code&gt; installed, I ran the first check across the entire project.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;uv&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;pyrefly&lt;span class="w"&gt; &lt;/span&gt;check&lt;span class="w"&gt; &lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The initial scan found 31 errors. To make the task more manageable, I narrowed the scope to just the main application file.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;uv&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;pyrefly&lt;span class="w"&gt; &lt;/span&gt;check&lt;span class="w"&gt; &lt;/span&gt;main.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This reduced the list to 11 errors, giving me a focused starting point.&lt;/p&gt;
+&lt;h3 id="debugging-a-type-error"&gt;Debugging a Type Error&lt;/h3&gt;
+&lt;p&gt;I decided to tackle one of the reported errors. &lt;code&gt;pyrefly&lt;/code&gt; pointed out an issue with the &lt;code&gt;get_post&lt;/code&gt; function. Here's the pyrefly output&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ERROR&lt;span class="w"&gt; &lt;/span&gt;Type&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;None&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;not&lt;span class="w"&gt; &lt;/span&gt;iterable&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;not-iterable&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;--&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;main.py:258:9
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="m"&gt;258&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;         &lt;/span&gt;content,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;metadata&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;get_post&lt;span class="o"&gt;(&lt;/span&gt;slug&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt;         &lt;/span&gt;^^^^^^^^^^^^^^^^^
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The function's type hint declared that it returns a &lt;code&gt;tuple&lt;/code&gt; or &lt;code&gt;None&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# The incorrect type hint&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;get_post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;tuple&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# ... function implementation&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;However, after reviewing the code, I saw that the function never actually returns &lt;code&gt;None&lt;/code&gt;. If a post is not found, it raises a &lt;code&gt;ContentNotFound&lt;/code&gt; exception. The type hint was wrong.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;get_post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;slug&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;tuple&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;posts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;list_posts&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;post&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;next&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;posts&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;slug&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;slug&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;post&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;ContentNotFound&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="verifying-the-fix"&gt;Verifying the Fix&lt;/h3&gt;
+&lt;p&gt;I corrected the type hint by removing the incorrect &lt;code&gt;| None&lt;/code&gt; part.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# The corrected type hint&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;get_post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;tuple&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# ... function implementation&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;After saving the change, I re-ran the check on &lt;code&gt;main.py&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;uv&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;pyrefly&lt;span class="w"&gt; &lt;/span&gt;check&lt;span class="w"&gt; &lt;/span&gt;main.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The error count dropped from 11 to 10. The fix was successful. You can &lt;a href="https://github.com/pydanny/daniel.feldroy.com/commit/343eff8d1d286818a611e418c9fdeac7ae8b9fc9"&gt;see the commit where the work was done on the repo&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="conclusion"&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Adding a type checker like &lt;code&gt;pyrefly&lt;/code&gt; immediately exposed incorrect type hints in the codebase. The process of installing the tool, running a check, and fixing the first error was straightforward. This small change improved the code's correctness and demonstrated the value of static analysis for maintaining a healthy project.&lt;/p&gt;
+&lt;p&gt;As for the rest of the errors, rather than attack them in one big effort as this is a stable side project what I like to do is make it a daily chore to do a single correction per day. This is slower (and could be done quickly with an LLM assist) but through practice I get better with the tool. Mastery is found through repetition.&lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2025-12-adding-type-hints-to-my-blog"/>
+    <summary>Using pyrefly to identify type failures on this site and then fixing one of them.</summary>
+    <category term="python"/>
+    <category term="howto"/>
+    <category term="air"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2025-12-11T08:25:02.790731+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-01-downloading-everything</id>
+    <title>Writing tools to download everything</title>
+    <updated>2026-01-16T11:22:35.582258+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;Over the years, &lt;a href="https://audrey.feldroy.com"&gt;Audrey&lt;/a&gt; and I have accumulated photos across a variety of services. Flickr, SmugMug, and others all have chunks of our memories sitting on their servers. Some of these services we haven't touched in years, others we pay for but rarely use. It was time to bring everything home.&lt;/p&gt;
+&lt;h2 id="why-bother"&gt;Why Bother?&lt;/h2&gt;
+&lt;p&gt;Two reasons pushed me to finally tackle this.&lt;/p&gt;
+&lt;p&gt;First, money. Subscriptions add up. Paying for storage on services we barely use felt wasteful. As a backup even more so because there are services that are cheaper and easier to use for that purpose, like Backblaze.&lt;/p&gt;
+&lt;p&gt;Second, simplicity. Having photos scattered across multiple services means hunting through different interfaces when looking for a specific memory. Consolidating everything into one place makes our photo library actually usable.&lt;/p&gt;
+&lt;h2 id="using-claude-to-write-a-downloader"&gt;Using Claude to Write a Downloader&lt;/h2&gt;
+&lt;p&gt;I decided to start with SmugMug since that had the largest collection. I could have written this script myself. I've done plenty of API work over the years. But I'm busy, and this felt like a perfect use case for AI assistance.&lt;/p&gt;
+&lt;p&gt;My approach was straightforward:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Wrote a specification&lt;/strong&gt; for a Smugmug downloader. I linked to the docs for the service then told it to make a CLI for downloading things off that service. For the CLI I insist on &lt;code&gt;typer&lt;/code&gt; but otherwise I didn't specify dependencies.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Told Claude to generate code&lt;/strong&gt; based on the spec. I provided the specification and let Claude produce a working Python script.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Tested&lt;/strong&gt; by running the scripts against real data. I started with small batches to verify the downloads worked correctly. Claude got everything right when iy came to downloads on the first go, which was impressive.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Adjust for volume&lt;/strong&gt;. We had over 5,000 files on Smugmug. Downloading everything at once took longer than I expected. I asked Claude to track files so if the script was interrupted it could resume where it left off. Claude kept messing this up, and after the 5th or 6th attempt I gave up trying to use Claude to write this part.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="i-wrote-some-code"&gt;I Wrote Some Code&lt;/h2&gt;
+&lt;p&gt;I wrote a super simple image ID cache using a plaintext file for storage. It was simple, effective, and worked on the first go. Sometimes it's easier to just write the code yourself than try to get an AI to do it for you.&lt;/p&gt;
+&lt;h2 id="the-smugmug-downloader"&gt;The SmugMug Downloader&lt;/h2&gt;
+&lt;p&gt;The project is here at &lt;a href="https://github.com/pydanny/smugmug-downloader"&gt;SmugMug downloader&lt;/a&gt;. It authenticates, enumerates all albums, and downloads every photo while preserving the album structure. Nothing fancy, just practical.&lt;/p&gt;
+&lt;p&gt;I'll be working on the Flickr downloader soon, following the same pattern. There's a few other services on the list too; I'm scanning our bank statements to see what else we have accounts on that we've let linger for too long.&lt;/p&gt;
+&lt;h2 id="was-it-worth-it"&gt;Was It Worth It?&lt;/h2&gt;
+&lt;p&gt;Absolutely. What would have taken me a day of focused coding took an hour of iterating with Claude. Our photos are off Smugmug and we're canceling a subscription we no longer need. I think this is what they mean by "vibe engineering".&lt;/p&gt;
+&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
+&lt;p&gt;These are files which in some cases we thought we lost. Or had forgotten. So the emotional and financial investment in a vibe engineered effort was low. If this were something that was touching our finances or wedding/baby photos I would have been much more cautious. But for now, this is a fun experiment in using AI to handle the mundane parts of coding so I can focus on more critical tasks.&lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-01-downloading-everything"/>
+    <summary>Using AI to help download photos so we can consolidate all our images into one place.</summary>
+    <category term="python"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-01-16T11:22:35.582258+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-02-we-moved-to-manila</id>
+    <title>We moved to Manila!</title>
+    <updated>2026-02-03T06:41:22.863302+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;Last year we relocated to &lt;a href="https://en.wikipedia.org/wiki/Manila"&gt;Metro Manila&lt;/a&gt;, &lt;a href="https://en.wikipedia.org/wiki/Philippines"&gt;Philippines&lt;/a&gt; for the foreseeable future. &lt;a href="https://audrey.feldroy.com/"&gt;Audrey&lt;/a&gt;'s mother is from here, and we wanted our daughter Uma to have the opportunity to spend time with her extended family and experience another line of her heritage.&lt;/p&gt;
+&lt;h2 id="where-are-you-living"&gt;Where are you living?&lt;/h2&gt;
+&lt;p&gt;In &lt;a href="https://en.wikipedia.org/wiki/Makati"&gt;Makati&lt;/a&gt;, a city that contains one of the major business districts in Metro Manila. Specifically we're in Salcedo village, a neighboorhood in the &lt;a href="https://en.wikipedia.org/wiki/Makati_Central_Business_District"&gt;CBD&lt;/a&gt;, made of towering residential and business buildings with numerous shops, markets, and a few parks. This area allows for a walkable life, which is important to us coming from London.&lt;/p&gt;
+&lt;h2 id="what-about-the-usa"&gt;What about the USA?&lt;/h2&gt;
+&lt;p&gt;The USA is our homeland and we're US citizens. We still have family and friends there. We're hoping to visit the US at least once a year.&lt;/p&gt;
+&lt;h2 id="what-about-the-uk"&gt;What about the UK?&lt;/h2&gt;
+&lt;p&gt;We loved living in London, and have many good friends there. I really enjoyed working for &lt;a href="https://kraken.tech/"&gt;Kraken Tech&lt;/a&gt;, but my time came to an end there so our visas were no longer valid. We hope to visit the UK (and the rest of Europe) as tourists, but without the family connection it's harder to justify than trips to the homeland.&lt;/p&gt;
+&lt;h2 id="what-about-your-daughter"&gt;What about your daughter?&lt;/h2&gt;
+&lt;p&gt;Uma loves Manila and is in second grade at an international school here in walking distance of our residence. We had looked into getting her into a local public school with a notable science program, but the paperwork required too much lead time. We do like the small class sizes at her current school, and how they accomodate the different learning speeds of students. She will probably stay there for a while.&lt;/p&gt;
+&lt;p&gt;For extra curricular activities she's enjoying Brazilian Jiu-Jitsu, climbing, yoga, and swimming.&lt;/p&gt;
+&lt;h2 id="if-im-in-manila-can-i-meet-up-with-you"&gt;If I'm in Manila can I meet up with you?&lt;/h2&gt;
+&lt;p&gt;Sure! Some options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We're long-time members of the &lt;a href="https://python.ph/"&gt;Python Philippines&lt;/a&gt; community, so you can often find us at their events&lt;/li&gt;
+&lt;li&gt;If you train in BJJ, I'm usually at &lt;a href="https://www.openmatmakati.com/"&gt;Open Mat Makati&lt;/a&gt; quite a bit. Just let me know ahead of time so I can plan around it&lt;/li&gt;
+&lt;li&gt;If you want to meet up for coffee, hit me up on social media. Manila is awesome for coffee shops! &lt;/li&gt;
+&lt;/ul&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-02-we-moved-to-manila"/>
+    <summary>We're going to be in Metro Manila, Philippines for a while, here's some of the details.</summary>
+    <category term="travel"/>
+    <category term="family"/>
+    <category term="uma"/>
+    <category term="Philippines"/>
+    <category term="python"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-02-03T06:41:22.863302+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-01-recap-resolutions</id>
+    <title>Recap of 2025 and Resolutions for 2026</title>
+    <updated>2026-02-04T04:00:29.326317+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;Better late than never! Here's my annual recap!&lt;/p&gt;
+&lt;h2 id="recap-of-2025"&gt;Recap of 2025&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;We moved from London, UK to &lt;a href="https://daniel.feldroy.com/posts/2026-02-we-moved-to-manila"&gt;Manila, Philippines&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Spent another year with my soul mate, Audrey. Spent time together doing fun things like coding, cooking, traveling, yoga, and raising our daughter together&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://daniel.feldroy.com/tags/uma"&gt;Uma&lt;/a&gt; spent her 6th year on Planet Earth. She's really growing, spent the year focusing on school, goofy kid play, Brazilian Jiu-Jitsu, swimming, engineering, and science. Working on science kits and activities with her is one of my greatest joys. I also became a coach at her BJJ school; my blue belt helps validate my role there. She's quite the character and we adore her&lt;/li&gt;
+&lt;li&gt;Suffered a serious back injury from some bad weight lifting that had me bedridden for the first two months of the year. What was effective for my recovery included acupuncture, healthy diet, stretching, mobility exercises, living in a warm country, and Brazilian Jiu-Jitsu (BJJ). These days I'm much more careful about partners and restrict my sparring to just 2-3 rolls per session&lt;/li&gt;
+&lt;li&gt;Started doing a lot more gi BJJ. London is very much a city of no-gi practitioners, but in Manila most schools focus on gi. It's funny when you think about the uniform preferences of each as the gi makes more sense in the cooler weather of London compared to the tropical heat of Manila&lt;/li&gt;
+&lt;li&gt;Spent much of the year in the Philippines. I appreciate the people and culture - the people I've met have been friendly, hard-working, pragmatic, and trustworthy. Watching the nation improve (reduced poverty, improved infrastructure) since I first visited in 2012 is inspiring&lt;/li&gt;
+&lt;li&gt;Left an AI lab and have been focusing on startups and FOSS&lt;/li&gt;
+&lt;li&gt;Started the &lt;a href="https://airwebframework.org/"&gt;Air web framework&lt;/a&gt; with &lt;a href="https://audrey.feldroy.com/"&gt;Audrey&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/pydanny/daniel.feldroy.com"&gt;Rewrote this blog in Air&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pycon-davao.durianpy.org/"&gt;Spoke at PyCon Davao 2025&lt;/a&gt; and various meetups&lt;/li&gt;
+&lt;li&gt;Snorkeled for the first time in nearly 20 years. I did it in Mexico back in 2006, and this time in the Philippines in Batangas. It was amazing to see the coral and fish life up close again&lt;/li&gt;
+&lt;li&gt;Travelled to new places:&lt;ul&gt;
+&lt;li&gt;🚙 Batangas, PH&lt;/li&gt;
+&lt;li&gt;✈️ Davao, PH&lt;/li&gt;
+&lt;li&gt;✈️ Denver, CO&lt;/li&gt;
+&lt;li&gt;✈️ Melbourne, AU&lt;/li&gt;
+&lt;li&gt;🚙 Tagaytay, PH&lt;/li&gt;
+&lt;li&gt;✈️ Taipei, TW    &lt;/li&gt;
+&lt;li&gt;✈️ Tokyo, JP&lt;/li&gt;
+&lt;li&gt;🚄 Yokohama, JP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2025-resolutions-completed"&gt;2025 Resolutions Completed&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;✔️ Adore my soul mate, Audrey Roy Greenfeld&lt;/li&gt;
+&lt;li&gt;✔️ Be there for my daughter Uma Roy Greenfeld in her 6th year on Planet Earth&lt;/li&gt;
+&lt;li&gt;✖️ Beat last year's number of blog posts&lt;/li&gt;
+&lt;li&gt;✔️ Continue my fitness journey with BJJ, weights, cycling, walking, and other healthy activities&lt;/li&gt;
+&lt;li&gt;✖️ Write fiction again, maybe publish it&lt;/li&gt;
+&lt;li&gt;✔️ Continue to have a healthy work/life balance&lt;/li&gt;
+&lt;li&gt;✔️ Travel to yet more new places, preferably by train or other carbon-efficient methods. Unfortunately the geography of Asia and limited mass transit options made staying out of airplanes difficult. I wish ocean liners were still a thing&lt;/li&gt;
+&lt;li&gt;✔️ Be a speaker in at least one conference&lt;/li&gt;
+&lt;li&gt;✔️ Change my career from being a backend developer to that of an ML/AI specialist. I did this but it wasn't as exciting as I thought it would be&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2026-resolutions"&gt;2026 Resolutions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;❤️ Continue to adore my soul mate, Audrey Roy Greenfeld&lt;/li&gt;
+&lt;li&gt;👩‍👧 Be there for my daughter Uma Roy Greenfeld in her 7th year on Planet Earth. Continue to contribute to her activities&lt;/li&gt;
+&lt;li&gt;📝 Write at least as many blog posts as I did last year (37)&lt;/li&gt;
+&lt;li&gt;🥋 Continue my fitness journey with BJJ, weights, yoga, climbing, and other healthy activities&lt;/li&gt;
+&lt;li&gt;📚 Write fiction again, maybe publish it&lt;/li&gt;
+&lt;li&gt;⚖️ Continue to have a healthy work/life balance&lt;/li&gt;
+&lt;li&gt;🌍 Travel to yet more new places, preferably by train or other carbon-efficient methods&lt;/li&gt;
+&lt;li&gt;🎤 Be a speaker in at least one conference&lt;/li&gt;
+&lt;li&gt;🤖 Stay focused on research rather than building product. I'm much more interested in exploration&lt;/li&gt;
+&lt;li&gt;💪 Avoid injury and maintain my health so I can be there for Audrey and Uma for many years to come&lt;/li&gt;
+&lt;li&gt;🤿 Snorkle again. Nature is amazing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="/posts/2026-01-recap-resolutions"&gt;&lt;img src="/public/images/2025-2026-recap.png" height="25%" width="25%" alt="Me and Uma running together into the future." style="text-align: center;" /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-01-recap-resolutions"/>
+    <summary>Another year in orbit around a star.</summary>
+    <category term="family"/>
+    <category term="audrey"/>
+    <category term="uma"/>
+    <category term="resolutions"/>
+    <category term="pycon"/>
+    <category term="travel"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-02-04T04:00:29.326317+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-02-12-i-hit-my-head</id>
+    <title>Concussion (I Hit My Head)</title>
+    <updated>2026-02-12T16:29:43.465871+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;On January 16th, 2026 I suffered a head injury that turned out to be a significant concussion. I wasn't doing anything exciting or dangerous, I just bent down to tie my shoelace and stood up fast. I hit the back of my head on something hard. At the time I thought I was fine.&lt;/p&gt;
+&lt;p&gt;Thirty hours later I was showing signs of a &lt;a href="https://en.wikipedia.org/wiki/Concussion"&gt;concussion&lt;/a&gt;. I've had these before so I expected it to go away in a week or two. However, while I've improved this one isn't going away.&lt;/p&gt;
+&lt;p&gt;I've been to a neurologist and an alternative medicine specialist. I've had an MRI so we know its not a stroke. I've been avoiding any kind of stress. I went from frequent intense workouts to a much less vigorous routine. I'm doing my best to eat healthy and stay hydrated. I'm hopeful that I'll make a full recovery, but it's been a slow process so far.&lt;/p&gt;
+&lt;p&gt;I've had to curtail nearly all my normal activities. I haven't been able to do any of my hobbies, and I've had to take a break from work. Traffic and crowds tire me out quickly and trigger other symptoms, so travel is limited. It's been frustrating, but I'm trying to stay positive and focus on my recovery. I contribute with housework and close errands.&lt;/p&gt;
+&lt;p&gt;I can code or read code for a little bit each day, but I have to be careful not to overdo it. You might see me do tiny changes on inconsequential projects so I can keep my hand in things. Interestingly enough, working with LLMs doesn't insulate me from symptoms. &lt;/p&gt;
+&lt;p&gt;I've discovered writing fiction doesn't trigger symptoms quickly. So I've returned to that hobby. &lt;/p&gt;
+&lt;p&gt;Audrey has been amazing throughout this process. She's been taking care of me and our daughter Uma. Our daughter has also been very helpful. &lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-02-12-i-hit-my-head"/>
+    <summary>On January 16th, 2026 I suffered a a significant concussion and I'm still recovering.</summary>
+    <category term="health"/>
+    <category term="family"/>
+    <category term="uma"/>
+    <category term="audrey"/>
+    <category term="concussion"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-02-12T16:29:43.465871+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-02-concussion-symptoms</id>
+    <title>Concussion Symptoms</title>
+    <updated>2026-02-18T06:29:43.465871+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;It's been just over a month since I got injured. These days I usually wake up clear headed and with no symptoms. I can go about my day and do activities, but I must avoid triggers. Unfortunately the triggers ruin me until I get several hours of rest.&lt;/p&gt;
+&lt;h2 id="triggers"&gt;Triggers&lt;/h2&gt;
+&lt;p&gt;Slow triggers taking hours to cause symptoms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Crowds&lt;/li&gt;
+&lt;li&gt;Looking at moving traffic&lt;/li&gt;
+&lt;li&gt;Being in a car&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Medium triggers that take effect in 10-30 minutes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deep thought like when writing code or working with LLMs (I think hard about prompts and validation)&lt;/li&gt;
+&lt;li&gt;Stress or excitement&lt;/li&gt;
+&lt;li&gt;Outlining of stories&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Fast triggers that take effect in seconds:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Context switching when in deep thought&lt;/li&gt;
+&lt;li&gt;Large blocks of geometric shapes like:&lt;/li&gt;
+&lt;li&gt;Those found in tall modern buildings&lt;/li&gt;
+&lt;li&gt;Graph paper&lt;/li&gt;
+&lt;li&gt;Hexagonal patterns&lt;/li&gt;
+&lt;li&gt;Very fine print on paper&lt;/li&gt;
+&lt;li&gt;Keeping my eyes on a point and moving my head around quickly (vestibulo-ocular reflex mismatch)&lt;/li&gt;
+&lt;li&gt;Learning new board games (I can play games I already know, but learning new ones is a problem)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="symptoms"&gt;Symptoms&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Brain fog&lt;/li&gt;
+&lt;li&gt;Fatigue&lt;/li&gt;
+&lt;li&gt;Headache (usually in the front right of my head)&lt;/li&gt;
+&lt;li&gt;Dizziness (but no loss of balance)&lt;/li&gt;
+&lt;li&gt;Straight lines become very prominent and distracting&lt;/li&gt;
+&lt;li&gt;Memory loss (I'm aware that I am having trouble tracking dates, and my wife and daughter both say I'm more forgetful than usual)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="updates"&gt;Updates&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Feb 23, 2026: Added graph paper and hexagonal patterns to the list of fast triggers&lt;/li&gt;
+&lt;li&gt;Feb 27, 2026: Added outlining of fiction to medium triggers&lt;/li&gt;
+&lt;li&gt;Feb 27, 2026: Added learning new board games to fast triggers&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-02-concussion-symptoms"/>
+    <summary>Documenting how the head injury incurred on January 16, 2026 continues to affected me one month later.</summary>
+    <category term="concussion"/>
+    <category term="health"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-02-18T06:29:43.465871+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-02-what-my-head-injury-taught-me-about-b2b-sales</id>
+    <title>What my head injury taught me about B2B sales</title>
+    <updated>2026-02-20T00:45:35.781957+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;Last month I had a &lt;a href="https://daniel.feldroy.com/tags/concussion"&gt;head injury&lt;/a&gt; that has almost completely sidelined me from work.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No laptop&lt;/li&gt;
+&lt;li&gt;No calls&lt;/li&gt;
+&lt;li&gt;No pull request reviews&lt;/li&gt;
+&lt;li&gt;Workouts went from highly intense daily BJJ &amp;amp; heavy weight sessions to walks, tai chi, and light weights&lt;/li&gt;
+&lt;li&gt;No direct messages except a few with close family and friends&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Just silence and recovery and boredom. &lt;/p&gt;
+&lt;p&gt;Fortunately for me we try to live an affordable lifestyle and have built a reserve for emergencies. I'm able to take the time I need to heal. This is a far cry from the periods of desperation in my youth when I lived paycheck to paycheck. I remember having to work through being extremely sick or injured because the bills were due.&lt;/p&gt;
+&lt;p&gt;The insights I gained from this experience are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Health is your greatest asset and it can be stripped from you in an instant&lt;/li&gt;
+&lt;li&gt;The world doesn't stop when you can't work, bills are still due&lt;/li&gt;
+&lt;li&gt;Most people you know will send you their best wishes and support&lt;/li&gt;
+&lt;li&gt;A few people may try to advantage of your vulnerability and try to get something from you&lt;/li&gt;
+&lt;li&gt;Be married to someone awesome like &lt;a href="https://audrey.feldroy.com/"&gt;my wife&lt;/a&gt;, who has been an absolute rock through this whole ordeal&lt;/li&gt;
+&lt;/ol&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-02-what-my-head-injury-taught-me-about-b2b-sales"/>
+    <summary>There's this way of writing on LinkedIn where you start with a personal story, and then you draw a business lesson from it. It's a silly pattern that often reeks of faked success and other forms of falsehood. So what better use of my available writing time before symptoms kick in today than to write one of those posts?</summary>
+    <category term="concussion"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-02-20T00:45:35.781957+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/til-2026-02-using-pygmentsrenderer-with-mistletoe-as-a-partial</id>
+    <title>TIL: Using PygmentsRenderer with mistletoe as a partial</title>
+    <updated>2026-02-22T10:09:16.103693+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;For the past 18 months or so on this site, I've been using &lt;a href="https://marked.js.org/"&gt;marked.js&lt;/a&gt; for the web and &lt;a href="https://pypi.org/project/Markdown/"&gt;python-markdown&lt;/a&gt; for the atom feed. I decided not long ago to switch to using &lt;a href="https://github.com/miyuchina/mistletoe"&gt;mistletoe&lt;/a&gt; so there's one consistent source of truth for markdown rendering.&lt;/p&gt;
+&lt;p&gt;I also thought that instead of defining a reusable function that both the web and atom feed could use, I would just use Python's &lt;code&gt;functools.partial&lt;/code&gt; to create a new function that has the &lt;code&gt;renderer&lt;/code&gt; argument set to &lt;code&gt;PygmentsRenderer&lt;/code&gt;. Normally I prefer fully defined functions over using &lt;code&gt;partial&lt;/code&gt;, but in this case, since it is for my personal site it felt like a good use of &lt;a href="https://daniel.feldroy.com/posts/python-partials-are-fun"&gt;partial&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="add-the-dependencies"&gt;Add the dependencies&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;uv&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;mistletoe&lt;span class="w"&gt; &lt;/span&gt;pygments
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="create-the-partial-function"&gt;Create the partial function&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;functools&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;partial&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;mistletoe&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;mistletoe.contrib.pygments_renderer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;PygmentsRenderer&lt;/span&gt;
+
+&lt;span class="n"&gt;markdown&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;partial&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mistletoe&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;markdown&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;renderer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;PygmentsRenderer&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="use-the-new-function"&gt;Use the new function&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;markdown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;markdown_string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="see-it-in-action"&gt;See it in action&lt;/h2&gt;
+&lt;p&gt;Here's the commits where I implemented this change, at least on the web side: &lt;a href="https://github.com/pydanny/daniel.feldroy.com/commit/7cbeec1ff7a5835e0eed882b3dba483554012677"&gt;Using pygments for highlighting of code&lt;/a&gt;. Before I change the atom feed generation to use this, I'll make sure that it renders nicely on planetpython and other feed aggregators. I'll post that in a seperate TIL when I do figure out how to do that.&lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/til-2026-02-using-pygmentsrenderer-with-mistletoe-as-a-partial"/>
+    <summary>Another part of the process of switching from marked.js and python-markdown to just using mistletoe.</summary>
+    <category term="TIL"/>
+    <category term="python"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-02-22T10:09:16.103693+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-02-what-i-miss-about-london</id>
+    <title>What I miss about London</title>
+    <updated>2026-03-01T00:58:24.171653+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;It's been nearly a year since we left London. We lived there from March of 2023 to March of 2025. I find myself reflecting on the things I really enjoyed during our time there. &lt;/p&gt;
+&lt;h2 id="things-that-i-miss-about-london"&gt;Things that I miss about London&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Architecture, especially the older buildings&lt;/li&gt;
+&lt;li&gt;Mixed use neighborhoods, with shops and restaurants on the ground floor and apartments above&lt;/li&gt;
+&lt;li&gt;Museums, so many good ones&lt;/li&gt;
+&lt;li&gt;Public transit, the buses, tube, and rail were all very good and made it easy to get around without a car&lt;/li&gt;
+&lt;li&gt;Walkability, thanks to how compact neighborhoods were due to narrow streets, some just a few feet wide&lt;/li&gt;
+&lt;li&gt;Bike routes and bike sharing services&lt;/li&gt;
+&lt;li&gt;Cozy homes and food businesses&lt;/li&gt;
+&lt;li&gt;Culture of hand-me-downs and second hand shopping, especially for kids clothes and toys. We not only saved money but reduced waste. It allowed us to teach our daughter about giving up things she no longer needed to other kids who could use them&lt;/li&gt;
+&lt;li&gt;Easy access to the countryside&lt;/li&gt;
+&lt;li&gt;Easy access to Europe&lt;/li&gt;
+&lt;li&gt;Not significantly further to visit East Coast family in the US than from California&lt;/li&gt;
+&lt;li&gt;Parks and green spaces&lt;/li&gt;
+&lt;li&gt;Calculating GMT was easy&lt;/li&gt;
+&lt;li&gt;The places where streets shut down during lunchtime so food stalls could serve meals&lt;/li&gt;
+&lt;li&gt;Good public primary schools being the standard for young children&lt;/li&gt;
+&lt;li&gt;So many different gyms and workout methods competing with each other offering amazing trial deals&lt;/li&gt;
+&lt;li&gt;Premium dairy products:&lt;ul&gt;
+&lt;li&gt;Clotted cream&lt;/li&gt;
+&lt;li&gt;Milk from Devonshire and Cornwall&lt;/li&gt;
+&lt;li&gt;Blue stilton cheese&lt;/li&gt;
+&lt;li&gt;Easy access to French cheeses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;British food, specifically:&lt;ul&gt;
+&lt;li&gt;Fish and chips&lt;/li&gt;
+&lt;li&gt;Bangers and mash&lt;/li&gt;
+&lt;li&gt;Sunday roast at the pub&lt;/li&gt;
+&lt;li&gt;Yorkshire puddings&lt;/li&gt;
+&lt;li&gt;Water crackers available everywhere&lt;/li&gt;
+&lt;li&gt;Seasonal vegetables that were fresh and delicious    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="things-i-dont-miss-about-london"&gt;Things I don't miss about London&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The constant smoking and vaping&lt;/li&gt;
+&lt;li&gt;The cost of living, especially housing and food&lt;/li&gt;
+&lt;li&gt;The commonality of theft, especially of phones and bikes&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-02-what-i-miss-about-london"/>
+    <summary>Thoughts about things I really enjoyed during the approximately two years we lived in London.</summary>
+    <category term="travel"/>
+    <category term="family"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-03-01T00:58:24.171653+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-03-command-line-tools-im-using</id>
+    <title>Top Terminal Tools</title>
+    <updated>2026-03-05T07:30:50.970143+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;When I sit down to code, these are the tools I use at this time whenever I touch code. In alphabetical order:&lt;/p&gt;
+&lt;h2 id="atuin"&gt;&lt;a href="https://atuin.sh/"&gt;Atuin&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Atuin is a replacement for the default shell history. It saves your history to a local, encrypted SQLite database. Then it allows for blazing fast searches. You can sync your history across devices, and is has a lot of other features. I can't imagine using a terminal without Atuin.&lt;/p&gt;
+&lt;p&gt;For OSX users, I recommend installing following &lt;a href="https://docs.atuin.sh/cli/#quickstart"&gt;these instructions&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="bat"&gt;&lt;a href="https://github.com/sharkdp/bat"&gt;bat&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A Rust-based cat replacement. It has syntax highlighting, line numbers, and a lot of other features that make it a great tool for quickly looking at files in the terminal.&lt;/p&gt;
+&lt;h2 id="ghostty"&gt;&lt;a href="https://ghostty.org/"&gt;Ghostty&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ghostty is a fast, feature-rich, and cross-platform terminal emulator that I believe works everywhere. Yes, TMUX (and competitors) are more configurable and have more features, but &lt;strong&gt;Ghostty just works out of the box&lt;/strong&gt;. Ghostty eschews the arcane key combinations of its predecessors in favor of intuitive keybindings. A ghostty terminal can be split horizontally and vertically and copy/paste works as expected. It also doesn't appear to interfere with any other shell tool, something that annoyed me about TMUX.&lt;/p&gt;
+&lt;p&gt;Usually I have three vertical panels:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;On the far left a panel for running general shell commands like git, uv, and whatever. &lt;a href="https://atuin.sh"&gt;Atuin&lt;/a&gt; is a must for me, giving me shell history on steriods so I don't have to remember commands anymore&lt;/li&gt;
+&lt;li&gt;In the middle I run a CLI-based text editor, these days usually &lt;a href="https://github.com/feldroy/pad"&gt;pad&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;On the righthand side a panel for running LLM CLI tools, usually AMP, Codex, and sometimes Claude&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="github-cli"&gt;&lt;a href="https://cli.github.com/"&gt;GitHub CLI&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Even though I use a fraction of the available commands, this is just a really useful tool for working on GitHub-hosted projects. &lt;/p&gt;
+&lt;h2 id="pad"&gt;&lt;a href="https://github.com/feldroy/pad"&gt;Pad&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Pad is an easy-to-use terminal editor I created for those of us who aren't into vim. It's powered by &lt;a href="https://textual.textualize.io/"&gt;Will McGugan's Textual&lt;/a&gt;. I did what I can to make pad work with typical VS Code keybindings. &lt;/p&gt;
+&lt;p&gt;Right now I'm not accepting general contributions to Pad. I am still recovering from a &lt;a href="https://daniel.feldroy.com/tags/concussion"&gt;head injury&lt;/a&gt; and that unfortunately makes reviewing PRs challenging. As I get better I plan to put more features into the project and perhaps even accept contributions. For now it does what I need it to do and is a handy addition to my tool chain.&lt;/p&gt;
+&lt;h2 id="various-llm-cli-tools"&gt;Various LLM CLI tools&lt;/h2&gt;
+&lt;p&gt;I have no loyalty to any particular LLM provider. I use whatever tool gets the job done and for which I have free or affordable credits. For now I use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Amp&lt;/li&gt;
+&lt;li&gt;ChatGPT Codex&lt;/li&gt;
+&lt;li&gt;Claude Code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For a while I was using gemini-cli, but it stopped working for me weeks ago. Rather than try to debug it I just used the competition.&lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-03-command-line-tools-im-using"/>
+    <summary>The tools I use in my day-to-day coding efforts in early 2026.</summary>
+    <category term="python"/>
+    <category term="tools"/>
+    <category term="terminal"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-03-05T07:30:50.970143+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/til-2026-03-checkovs-gun</id>
+    <title>TIL: Checkov's Gun</title>
+    <updated>2026-03-09T03:12:43.043418+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Chekhov%27s_gun"&gt;Chekhov's gun&lt;/a&gt; is a storytelling rule that says:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you show something important early in a story, it should matter later.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I've used this technique for years but didn't know it had a name until today. It's similar to foreshadowing, and objectively just a synonym of that word. My personal interpretation is that it has to do with specific concrete objects or behaviors rather.&lt;/p&gt;
+&lt;p&gt;One of my favorite uses of Checkov's Gun is in early cinema as well as some Hong Kong action films where the camera will show a background object early in a dramatic scene. That background object will then be used in some way later in the action. Buster Keaton, Jackie Chan, and Sammo Hung are the grandmasters of this technique.&lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/til-2026-03-checkovs-gun"/>
+    <summary>A powerful technique used in storytelling.</summary>
+    <category term="TIL"/>
+    <category term="book"/>
+    <category term="writing"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-03-09T03:12:43.043418+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-03-stupid-human-coding-mistakes</id>
+    <title>Stupid human coding mistakes</title>
+    <updated>2026-03-10T05:54:45.072695+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;This bug was created by me without the assistance of any AI. Does that make this "human slop"?&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;attributes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;description&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;slug&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;What this snippet does is that if the content attributes doesn't include a description field, then the description provided will be "slug". It's a stupid bug that's been in my personal site for about 18 months. I should have a test around it (but was lazy) and I shouldn't have made the mistake in the first place (I was overconfident). It is, in a word, "sloppy".&lt;/p&gt;
+&lt;p&gt;So does that mean I generated "human slop"?&lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-03-stupid-human-coding-mistakes"/>
+    <summary>Should we call mistakes made by humans slop?</summary>
+    <category term="rant"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-03-10T05:54:45.072695+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-03-to-return-a-value-or-not-return-a-value</id>
+    <title>To return a value or not return a value</title>
+    <updated>2026-03-13T02:41:19.009972+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;I believe any function that changes a variable should return a variable. For example, I argue that Python's &lt;code&gt;random.shuffle()&lt;/code&gt; is  flawed. This is how &lt;code&gt;random.shuffle()&lt;/code&gt; unfortunately works:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;random&lt;/span&gt;
+
+&lt;span class="n"&gt;my_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Original list: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;my_list&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Change happens in place&lt;/span&gt;
+&lt;span class="c1"&gt;# my_list is forever changed&lt;/span&gt;
+&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shuffle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Shuffled list: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;my_list&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In my opinion, &lt;code&gt;random.shuffle()&lt;/code&gt; should work like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;random&lt;/span&gt;
+
+&lt;span class="n"&gt;my_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Function returns a new, shuffled list&lt;/span&gt;
+&lt;span class="n"&gt;new_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shuffle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Original list: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;my_list&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Shuffled list: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;new_list&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Of course, Python won't fix this mistake to fit my preference. There's too many places in the universe expecting &lt;code&gt;random.shuffle&lt;/code&gt; to change a list in place. Yet it still bugs me every time I see the function. Stuff like this is why I created my &lt;a href="https://github.com/pydanny/listo"&gt;listo&lt;/a&gt; package, it allowed me to get past my own sense of annoyance.  The &lt;a href="https://github.com/pydanny/listo"&gt;listo&lt;/a&gt; library is barely used, even by myself, serving mostly as a fun exercise that allowed me to scratch an itch about objects changing in place.&lt;/p&gt;
+&lt;h2 id="counterargument"&gt;Counterargument&lt;/h2&gt;
+&lt;p&gt;Some of you might say, "It's not practical to return giant &lt;code&gt;dict&lt;/code&gt; or &lt;code&gt;list&lt;/code&gt; objects when you are changing a single value". You are correct. However, does it make sense for &lt;code&gt;random.shuffle&lt;/code&gt; and other offenders to muck around with the entirety of a variable's contents? Why shouldn't a function that disrupts the entirety of a variable just return a new variable?&lt;/p&gt;
+&lt;h2 id="closing-statement"&gt;Closing statement&lt;/h2&gt;
+&lt;p&gt;My preference is that when it is reasonable, that the scope is not outrageous, to create functions that return values.&lt;/p&gt;
+&lt;p&gt;Also, to the people who implemented the original &lt;code&gt;random.shuffle&lt;/code&gt; function, you are awesome. I'm just taking advantage of having 20/20 hindsight.&lt;/p&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-03-to-return-a-value-or-not-return-a-value"/>
+    <summary>I believe operations that change things should always return values.</summary>
+    <category term="python"/>
+    <category term="rant"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-03-13T02:41:19.009972+00:00</published>
+  </entry>
+  <entry>
+    <id>https://daniel.feldroy.com/posts/2026-03-concussion-symptoms-update</id>
+    <title>Concussion Symptoms Update</title>
+    <updated>2026-03-18T23:42:59.079454+00:00</updated>
+    <author>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </author>
+    <content type="html">&lt;p&gt;It's been just over two months since I got injured. These days I usually wake up clear headed and with no symptoms. I can go about my day and do activities, but I must avoid triggers. Unfortunately the triggers ruin me until I get several hours of rest.&lt;/p&gt;
+&lt;p&gt;What doesn't affect me is focused, creative pursuits like fiction writing. I can pump out fiction nonstop without any adverse consequences. Thanks to that quirk of my injury, I'm putting out &lt;a href="https://andurilharkness.com"&gt;my first novel in ~8 years&lt;/a&gt;, which I'm writing under a psuedonym. While that is awesome, it remains to be seen if I will find the same success with fiction that I have had writing non-fiction like &lt;a href="https://daniel.feldroy.com/books/tech"&gt;Two Scoops of Django&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Okay, here's the nitty gritty of what's causing me problems today.&lt;/p&gt;
+&lt;h2 id="triggers"&gt;Triggers&lt;/h2&gt;
+&lt;p&gt;Slow triggers taking 60-90 minutes to cause symptoms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Crowds&lt;/li&gt;
+&lt;li&gt;Coding &lt;/li&gt;
+&lt;li&gt;Working with LLMs&lt;/li&gt;
+&lt;li&gt;Exercise&lt;/li&gt;
+&lt;li&gt;Outlining or structuring creative efforts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Medium triggers that take effect in 10 minutes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Learning new board games&lt;/li&gt;
+&lt;li&gt;Stress&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Fast triggers that take effect in minutes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Visual distortions like blurry text, blurry photos, spatial puzzles, video recursion&lt;/li&gt;
+&lt;li&gt;Very fine print on paper&lt;/li&gt;
+&lt;li&gt;Keeping my eyes on a point and moving my head around quickly (vestibulo-ocular reflex mismatch)&lt;/li&gt;
+&lt;li&gt;Context switching within a task. For example, when working on code if I switch from debugging to correcting a DNS failure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Very fast triggers that take effect in seconds:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Context switching beween major task categories requiring deep thought&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="symptoms"&gt;Symptoms&lt;/h2&gt;
+&lt;p&gt;Constant symptoms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Light brain fog&lt;/li&gt;
+&lt;li&gt;Fatigue, my endurance wasn't what it was&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Triggered symptoms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Headache (usually in the front right of my head)&lt;/li&gt;
+&lt;li&gt;Dizziness (but no loss of balance)&lt;/li&gt;
+&lt;li&gt;Straight lines become very prominent and distracting&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <link href="https://daniel.feldroy.com/posts/2026-03-concussion-symptoms-update"/>
+    <summary>Documenting how the head injury incurred on January 16, 2026 continues to affect me two months later.</summary>
+    <category term="concussion"/>
+    <category term="twoscoops"/>
+    <category term="book"/>
+    <category term="writing"/>
+    <contributor>
+      <name>Daniel Roy Greenfeld</name>
+      <email>daniel@feldroy.com</email>
+    </contributor>
+    <published>2026-03-18T23:42:59.079454+00:00</published>
+  </entry>
+</feed>

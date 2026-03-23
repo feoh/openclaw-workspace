@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xml:lang="en-us" xmlns="http://www.w3.org/2005/Atom"><title>Aeracode</title><link href="https://www.aeracode.org/" rel="alternate"/><link href="http://aeracode.org/feed/atom/" rel="self"/><id>https://www.aeracode.org/</id><updated>2024-06-05T18:00:00+00:00</updated><entry><title>An Electromagnetic Force</title><link href="https://www.aeracode.org/2024/06/05/emf-2024/" rel="alternate"/><published>2024-06-05T18:00:00+00:00</published><id>https://www.aeracode.org/2024/06/05/emf-2024/</id><summary type="html">&lt;p&gt;I've just returned from a fourteen-day trip spent building, running and tearing down &lt;a href="https://www.emfcamp.org"&gt;EMF&lt;/a&gt;, and as I sit on the plane writing this, as well as physical exhaustion, I am experiencing a whole host of emotions - happiness, wonder, determination, and also a strange sense of loss.&lt;/p&gt;
+&lt;p&gt;It is &lt;em&gt;impossible&lt;/em&gt; to describe EMF to anyone who has not attended; while initially you might want to compare it to a normal festival, or something like Burning Man, it is fundamentally unlike almost any other event on Earth. The Dutch and German camps maybe come close, but even those have their own somewhat different vibe.&lt;/p&gt;
+&lt;p&gt;Over the course of my time heading up the logistics team over the last two weeks, I have done and seen such a wild variety of things that I'm never quite sure what was real. Among others, I watched a man play the US National Anthem on a tesla coil using a theremin; climbed up into a DJ booth in a solarpunk-themed Null Sector and pressed the "!! FIRE !!" button to light up the night sky with pillars of burning alcohol; exited the shower to hear HACK THE PLANET echo out over the field from the stage a quarter of a mile away; saw an inflatable t-rex driving a miniature Jurassic Park jeep, played games on a hillside using lasers, and refilled the duck flume several times (shortly after exclaiming "We have a duck flume?").&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>The Cloud Is Just My Basement's Computers</title><link href="https://www.aeracode.org/2023/11/13/cloud-servers-basement/" rel="alternate"/><published>2023-11-13T00:00:00+00:00</published><id>https://www.aeracode.org/2023/11/13/cloud-servers-basement/</id><summary type="html">&lt;p&gt;I've had many different development platforms over the years - from Notepad++
+on library computers in my youth, to Gentoo and then Ubuntu installed on a
+series of carefully-chosen laptops with working drivers, and then for the last
+five years or so on Surface devices via the rather wonderful Windows Subsystem
+for Linux (WSL).&lt;/p&gt;
+&lt;p&gt;Of course, in the WSL era I am still just running Ubuntu, but inside the
+pseudo-VM that is the WSL subsystem of the Windows kernel. It's honestly pretty
+great, and I regularly joke that I'm using Windows as the GUI layer to develop
+on Linux.&lt;/p&gt;
+&lt;p&gt;Between the Steam Deck and WSL both being ascendant, maybe we finally got the
+Year Of Linux On The Desktop, just not as we expected.&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>Life-Critical Side Projects</title><link href="https://www.aeracode.org/2023/11/06/life-critical-side-projects/" rel="alternate"/><published>2023-11-06T00:00:00+00:00</published><id>https://www.aeracode.org/2023/11/06/life-critical-side-projects/</id><summary type="html">&lt;p&gt;&lt;em&gt;TLDR: I am looking for new developers and maintainers for Takahē who want to help in exchange for my mentorship, or I'll have to sunset the project.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I find it important to have hobbies that aren't the same as what I do for work, which is why an increasing number of them don't involve computers at all - I'm very happy building new things on my camper van, making weird geographic art, or hiking around bits of the Rockies.&lt;/p&gt;
+&lt;p&gt;However, I still &lt;em&gt;love&lt;/em&gt; programming and systems work, and I'll always have at least one project going on the side that involves it - nothing beats the size and complexity of what you can create in just a few hours of coding. That said, I have two basic rules for my programming side projects:&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>I am, approximately, here</title><link href="https://www.aeracode.org/2023/07/25/approximately-here/" rel="alternate"/><published>2023-07-25T00:00:00+00:00</published><id>https://www.aeracode.org/2023/07/25/approximately-here/</id><summary type="html">&lt;p&gt;There are many questionable things about American car culture, but the road
+trip is not one of them. In a country as large and geographically varied as
+the USA, road travel is not just a necessity, but it can also be the
+attraction itself.&lt;/p&gt;
+&lt;p&gt;When I first moved to the USA, I had vague plans of doing some driving around
+and enjoying the sheer alien-ness of tiny towns in the middle of nowhere, or
+motels where you are somehow the only guest. Nine years in, I've done a decent
+amount of that, but these days my attention is more focused around the
+&lt;a href="https://www.youtube.com/playlist?list=PLWlfOav4jlvgX7qMTEJfdFWF7sgds3kit"&gt;camper van that I spent half a year building&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I like to try and share a bit of the experience with those who want to see it,
+and as well as posting pictures and videos, I've always liked the idea of
+having a live map of where I am - even if it's just for friends and relatives
+who are interested in my progress.&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>A Takahē refactor, as a treat</title><link href="https://www.aeracode.org/2023/04/29/refactor-treat/" rel="alternate"/><published>2023-04-29T00:00:00+00:00</published><id>https://www.aeracode.org/2023/04/29/refactor-treat/</id><summary type="html">&lt;p&gt;I had taken two months off from developing Takahē in the run up to PyCon US;
+both due to pressures at work (and then, more recently, half the company being
+laid off around me), as well as not quite being sure what I wanted to
+build, exactly.&lt;/p&gt;
+&lt;p&gt;When I started the project, my main goal was to show that multi-domain support
+for a single ActivityPub server was possible; once I had achieved that
+relatively early on, I sort of fell down the default path of implementing a
+lightweight clone of Mastodon/Twitter.&lt;/p&gt;
+&lt;p&gt;While this was good in terms of developing out the features we needed, it
+always felt a bit like overhead I didn't really want; after all, if you're
+implementing the Mastodon API like we do, all the dedicated apps for viewing
+timelines and posting are always going to be better than what you ship with
+a server.&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>Takahē 0.7</title><link href="https://www.aeracode.org/2023/01/16/takahe-07/" rel="alternate"/><published>2023-01-16T00:00:00+00:00</published><id>https://www.aeracode.org/2023/01/16/takahe-07/</id><summary type="html">&lt;p&gt;Today is the &lt;a href="https://docs.jointakahe.org/en/latest/releases/0.7/"&gt;0.7 release of Takahē&lt;/a&gt;,
+and things are really humming along now; this release marks the point where
+we've built enough moderation and community features to make me happy that I
+can open up &lt;a href="https://takahe.social"&gt;takahe.social&lt;/a&gt; to registrations,
+albeit with a user number cap.&lt;/p&gt;
+&lt;p&gt;We've also launched a &lt;a href="https://patreon.com/takahe"&gt;Patreon for Takahē&lt;/a&gt;, in a
+quest to make development and operation of Takahē more sustainable - and
+work towards start paying some people to help out with the less exciting work
+like triaging tickets, user support, and moderation of takahe.social. If you
+want to volunteer directly, that's covered in our
+&lt;a href="https://docs.jointakahe.org/en/latest/contributing/"&gt;Contributing docs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There's some interesting technical topics I want to dig into today, though -
+it's been a little while since my last blog post and ActivityPub and friends
+continue to surprise.&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>Understanding A Protocol</title><link href="https://www.aeracode.org/2022/12/05/understanding-a-protocol/" rel="alternate"/><published>2022-12-05T00:00:00+00:00</published><id>https://www.aeracode.org/2022/12/05/understanding-a-protocol/</id><summary type="html">&lt;p&gt;Yesterday I pushed out the &lt;a href="https://docs.jointakahe.org/en/latest/releases/0.5/"&gt;0.5.0 release of Takahē&lt;/a&gt;,
+and while there's plenty left to do, this release is somewhat of a milestone
+in its own right, as it essentially marks the point where I've implemented
+enough of ActivityPub to shift focus.&lt;/p&gt;
+&lt;p&gt;With the implementation of image posting in this release, there are now only
+a few things left at a &lt;em&gt;protocol&lt;/em&gt; level that I know I'm missing:&lt;/p&gt;
+&lt;p&gt;Custom emoji (these are custom per-server and a mapping of name-to-image
+comes with each post)&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>Takahē 0.3.0</title><link href="https://www.aeracode.org/2022/11/24/takahe-030/" rel="alternate"/><published>2022-11-24T12:00:00+00:00</published><id>https://www.aeracode.org/2022/11/24/takahe-030/</id><summary type="html">&lt;p&gt;So, after a few weeks of development, I'm happy enough with the state of
+Takahē to issue its first official release - which I've chosen to number
+0.3.0, because version numbers are made up and I can start where I want.&lt;/p&gt;
+&lt;p&gt;We're only releasing Docker images right now in order to try and keep the
+support burden down (it removes having to worry about people's OS versions
+and library environments), so you can find it &lt;a href="https://hub.docker.com/r/jointakahe/takahe"&gt;on Docker Hub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="A screenshot of Takahē" src="/media/blog/2022/takahe-big-20221123.png"/&gt;&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>Twitter, ActivityPub and The Future</title><link href="https://www.aeracode.org/2022/11/15/twitter-activitypub-future/" rel="alternate"/><published>2022-11-15T12:00:00+00:00</published><id>https://www.aeracode.org/2022/11/15/twitter-activitypub-future/</id><summary type="html">&lt;p&gt;Twitter is - was - such a unique place. Somewhere where you can have the President
+of the United States coexist with teenagers writing fan fiction; where
+celebrities give personal insights into their lives while government
+departments post &lt;a href="https://twitter.com/USCPSC"&gt;memes about public safety&lt;/a&gt;;
+the place that gave us &lt;code&gt;@Horse_ebooks&lt;/code&gt; and &lt;code&gt;@dril&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The "Fediverse", with Mastodon at its helm, is not this. It doesn't seem to want
+to be, and I honestly think that's fine - as many thinkpieces have recently
+said, the age of global social media might just be over. And given the effect
+it's had on the world, maybe that's alright after all.&lt;/p&gt;
+&lt;p&gt;But there &lt;em&gt;is&lt;/em&gt; still a void to fill, and as someone who enjoyed Twitter most
+at its "medium" size, I think the ActivityPub ecosystem is well-placed to grow
+into such a space. But first, I think there's some important things we have to
+discuss about it.&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>Takahē: A New ActivityPub Server</title><link href="https://www.aeracode.org/2022/11/14/takahe-new-server/" rel="alternate"/><published>2022-11-14T12:00:00+00:00</published><id>https://www.aeracode.org/2022/11/14/takahe-new-server/</id><summary type="html">&lt;p&gt;When I decided to properly start using the Fediverse via
+&lt;a href="/2022/11/01/fediverse-custom-domains/"&gt;my own Mastodon server&lt;/a&gt;,
+I knew it was probably inevitable that I would end up writing my own server -
+and, well, here we are!&lt;/p&gt;
+&lt;p&gt;My new server is called &lt;a href="https://github.com/andrewgodwin/takahe"&gt;Takahē&lt;/a&gt;, and
+it's built in Django and also specifically with Python's async library
+ecosystem - I'll explain more about why that matters later.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="A screenshot of Takahe" src="/media/blog/2022/takahe-20221113.png"/&gt;&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;</summary></entry></feed>

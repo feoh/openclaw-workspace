@@ -1,0 +1,1412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="https://shkspr.mobi/blog/wp-content/themes/edent-wordpress-theme/rss-style.xsl" type="text/xsl"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	     xmlns:dc="http://purl.org/dc/elements/1.1/"
+	   xmlns:atom="http://www.w3.org/2005/Atom"
+	     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+<channel>
+	<title>Terence Eden’s Blog</title>
+	<atom:link href="https://shkspr.mobi/blog/feed/" rel="self" type="application/rss+xml" />
+	<link>https://shkspr.mobi/blog</link>
+	<description>Regular nonsense about tech and its effects 🙃</description>
+	<lastBuildDate>Sun, 22 Mar 2026 09:44:38 +0000</lastBuildDate>
+	<language>en-GB</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.9.4</generator>
+
+<image>
+	<url>https://shkspr.mobi/blog/wp-content/uploads/2023/07/cropped-avatar-32x32.jpeg</url>
+	<title>Terence Eden’s Blog</title>
+	<link>https://shkspr.mobi/blog</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title><![CDATA[Bored of eating your own dogfood? Try smelling your own farts!]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Sun, 22 Mar 2026 12:34:07 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[customer service]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=63957</guid>
+
+					<description><![CDATA[I called a large company the other day. Did I know the information I wanted could be found on their website? And was I aware that I could manage my account online? And would I like to receive a link to chat with their AI assistant via WhatsApp?  Naturally, call volumes were higher than expected. I can only assume that whoever was in charge of predicting call volumes had recent suffered a…]]></description>
+										<content:encoded><![CDATA[<p>I called a large company the other day. Did I know the information I wanted could be found on their website?<sup id="fnref:no"><a href="https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/#fn:no" class="footnote-ref" title="It couldn't!" role="doc-noteref">0</a></sup> And was I aware that I could manage my account online?<sup id="fnref:cancel"><a href="https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/#fn:cancel" class="footnote-ref" title="Not if I wanted to cancel." role="doc-noteref">1</a></sup> And would I like to receive a link to chat with their AI assistant via WhatsApp?<sup id="fnref:sick"><a href="https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/#fn:sick" class="footnote-ref" title="I'd rather stick my head in a bucket of lukewarm sick!" role="doc-noteref">2</a></sup></p>
+
+<p>Naturally, call volumes were higher than expected. I can only assume that whoever was in charge of predicting call volumes had recent suffered a traumatic brain injury and was unable to count beyond five without pulling their other hand out of their fundament.</p>
+
+<p>The cheerful woman warbled through her pre-recorded script and was suddenly replaced with a hideous electronic monstrosity. I recorded the call<sup id="fnref:rec"><a href="https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/#fn:rec" class="footnote-ref" title="For training and monitoring purposes, of course!" role="doc-noteref">3</a></sup> so that you can experience this monument to synthetic glory!</p>
+
+<p></p><figure class="audio">
+	<figcaption>🔊</figcaption>
+	
+	<audio controls="" src="https://shkspr.mobi/blog/wp-content/uploads/2025/12/3minutes.opus">
+		<p>💾 <a href="https://shkspr.mobi/blog/wp-content/uploads/2025/12/3minutes.opus">Download this audio file</a>.</p>
+	</audio>
+</figure><p></p>
+
+<p>This is from a company whose website gushes about how innovative it is. AI is transforming its business at scale! Dedicated to technological excellence and delivering ISO accredited quality in all its divisions! And yet, somewhere, someone decided that customer experience was good enough.</p>
+
+<p>"<a href="https://en.wikipedia.org/wiki/Eating_your_own_dog_food">Dogfooding</a>" is a sacred practice in the tech industry. Use your own products. That's it. That's all you have to do. For example, if you work for Slack - you can't use Teams for your messaging solution. You have to show people that you have faith in your own products.</p>
+
+<p>But it goes deeper than that. When I used to work for mobile phone networks, they asked us to spend time in call centres. It isn't enough to receive a quarterly report on customer KPIs. You have to hear the rage in customers' voices as they struggle with your billing system. Perhaps that will convince you to have empathy with the people paying to use your product.</p>
+
+<p>There's an <a href="https://www.youtube.com/watch?v=X23T-HVr0fw">oft told story about Jeff Bezos</a> pausing a meeting to call his own customer service number - and waiting over 10 minutes for an answer. When was the last time the CEO of the above company called their own customer support line?</p>
+
+<p>It's all very well to experience your own product when it is working, but when was the last time <em>anyone</em> in the above organisation went through a "difficult" customer journey.</p>
+
+<p>By contrast, I recently cancelled a subscription to a small start-up's service. Someone from their senior leadership team asked if they could call to chat about why I cancelled. I said sure and had an enjoyable half-hour whinge / chat about their failings.   At almost every complaint, they replied either "Oh, yeah, I also find that annoying" or "Huh, I've not experienced that, but I can see why it would suck."</p>
+
+<p>At no point did they ever say "Our metrics don't show a problem" or "Do people <em>really</em> care about that?"</p>
+
+<p>Maybe I was being flattered. Maybe it's a waste of senior leadership time to start every meeting with a ritual phone call to the call centre. Maybe I'm the only one who gets annoyed when people can't be bothered to put the bare minimum effort into their job.</p>
+
+<p>But, maybe, breathing in the noxious output of barely digested slurry is the only way to get people to improve their diet.</p>
+
+<div id="footnotes" role="doc-endnotes">
+<hr>
+<ol start="0">
+
+<li id="fn:no">
+<p>It couldn't!&nbsp;<a href="https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/#fnref:no" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+<li id="fn:cancel">
+<p>Not if I wanted to cancel.&nbsp;<a href="https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/#fnref:cancel" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+<li id="fn:sick">
+<p>I'd rather stick my head in a bucket of lukewarm sick!&nbsp;<a href="https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/#fnref:sick" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+<li id="fn:rec">
+<p>For training and monitoring purposes, of course!&nbsp;<a href="https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/#fnref:rec" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+</ol>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/bored-of-eating-your-own-dogfood-try-smelling-your-own-farts/feed/</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		<enclosure url="https://shkspr.mobi/blog/wp-content/uploads/2025/12/3minutes.opus" length="40098" type="audio/opus" />
+
+			</item>
+		<item>
+		<title><![CDATA[I'm OK being left behind, thanks!]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/im-ok-being-left-behind-thanks/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/im-ok-being-left-behind-thanks/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Fri, 20 Mar 2026 12:34:02 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[AI]]></category>
+		<category><![CDATA[crypto]]></category>
+		<category><![CDATA[future]]></category>
+		<category><![CDATA[technology]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=67726</guid>
+
+					<description><![CDATA[Many years ago, someone tried to get me into cryptocurrencies. &#34;They&#039;re the future of money!&#34; they said. I replied saying that I&#039;d rather wait until they were more useful, less volatile, easier to use, and utterly reliable.  &#34;You don&#039;t want to get left behind, do you?&#34; They countered.  That struck me as a bizarre sentiment. What is there to be left behind from? If BitCoin (or whatever) is going…]]></description>
+										<content:encoded><![CDATA[<p>Many years ago, someone tried to get me into cryptocurrencies. "They're the future of money!" they said. I replied saying that I'd rather wait until they were more useful, less volatile, easier to use, and utterly reliable.</p>
+
+<p>"You don't want to get left behind, do you?" They countered.</p>
+
+<p>That struck me as a bizarre sentiment. What is there to be left behind <em>from</em>? If BitCoin (or whatever) is going to liberate us all from economic drudgery, what's the point of "getting in early"? It'll still be there tomorrow and I can join the journey whenever it is sensible for me.</p>
+
+<p>Part of the crypto grift was telling people to "<a href="https://www.coingecko.com/learn/hfsp-in-crypto">Have Fun Staying Poor</a>". That weaponisation of <abbr title="Fear of Missing Out">FOMO</abbr> was an insidious way to get people to drop their scepticism.</p>
+
+<p>I feel the same way about the current crop of AI tools. I've tried a bunch of them. Some are good. Most are a bit shit. Few are useful to me as they are now. I'm <em>utterly</em> content to wait until their hype has been realised. Why should I invest in learning the equivalent of WordStar for DOS when Google Docs is coming any-day-now?</p>
+
+<p>If this tech is as amazing as you say it is, I'll be able to pick it up and become productive on a timescale of my choosing not yours.</p>
+
+<p>I didn't use Git when it first came out. Once it was stable and jobs began demanding it, I picked it up. Might I be 7% more effective if I'd suffered through the early years? Maybe. But so what? I could just as easily have wasted my time learning something which never took off.</p>
+
+<p>I wrote my <a href="https://shkspr.mobi/blog/2023/04/msc-dissertation-exploring-the-visualisation-of-hierarchical-cybersecurity-data-within-the-metaverse/">MSc on The Metaverse</a>. Learning to built VR stuff was fun, but a complete waste of time. There was precisely zero utility in having gotten in early.</p>
+
+<p>Perhaps there are some things for which it is sensible to be on the cutting edge. <a href="https://shkspr.mobi/blog/2023/04/getting-jabbed-with-experimental-science/">I took part in a vaccine trial</a> because I thought it might personally benefit me and, hopefully, humanity.</p>
+
+<p>But I'm struggling to think of <em>anyone</em> who has earned anything more than bragging rights by being first. Some early investors made money - but an equal and opposite number lost money. For every HTML 2.0 you might have tried, you were just as likely to have got stuck in the dead-end of Flash.</p>
+
+<p>There are a 16,000 new lives being born <em>every hour</em>. They're all starting with a fairly blank slate. Are you genuinely saying that they'll all be left behind because they didn't learn your technology <i lang="la">in utero</i>?</p>
+
+<p>No. That's obviously nonsense.</p>
+
+<p>It is 100% OK to wait and see if something is actually useful.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/im-ok-being-left-behind-thanks/feed/</wfw:commentRss>
+			<slash:comments>34</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Finding the right Bottom Hole paper]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/finding-the-right-bottom-hole-paper/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/finding-the-right-bottom-hole-paper/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Wed, 18 Mar 2026 12:34:37 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[newspapers]]></category>
+		<category><![CDATA[tv]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68976</guid>
+
+					<description><![CDATA[On the 6th of January 1995, viewers of BBC Two were treated to a new series of Waiting for Godot Bottom. Stuck at the top of a Ferris wheel, Vyvyan and the People&#039;s Poet Eddie and Ritchie wait to see what the cruel hand of fate has dealt them in this week&#039;s episode &#34;Hole&#34;.  At one point, Captain Edrison Peavey Edward Elizabeth Hitler pulls out a newspaper to read.    It may surprise you to know…]]></description>
+										<content:encoded><![CDATA[<p>On the 6th of January 1995, viewers of BBC Two were treated to a new series of <del>Waiting for Godot</del> Bottom. Stuck at the top of a Ferris wheel, <del>Vyvyan and the People's Poet</del> Eddie and Ritchie wait to see what the cruel hand of fate has dealt them in this week's episode "Hole".</p>
+
+<p>At one point, <del>Captain Edrison Peavey</del> Edward Elizabeth Hitler pulls out a newspaper to read.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/No-News-Shocker.webp" alt="Some pissed old fart reading a newspaper called &quot;The Hammersmith Bugle&quot; with the headline &quot;No news shocker...&quot;" width="720" height="544" class="aligncenter size-full wp-image-68986">
+
+<p>It may surprise you to know that the "Hammersmith Bugle" is not a real paper and they never ran a headline "No News Shocker". At which point, it is time to <a href="https://www.dirtyfeed.org/tag/newspaper-props/">rip off Dirty Feed's shtick</a> and find out what that paper <em>really</em> is.</p>
+
+<p>Sadly, Bottom has been cruelly denied a 4K remaster by the philistine bastards at the BBC, so you'll have to make do with potato-quality images from a DVD. Here's a lovely shot of the back of the paper.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Cup-Tie-Chaos.webp" alt="Idiot in a pork pie hat reading a paper with the headline &quot;Cup tie chaos&quot;." width="720" height="544" class="aligncenter size-full wp-image-68987">
+
+<p>Alas, "Cup Tie Chaos" isn't a particularly unique headline. As the paper flicks open there's a photo of what looks like a famous shot from Pulp Fiction.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Pulp-Fiction.webp" alt="Two twats on a Ferris wheel. A murky shot of a paper shows Vincent and Jules from Pulp Fiction pointing guns." width="720" height="544" class="aligncenter size-full wp-image-68988">
+
+<p>Pulp Fiction <a href="https://www.imdb.com/title/tt0110912/releaseinfo/">was released in the UK in October 1994</a>. So, again, not especially helpful except to narrow down the publication date of the paper.</p>
+
+<p>As the paper flaps open again, we glimpse the sports pages.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Seewaw.webp" alt="Two reprobates reading a newspaper." width="720" height="544" class="aligncenter size-full wp-image-68989">
+
+<p>Although something about a "enjoying a finish" doesn't help much, with a bit of "ZOOM! ENHANCE! ROTATE!" we can see the headline "Seesaw Swans hit back". A much more likely candidate for finding a unique hit!</p>
+
+<p>And, indeed, a trawl of the <a href="https://www.britishnewspaperarchive.co.uk/">British Newspaper Archive</a> (courtesy of the <a href="https://wikipedialibrary.wmflabs.org/">Wikipedia Library</a>) reveals that exact headline!</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Seesaw-paper.webp" alt="Scan of a newspaper with the headline &quot;seesaw Swans hit back&quot;." width="2048" height="1536" class="aligncenter size-full wp-image-68991">
+
+<p>That's from the <a href="https://www.britishnewspaperarchive.co.uk/search/results/1994-11-03/1994-11-03?NewspaperTitle=Surrey%2BHerald&amp;IssueId=BL%2F0003604%2F19941103%2F&amp;County=Surrey%2C%20England">Surrey Herald, published on the 3rd of November 1994</a>. About 9 weeks before transmission.</p>
+
+<p>The other pages in the paper can be matched with their on-screen appearance.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Cup-Tie-Paper.webp" alt="Scan of a newspaper with &quot;Cup tie chaos&quot; as a headline." width="2048" height="1536" class="aligncenter size-full wp-image-68990">
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Sparkling-finish-paper.webp" alt="Scan of a newspaper. It is Rachel who enjoys a sparkling finish&quot;." width="2048" height="1536" class="aligncenter size-full wp-image-68992">
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Pulp-Fiction-1.webp" alt="Scan of the cinema listings of a newspaper." width="2048" height="1536" class="aligncenter size-full wp-image-68993">
+
+<p>There's also this very hard to spot headline about how "Wartime tales inspired poet":</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Wartime-Tales.webp" alt="Eddie holding  a newspaper with a vague headline." width="800" height="600" class="aligncenter size-full wp-image-69091">
+
+<p>Which can be exactly matched to page 8 of the Surrey Herald.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Page-8.webp" alt="Page 8 in high resolution." width="2048" height="1536" class="aligncenter size-full wp-image-69092">
+
+<p>Case closed! Let's go home and get off with some smashing birds.</p>
+
+<h2 id="hold-the-front-page"><a href="https://shkspr.mobi/blog/2026/03/finding-the-right-bottom-hole-paper/#hold-the-front-page">Hold The Front Page</a></h2>
+
+<p>But, that's not quite the whole story.</p>
+
+<p>Let's compare the <em>front</em> page of the Hammersmith Bugle with that of the Surrey Herald on the 3rd of November 1994.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Compare.webp" alt="TV capture of a newspaper compared to the actual front page." width="2048" height="1479" class="aligncenter size-full wp-image-68994">
+
+<p>Ah.</p>
+
+<p>The <em>good</em> news is that the advert for a mobile phone in the top left corner looks the same, as does the golf equipment advert in the bottom right.</p>
+
+<p>The bad news is that the main photo is <em>not</em> the same. In Bottom, it appears to be two people reading a book or magazine. The headlines and surrounding columns all appear to be different.</p>
+
+<p>You can just about see through the front page onto page 2 - there's a logo near the top, a headline just under it, and a face bottom centre. Whereas the Surrey Herald's page 2 looks <em>nothing</em> like that.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Page-2.webp" alt="Scan of a newspaper." width="512" height="751" class="aligncenter size-full wp-image-68999">
+
+<p>Fuck, shit, bollocks, pissflaps, and arse!</p>
+
+<p>It doesn't look like <em>any</em> <a href="https://www.britishnewspaperarchive.co.uk/search/results/1994-10-01/1994-12-31?retrievecountrycounts=false&amp;newspapertitle=surrey%20herald&amp;sortorder=dayearly">of the Surrey Herald's front pages</a> from around that time.</p>
+
+<p>If we go back to the "Seesaw Swans" snap, we can see a <em>bit</em> more of the inside of the front page.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Stork-Logo.webp" alt="Stork logo on a newspaper. Red arrows point to the logo." width="720" height="272" class="aligncenter size-full wp-image-69042">
+
+<p>That actually looks like <a href="https://www.liverpoolecho.co.uk/news/nostalgia/gallery/life-inside-lost-merseyside-factory-31417377">the Stork Margarine logo</a> they were discussing!</p>
+
+<p>If we flip the semi-translucent shot, it becomes a bit clearer.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Stork-Flipped.webp" alt="Mirrored screencap. You can sort of see the margarine logo." width="604" height="408" class="aligncenter size-full wp-image-69005">
+
+<p>It says "STORK MARGARINE". Here it is highlighted in Super HD.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Stork-Flipped-Coloured.webp" alt="Crudely drawn red highlights." width="604" height="408" class="aligncenter size-full wp-image-69043">
+
+<p>Was that mocked up for the show or just a happy coincidence? I think it is a mock up because, if you look a little further down, you'll see:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Slip-Digby.webp" alt="Faint text through a newspaper saying &quot;Slip Digby&quot;." width="722" height="226" class="aligncenter size-full wp-image-69078">
+
+<p>That's the name of the invisible character <a href="https://the-bottom.fandom.com/wiki/Slip_Digby">Slip Digby</a> who won the competition.</p>
+
+<p>There's a brief shot of the full page where the logo is slightly more visible:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Stork-Page.webp" alt="Blurry shot of the Stork logo." width="460" height="345" class="aligncenter size-full wp-image-69089">
+
+<p>Followed by a frame where you can see more of the page:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Stork-Full-Page.webp" alt="Most of the page visible." width="330" height="248" class="aligncenter size-full wp-image-69088">
+
+<p>If you look towards the bottom of the paper, you'll see a headline about "Heady Sixties" and a small black box in the corner.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Sixties.webp" alt="Crappy low resolution photo of the word &quot;sixties&quot;." width="266" height="88" class="aligncenter size-full wp-image-69006">
+
+<p>Which, I think can be traced back to page <em>four</em> of the paper:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/Heady-Sixties.webp" alt="Scan of a newspaper." width="512" class="aligncenter size-full wp-image-69007">
+
+<p>I <em>think</em> the props team have taken the top half of the page and moved it down to the bottom - then added in the Stork Margarine content to the top.</p>
+
+<p>But that <em>still</em> doesn't explain how and why the front page is so different.</p>
+
+<p>Another search for the "Heady Sixties" headline brings back the <a href="https://www.britishnewspaperarchive.co.uk/search/results?basicsearch=heady%20sixties&amp;retrievecountrycounts=false">Staines &amp; Ashford News of the same date</a>. Exactly the same page layout for that and <a href="https://www.britishnewspaperarchive.co.uk/search/results/1994-11-03?NewspaperTitle=Staines%2B%2526%2BAshford%2BNews&amp;IssueId=BL%2F0002452%2F19941103%2F&amp;County=Middlesex%2C%20England">a few more pages</a> as the Surrey Herald, but the rest is substantially different.  Similarly, the <a href="https://www.britishnewspaperarchive.co.uk/search/results/1994-11-03?NewspaperTitle=Sunbury%2B%2526%2BShepperton%2BHerald&amp;IssueId=BL%2F0003606%2F19941103%2F&amp;County=Surrey%2C%20England">Sunbury &amp; Shepperton Herald</a> of the same day shares <em>some</em> pages, but the front page is completely different. It can also be found in the <a href="https://www.britishnewspaperarchive.co.uk/search/results/1994-11-03?NewspaperTitle=Staines%2B%2526%2BEgham%2BNews&amp;IssueId=BL%2F0005002%2F19941103%2F&amp;County=Surrey%2C%20England">Staines &amp; Egham News</a>.</p>
+
+<p>Without a clearer photo of the front page, it is impossible to search for any of the headlines on it.</p>
+
+<p>Now, when I earlier castigated the BBC for not remastering the series, that was a bit of a clever lie. There's a 1080p version on the official BBC Comedy Greats YouTube channel.</p>
+
+<iframe title="Stuck On The Ferris Wheel | Bottom | BBC Comedy Greats" width="620" height="465" src="https://www.youtube.com/embed/u7dFiEG0toU?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
+<p>That allows us to get the highest possible quality shot of the front page.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/FA-Cup-Mix-up.webp" alt="High resolution clip of a newspaper." width="474" height="588" class="aligncenter size-full wp-image-69069">
+
+<p>Through the paper you can just about see the face from page 4 and the "Heady Sixties" headline next to it.</p>
+
+<p>On the front page, I think the two headlines I can make out are:</p>
+
+<blockquote><p>Elsie is 100 years young</p></blockquote>
+
+<p>and</p>
+
+<blockquote><p>FA Cup tie mix up angers Walton boss</p></blockquote>
+
+<p>I can see that <a href="https://www.thefa.com/competitions/thefacup/results-archive#">Walton played Swansea City (and lost) on the 21st of November</a> - and the "mix up" is referred to later in the paper under "Cup tie chaos" - but that specific headline is missing from the archives. Dear old Elsie is also absent.</p>
+
+<p>And there, I must confess, I hit a brick wall. I looked through all the front-pages of Surrey papers in October and November 1994 - but there was nothing. Given that <a href="https://rikmayallscrapbook.com/about-me/seeing-rik/bottom-gas/">Bottom was filmed in Television Centre</a>, I went through hundreds of front pages of London papers without success. I listened to the <a href="https://talkingbottom.podbean.com/e/s3e1-hole/">Talking Bottom podcast</a> for the episode. I even looked through the VHS-only release of <a href="https://archive.org/details/bottom-fluff-uk-vhs-1996">Bottom Fluff</a> to see if the newspaper featured in any of the out-takes. Sadly not.</p>
+
+<p>My working assumption is, in order of most to least likely:</p>
+
+<ul>
+<li>An earlier or later edition of the Surrey Herald was used, and that hasn't been archived.</li>
+<li>One of the Herald's sister papers was used, and is missing from the archive.</li>
+<li>The props team did a completely new front page using stock photos and lorem ipsum.</li>
+</ul>
+
+<p>I was <em>so</em> hoping I could have closed this post with "BOTTOM STAINES!!!". But, alas…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/finding-the-right-bottom-hole-paper/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Some updates to ActivityBot]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Mon, 16 Mar 2026 12:34:57 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[ActivityBot]]></category>
+		<category><![CDATA[ActivityPub]]></category>
+		<category><![CDATA[mastodon]]></category>
+		<category><![CDATA[php]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68592</guid>
+
+					<description><![CDATA[I couple of years ago, I developed ActivityBot - the simplest way to build Mastodon Bots. It is a single PHP file which can run an entire ActivityPub server and it is less than 80KB.  It works! You can follow @openbenches@bot.openbenches.org to see the latest entries on OpenBenches.org, and @colours@colours.bots.edent.tel for a slice of colour in your day, and @solar@solar.bots.edent.tel to see…]]></description>
+										<content:encoded><![CDATA[<p>I couple of years ago, I developed <a href="https://shkspr.mobi/blog/2024/11/introducing-activitybot-the-simplest-way-to-build-mastodon-bots/">ActivityBot - the simplest way to build Mastodon Bots</a>. It is a <em>single</em> PHP file which can run an entire ActivityPub server and it is less than 80KB.</p>
+
+<p>It works! You can follow <code>@openbenches@bot.openbenches.org</code> to see the latest entries on OpenBenches.org, and <code>@colours@colours.bots.edent.tel</code> for a slice of colour in your day, and <code>@solar@solar.bots.edent.tel</code> to see what my solar panels are up to.</p>
+
+<p>This is <em>so</em> easy to use. Copy the PHP file (and a <code>.env</code> and <code>.htaccess</code>) to literally any web host running PHP 8.5 and you have a fully-fledged bot which can post to Mastodon.</p>
+
+<p><a href="https://gitlab.com/edent/activity-bot/">Grab the code and start today</a>!</p>
+
+<h2 id="features"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#features">Features</a></h2>
+
+<p>Over the years I've added a few more features to it, so I thought I'd run through what they are. Note, this is all hand-written. No sycophantic plagiarism machines were involved in this code or blog post. I just really like emoji, OK⁉️</p>
+
+<h3 id="%f0%9f%94%8d-be-discovered-on-the-fediverse"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%94%8d-be-discovered-on-the-fediverse">🔍 Be discovered on the Fediverse</a></h3>
+
+<p>This is the big one, you can find <code>@example@example.viii.fi</code> on your favourite Fediverse client.  This is thanks to its WebFinger support.</p>
+
+<h3 id="%f0%9f%91%89-be-followed-by-other-accounts"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%91%89-be-followed-by-other-accounts">👉 Be followed by other accounts</a></h3>
+
+<p>No point being discovered if you can't be followed. This accepts follow requests and sends back a signed accept.</p>
+
+<h3 id="%f0%9f%9a%ab-be-unfollowed-by-accounts"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%9a%ab-be-unfollowed-by-accounts">🚫 Be unfollowed by accounts</a></h3>
+
+<p>Sometimes people want to unfollow. Too bad, so sad. Again, this will accept the undo request and delete the unfollowing user's information.</p>
+
+<h3 id="%f0%9f%93%a9-send-messages-to-the-fediverse"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%93%a9-send-messages-to-the-fediverse">📩 Send messages to the Fediverse</a></h3>
+
+<p>If a bot can be followed, but never posts, does it make a sound? This sends a post to all of your followers' (shared) inboxes. Includes some HTML formatting.</p>
+
+<h3 id="%f0%9f%92%8c-send-direct-messages-to-users"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%92%8c-send-direct-messages-to-users">💌 Send direct messages to users</a></h3>
+
+<p>Not every message is for the wider public. If you want a bot which sends you a private message, this'll set the visibility correctly.</p>
+
+<h3 id="%f0%9f%93%b7-attach-images-alt-text-to-a-message-%f0%9f%86%95%f0%9f%86%95"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%93%b7-attach-images-alt-text-to-a-message-%f0%9f%86%95%f0%9f%86%95">📷 Attach images &amp; alt text to a message 🆕🆕</a></h3>
+
+<p>A picture is worth a thousand words. But those pictures are meaningless without alt text. Attach as many images as you like. Note, most Mastodon services only accept a maximum of four.</p>
+
+<h3 id="%f0%9f%8d%bf-video-upload-%f0%9f%86%95%f0%9f%86%95"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%8d%bf-video-upload-%f0%9f%86%95%f0%9f%86%95">🍿 Video Upload 🆕🆕</a></h3>
+
+<p>No transcoding or anything fancy. Upload a video and it'll be sent to your followers.</p>
+
+<h3 id="%f0%9f%94%8a-audio-upload-%f0%9f%86%95%f0%9f%86%95"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%94%8a-audio-upload-%f0%9f%86%95%f0%9f%86%95">🔊 Audio Upload 🆕🆕</a></h3>
+
+<p>Same as video. Raw audio posted to your followers' feeds.</p>
+
+<h3 id="%f0%9f%95%b8%ef%b8%8f-autolink-urls-hashtags-and-mentions"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%95%b8%ef%b8%8f-autolink-urls-hashtags-and-mentions">🕸️ Autolink URls, hashtags, and @ mentions</a></h3>
+
+<p>Including URls, tags, and mentions are <em>mostly</em> autolinked correctly. There's a lot of fuzziness in how it works.</p>
+
+<h3 id="%f0%9f%a7%b5-threads"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%a7%b5-threads">🧵 Threads</a></h3>
+
+<p>You can reply to specific messages in order to create a thread.</p>
+
+<h3 id="%f0%9f%91%88-follow-unfollow-block-and-unblock-other-accounts"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%91%88-follow-unfollow-block-and-unblock-other-accounts">👈 Follow, Unfollow, Block, and Unblock other accounts</a></h3>
+
+<p>It might be useful for you to remove followers or follow specific accounts.</p>
+
+<h3 id="%f0%9f%97%91%ef%b8%8f-delete-posted-messages-and-their-attachments-%f0%9f%86%95%f0%9f%86%95"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%97%91%ef%b8%8f-delete-posted-messages-and-their-attachments-%f0%9f%86%95%f0%9f%86%95">🗑️ Delete posted messages and their attachments 🆕🆕</a></h3>
+
+<p>We all make mistakes. This will delete your post along with any attachments and send that delete message to everyone. Note, because of the federated nature of the Fediverse, you cannot guarantee that a remote server will delete anything.</p>
+
+<h3 id="%e2%9c%8f%ef%b8%8f-edit-posts-%f0%9f%86%95%f0%9f%86%95"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%e2%9c%8f%ef%b8%8f-edit-posts-%f0%9f%86%95%f0%9f%86%95">✏️ Edit Posts 🆕🆕</a></h3>
+
+<p>If you don't want to delete and re-post, you can edit your existing posts.</p>
+
+<h3 id="%f0%9f%a6%8b-bridge-to-bluesky-with-your-domain-name-via-bridgy-fed"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%a6%8b-bridge-to-bluesky-with-your-domain-name-via-bridgy-fed">🦋 Bridge to BlueSky with your domain name via Bridgy Fed</a></h3>
+
+<p>Not everyone is on the Fediverse. If you want to bridge to BlueSky, you can use the <a href="https://fed.brid.gy/">Bridgy Fed service</a>.</p>
+
+<h3 id="%f0%9f%9a%9a-move-followers-from-an-old-account-and-to-a-new-account-%f0%9f%86%95%f0%9f%86%95"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%9a%9a-move-followers-from-an-old-account-and-to-a-new-account-%f0%9f%86%95%f0%9f%86%95">🚚 Move followers from an old account and to a new account 🆕🆕</a></h3>
+
+<p>Perhaps you started as <code>@electric@sex.pants</code> but now you want to become <code>@chaste@nunslife.biz</code> - no worries! You can tell followers you've moved and what your new name is.</p>
+
+<p>Similarly, if ActivityBot is no longer right for you, it's simple to tell your existing follower to move to your new account.</p>
+
+<h3 id="%f0%9f%97%a8%ef%b8%8f-allow-quote-posts-%f0%9f%86%95%f0%9f%86%95"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%97%a8%ef%b8%8f-allow-quote-posts-%f0%9f%86%95%f0%9f%86%95">🗨️ Allow quote posts 🆕🆕</a></h3>
+
+<p>Rather than just reposting your message, this sets the quote policy to allow people to share your message and attach some commentary of your own.</p>
+
+<h3 id="%f0%9f%91%80-show-followers"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%91%80-show-followers">👀 Show followers</a></h3>
+
+<p>Your follower count isn't just a number, it is a living list of <em>who</em> chooses to follow you.</p>
+
+<h3 id="%e2%9a%a0%ef%b8%8f-content-warnings-%f0%9f%86%95%f0%9f%86%95"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%e2%9a%a0%ef%b8%8f-content-warnings-%f0%9f%86%95%f0%9f%86%95">⚠️ Content Warnings 🆕🆕</a></h3>
+
+<p>Perhaps you want to hide a bit of what you're saying. Add a content warning to hide part of your message.</p>
+
+<h3 id="%f0%9f%94%8f-verify-cryptographic-signatures"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%94%8f-verify-cryptographic-signatures">🔏 Verify cryptographic signatures</a></h3>
+
+<p><a href="https://shkspr.mobi/blog/2024/03/i-made-a-mistake-in-verifying-http-message-signatures/">HTTP Message Signatures is <em>hard</em></a>. I think I've mostly got it sorted.</p>
+
+<h3 id="%f0%9f%aa%b5-log-sent-messages-and-errors"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%aa%b5-log-sent-messages-and-errors">🪵 Log sent messages and errors</a></h3>
+
+<p>This is primarily a learning aide, so have a rummage through the logs and see what's going on.</p>
+
+<h3 id="%f0%9f%9a%ae-clear-logs-when-there-are-too-many"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%9a%ae-clear-logs-when-there-are-too-many">🚮 Clear logs when there are too many</a></h3>
+
+<p>ActivityPub is a <em>chatty</em> protocol. Your server can easily fill up with hundreds of thousands of messages from others. This regularly prunes down to something more manageable.</p>
+
+<h3 id="%ef%b8%8f%e2%83%a3-hashed-passwords-for-posting-%f0%9f%86%95%f0%9f%86%95"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%ef%b8%8f%e2%83%a3-hashed-passwords-for-posting-%f0%9f%86%95%f0%9f%86%95">#️⃣ Hashed passwords for posting 🆕🆕</a></h3>
+
+<p>Bit of a guilty moment here. I was originally storing the password in plaintext. Naughty! Passwords are now salted and hashed.</p>
+
+<h3 id="%f0%9f%92%bb-basic-website-for-showing-posts"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%92%bb-basic-website-for-showing-posts">💻 Basic website for showing posts</a></h3>
+
+<p>A nice-enough looking front end if people want to view the posts directly on your domain.</p>
+
+<h2 id="some-deficiencies"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#some-deficiencies">Some Deficiencies</a></h2>
+
+<p>Not every piece of software is perfect. ActivityBot is less perfect than most things. Here are some of the things it can't do and, perhaps, will never do.  If you'd like to help tackle any of these, <a href="https://gitlab.com/edent/activity-bot/">fork the code from my git repo</a>!</p>
+
+<h3 id="%e2%8f%b3-retry-failed-messages"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%e2%8f%b3-retry-failed-messages">⏳ Retry Failed Messages</a></h3>
+
+<p>A <em>proper</em> Mastodon server will keep trying to send messages to unresponsive hosts. ActivityBot is one-and-done. If a remote server didn't respond in time, or was offline, or something else went wrong - it may not get the message.</p>
+
+<h3 id="%f0%9f%94%84-reposts-announce-quote"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%94%84-reposts-announce-quote">🔄 Reposts / Announce / Quote</a></h3>
+
+<p>You cannot boost other posts, or even your own. Nor can you send quote posts.</p>
+
+<h3 id="%f0%9f%a4%96-act-on-instructions"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%a4%96-act-on-instructions">🤖 Act On Instructions</a></h3>
+
+<p>This is a basic bot. It contains no logic. If you send it a message asking it to take action, it will not. You will need to build something else to make it truly interactive.</p>
+
+<h3 id="%f0%9f%93%a5-receive-messages"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%93%a5-receive-messages">📥 Receive Messages</a></h3>
+
+<p>In fact, other than the follow / unfollow stuff, the bot can't receive any messages from the Fediverse. It doesn't know when a post has been replied to, liked, or reposted.</p>
+
+<h3 id="%f0%9f%98%8e-set-post-visibility"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%98%8e-set-post-visibility">😎 Set Post Visibility</a></h3>
+
+<p>Your posts are either public or a DM. There's no support for things like quiet followers.</p>
+
+<h3 id="%f0%9f%93%8a-create-polls"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%93%8a-create-polls">📊 Create Polls</a></h3>
+
+<p>Everyone loves to vote on meaningless polls - but this is quite a hard problem for ActivityBot. It would need to keep track of votes, prevent double voting, and probably some other difficult stuff.</p>
+
+<h3 id="%f0%9f%97%a8%ef%b8%8f-change-quote-post-visibility"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%97%a8%ef%b8%8f-change-quote-post-visibility">🗨️ Change Quote Post Visibility</a></h3>
+
+<p>As quote posts are still quite new to Mastodon, I'm not sure how best to implement this.</p>
+
+<h3 id="%f0%9f%94%97-proper-html-markdown-support"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%94%97-proper-html-markdown-support">🔗 Proper HTML / Markdown Support</a></h3>
+
+<p>Autolinking names, hashtags, and links just about works - but not very reliably. In theory the bot <em>could</em> parse Markdown and create richly formatted HTML from it. But that may require an external library which would bloat the size. Perhaps posting raw HTML could work?</p>
+
+<h3 id="%f0%9f%96%bc%ef%b8%8f-focus-points-for-images"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%f0%9f%96%bc%ef%b8%8f-focus-points-for-images">🖼️ Focus Points for Images</a></h3>
+
+<p>Perhaps of less use now, but still of interest to people?</p>
+
+<h3 id="%e2%9d%93-other-stuff"><a href="https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/#%e2%9d%93-other-stuff">❓ Other Stuff</a></h3>
+
+<p>I don't know what I don't know. Maybe some stuff is total broken? Maybe it is wildly out of spec? If you spot something dodgy, please let me know or <a href="https://gitlab.com/edent/activity-bot/">raise a Pull Request</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Book Review: Robots in Space - The Secret Lives of Our Planetary Explorers by Dr Ezzy Pearson ★★★⯪☆]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/book-review-robots-in-space-the-secret-lives-of-our-planetary-explorers-by-dr-ezzy-pearson/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/book-review-robots-in-space-the-secret-lives-of-our-planetary-explorers-by-dr-ezzy-pearson/#respond</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Sun, 15 Mar 2026 12:34:48 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[Book Review]]></category>
+		<category><![CDATA[robots]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68928</guid>
+
+					<description><![CDATA[Mars is the only planet entirely populated by robots. This book is a catalogue of the history of robotic explorers. Nary a human-crewed mission is mentioned, except in passing. Instead, we get to look at the practicalities of landing a little robot a million miles away, the people that made it happen, and the politics which inevitably stymied things.  And there is a lot of politics.  One of the…]]></description>
+										<content:encoded><![CDATA[<p>Mars is the only planet entirely populated by robots. This book is a catalogue of the history of robotic explorers. Nary a human-crewed mission is mentioned, except in passing. Instead, we get to look at the practicalities of landing a little robot a million miles away, the people that made it happen, and the politics which inevitably stymied things.</p>
+
+<p>And there is a <em>lot</em> of politics.</p>
+
+<p>One of the weakest areas is the political analysis behind the stories. For example, a Soviet Lunar rover is described as being "daubed with the sickle and hammer" - but there's no derogatory mention of the stars, stipes, and eagles on American craft. Similarly we hear about "the Soviet plans to invade Mars proceeded unabated" - there's no deriding description of the American plans to colonise various planets. The efforts of the European Space Agency described as "[m]ore than fifty industrial contractors from fifteen nations were involved in construction. Safe to say, it was a logistical nightmare." - while ignoring the various back-room deals that led to the American space programme being distributed around their country and their resultant logistical problems.</p>
+
+<p>It isn't relentlessly pro-American (there's lots of descriptions of their failures) but it feels a bit one-sided.</p>
+
+<p>There are some gorgeous photos spread throughout the book. Sadly, the ebook relegates most of them to the end rather than interspersing them with the text. At least one of the images is incorrect although, thankfully, the attribution hyperlinks to <a href="https://www.nasa.gov/image-article/technician-checks-soil-sampler-viking-lander/">the correct photo on NASA's site</a>.</p>
+
+<p>I'm being a bit down on the book. It is a decent enough look at all the problems faced by space agencies as they tried to send machines into the void. For those of us in the computer industry, it is depressing to continually read about how we're often the weakest link:</p>
+
+<blockquote><p>On 2 September, a computer command was sent to Phobos 1 to turn on the gamma ray spectrometer. A single hyphen had been left out of the code, transforming it into an order for Phobos 1 to shut down. There was no way to turn it back on.</p></blockquote>
+
+<p>Yikes! The book is full of titbits like that - minor errors which led to major catastrophes.</p>
+
+<p>It's a good starting point for anyone with an interest in space exploration and how technical and political challenges can be overcome.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/book-review-robots-in-space-the-secret-lives-of-our-planetary-explorers-by-dr-ezzy-pearson/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[How Can Governments Pay Open Source Maintainers?]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/how-can-governments-pay-open-source-maintainers/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/how-can-governments-pay-open-source-maintainers/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Sat, 14 Mar 2026 12:34:42 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[government]]></category>
+		<category><![CDATA[money]]></category>
+		<category><![CDATA[Open Source]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=53267</guid>
+
+					<description><![CDATA[When I worked for the UK Government I was once asked if we could find a way to pay for all the Open Source Software we were using. It is a surprisingly hard problem and I want to talk about some of the issues we faced.  The UK Government publishes a lot of Open Source code - nearly everything developed in-house by the state is available under an OSI Approved licence. The UK is generally pretty…]]></description>
+										<content:encoded><![CDATA[<p>When I worked for the UK Government I was once asked if we could find a way to pay for all the Open Source Software we were using. It is a surprisingly hard problem and I want to talk about some of the issues we faced.</p>
+
+<p>The <a href="https://github.com/alphagov/">UK Government publishes a </a><em><a href="https://github.com/alphagov/">lot</a></em><a href="https://github.com/alphagov/"> of Open Source code</a> - nearly everything developed in-house by the state is available under an OSI Approved licence. The UK is generally pretty relaxed about people, companies, and states re-using its code. There's no desire and little capability to monetise what has been developed with <a href="https://publiccode.eu/en/">public money so it becomes public code.</a></p>
+
+<p>What about the Open Source that UK Government <em>uses</em>?</p>
+
+<p>The state uses <a href="https://digital.leadershipacademy.nhs.uk/digital-capabilities/websites/nightingale-theme-user-guide/">big projects like WordPress</a>, as well as <a href="https://github.com/alphagov/govuk-diff/blob/b62aba29f50915c9388110c2baed132b9f9f32df/diffgovuk.py#L81">moderately popular NPM packages</a>, and <a href="https://github.com/alphagov/ckanext-datagovuk/blob/1548325b7e28dd658f26ac68ba7ba990726ab485/bin/python_scripts/find_invalid_tags.py#L11">small Python libraries</a> and everything in between. But can it pay the maintainers of that software?</p>
+
+<p><small>A version of this blog post was <a href="https://hackernoon.com/how-can-governments-pay-open-source-maintainers">originally published on Hackernoon</a>.</small></p>
+
+<h2 id="fixing-the-plumbing"><a href="https://shkspr.mobi/blog/2026/03/how-can-governments-pay-open-source-maintainers/#fixing-the-plumbing">Fixing The Plumbing</a></h2>
+
+<p>Open Source is facing a crisis. The code that the world relies on is often developed by underpaid engineers on the brink of burn-out.  While I don't think anyone wants Open Source to have a paywall, it seems obvious that large organisation should pay their way and not rely solely on volunteer labour.</p>
+
+<p>Here are some of the problems I faced when trying to get the UK Government to pay for OSS and how <em>you</em> as a maintainer can help make it easier for large organisations to pay you.</p>
+
+<p>Firstly, lots of OSS doesn't have a well defined owner; so who gets the money?</p>
+
+<p>I'm not saying that every little library you create needs to be published by a registered company, nor am I suggesting that you should remove your anonymity. But Governments and other organisations need to know <em>who</em> they are funding and <em>where</em> the money is going. The danger of accidentally funnelling money to a sanctioned state or person is just too big a risk for most organisations.</p>
+
+<p>If you want to receive funding - make it <em>really</em> clear who you are.</p>
+
+<h2 id="what-can-you-offer"><a href="https://shkspr.mobi/blog/2026/03/how-can-governments-pay-open-source-maintainers/#what-can-you-offer">What Can You Offer?</a></h2>
+
+<p>Even when there is an owner, there often isn't an easy mechanism for paying people. Donation sites like GitHub Sponsors, Ko-Fi, and Patreon are great for individuals who want to throw a small amount of money to creators but they can be problematic for larger organisations.  Many OSS projects get around this by offering support contracts. It makes it much easier for an organisation to justify their spend because they're no longer donating to something which can be obtained for free; they're paying for a service.</p>
+
+<p>This doesn't have to be a contract offering a 24/7 response and guaranteed SLA. It can be as simple as offering best-effort email support.</p>
+
+<p>The important thing is to offer an <em>easy</em> way for a larger organisation to buy your services. Many organisations have corporate credit cards for lower-cost discretionary spending which doesn't require a full business-case.  How easily could a manager buy a £500 support contact from your site?</p>
+
+<p>Maintainers don't only have to offer support contracts. Many choose to offer training packages which are a good way to raise money <em>and</em> get more people using your product. Some project maintainers will speak at your conference for a suitable fee.</p>
+
+<p>Again, the aim here is for maintainers to offer a <em>plausible</em> reason for a payment to be made.</p>
+
+<h2 id="playing-well-with-others"><a href="https://shkspr.mobi/blog/2026/03/how-can-governments-pay-open-source-maintainers/#playing-well-with-others">Playing Well With Others</a></h2>
+
+<p>Open Source has a brilliant culture of allowing multiple (often anonymous) contributors. That's fine when there's no money involved, but how does a moderately sized project decide who receives what share of the funding? Services like <a href="https://opencollective.com/">OpenCollective</a> can make it easier to show <em>where</em> the money is going but it is better to discuss in advance with all contributors what they expect as a share.</p>
+
+<p>If people think they're being taken advantage of, or that a project maintainer is unjustly enriching themselves, it can cause arguments.  Be very clear to contributors what the funding is for and whether they're entitled to any of it.</p>
+
+<p>Finally, we faced the issue that some OSS projects didn't <em>want</em> to take money from the "big bad state". They were worried that if people saw "Sponsored by the Government" they would assume that there were backdoors for spies, or that the developer might give in to pressure to add unwanted features.  This (usually) isn't the case but it is easy to see why having a single large organisation as the main donor could give the impression of impropriety.</p>
+
+<p>The best defence against this is to have <em>lot</em> of paying sponsors! Having the state as one of many partners makes it clear that a project isn't beholden to any one customer.</p>
+
+<p>It isn't impossible to get Governments to spend on Open Source. But state spending is heavily scrutinised and, bluntly, they aren't set up to pay <i lang="la">ad hoc</i> amounts to non-suppliers, who aren't charging money.  While large projects often have the resources to apply for Government grants and contracts, smaller projects rarely have the time or expertise. It is critical that maintainers remove the barriers which make it too hard for organisations to pay them.</p>
+
+<h2 id="in-summary"><a href="https://shkspr.mobi/blog/2026/03/how-can-governments-pay-open-source-maintainers/#in-summary">In Summary</a></h2>
+
+<ul>
+<li>Make it easy for Governments and other large organisations to pay you.</li>
+<li>Be as obvious as possible that you are able to accept payments from them.</li>
+<li>Don't be afraid to put a large price on your talents.</li>
+<li>Offer multiple paid-for options like speaker fees, support, and feature development funding.</li>
+<li>Talk with your contributors to let them know how any funding will be shared.</li>
+</ul>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/how-can-governments-pay-open-source-maintainers/feed/</wfw:commentRss>
+			<slash:comments>14</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[An odd font rendering bug in Firefox and Safari]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/an-odd-font-rendering-bug-in-firefox-and-safari/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/an-odd-font-rendering-bug-in-firefox-and-safari/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Fri, 13 Mar 2026 12:34:09 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[bug]]></category>
+		<category><![CDATA[css]]></category>
+		<category><![CDATA[firefox]]></category>
+		<category><![CDATA[font]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68692</guid>
+
+					<description><![CDATA[First up, you should go and watch The Importance of Being Earnest with Ncuti Gatwa. It is a brilliant set of performances and a joy to see.  While perusing the programme on the National Theatre website I stumbled upon a little bug.  The incredible Ronkẹ Adékọluẹ́jọ́ has her name rendered in a most unusual style:    It rendered just fine in Chrome - but both Firefox and Safari misrendered some of t…]]></description>
+										<content:encoded><![CDATA[<p>First up, you should go and watch <a href="https://www.youtube.com/watch?v=obX-HGs-PS8">The Importance of Being Earnest</a> with Ncuti Gatwa. It is a brilliant set of performances and a joy to see.</p>
+
+<p>While perusing the <a href="https://www.nationaltheatre.org.uk/productions/the-importance-of-being-earnest/#cast">programme on the National Theatre website</a> I stumbled upon a little bug.  The incredible Ronkẹ Adékọluẹ́jọ́ has her name rendered in a most unusual style:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/ronke.webp" alt="Screenshot of a website. Contains a phone of a black woman next to her name. Any characters with accents in her name are rendered without boldface." width="2953" height="1798" class="aligncenter size-full wp-image-68694">
+
+<p>It rendered just fine in Chrome - but both Firefox and Safari misrendered <em>some</em> of the accented characters.</p>
+
+<p>Here's a minimum viable demo to show what's happening:</p>
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="FF Font Rendering Issue?" src="https://codepen.io/edent/embed/qEaRyrz?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true">
+  See the Pen <a href="https://codepen.io/edent/pen/qEaRyrz">
+  FF Font Rendering Issue?</a> by Terence Eden (<a href="https://codepen.io/edent">@edent</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<h2 id="fonts-are-hard-ok"><a href="https://shkspr.mobi/blog/2026/03/an-odd-font-rendering-bug-in-firefox-and-safari/#fonts-are-hard-ok">Fonts are hard, OK?!?!</a></h2>
+
+<p>Broadly speaking<sup id="fnref:complicated"><a href="https://shkspr.mobi/blog/2026/03/an-odd-font-rendering-bug-in-firefox-and-safari/#fn:complicated" class="footnote-ref" title="It is a lot more complicated than that." role="doc-noteref">0</a></sup>, accented characters can be made in two way.</p>
+
+<ol>
+<li>Pre-composed. There is a separate code for the character <code>é</code></li>
+<li>Combining. The plain letter <code>e</code> is immediately followed by the <em>combining</em> character <code>◌́</code> and the computer smushes them together.</li>
+</ol>
+
+<p>Similarly, a font file can have separate little drawings for each accented character or it can have separate accents.</p>
+
+<p>In this case, the National Theatre is using the font "Helvetica Now Display W04".</p>
+
+<p>The web font contains <code>é</code> (U+00E9) and both <code>◌́</code> (U+0301) &amp; <code>̣◌</code> (U+0323).</p>
+
+<p>But doesn't include <code>ẹ</code> (U+1EB9) or <code>ọ</code> (U+1ECD).</p>
+
+<p>So the ẹ́  and ọ́  have to be made by combining characters in the font.</p>
+
+<p>On Chrome this works. On Firefox and Safari, it seems to break when the CSS is set to <code>font-weight: normal;</code>. This causes the browser to render those characters in the default fallback font - hence the slightly weird look.</p>
+
+<h2 id="next-steps"><a href="https://shkspr.mobi/blog/2026/03/an-odd-font-rendering-bug-in-firefox-and-safari/#next-steps">Next Steps</a></h2>
+
+<p>I've raised <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2023126">a bug with Firefox</a> and one with <a href="https://bugs.webkit.org/show_bug.cgi?id=309889">WebKit</a>.</p>
+
+<p>Of course, it might be that they're doing the right thing and Chrome is in the wrong - but I think that's unlikely.</p>
+
+<p>Now, time to fix the font I use on this website to prevent any rendering errors!</p>
+
+<div id="footnotes" role="doc-endnotes">
+<hr>
+<ol start="0">
+
+<li id="fn:complicated">
+<p>It is a <em>lot</em> more <a href="https://www.youtube.com/watch?v=5NPBIwQyPWE">complicated</a> than that.&nbsp;<a href="https://shkspr.mobi/blog/2026/03/an-odd-font-rendering-bug-in-firefox-and-safari/#fnref:complicated" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+</ol>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/an-odd-font-rendering-bug-in-firefox-and-safari/feed/</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Historic Energy Price Cap Data (FOI success!)]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/historic-energy-price-cap-data-foi-success/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/historic-energy-price-cap-data-foi-success/#respond</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Thu, 12 Mar 2026 12:34:01 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[energy]]></category>
+		<category><![CDATA[FoI]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68583</guid>
+
+					<description><![CDATA[Ofgem, the UK&#039;s energy regulator, publishes the current energy price cap per region. Note that it is only the current price cap. I couldn&#039;t find the complete historic data on their site. So I sent a quick email asking for it which they treated as a Freedom of Information request.  Please can you supply me with a complete list of all previous electricity price cap figures?  I have searched your…]]></description>
+										<content:encoded><![CDATA[<p>Ofgem, the UK's energy regulator, publishes <a href="https://www.ofgem.gov.uk/information-consumers/energy-advice-households/get-energy-price-cap-standing-charges-and-unit-rates-region">the current energy price cap</a> per region. Note that it is only the <em>current</em> price cap. I couldn't find the complete historic data on their site. So I sent a quick email asking for it which they treated as a Freedom of Information request.</p>
+
+<blockquote><p>Please can you supply me with a complete list of all previous electricity price cap figures?</p>
+
+<p>I have searched your website and can only find the current price-cap.</p>
+
+<p>Specifically, I would like to know the per kWh price cap for electricity in the London region from its introduction until today.</p>
+
+<p>If these are on your website, please point me in the right direction. If not, a CSV of the data would be appreciated.”</p></blockquote>
+
+<p>A month later, and without any fuss, they emailed me a comprehensive spreadsheet. In Excel format, but let's not quibble!</p>
+
+<p>There are a few formatting oddities - not least that the caps are expressed with 13 decimal places of precision. Was the daily cap <em>really</em> 60.9345205479452p?</p>
+
+<p>Similarly, the dates are expressed as <code>1 April 2022 to 30 September 2022</code> rather than programmatic date ranges. It's also inconsistent, with some saying <code>1 July to 30 September 2025</code>.</p>
+
+<p>Averages are hard-coded not calculated.</p>
+
+<p>I've requested that they add these data to their website but, until they do, <a href="https://shkspr.mobi/blog/wp-content/uploads/2026/03/FOI2026_00323_Rates-Breakdown.xlsx">here's the original file they sent me</a>.</p>
+
+<p>I've used a bit of R to tidy them up, giving proper start date and end date columns, rounding to 2 decimal places, and saving as CSV. You can <a href="https://shkspr.mobi/blog/wp-content/uploads/2026/03/FOI2026_00323_Rates-Breakdown-fixed.zip">download the tidied version</a>.</p>
+
+<h2 id="copyright-and-copyleft"><a href="https://shkspr.mobi/blog/2026/03/historic-energy-price-cap-data-foi-success/#copyright-and-copyleft">Copyright and Copyleft</a></h2>
+
+<p>As per <a href="https://www.ofgem.gov.uk/copyright">their copyright page</a> these data are © Ofgem, 2026 and are licensed under the <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/">Open Government Licence 3.0</a>. This is <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/open-government-licence/">compatible with</a> CC BY and <a href="https://opendatacommons.org/licenses/by/">ODC-By</a>.</p>
+
+<p>Please treat my update as <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/historic-energy-price-cap-data-foi-success/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Game Review: It Takes Two ★★★★★]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/game-review-it-takes-two/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/game-review-it-takes-two/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Wed, 11 Mar 2026 12:34:02 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[Game Review]]></category>
+		<category><![CDATA[PlayStation]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68494</guid>
+
+					<description><![CDATA[A couple is facing the devastating prospect of divorce. Their young daughter is understandably distraught. In her fear, she doses both parents with a powerful hallucinogenic drug in the hope that tripping through therapy will save their marriage.  Well, OK, that&#039;s not exactly what the game&#039;s about - but it might as well be!  My aim this year is to play more co-operative games with my wife. So she …]]></description>
+										<content:encoded><![CDATA[<p>A couple is facing the devastating prospect of divorce. Their young daughter is understandably distraught. In her fear, she doses both parents with a powerful hallucinogenic drug in the hope that tripping through therapy will save their marriage.</p>
+
+<p>Well, OK, that's not <em>exactly</em> what the game's about - but it might as well be!</p>
+
+<p>My aim this year is to play more <em>co-operative</em> games with my wife. So she picked up the controller to play as the shrewish May while I steered the lug-headed Cody. Both have been shrunk to the size of toy dolls and have to navigate their house in an attempt to regain human-form and comfort their daughter. The game is a series of puzzles which can only be solved if you <strong>work together</strong>. Only by <strong>working together</strong> can you escape the quagmire you find yourself in. A sentient marriage guidance book continually reminds you that you only beat the last level because you <strong>worked together</strong>.</p>
+
+<p>And then you murder a toy elephant who pleads for its life after you brutally mutilate it. That isn't an exaggeration. It is easily the most traumatic media moment I've ever experienced.</p>
+
+<p>Unlike <a href="https://shkspr.mobi/blog/2026/03/game-review-unravel-two/">Unravel Two</a>, the world is fully 3D and the quests are delightfully varied. Some are the usual "you jump there and I'll do the thing here" - others are more complex. There's logic, timed jumping, beat-em-ups, flight simulators, and a couple of dozen more inventive twists on familiar puzzles. Every single level seems to have a different game mechanic - and each level also has a unique æsthetic.</p>
+
+<p>It is refreshing to play a game actually designed for adults. I don't mean "Rated 18 for blood and gore"; more like "grapples with the complexities of being a modern couple trying to raise a family". It's also great fun to collaborate on the puzzles, while also exploring the intricate world around you.</p>
+
+<p>I don't know whether the game saved our marriage. There was certainly lots of <strong>working together</strong> to achieve a common goal.</p>
+
+<p>The voice acting is excellent, the story isn't too cloying, and the animation is sumptuous.</p>
+
+<iframe title="It Takes Two Official Reveal Trailer" width="620" height="349" src="https://www.youtube.com/embed/ohClxMmNLQQ?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/game-review-it-takes-two/feed/</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Unstructured Data and the Joy of having Something Else think for you]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/unstructured-data-and-the-joy-of-having-something-else-think-for-you/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/unstructured-data-and-the-joy-of-having-something-else-think-for-you/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Tue, 10 Mar 2026 12:34:59 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[AI]]></category>
+		<category><![CDATA[culture]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68565</guid>
+
+					<description><![CDATA[I&#039;m sure we have all met a person like this:  People who have an AI habit use it by default. I have watched someone ask ChatGPT the weather for tomorrow rather than simply open the weather app. Another time, they asked AI the question even after I had shown them the website with the same information. It&#039;s a crutch.— Ibster (@ibster.bsky.social) 9 March 2026 at 09:46    At a recent tech event, I b…]]></description>
+										<content:encoded><![CDATA[<p>I'm sure we have all met a person like this:</p>
+
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:o7ietxbf5efxnlvttt3obvr4/app.bsky.feed.post/3mgml626jdc2z" data-bluesky-cid="bafyreig7f5x22t4zr4g4jlzj5tyupted2qe5jrkladd3e76auxkmkt3qxq" data-bluesky-embed-color-mode="system"><p lang="en">People who have an AI habit use it by default. I have watched someone ask ChatGPT the weather for tomorrow rather than simply open the weather app. Another time, they asked AI the question even after I had shown them the website with the same information. It's a crutch.</p>— Ibster (<a href="https://bsky.app/profile/did:plc:o7ietxbf5efxnlvttt3obvr4?ref_src=embed">@ibster.bsky.social</a>) <a href="https://bsky.app/profile/did:plc:o7ietxbf5efxnlvttt3obvr4/post/3mgml626jdc2z?ref_src=embed">9 March 2026 at 09:46</a></blockquote>
+
+<script async="" src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+
+<p>At a recent tech event, I bumped into an old friend and invited him out for dinner the next evening. He proudly showed my the AI bot he'd built which responded to WhatsApp messages. "Remind me at 7pm tomorrow to go to Chalmun's Cantina for dinner with Terry."</p>
+
+<p>"OK boss! That's locked in! I'll remind you tomorrow. Enjoy your dinner!" the digital sycophant replied.</p>
+
+<p>I was flabbergasted. There was a perfectly good calendar app on his phone. It has an easy to use interface. There are clearly demarcated boxen to fill in. A swish time-picker, calendar scroller, and notification reminder all built-in.</p>
+
+<p>Our conversation reached an ideological impasse. I couldn't understand why he was burning tokens and wasting time with a chatbot. He didn't understand why I wasn't embracing the future.</p>
+
+<p>I've noticed this with a lot of technology and I think I've come up with a three-part hypothesis.</p>
+
+<p>First, some people don't care for structure. Whereas some of us carefully shelve our books in Dewey Decimal order, some people just chuck a book on any shelf it'll fit. You craft a detailed personal knowledge graph in Obsidian, I have a series of increasingly erratic text documents. My blog is fully semantic, yours is just div-soup.</p>
+
+<p>We all have different things we care about. You'd be aghast that I don't track my calories and I can't stand the way you store all your files on the desktop. Yes, some systems are obviously superior to chaos, but for lots of people the tedium of organisation isn't worth the effort.</p>
+
+<p>Secondly, talking isn't as hard work as writing. Speaking is faster than writing - hence the popularity of voice notes. Speaking requires less mental effort than writing - you don't have to worry about spelling or grammar.   Similarly, forcing yourself to organise your thoughts in the structure demanded by a form can be tiring. My calendar has event title at the top, but I think in terms of time first.  So voice-chatting with an AI requires substantially less effort on your part. Just lob some words at it and it'll do the structuring for you.</p>
+
+<p>Which gets me to the third and, I think, most distasteful aspect. People want servants.  The long standing joke about Silicon Valley products is they're all trying to recreate having a mum to look after you. Uber to drive you, Just-Eat to bring you cooked meals, Task Rabbit to wash your pants, Tinder to be a matchmaker.</p>
+
+<p>Being raised on a diet of Downton Abbey, Bridgerton, and a hundred other lives-of-the-rich-and-famous shows does a number on you. Why don't I have a social secretary to arrange my day? Don't I deserve a tireless chambermaid? Where's the smart-arse butler who can cater to my every whim?</p>
+
+<p>"Jeeves! Book me a taxi to the club. Usual time."</p>
+
+<p>That's the dream, isn't it? Yes, you could mash some buttons in the taxi app or - heaven forfend! - call them yourself. But isn't it much more sophisticated to have a servant?</p>
+
+<p>I'm guilty of this, of course. I yell at my Alexii to turn on the lights, pre-heat my bed, and remind me when dinner is ready.  My doorbell alerts me when a visitor calls so I don't have to make the arduous trip to the front door. My kitchen robot washes my clothes - next year it'll be able to order more washing supplies when I run low. I can basically chuck stuff into the machine without thinking about it, and everything comes out perfectly clean.</p>
+
+<p>Is it <em>useful</em> for me to know how to properly wash clothes? Probably not. Do I struggle when I visit a house which only has physical light switches? Not really. Are some people going to suffer if they outsource all their thinking to servant machines? I guess we'll see.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/unstructured-data-and-the-joy-of-having-something-else-think-for-you/feed/</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Book Review: There Is No Antimemetics Division by qntm ★★★★★]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/book-review-there-is-no-antimemetics-division-by-qntm/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/book-review-there-is-no-antimemetics-division-by-qntm/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Mon, 09 Mar 2026 12:34:47 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[Book Review]]></category>
+		<category><![CDATA[Sci Fi]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68472</guid>
+
+					<description><![CDATA[Apparently I reviewed the previous version of this book four years ago but have no real memory of it.  Did you ever have a dream which was vividly realistic yet somehow slightly askew from reality? Obviously there is no antimemetics division, nor could anyone write a book about it. If they did, their mind would instantly be liquefied and their mere existence would be purged.  So, why is there a …]]></description>
+										<content:encoded><![CDATA[<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/9781804954768-jacket-large.webp" alt="Book cover. A deer stares out at you. It has slightly too many eyes." width="311" height="500" class="alignleft size-full wp-image-68475">
+
+<p>Apparently I reviewed the previous version of this book <a href="https://shkspr.mobi/blog/2022/04/book-review-there-is-no-antimemetics-division/">four years ago</a> but have no real memory of it.  Did you ever have a dream which was vividly realistic yet somehow slightly askew from reality? Obviously there is no antimemetics division, nor could anyone write a book about it. If they did, their mind would instantly be liquefied and their mere existence would be purged.</p>
+
+<p>So, why is there a new version of the book out and is it worth reading again?</p>
+
+<p>As the copyright page says:</p>
+
+<blockquote><p>Earlier versions of this material were previously published in serial form on the scp wiki under Creative Commons 3.0, and subsequently self-published by the author in ebook and paperback format. The work has been substantively revised and updated since.</p></blockquote>
+
+<p>As <a href="https://qntm.org/antifaq">the FAQ</a> makes clear, getting a "proper" publisher to put money into a CC project is unlikely. So many of the original elements have been rewritten and reworked. The writing, plotting, and characters have all been substantially improved. The ending, in particular, has become something quite special.</p>
+
+<p>The story itself is still recursively memetic and a metacommentary on itself. The bug-eyed-monsters are mindbending and the good guys are all morally compromised. The concepts are gorgeously impossible and the pacing is exciting.</p>
+
+<p>There's simply nothing like it.</p>
+
+<p>The eBook is mostly well formatted. Excellent use of monospace fonts for reports, there are accessible redactions where suitable, and the images all have alt text. Weirdly, one "monster" is named వ - a character which failed to render correctly on my eBook. That gave it a rather sinister appearance! The ghosting of eInk made it look like there were faint words behind the various redactions which was delightfully spooky. An excellent book and a satisfying update.</p>
+
+<p>However, it is worth noting that <span aria-label="redacted text" style="word-break: break-all;">███████</span> this book will <span aria-label="redacted text" style="word-break: break-all;">██████████ ██████████ ██████████████</span> and could lead to <span aria-label="redacted text" style="word-break: break-all;">████ █████████████ ██████████████</span>. Although the retailer won't accept refunds on any book stained with <span aria-label="redacted text" style="word-break: break-all;">█████████ █████████████████ ████</span> or <span aria-label="redacted text" style="word-break: break-all;">████ ██████████</span>, it <em>is</em> possible to summon <span aria-label="redacted text" style="word-break: break-all;">██████ ████████████████████ ████████████ ███ ████ ███████████</span> in an emergency.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/book-review-there-is-no-antimemetics-division-by-qntm/feed/</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[What's the source of Einstein's "citizen of the world" quip?]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#respond</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Sun, 08 Mar 2026 12:34:03 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[politics]]></category>
+		<category><![CDATA[quote]]></category>
+		<category><![CDATA[yak shaving]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=64039</guid>
+
+					<description><![CDATA[I like digging through old archives and tracing my way through quotes.  Here&#039;s a particularly good one from Albert Einstein which is often peppered around the Internet without any sources.  If my theory of relativity is proven successful, Germany will claim me as a German and France will declare that I am a citizen of the world. Should my theory prove untrue, France will say that I am a German…]]></description>
+										<content:encoded><![CDATA[<p>I like digging through old archives and tracing my way through quotes.  Here's a particularly good one from Albert Einstein which is often peppered around the Internet without any sources.</p>
+
+<blockquote><p>If my theory of relativity is proven successful, Germany will claim me as a German and France will declare that I am a citizen of the world. Should my theory prove untrue, France will say that I am a German and Germany will declare that I am a Jew.</p></blockquote>
+
+<p>Let's see if we can find it!</p>
+
+<h2 id="1929-12-04"><a href="https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#1929-12-04">1929-12-04</a></h2>
+
+<p>The earliest I can find is in the <a href="https://www.jta.org/archive/if-true-hes-german-if-not-hes-jewish">archives of the Jewish Telegraphic Agency</a> who published this snippet:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2025/10/JTA-dec3.webp" alt="IF TRUE, HE'S GERMAN; IF NOT, HE'S JEWISH (Jewish Telegraphic Agency) Berlin, Dec. 3 — The local papers feature a summary of the brief address made by Prof. Albert Einstein when the Sorbonne recently conferred an honorary degree upon him. He is reported to have said that “if my theory of relativity is proven successful, Germany will claim me as a German and France will declare that I am a citizen of the world. Should my theory prove untrue, France will say that I am a German, and Germany will declare that I am a Jew.”" width="422" height="390" class="aligncenter size-full wp-image-64040">
+
+<p>Is this likely to be true? What other evidence is there that Einstein was there and made those remarks?</p>
+
+<h2 id="1929-11-12"><a href="https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#1929-11-12">1929-11-12</a></h2>
+
+<p>Flicking back a few weeks in the JTA archives is this evidence - "<a href="https://www.jta.org/archive/sorbonne-bestows-degree-on-einstein">Sorbonne bestows degree on Einstein</a>."</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2025/10/JTA-Nov-12.webp" alt="SORBONNE BESTOWS DEGREE ON EINSTEIN (Jewish Telegraphic Agency) Paris, Nov. 11 — Prof. Albert Einstein was one of the five upon whom honoris causa degrees were bestowed by the Sorbonne on Saturday. Thousands of students assembled at the ceremonies and cheered Einstein. Professors, the praesidium and rector of the University of Paris joined in the ovation which continued in the streets when Einstein alighted from the German ambassador's car. The ambassador represented Germany at the ceremony." width="422" height="332" class="aligncenter size-full wp-image-64041">
+
+<h2 id="1929-11-09"><a href="https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#1929-11-09">1929-11-09</a></h2>
+
+<p>There are also contemporary <a href="https://gallica.bnf.fr/ark:/12148/btv1b532232613/f1.item">photos of the ceremony</a> which are included in various <a href="https://ein-web.adlibhosting.com/aea/Details/archive/110067509">press clippings</a>.</p>
+
+<p>Is there anything previous to 1929?</p>
+
+<h2 id="1922"><a href="https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#1922">1922??</a></h2>
+
+<p><a href="https://assets.press.princeton.edu/chapters/s6908.pdf">Alice Calaprice's Quotable Einstein</a> has the quote but attributes it differently:</p>
+
+<blockquote><p>From an address to the French Philosophical Society at the Sorbonne, April 6, 1922. See also French press clipping, April 7, 1922, Einstein Archive 36-378; and Berliner Tageblatt, April 8, 1922, Einstein Archive 79-535</p></blockquote>
+
+<p>I wasn't able to find the French press clipping - but <a href="https://zefys.staatsbibliothek-berlin.de/list/title/zdb/27646518/-/1922/">the German paper is available</a>.</p>
+
+<p>My German is rusty and that font is <em>hard</em> but I don't think it says anything similar to the above quote.  I think the 1922 date is merely the confusion between two different visits to the Sorbonne - which is the same conclusion as <a href="https://en.wikiquote.org/wiki/Talk:Albert_Einstein#Paris_6_April_1922">Wikiquote editors came to</a></p>
+
+<h2 id="contemporary-reports"><a href="https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#contemporary-reports">Contemporary reports</a></h2>
+
+<p>OK, so what other sources are there for the quote? The JTA says:</p>
+
+<blockquote><p>The local papers feature a summary of the brief address made by Prof. Albert Einstein […]</p></blockquote>
+
+<p>So I suppose they were just re-reporting what others had said. Let's take a look in some of those newspapers via <i lang="fr">Bibliothèque nationale de France</i> who have an excellent archive of newspapers.</p>
+
+<p>There's a rather <a href="https://gallica.bnf.fr/ark:/12148/bpt6k4617682m/f4.item.r=Sorbonne%20Einstein.zoom">detailed report from <i lang="fr">L'Œuvre</i></a> - but that makes no mention of the anecdote.</p>
+
+<p>Similarly, there are <a href="https://gallica.bnf.fr/ark:/12148/bpt6k4617687p/f1.item.r=Sorbonne%20Einstein.zoom">other interviews</a> and <a href="https://gallica.bnf.fr/ark:/12148/bpt6k7640347d">contemporary commentary</a> - but this remark goes unnoticed by all of them.</p>
+
+<p>I read through <a href="https://gallica.bnf.fr/services/engine/search/sru?operation=searchRetrieve&amp;exactSearch=false&amp;collapsing=true&amp;version=1.2&amp;query=(text%20all%20%22Einstein%22%20and%20text%20all%20%22sorbonne%22%20)%20and%20(dc.type%20all%20%22fascicule%22)%20and%20(gallicapublication_date%3E=%221929/11/01%22%20and%20gallicapublication_date%3C=%221929/12/04%22)&amp;suggest=10&amp;keywords=Einstein%20sorbonne">several dozen French papers</a> from November 1929 until early December. I couldn't find anything resembling the remark in any of them.</p>
+
+<p>OK, what about the German press?</p>
+
+<p>Again it is possible to <a href="https://www.deutsche-digitale-bibliothek.de/search/newspaper?query=Einstein+sorbonne&amp;fromDay=1&amp;fromMonth=11&amp;fromYear=1929&amp;toDay=5&amp;toMonth=12&amp;toYear=1929">search German newspapers for those specific dates</a> - and there are plenty of <a href="https://www.deutsche-digitale-bibliothek.de/newspaper/item/XPR7GKHFSOA3PYC34FTDWSPRIE6LQS7O?issuepage=3">contemporary reports</a>.</p>
+
+<p>Nothing about him being a <i lang="de">Weltbürger</i> that I could see.</p>
+
+<p>Similarly, <a href="https://www.britishnewspaperarchive.co.uk/search/results/1929-11-01/1929-12-05?basicsearch=einstein%20citizen%20of%20the%20world&amp;exactsearch=false&amp;retrievecountrycounts=false">British newspapers don't make reference to the joke</a> despite their <a href="https://www.britishnewspaperarchive.co.uk/search/results/1929-11-01/1929-12-05?basicsearch=einstein&amp;exactsearch=false&amp;retrievecountrycounts=false">endless coverage</a> of him.</p>
+
+<p>Google's shitty AI hallucinates the quote as appearing in <a href="https://archive.org/details/sim_saturday-evening-post_1929-10-26_202_17">The Saturday Evening Post</a>.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2025/10/AI-overview.webp" alt="In 1929, Einstein did not declare himself a &quot;citizen of the world,&quot; but this concept is linked to him through a statement he made around that time. In an interview with the relativity were proven correct, &quot;France will declare that | am a citizen of the world&quot;. He also famously stated, &quot;Imagination encircles the world,&quot; in the same interview. The quote reflects his belief in the universal nature of scientific discovery and his own views on his place in a world without borders, a concept that became more strongly associated with his later activism for peace and global cooperation, as explained in Doubtnut." width="1316" height="500" class="aligncenter size-full wp-image-64045">
+
+<p>While that issue does have an extensive interview with Einstein, there's nothing even vaguely similar to the sentiment about being a citizen of the world. Never trust an AI!</p>
+
+<h2 id="is-it-likely"><a href="https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#is-it-likely">Is it likely?</a></h2>
+
+<p>Einstein is endlessly quotable - and had a good ear for a pithy turn of phrase. However, he was accompanied on this trip by the German Ambassador. Would it have been prudent for him to make such a politically charged joke in front of that audience?</p>
+
+<h2 id="minced-oaths"><a href="https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#minced-oaths">Minced Oaths</a></h2>
+
+<p>Perhaps this is a mangled quotation? Einstein said something <em>similar</em> several years before the purported 1929 quote.</p>
+
+<p>In Herman Bernstein's 1924 book "<a href="https://archive.org/details/celebritiesofour000452mbp/page/n285/mode/2up?q=citizen">Celebrities of Our Time Interviews</a>", there's the following quote:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/03/interview.webp" alt="&quot;The description of me and my circumstances in the Times shows an amusing feat of imagination on the part of the writer. By an application of the theory of relativity to the taste of the readers, to-day in Germany I am called a German man of science, and in England I am represented as a Swiss Jew. If I come to be regarded as a bête noire, the description will be reversed and I shall become a Swiss Jew for the Germans and a German man of science for the English.&quot;" width="1300" height="500" class="aligncenter size-full wp-image-68541">
+
+<p>That's much less pithy, but carries largely the same sentiment.</p>
+
+<p>The original can be seen in <a href="https://www.britishnewspaperarchive.co.uk/search/results/1919-11-21/1919-11-29?basicsearch=%22german%20man%20of%20science%22&amp;phrasesearch=german%20man%20of%20science&amp;exactsearch=true&amp;retrievecountrycounts=false&amp;sortorder=score">the British Newspaper Archive of 1919</a></p>
+
+<blockquote><h3 id="dr-einsteins-theory"><a href="https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#dr-einsteins-theory">Dr. Einstein's Theory.</a></h3> 
+<p>We publish to-day a translation of an article written for our readers by ALBERT EINSTEIN
+</p><p>[…]
+He adds that the different descriptions of him in England and Germany form an amusing example of relativity to the sentiments of the two countries. He is famous just now, and was described in our columns as a Swiss Jew, whereas in Germany he is called a German man of science. He suggests that were he suddenly to become a <i lang="fr">bête noire</i>, the descriptions would be reversed, and he would be stigmatized here as a German man of science and in Germany as a Swiss Jew. We concede him his little jest.</p></blockquote>
+
+<p>However, do note that this is described as a translation. In his letter to Paul Ehrenfest on the 4th of December 1919, he says:</p>
+
+<blockquote><p>By the way, I myself participated in the cackling by writing a short article in the Times, in which I thanked our English colleagues, said a few things to characterize the theory, and at the end produced the following witticism: A simple application of the theory of relativity: today German newspapers are calling me a German man of science, the English, a Swiss Jew. If I come to be represented as a bete noire to the readerships, I should be a Swiss Jew for German newspapers and a German man of science for the English.'</p></blockquote>
+
+<p>See The Collected Papers of Albert Einstein, Volume 9 The Berlin Years. I cannot find the original letter, but I assume Princeton's transcribers and translators are accurate.</p>
+
+<p>Either way, that's two reputable sources which have Einstein expressing something similar. Perhaps the joke was repeated and refined by him as the years wore on? Perhaps an eager journalist took a half-remembered quote and gave it new life? Perhaps.</p>
+
+<h2 id="where-next"><a href="https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/#where-next">Where next?</a></h2>
+
+<p>Well, dear reader, that's where you come in! I've exhausted all my research prowess. If you can find a transcript of his remarks, or a report older than the JTA's of the 4th of December 1929 where Einstein talks about being a "citizen of the world", please drop a comment in the box!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/whats-the-source-of-einsteins-citizen-of-the-world-quip/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Book Review: The Electronic Criminals by Robert Farr (1975) ★★★⯪☆]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/book-review-the-electronic-criminals-by-robert-farr-1975/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/book-review-the-electronic-criminals-by-robert-farr-1975/#respond</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Sat, 07 Mar 2026 12:34:04 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[Book Review]]></category>
+		<category><![CDATA[CyberSecurity]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68324</guid>
+
+					<description><![CDATA[What can a fifty-year-old book teach us about cybersecurity? Written just as computing was beginning to enter the mainstream, The Electronic Criminals takes us into a terrifying new world of crime!  Fraud over Telex! Ransomware of physical tapes! Stealing passwords and hacking into mainframes!  The books has a strong start, but gently runs out of steam because there simply weren&#039;t many…]]></description>
+										<content:encoded><![CDATA[<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/02/Electronic-Criminals.webp" alt="Book cover featuring a tape recorder and other electronic equipment." width="200" class="alignleft size-full wp-image-68325">
+
+<p>What can a fifty-year-old book teach us about cybersecurity? Written just as computing was beginning to enter the mainstream, The Electronic Criminals takes us into a terrifying new world of crime!</p>
+
+<p>Fraud over Telex! Ransomware of physical tapes! Stealing passwords and hacking into mainframes!</p>
+
+<p>The books has a strong start, but gently runs out of steam because there simply <em>weren't</em> many electronic criminals in the mid-1970s! Instead, the book is over-stuffed with "Catch Me If You Can" tales of chequebook fraud, stolen aeroplane tickets, and regular blackmail and bribery. It isn't quite a how-to guide for the budding fraudster, but it isn't too far off.</p>
+
+<p>Nevertheless, there are some amazing and mind-boggling computer crimes described:</p>
+
+<blockquote><p>Computer print-outs concealed the massive fraud and fakery. Tapes were programmed so that computers would reject incriminating data and accept and produce only what would support the conspiracy. Computers were also used in playing hide-and-seek with investigators by switching data damaging to the swindlers from one code to another, just a step ahead of the authorities.</p></blockquote>
+
+<p>One common refrain is that the law of 1975 hadn't caught up with the reality of modern crime. In the above case, the…</p>
+
+<blockquote><p>… investors decided to sue IBM for $4 billion, claiming that the company’s inability to manufacture a swindle-proof computer had contributed to their loss. Despite the fact that IBM had claimed their computers are virtually tamper proof, the case was thrown out of court. Obviously no one can be expected to be perfect, not even an IBM computer.</p></blockquote>
+
+<p>And in another:</p>
+
+<blockquote><p>In a recent case in France the accused was charged with sabotage. He had intentionally erased valuable information recorded on a magnetic tape by passing it through a strong magnetic field. However, since the tape itself was undamaged the court ruled that no offense had been committed. The jury was directed to issue a verdict of “not guilty.”</p></blockquote>
+
+<p>Many of the "electronic" crimes are able to be facilitated by poor physical processes:</p>
+
+<blockquote><p>Computer center near London, England: Unguarded side door hooked open to allow employees to step out for fresh air. Top secret military and industrial information was stored in the center’s files.</p></blockquote>
+
+<p>Anyone who has done an ISO 27001 audit knows that pain!</p>
+
+<p>It isn't just computers and data-tapes that are discussed. There's rather a large section on phone-tapping and eavesdropping bugs. Rather terrifyingly, there's also a section on what we might now call "Deep Fakes":</p>
+
+<blockquote><p>On tape recordings, words can be rearranged and new words can be built up from an assortment of syllables. The process is somewhat like fitting together bits of a jigsaw puzzle. Simply by inserting or deleting “nots” in a taped voice recording, affirmatives can be changed to negatives and negatives to affirmatives. Words can be borrowed from one part of a tape and fitted into another so the entire meaning is changed. By the same techniques, inflections of words can be altered.</p></blockquote>
+
+<p>Oh, and drone warfare!</p>
+
+<blockquote><p>Today there are infrared cameras that can indeed see you in the dark, even portable TV cameras that can record pictures by moonlight, and radio-controlled miniature aircraft (some that can hover like helicopters) to carry these cameras to subjects that someone wants to photograph.</p></blockquote>
+
+<p>As with any good book on the subject, it spends plenty of time talking about how to defend oneself from these attacks and the downside of protection:</p>
+
+<blockquote><p>Another scheme, called “hand-shaking,” requires the inquirer seeking information from the computer to correctly answer a personal question, something known only to him, before he can find out what he wants to know. This slows down the running of a business. I remember sitting in the office of a man who has a computer terminal on his desk. In the middle of our conversation a question came up and he said: “Wait a minute. I'll get the answer from our computer.” He put the question in by typing on the keyboard. The terminal’s screen lit up and displayed another question: “In what month was your mother-in-law born?”</p></blockquote>
+
+<p>It also predicts the rise of music and film piracy; albeit by analogue means.</p>
+
+<p>Rather pleasingly, it doesn't just limit itself to crimes committed in the USA. It acknowledges the pervasive nature of criminality and goes into some detail about cases in the UK, France, Germany, and Italy.</p>
+
+<p>It is always fascinating to look back on our industry's history. Much like <a href="https://shkspr.mobi/blog/2022/02/book-review-information-warfare-and-security-by-dorothy-e-denning/">1999's Information Warfare and Security by Dorothy E. Denning</a>, we have to constantly go back to see what assumptions we have baked in to our processes.</p>
+
+<p>I'll leave you with this rather chilling excerpt from the prologue:</p>
+
+<blockquote><p>Our world is still a fine place in which to live—a better one perhaps than any previous generation has enjoyed. But some of the people in it are causing serious problems. In 1974 many people experienced diminishing respect for persons in high places who acted as if they were above the law, and this led to a loss of respect for the concept of leadership itself. We should not confuse diminishing respect for a president with respect for the presidency, for example. Our society needs people in high places. It cannot function without leadership at every level, from the head of a household to the manager of a business to a chief of state.</p>
+
+<p>What is missing in our society today is the necessary preparation and training for the responsibilities of authority in high places. If parents in the home and people in business and government never learned the lessons of fair play when they were growing up, we cannot expect them to know how to play fair when they reach high places. Consequently we all suffer every time “the boss” makes expedient judgments rather than proper moral decisions.</p>
+
+<p>If coming generations are to be spared the tragic consequences of even more widespread corruption, the teaching of morality in the family and in the school ought to be as important to us as curbing inflation and other socioeconomic problems. Our children should be taught how to deal with everyday actions fairly and ethically. They should be exposed to those philosophical and ethical concepts, with practical examples that illustrate the alternatives of right and wrong so that they are better able to cope.</p></blockquote>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/book-review-the-electronic-criminals-by-robert-farr-1975/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Firmware Update for the Treedix TRX5-0816 Cable Tester]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/firmware-update-for-the-treedix-trx5-0816-cable-tester/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/firmware-update-for-the-treedix-trx5-0816-cable-tester/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Fri, 06 Mar 2026 12:34:43 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[firmware]]></category>
+		<category><![CDATA[gadget]]></category>
+		<category><![CDATA[upgrades]]></category>
+		<category><![CDATA[USB]]></category>
+		<category><![CDATA[usb-c]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68045</guid>
+
+					<description><![CDATA[Last year I reviewed the Treedix USB Cable Tester - a handy device for testing the capabilities of all your USB cables. I noted that it had a few minor bugs and contacted the manufacturer to see if there was an update.  For some reason, lots of Chinese manufacturers don&#039;t like publishing updates on their websites. Instead they supplied me with a link to a Google Drive containing an instruction…]]></description>
+										<content:encoded><![CDATA[<p>Last year I reviewed the <a href="https://shkspr.mobi/blog/2025/06/gadget-review-treedix-usb-cable-tester/">Treedix USB Cable Tester</a> - a handy device for testing the capabilities of all your USB cables. I noted that it had a few minor bugs and contacted the manufacturer to see if there was an update.</p>
+
+<p>For some reason, lots of Chinese manufacturers don't like publishing updates on their websites. Instead they supplied me with a link to a Google Drive containing <a href="https://shkspr.mobi/blog/wp-content/uploads/2026/02/USB-Cable-Tester-Firmware-Update-Procedure.pdf">an instruction PDF</a> and an small .exe with <a href="https://shkspr.mobi/blog/wp-content/uploads/2026/02/2.4.06.zip">the 2.4.06 update</a> - no love for us Linux freaks. I've locally linked them if you want to install.</p>
+
+<p>Through online chatter, I thought the latest version was v4.0, but Treedix said:</p>
+
+<blockquote><p>Your device is currently running software version 2.3 and can be updated to the latest available version, v2.4.06. However, please note that version v4.0 includes minor hardware updates. Due to hardware incompatibility, existing devices cannot be upgraded to v4.0 via software.</p></blockquote>
+
+<p>So, do be careful running this update. Make sure it is for the right version of the device. If in doubt, contact Treedix directly.</p>
+
+<p>Upgrading was easy.</p>
+
+<ol>
+<li>Switch on the Treedix by flicking the switch up.</li>
+<li>Plug a USB-C cable into the <strong>charging</strong> port of the Treedix.</li>
+<li>Connect the other end of the USB cable to your computer.</li>
+<li>On your computer, open the .exe.</li>
+<li>On the Treedix, hold down the function button.</li>
+<li>While holding down the function button, flick the Treedix switch to off.</li>
+<li>The upgrade program should detect the device.</li>
+<li>On your computer, click "Upgrade"</li>
+<li>Wait until complete before disconnecting and restarting the Treedix.</li>
+</ol>
+
+<p>There are no release notes, but it does now appear to correctly read some of the more advanced eMarkers.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/02/eMarker.webp" alt="Small screen showing the eMarker information." width="1024" height="908" class="aligncenter size-full wp-image-68048">
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/firmware-update-for-the-treedix-trx5-0816-cable-tester/feed/</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Book Review: Katabasis by R. F. Kuang ★★★★⯪]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/book-review-katabasis-by-r-f-kuang/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/book-review-katabasis-by-r-f-kuang/#respond</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Thu, 05 Mar 2026 12:34:44 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[Book Review]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68262</guid>
+
+					<description><![CDATA[I&#039;m a fan of R.F. Kuang&#039;s books - but this is the first which I&#039;ve found laugh-out-loud funny. What if your University advisor died and the only way to graduate was to descend into hell and bring him back?  In a terrible sort of way, I&#039;m glad that Kuang had such a miserable time at University. Being able to mine that psychotrauma has led to the brilliant Babel and now the excellent Katabasis.…]]></description>
+										<content:encoded><![CDATA[<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/02/x400.jpg" alt="Book cover featuring an impossible staircase." width="200" class="alignleft size-full wp-image-68264">
+
+<p>I'm a fan of R.F. Kuang's books - but this is the first which I've found laugh-out-loud funny. What if your University advisor died and the only way to graduate was to descend into hell and bring him back?</p>
+
+<p>In a terrible sort of way, I'm glad that Kuang had such a miserable time at University. Being able to mine that psychotrauma has led to the brilliant <a href="https://shkspr.mobi/blog/2024/01/book-review-babel-r-f-kuang/">Babel</a> and now the excellent Katabasis. This is <em>almost</em> a love affair to the idea of being the perfect student.</p>
+
+<p>It's also deliciously catty:</p>
+
+<blockquote><p>She had never gotten round to trying Proust, but Cambridge had made her the kind of person who wanted to have read Proust, and she figured Hell was a good place to start.</p></blockquote>
+
+<p>The plot is, almost literally, Alice in Wonderlabyrinth. A metaphysical excursion through logic and fallacy, pausing lightly at revenge, with a quick diversion through intersectional feminism and its limits. Much like the play <a href="https://en.wikipedia.org/wiki/Copenhagen_(play)">Copenhagen</a>, the characters often exist as a way to explore the nature of reality and how it conflicts with academia.</p>
+
+<p>Perhaps it is a smidgen too long, and there are some weird Americanisms which perhaps should have been caught in the edit. A few of the observations about Hell being a writers market or modelled on an essay crisis are a little too on the nose - but, you know what, it is tremendous fun.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/book-review-katabasis-by-r-f-kuang/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[How many hours do you need to work to afford a pint of beer?]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/how-many-hours-do-you-need-to-work-to-afford-a-pint-of-beer/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/how-many-hours-do-you-need-to-work-to-afford-a-pint-of-beer/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Wed, 04 Mar 2026 12:34:22 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[beer]]></category>
+		<category><![CDATA[statistics]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=67114</guid>
+
+					<description><![CDATA[I dropped into a pub in central London and ordered two pints of draught beer. Obviously the price of everything is nuts these days - and doubly so in London - so I only winced a little bit when the cost came to about twelve quid. Shocking, obviously. But as we supped on our pints and discussed the state of the world, I tried to remember how expensive it was to have a pint when I was a lad young…]]></description>
+										<content:encoded><![CDATA[<p>I dropped into a pub in central London and ordered two pints of draught beer. Obviously the price of everything is nuts these days - and doubly so in London - so I only winced a little bit when the cost came to about twelve quid. Shocking, obviously. But as we supped on our pints and discussed the state of the world, I tried to remember how expensive it was to have a pint when I was a <del>lad</del> young man.</p>
+
+<p>I seem to recall that our student pub charged about £2 per pint. And minimum wage around that time was £4 per hour. So a drink was 30 minutes' wages.</p>
+
+<p>Today the minimum wage is about £12 and that pint cost me £6. So, again, about half an hour.</p>
+
+<p>But the human memory is fickle! Let's get some actual historical data.</p>
+
+<p>The UK's Office for National Statistics maintains a dataset of <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/czms/mm23">historic draught lager prices</a>.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/01/Draught-lager-per-pint.webp" alt="Graph showing a gentle rise in the cost of draught beer." width="1368" height="573" class="aligncenter size-full wp-image-67116">
+
+<p>Well, my memory wasn't <em>too</em> hazy! About £2 when I was at uni. The national average price now is about a fiver - so the London premium wasn't <em>too</em> outrageous.</p>
+
+<p>But how does that compare to wages? The <a href="https://assets.publishing.service.gov.uk/media/5c9e0e72e5274a527faae38a/20_years_of_the_National_Minimum_Wage_-_a_history_of_the_UK_minimum_wage_and_its_effects.pdf">history of the minimum wage</a> is complicated - with several different bands being introduced. It ends up looking something like this:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/01/minwage.webp" alt="Graph showing step changes in wages for different age groups." width="1800" height="600" class="aligncenter size-full wp-image-67115">
+
+<p>So I <a href="https://researchbriefings.files.parliament.uk/documents/CBP-7735/CBP-7735.pdf">grabbed the most recent data</a> and plotted the ratio between the cost of draught lager and minimum wage:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/01/ratio.webp" alt="Graph showing ratios of cost of lager vs minimum wage." width="782" height="398" class="aligncenter size-full wp-image-67117">
+
+<p>Ah! It turns out that the cost of beer as a ratio to minimum wage is pretty consistent - somewhere between 27 to 40 minutes. Right now, draught lager is <em>cheaper</em> in terms of minimum wage than it has <em>ever</em> been!</p>
+
+<p>Obviously, averages hide all sorts of sins. I'm sure your favourite brand of premium Bohemian pilsner has dramatically risen in price. And minimum wage doesn't necessarily mean disposable income. And you now have a student loan repayment rather than cash being dropped into your account. And the music they play in pubs is crap these days. And you back hurts ever since you tried to match your younger team members pint for pint and slipped in a puddle of your own sick.</p>
+
+<p>Remember, nostalgia is actively dangerous to your mental health.</p>
+
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:eqh433fdh2bqhvt455e3tg67/app.bsky.feed.post/3m7bh3vii722h" data-bluesky-cid="bafyreif34a63kld5xgjhia2qpcvea3lehqutpll4yqpim554ilfx6noi34"><p lang="en">has anyone else noticed that food tasted better in the past? it was mushy and easy to eat. and the spoon would come at you like an airplane</p>— <a href="https://bsky.app/profile/did:plc:eqh433fdh2bqhvt455e3tg67?ref_src=embed">leon (@leyawn.bsky.social)</a> <a href="https://bsky.app/profile/did:plc:eqh433fdh2bqhvt455e3tg67/post/3m7bh3vii722h?ref_src=embed">2025-12-05T21:38:21.731Z</a></blockquote>
+
+<script async="" src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/how-many-hours-do-you-need-to-work-to-afford-a-pint-of-beer/feed/</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Game Review: Unravel Two ★★★⯪☆]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/game-review-unravel-two/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/game-review-unravel-two/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Tue, 03 Mar 2026 12:34:43 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[co-op]]></category>
+		<category><![CDATA[Game Review]]></category>
+		<category><![CDATA[PlayStation]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=68032</guid>
+
+					<description><![CDATA[My new year&#039;s resolution is to play more video games. Specifically co-operative games.  I hate playing competitively; it&#039;s rubbish to achieve victory at the expense of someone else. So I asked for recommendations and picked the cheapest thing that looked reasonable.    Unravel Two is a little gem! It&#039;s a 2D platform puzzler dressed up in a 3D engine. You and your friend play little string…]]></description>
+										<content:encoded><![CDATA[<p>My new year's resolution is to play more video games. Specifically <em>co-operative</em> games.</p>
+
+<p><a href="https://shkspr.mobi/blog/2009/12/when-did-you-last-beat-your-wife/">I hate playing competitively</a>; it's rubbish to achieve victory at the expense of someone else. So <a href="https://mastodon.social/@Edent/116051890335937906">I asked for recommendations</a> and picked the cheapest thing that looked reasonable.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/02/UnravelTwo.webp" alt="Two string creatures help each other climb a hill." width="256" height="576" class="alignleft size-full wp-image-68033">
+
+<p>Unravel Two is a little gem! It's a 2D platform puzzler dressed up in a 3D engine. You and your friend play little string creatures and have to work together to swing between points, lift objects, and pull each other over the lush scenery. It's the sort of physics-based game which could have been made for the 16-bit consoles of my childhood.</p>
+
+<p>As befits a game this cheap and simple, it's fairly short. Once you've got the hang of the mechanics there are only a limited number of ways to solve each section. But it is great for shouting "No! Go left and pull!" or "We've got to time our jumps together" or "You stand on the button and I'll try swinging". It's also possible to temporarily switch to one-player mode - if one of you doesn't want to do the jumping puzzles, the other player can carry you.</p>
+
+<p>Weirdly, the game is deeply portentous in a rather pointless manner. There's a story going on in the background about some kids who are either being abused, chased, or getting into trouble. It is utterly superfluous and detracts from the fun of the puzzles. Similarly, the level titles all have subtitles like "In which we find our way out of the sullen darkness and are redeemed." WTF? This is a silly game of string puppets - not every indie game needs to be "Life Is Strange"!</p>
+
+<p>There's some replayability. You can see how quickly you can do the levels, there are some hidden collectables, and some extra challenge levels. Which, for <a href="https://store.playstation.com/en-gb/product/EP0006-CUSA10416_00-COLDWOODPIKE0000">£3.51 at time of writing</a> is more than reasonable.</p>
+
+<p>A good casual co-op game - just ignore the vague story playing out behind the action.</p>
+
+<iframe title="Unravel Two: Official Reveal Trailer | EA Play 2018" width="620" height="349" src="https://www.youtube.com/embed/j2TmLrTl6gs?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/game-review-unravel-two/feed/</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Adding "Log In With Mastodon" to Auth0]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Mon, 02 Mar 2026 12:34:48 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[Auth0]]></category>
+		<category><![CDATA[HowTo]]></category>
+		<category><![CDATA[mastodon]]></category>
+		<category><![CDATA[MastodonAPI]]></category>
+		<category><![CDATA[Social Media]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=67308</guid>
+
+					<description><![CDATA[I use Auth0 to provide social logins for the OpenBenches website. I don&#039;t want to deal with creating user accounts, managing passwords, or anything like that, so Auth0 is perfect for my needs.  There are a wide range of social media logins provided by Auth0 - including the usual suspects like Facebook, Twitter, WordPress, Discord, etc. Sadly, there&#039;s no support for Mastodon.  All is not lost…]]></description>
+										<content:encoded><![CDATA[<p>I use <a href="https://auth0.com/">Auth0</a> to provide social logins for the <a href="https://openbenches.org">OpenBenches</a> website. I don't want to deal with creating user accounts, managing passwords, or anything like that, so Auth0 is perfect for my needs.</p>
+
+<p>There are a wide range of <a href="https://auth0.com/learn/social-login">social media logins provided by Auth0</a> - including the usual suspects like Facebook, Twitter, WordPress, Discord, etc. Sadly, there's <a href="https://community.auth0.com/t/custom-social-for-mastodon/103356">no support for Mastodon</a><sup id="fnref:blog"><a href="https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#fn:blog" class="footnote-ref" title="Auth0 did blog about Mastodon a few years ago but never bothered implementing it!" role="doc-noteref">0</a></sup>.</p>
+
+<p>All is not lost though. The Auth0 documentation says:</p>
+
+<blockquote><p>However, you can use Auth0’s Connections API to add any OAuth2 Authorization Server as an identity provider.</p></blockquote>
+
+<p>You can manually add a <em>single</em> Mastodon instance, but that doesn't work with the decentralised nature of the Fediverse. Instead, I've come up with a manual solution which works with <em>any</em> Mastodon server!</p>
+
+<h2 id="background"><a href="https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#background">Background</a></h2>
+
+<p>Every Mastodon<sup id="fnref:masto"><a href="https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#fn:masto" class="footnote-ref" title="I do mean Mastodon; not the wider Fediverse. This only works with sites which have implemented Mastodon's APIs." role="doc-noteref">1</a></sup> server is independent. I have an account on <code>mastodon.social</code> you have an account on <code>whatever.chaos</code>. They are separate servers, albeit running similar software. A generic authenticator needs to work with <em>all</em> these servers. There's no point only allowing log ins from a single server.</p>
+
+<p>Fortuitously, Mastodon allows app developers to automatically create new apps. A few simple lines of code and you will have an API key suitable for <em>read-only</em> access to that server. You can <a href="https://shkspr.mobi/blog/2024/12/creating-a-generic-log-in-with-mastodon-service/">read how to instantly create Mastodon API keys</a> or you can <a href="https://github.com/openbenches/openbenches.org/blob/343e4c0169a2af8e567f9444c9cbf5d43d03011a/www/src/Controller/UserController.php#L26">steal my PHP code</a>.</p>
+
+<h2 id="user-experience"><a href="https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#user-experience">User Experience</a></h2>
+
+<p>The user clicks the sign-in button on OpenBenches. They're taken to the Auth0 social login screen:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/01/Auth0-Mastodon.webp" alt="Login screen with several social login buttons." width="1677" height="1258" class="aligncenter size-full wp-image-67317">
+
+<p>The user clicks on Mastodon. This is where Auth0's involvement ends!</p>
+
+<p>The user is asked to provide the URl of their instance:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/01/Enter-server.webp" alt="Screenshot. The site asks for a Mastodon server URl." width="941" height="414" class="aligncenter size-full wp-image-67318">
+
+<p>In the background, my server contacts the Mastodon instance and creates a read-only API key.</p>
+
+<p>The user is asked to sign in to Mastodon.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/01/Masto-login.webp" alt="Screenshot of a login page." width="800" height="900" class="aligncenter size-full wp-image-67319">
+
+<p>The user is asked to authorise read-only access.</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/01/Authorisation.webp" alt="Screenshot. Page asks whether the user wants to authorise OpenBenches for read only access." width="720" height="656" class="aligncenter size-full wp-image-67320">
+
+<p>The user is now signed in and OpenBenches can retrieve their name, avatar image, and other useful information. Hurrah!</p>
+
+<h2 id="auth0"><a href="https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#auth0">Auth0</a></h2>
+
+<p>Once you have  <a href="https://shkspr.mobi/blog/2024/12/creating-a-generic-log-in-with-mastodon-service/">created a service to generate API keys</a>, it will need to run on a publicly accessible web server. For example <code>https://example.com/mastodon_login</code>.</p>
+
+<p>Here's what you need to do within your Auth0 tennant:</p>
+
+<ul>
+<li>Authentication → Social → Create Connection</li>
+<li>At the bottom, choose "Create Custom".</li>
+<li>Choose "Authentication" only.</li>
+<li>Give your connection a name. This will be visible to users.</li>
+<li>"Authorization URL" and "Token URL" have the same value - the URl of your service.</li>
+<li>"Client ID" is only visible to you.</li>
+<li>"Client Secret" any random password; it won't be used for anything.</li>
+<li>Leave everything else in the default state.</li>
+</ul>
+
+<p>It should look something like this:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/01/Example-Auth0.webp" alt="Screenshot of a form with all the settings filled in." width="891" height="1239" class="aligncenter size-full wp-image-67321">
+
+<p>Click the "Create" button and you're (almost) done.</p>
+
+<h2 id="auth0-icon"><a href="https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#auth0-icon">Auth0 Icon</a></h2>
+
+<p>You will need to <a href="https://shkspr.mobi/blog/2024/12/add-a-custom-icon-to-auth0s-custom-social-integrations/">add a custom icon to the social integration</a>. Annoyingly, there's no way to do it through the web interface, so follow that guide to use the command line.</p>
+
+<h2 id="done"><a href="https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#done">Done!</a></h2>
+
+<p>I'll admit, this isn't the most straightforward thing to implement. Auth0 could make this easier - but it would still rely on users knowing the URl of their home instance.</p>
+
+<p>That said, the Mastodon API is a delight to work with and the read-only permissions reduce risk for all parties.</p>
+
+<div id="footnotes" role="doc-endnotes">
+<hr>
+<ol start="0">
+
+<li id="fn:blog">
+<p>Auth0 <a href="https://auth0.com/blog/mastdon-for-developers/">did blog about Mastodon a few years ago</a> but never bothered implementing it!&nbsp;<a href="https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#fnref:blog" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+<li id="fn:masto">
+<p>I <em>do</em> mean Mastodon; not the wider Fediverse. This only works with sites which have implemented Mastodon's APIs.&nbsp;<a href="https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/#fnref:masto" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+</ol>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/adding-log-in-with-mastodon-to-auth0/feed/</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[Book Review: Under Fire - Black Britain in Wartime by Stephen Bourne ★★★★☆]]></title>
+		<link>https://shkspr.mobi/blog/2026/03/book-review-under-fire-black-britain-in-wartime-by-stephen-bourne/</link>
+					<comments>https://shkspr.mobi/blog/2026/03/book-review-under-fire-black-britain-in-wartime-by-stephen-bourne/#respond</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Sun, 01 Mar 2026 12:34:27 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[Book Review]]></category>
+		<category><![CDATA[history]]></category>
+		<category><![CDATA[race]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=67762</guid>
+
+					<description><![CDATA[Everyone knows that Black people didn&#039;t exist in the UK until recently, right? Despite mountains of evidence of everything from Black Tudors and Victorian actors, some myths perniciously persist.  What was the experience for Black Britons during the second world war?  I find it fascinating how the US cultural hegemony rewrites history. I&#039;ve heard people in the UK talk about &#34;Jim Crow laws&#34; as…]]></description>
+										<content:encoded><![CDATA[<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/02/underfire.webp" alt="Book cover. A black soldier in uniform stands in front of Big Ben." width="200" class="alignleft size-full wp-image-67763">
+
+<p><em>Everyone</em> knows that Black people didn't exist in the UK until recently, right? Despite mountains of evidence of everything from <a href="https://shkspr.mobi/blog/2020/07/book-review-black-tudors-the-untold-story-miranda-kaufmann/">Black Tudors</a> and <a href="https://shkspr.mobi/blog/2022/02/book-review-ira-aldridge-the-african-roscius-by-bernth-lindfors/">Victorian actors</a>, some myths perniciously persist.</p>
+
+<p>What was the experience for Black Britons during the second world war?</p>
+
+<p>I find it fascinating how the US cultural hegemony rewrites history. I've heard people in the UK talk about "Jim Crow laws" as though that was a thing that happened in the UK. It wasn't. While there <em>were</em> barriers and racism (as the book makes clear) the experience of Black people in the UK was vastly different than it was for African Americans. To the point that <a href="https://www.youtube.com/watch?v=iCliC9MHSFg&amp;t=422s">white American GIs were routinely castigated</a> for trying to impose their vile racism onto our country.</p>
+
+<p>What makes this book special is the contemporary reports and modern interviews. There are some amazing stories to be told and it is fascinating to hear first-hand accounts. The book also contains a list of prominent Black people living in the UK (including their addresses) which feels a little like padding - but then this is fleshed out with mini-biographies of most of them. What is astounding is, given the range of people living in Britain, you occasionally get little revelations like this:</p>
+
+<blockquote><p>Only one black evacuee has ever been interviewed for a television documentary.</p></blockquote>
+
+<p>Some people profiled are, for want of a better word, ordinary. People who had normal lives, kept the home fires burning, and took part in ordinary civic life. And then there are guys like <a href="https://www.bbc.co.uk/sport/horse-racing/54695641">Ras Prince Monolulu</a> who were bona-fide celebrities.</p>
+
+<p>It is fair to say that modern Britain's relationship with the notion of "Empire" is complicated. When the call to arms came, people from the farthest colonies rushed to aide the "motherland". In many cases, they were initially rejected due to formal or informal colour-bars. The social acceptability of and legal ramifications of these practices is evidenced in <a href="https://en.wikipedia.org/wiki/Constantine_v_Imperial_Hotels_Ltd">Constantine v Imperial Hotels Ltd</a>.</p>
+
+<p>But for every story of casual and institutional racism towards people who came to help, there are stories of love and acceptance.</p>
+
+<blockquote><p>The English people opened their homes to us, we were invited out for dinners, teas, no problems at all. There were problems with the American forces, but it didn’t hinder us.</p></blockquote>
+
+<p>As with any history book, some of the language used can feel a little shocking or distasteful. History is never easy to engage with, but this book presents an even handed look at a turbulent period. It ends a little abruptly, but it is an excellent overview of the literature. Recommended for anyone who wants to understand <em>our</em> history.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/03/book-review-under-fire-black-britain-in-wartime-by-stephen-bourne/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title><![CDATA[30 months to 3MWh - some more home battery stats]]></title>
+		<link>https://shkspr.mobi/blog/2026/02/30-months-to-3mwh-some-more-home-battery-stats/</link>
+					<comments>https://shkspr.mobi/blog/2026/02/30-months-to-3mwh-some-more-home-battery-stats/#comments</comments>
+				<dc:creator><![CDATA[@edent]]></dc:creator>
+		<pubDate>Sat, 28 Feb 2026 12:34:19 +0000</pubDate>
+				<category><![CDATA[/etc/]]></category>
+		<category><![CDATA[battery]]></category>
+		<category><![CDATA[moixa]]></category>
+		<category><![CDATA[solar]]></category>
+		<guid isPermaLink="false">https://shkspr.mobi/blog/?p=67818</guid>
+
+					<description><![CDATA[Back in August 2023, we installed a Moixa 4.8kWh Solar Battery to pair with our solar panels. For the last year and a half it has chugged away slurping up electrons and sending them back as needed. Its little fan whirrs and the lights on its Ethernet port flicker happily as it does its duty.  I estimate that it has saved us around 3 MegaWatt hours since it was commissioned. In monetary terms,…]]></description>
+										<content:encoded><![CDATA[<p>Back in August 2023, we installed a <a href="https://shkspr.mobi/blog/2023/08/review-moixa-4-8kwh-solar-battery/">Moixa 4.8kWh Solar Battery</a> to pair with our solar panels. For the last year and a half it has chugged away slurping up electrons and sending them back as needed. Its little fan whirrs and the lights on its Ethernet port flicker happily as it does its duty.</p>
+
+<p>I estimate that it has saved us around 3 MegaWatt hours since it was commissioned. In monetary terms, that's roughly £1,000 taken off our electricity bills.</p>
+
+<p>How did I work that out? Well, maths is hard, <a href="https://www.youtube.com/watch?v=SOKhRVSriB0">as Barbie knows</a>, so take all this with a pinch of monosodium glutamate.</p>
+
+<p>Here's a typical month - October 2025:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/02/October-Battery.webp" alt="Two squiggly graphs of dense complexity." width="2088" height="894" class="aligncenter size-full wp-image-67819">
+
+<p>Yikes! What's going on here?</p>
+
+<p>We use <a href="https://share.octopus.energy/metal-dove-988">a <em>variable</em> electricity tariff</a>. Prices fluctuate every 30 minutes. At peak times our electricity prices can shoot up to 60p per Kwh. Overnight or when the wind is high, prices can drop to zero. Yes, free electricity! Sometimes the excess in the grid means that prices go negative and we are <em>paid</em> to use electricity. Hurrah!</p>
+
+<p>Our battery knows this. Its Internet connection allows it to download the tariff for the day ahead and plan accordingly. If the electricity prices are cheap, the battery fills up. The battery can decide to discharge when we're using more electricity than solar provides, or it can wait until prices are more expensive after the sun has gone down.</p>
+
+<p>Here's an example, again from October:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/02/Energy-Profile.webp" alt="Bar chart showing how energy was stored and used." width="2064" height="633" class="aligncenter size-full wp-image-67824">
+
+<p>In October, about a third of the power stored in the battery came from the sun. About 92% was used by our house with the remainder being sold back to the grid if it was profitable to do so.</p>
+
+<p>By contrast, here's June 2025 - a sunny month in the Northern Hemisphere:</p>
+
+<img src="https://shkspr.mobi/blog/wp-content/uploads/2026/02/June.webp" alt="Chart showing a lot more solar usage." width="2052" height="633" class="aligncenter size-full wp-image-67825">
+
+<p>Here, only 12% of the battery charging was done by the grid. 88% was done for free by solar power. But because solar was so plentiful, about 15% of the battery was sold back to the grid.</p>
+
+<h2 id="maths-is-hard"><a href="https://shkspr.mobi/blog/2026/02/30-months-to-3mwh-some-more-home-battery-stats/#maths-is-hard">Maths. Is. HARD!</a></h2>
+
+<p>I've been playing around with various charts, graphs, spreadsheets, modellers, and a bit of calculus. I basically came to the conclusion that the easiest way was to assume I was saving the <a href="https://www.ofgem.gov.uk/information-consumers/energy-advice-households/get-energy-price-cap-standing-charges-and-unit-rates-region">energy price capped value of a kWh</a>.</p>
+
+<p>That varies from 25p to 35p. If I fudge the numbers just right, it rounds off at an even grand.</p>
+
+<h2 id="its-payback-time"><a href="https://shkspr.mobi/blog/2026/02/30-months-to-3mwh-some-more-home-battery-stats/#its-payback-time">It's Payback Time</a></h2>
+
+<p>No-one ever asks what the payback period is of buying a car vs taking public transport. You never see anyone amortising an engagement ring over the length of a marriage. Still, here we are.</p>
+
+<p>We paid £2,700 for the supply, install, and commissioning of our battery.</p>
+
+<p>That means the payback time for the battery will be between 6 and 7 years. If energy prices go up, the payback time goes down.  Its capacity is showing no degradation yet and I hope it will provide us with many years of savings before it needs to be repaired or upgraded.</p>
+
+<p>Solar batteries are getting cheaper and their capacity is getting bigger - although <a href="https://shkspr.mobi/blog/2025/09/how-big-a-solar-battery-do-i-need-to-store-all-my-homes-electricity/">not big enough to store <em>all</em> my home's electricity</a>.</p>
+
+<p>If you can afford the upfront costs, it's like pre-paying for a chunk of your energy usage and can help protect you against sudden price rises.</p>
+
+<p>You can <a href="https://share.octopus.energy/metal-dove-988">sign up to Octopus</a> and get a £50 bill credit if you want to switch to a variable tariff.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://shkspr.mobi/blog/2026/02/30-months-to-3mwh-some-more-home-battery-stats/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
