@@ -1,17 +1,17 @@
 # USER.md - About Your Human
 
-_Learn about the person you're helping. Update this as you go._
+- **Name:** Christopher Anthony Patti
+- **What to call them:** Chris
+- **Pronouns:** he/him
+- **Timezone:** UTC
 
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+## Interests & Hobbies
+- Science fiction, urban fantasy, graphic novels — voracious reader
+- Esperanto — currently learning, loves it
+- Rescue dog named **Cookie** 🐕
+- Spending time with wife and dog
+- Inherently curious — wants to learn about and play with EVERYTHING
 
 ## Context
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
-
----
-
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+_(Build this over time as we chat)_
