@@ -8,6 +8,10 @@
 - SSH key: `/home/feoh/.openclaw/workspace/.ssh/id_ed25519` (deploy key added to GitHub repo)
 - **Git push command**: `GIT_SSH_COMMAND="ssh -i /home/feoh/.openclaw/workspace/.ssh/id_ed25519 -o StrictHostKeyChecking=no" git push`
 
+## Obsidian Vault
+- Path: `/home/feoh/Documents/cloudyrock`
+- **Boundary: NEVER delete notes unless Chris explicitly asks. This is non-negotiable.**
+
 ## About feoh (User)
 - Uses openclaw-tui (gateway-client) on webchat
 - Timezone: UTC
