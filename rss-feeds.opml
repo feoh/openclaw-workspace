@@ -33,6 +33,7 @@
  <outline title="Ars Technica" text="Ars Technica" xmlUrl="https://arstechnica.com/feed/?t=d46dc635cfe2031785f81a4b0c4f7f73da4f3bbf" htmlUrl="https://arstechnica.com" type="rss" />
  <outline title="Fujinet News" text="Fujinet News" xmlUrl="https://fujinet.online/feed/" htmlUrl="https://fujinet.online" type="rss" />
  <outline title="Kagi Blog" text="Kagi Blog" xmlUrl="https://blog.kagi.com/rss.xml" htmlUrl="https://blog.kagi.com" type="rss" />
+ <outline title="Nushell Blog" text="Nushell Blog" xmlUrl="https://www.nushell.sh/atom.xml" htmlUrl="https://www.nushell.sh/blog" type="rss" />
  <outline title="Zed A. Shaw" text="Zed A. Shaw" xmlUrl="https://zedshaw.com/feed.atom" htmlUrl="https://zedshaw.com/" type="rss" />
  </outline>
  </body>
