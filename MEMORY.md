@@ -14,9 +14,14 @@
 
 ## About feoh (User)
 - Uses openclaw-tui (gateway-client) on webchat
-- Timezone: UTC
+- Timezone: EST/EDT (Eastern Time — Somerville, MA, USA)
 - Prefers: practical solutions, uv for Python package management
 - Likes: RSS feeds, automation, clean tooling
+
+## Communication
+- **Primary channel:** Discord (#openclaw — Guild, channel id:1485734153617145998)
+- **Fallback:** webchat
+- **Emergency:** email feoh@feoh.org
 
 ## Infrastructure
 - uv installed on host for Python package management

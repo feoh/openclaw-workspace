@@ -12,6 +12,11 @@
 - Spending time with wife and dog
 - Inherently curious — wants to learn about and play with EVERYTHING
 
+## Communication Preferences
+- **Primary channel:** Discord (#openclaw on Feoh's server)
+- **Fallback:** webchat
+- **Emergency fallback:** email to feoh@feoh.org
+
 ## Context
 
 _(Build this over time as we chat)_
