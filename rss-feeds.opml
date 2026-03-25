@@ -34,6 +34,7 @@
  <outline title="Fujinet News" text="Fujinet News" xmlUrl="https://fujinet.online/feed/" htmlUrl="https://fujinet.online" type="rss" />
  <outline title="Kagi Blog" text="Kagi Blog" xmlUrl="https://blog.kagi.com/rss.xml" htmlUrl="https://blog.kagi.com" type="rss" />
  <outline title="Nushell Blog" text="Nushell Blog" xmlUrl="https://www.nushell.sh/atom.xml" htmlUrl="https://www.nushell.sh/blog" type="rss" />
+ <outline title="Lobsters" text="Lobsters" xmlUrl="https://lobste.rs/top.rss" htmlUrl="https://lobste.rs/" type="rss" />
  <outline title="Zed A. Shaw" text="Zed A. Shaw" xmlUrl="https://zedshaw.com/feed.atom" htmlUrl="https://zedshaw.com/" type="rss" />
  </outline>
  </body>
