@@ -32,6 +32,8 @@ FEEDS = [
     ("Kagi Blog", "https://blog.kagi.com", "https://blog.kagi.com/rss.xml"),
     ("Fujinet News", "https://fujinet.online", "https://fujinet.online/feed/"),
     ("Zed A. Shaw", "https://zedshaw.com", "https://zedshaw.com/feed.atom"),
+    ("Nushell Blog", "https://www.nushell.sh", "https://www.nushell.sh/atom.xml"),
+    ("Lobsters", "https://lobste.rs", "https://lobste.rs/top.rss"),
 ]
 
 FEED_CATEGORIES = {
@@ -39,7 +41,7 @@ FEED_CATEGORIES = {
     "Fun": ["Blind Not Dumb", "John P. Murphy", "Zarf Updates"],
     "Python": ["Aeracode", "Anthony Shaw's blog", "Deciphering Glyph", "Hynek Schlawack", "Daniel Roy Greenfeld", "Michael Kennedy", "Ned Batchelder's blog", "Simon Willison's Weblog", "Tall, Snarky Canadian"],
     "Rust": ["Chris Morgan's blog", "matklad"],
-    "Technology": ["Ars Technica", "Kagi Blog", "Zed A. Shaw", "Fujinet News"],
+    "Technology": ["Ars Technica", "Kagi Blog", "Zed A. Shaw", "Fujinet News", "Nushell Blog", "Lobsters"],
 }
 
 def parse_entry(entry, feed_title, blog_url):
