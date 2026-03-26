@@ -28,6 +28,15 @@
 - Python virtual environment: `/home/feoh/.openclaw/workspace/.venv/` (contains feedparser)
 - Git repo at `/home/feoh/.openclaw/workspace/` — committed as "Simplificus"
 
+## RSS Digest — Core Requirements (from Chris, 2026-03-26)
+
+Every RSS digest output (daily digest AND feed checker) MUST contain for each article:
+1. **Article number**
+2. **Article title**
+3. **Article link**
+
+Check this list BEFORE making any changes to RSS scripts or cron jobs.
+
 ## RSS Daily Digest (established 2026-03-23)
 - 19 feeds configured (see rss-feeds.opml)
 - OPML source: Miniflux export
