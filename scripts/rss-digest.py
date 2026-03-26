@@ -91,16 +91,14 @@ def fetch_feeds():
 
 
 def format_digest(entries, limit=25):
-    """Format entries as a text digest."""
+    """Format entries as Discord-ready Markdown."""
     today = datetime.now().strftime("%Y-%m-%d")
-    lines = [f"RSS Daily Digest — {today} · {len(entries)} entries\n"]
+    lines = [f"**📬 RSS Daily Digest — {today}**\n_{len(entries)} entries_\n"]
     
     for i, e in enumerate(entries[:limit], 1):
         date_str = e["date"].strftime("%Y-%m-%d") if e["date"] else "????-??-??"
-        lines.append(f"{i}. [{date_str}] {e['feed']}")
-        lines.append(f"   {e['title']}")
-        lines.append(f"   {e['url']}")
-        lines.append("")
+        lines.append(f"**{i}.** [{e['title']}]({e['url']})")
+        lines.append(f"_{date_str} · {e['feed']}_\n")
     
     return "\n".join(lines)
 
