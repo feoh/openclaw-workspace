@@ -8,7 +8,7 @@
 ## Interests & Hobbies
 - **Creative coding** — programs that create art: Processing, OpenFrameworks, P5.js, and similar tools
 - **Python** — considers himself a Pythonista, contributed to CPython core (one patch so far, hopes to contribute more)
-- **Esperanto** — currently learning, loves it
+- **Esperanto** — actively learning, loves it
 - **Science fiction, urban fantasy, graphic novels** — voracious reader
 - **Rescue dog named Cookie** 🐕
 - **Self-hosting** — runs his own software services
