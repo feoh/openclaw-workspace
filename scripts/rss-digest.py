@@ -44,6 +44,20 @@ FEED_CATEGORIES = {
     "Technology": ["Ars Technica", "Kagi Blog", "Zed A. Shaw", "Fujinet News", "Nushell Blog", "Lobsters"],
 }
 
+# Filter patterns — entries matching these (case-insensitive) are skipped
+FILTER_PATTERNS = [
+    r"\b(ev|electric vehicle|electric car|tesla|charging station|charging cable)\b",
+]
+
+def should_skip(entry):
+    """Return True if entry should be filtered out."""
+    if entry["feed"] == "Ars Technica":
+        t = entry["title"].lower()
+        for pat in FILTER_PATTERNS:
+            if re.search(pat, t):
+                return True
+    return False
+
 def parse_entry(entry, feed_title, blog_url):
     """Extract title, url, and date from a feedparser entry."""
     # Title
@@ -81,7 +95,7 @@ def fetch_feeds():
             f = feedparser.parse(feed_url, agent="RSS-Digest/1.0")
             for entry in f.entries[:5]:
                 e = parse_entry(entry, feed_title, blog_url)
-                if e['title']:
+                if e['title'] and not should_skip(e):
                     entries.append(e)
         except Exception as e:
             print(f"Error fetching {feed_title}: {e}", file=sys.stderr)
