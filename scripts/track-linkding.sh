@@ -5,8 +5,7 @@
 
 WORKSPACE="/home/feoh/.openclaw/workspace"
 TRACKING_FILE="$WORKSPACE/linkding-saved.json"
-LINKDING_URL="https://linkding.reedfish-regulus.ts.net/api/bookmarks"
-API_URL="https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
+LINKDING_URL="https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
 
 cd "$WORKSPACE" || exit 1
 
@@ -31,7 +30,7 @@ from datetime import datetime, timezone
 
 WORKSPACE = "/home/feoh/.openclaw/workspace"
 TRACKING_FILE = f"{WORKSPACE}/linkding-saved.json"
-LINKDING_URL = "https://linkding.reedfish-regulus.ts.net/api/bookmarks"
+LINKDING_URL = "https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
 API_KEY = os.environ.get("LINKDING_API_KEY", "")
 
 # Load existing tracking data
