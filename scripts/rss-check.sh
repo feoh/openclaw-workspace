@@ -1,33 +1,43 @@
 #!/bin/bash
 # RSS Checker - Run via cron twice daily
-# Saves new articles to Linkding with "toread" tag
+# Identifies new articles and saves list for review
 
 WORKSPACE="/home/feoh/.openclaw/workspace"
-FEEDS_FILE="$WORKSPACE/rss-feeds.json"
-LINKDING_URL="https://linkding.reedfish-regulus.ts.net/api/bookmarks"
-API_KEY="<LINKDING_API_KEY>"
-TAG="toread"
+STATE_FILE="$WORKSPACE/rss-state.json"
+FEEDS_FILE="$WORKSPACE/rss-feeds.opml"
+OUTPUT_FILE="$WORKSPACE/rss-new-articles.json"
 
 cd "$WORKSPACE" || exit 1
 
-# Read feeds from JSON (using python for JSON parsing since it's more reliable)
+# Use python to do the heavy lifting
 python3 << 'PYTHON_SCRIPT'
 import json
 import subprocess
 import sys
+import xml.etree.ElementTree as ET
+import feedparser
+import re
 from datetime import datetime, timezone
 
 WORKSPACE = "/home/feoh/.openclaw/workspace"
-FEEDS_FILE = f"{WORKSPACE}/rss-feeds.json"
 STATE_FILE = f"{WORKSPACE}/rss-state.json"
-LINKDING_URL = "https://linkding.reedfish-regulus.ts.net/bookmarks"
-API_KEY = "<LINKDING_API_KEY>"
-TAG = "toread"
+OUTPUT_FILE = f"{WORKSPACE}/rss-new-articles.json"
 
-with open(FEEDS_FILE) as f:
-    data = json.load(f)
-
-feeds = data["feeds"]
+# Load feeds from OPML
+import xml.etree.ElementTree as ET
+try:
+    tree = ET.parse(f"{WORKSPACE}/rss-feeds.opml")
+    root = tree.getroot()
+    feeds = []
+    for outline in root.findall(".//{http://backend.userland.com/OPML}outline") + root.findall(".//outline"):
+        xml_url = outline.get("xmlUrl")
+        title = outline.get("text") or outline.get("title") or xml_url
+        html_url = outline.get("htmlUrl", "")
+        if xml_url:
+            feeds.append({"title": title, "url": html_url, "xmlUrl": xml_url})
+except Exception as e:
+    print(f"Error parsing OPML: {e}")
+    sys.exit(1)
 
 try:
     with open(STATE_FILE) as f:
@@ -39,114 +49,61 @@ new_articles = []
 
 for feed in feeds:
     title = feed["title"]
-    url = feed["url"]
+    xml_url = feed["xmlUrl"]
     
     try:
-        # Fetch the feed
-        result = subprocess.run(
-            ["curl", "-s", "--max-time", "30", url],
-            capture_output=True, text=True, timeout=60
-        )
-        
-        if result.returncode != 0:
-            print(f"Failed to fetch {title}: {result.stderr}")
+        f = feedparser.parse(xml_url, agent="RSS-Digest/1.0")
+        if not f.entries:
             continue
         
-        import xml.etree.ElementTree as ET
-        content = result.stdout
+        last_seen = state["last_seen"].get(xml_url, "")
+        found_new = False
         
-        # Try to parse as XML
-        try:
-            root = ET.fromstring(content)
-        except:
-            # Try to handle namespace issues
-            root = ET.fromstring(content)
-        
-        # Determine feed type and extract entries
-        entries = []
-        
-        # Atom format
-        if root.tag.endswith("}feed") or "atom" in content.lower():
-            for entry in root.findall(".//{http://www.w3.org/2005/Atom}entry"):
-                e_url = entry.find("{http://www.w3.org/2005/Atom}id")
-                e_title = entry.find("{http://www.w3.org/2005/Atom}title")
-                e_url = entry.find("{http://www.w3.org/2005/Atom}link")
-                if e_url is not None and e_url.get("href"):
-                    entry_id = e_url.get("href")
-                    entry_title = e_title.text if e_title is not None else "No title"
-                    entries.append({"id": entry_id, "title": entry_title, "url": entry_id})
-        
-        # RSS format
-        if not entries:
-            for item in root.findall(".//item"):
-                e_id = item.find("guid")
-                e_title = item.find("title")
-                e_link = item.find("link")
-                entry_id = e_id.text if e_id is not None else (e_link.text if e_link is not None else None)
-                entry_title = e_title.text if e_title is not None else "No title"
-                if entry_id:
-                    entries.append({"id": entry_id, "title": entry_title, "url": entry_id})
-        
-        # Also try enclosure/link as fallback
-        if not entries:
-            for item in root.findall(".//entry"):
-                e_id = item.find("id")
-                e_title = item.find("title")
-                e_link = item.find("link[@rel='alternate']")
-                if e_link is None:
-                    e_link = item.find("link")
-                entry_id = e_id.text if e_id is not None else None
-                entry_url = e_link.get("href") if e_link is not None else entry_id
-                entry_title = e_title.text if e_title is not None else "No title"
-                if entry_id or entry_url:
-                    entries.append({"id": entry_id or entry_url, "title": entry_title, "url": entry_url or entry_id})
-        
-        # Check for new entries
-        last_seen = state["last_seen"].get(url, "")
-        new_entries = []
-        
-        for entry in entries:
-            entry_id = entry["id"]
-            if entry_id != last_seen and entry_id:
-                new_entries.append(entry)
-        
-        if new_entries:
-            # Update last seen to the most recent
-            if entries:
-                state["last_seen"][url] = entries[0]["id"]
+        for entry in f.entries[:10]:
+            entry_id = getattr(entry, 'id', None) or getattr(entry, 'link', None)
+            if not entry_id:
+                continue
             
-            for entry in new_entries:
-                new_articles.append({
-                    "feed": title,
-                    "title": entry["title"],
-                    "url": entry["url"]
-                })
-            print(f"{title}: {len(new_entries)} new article(s)")
+            if entry_id == last_seen:
+                break  # we've reached already-seen articles
+            
+            entry_title = getattr(entry, 'title', 'No title') or 'No title'
+            entry_url = getattr(entry, 'link', '') or ''
+            
+            # Skip malformed entries
+            if not entry_url or len(entry_url) < 10:
+                continue
+            
+            new_articles.append({
+                "feed": title,
+                "title": entry_title,
+                "url": entry_url
+            })
+            found_new = True
+        
+        if found_new and f.entries:
+            state["last_seen"][xml_url] = f.entries[0].id or f.entries[0].link or ""
             
     except Exception as e:
         print(f"Error processing {title}: {e}")
-        import traceback
-        traceback.print_exc()
 
-# Save state
-with open(STATE_FILE, "w") as f:
-    json.dump(state, f, indent=2)
+    # Save state after each feed (don't lose progress on error)
+    with open(STATE_FILE, "w") as sf:
+        json.dump(state, sf, indent=2)
 
-# Save new articles to a file for review
+# Save new articles
 if new_articles:
-    with open(f"{WORKSPACE}/rss-new-articles.json", "w") as f:
-        json.dump(new_articles, f, indent=2)
-    print(f"\n{len(new_articles)} new article(s) saved to rss-new-articles.json")
+    with open(OUTPUT_FILE, "w") as f:
+        json.dump(new_articles, f, indent=2, default=str)
+    print(f"{len(new_articles)} new article(s) found — saved to rss-new-articles.json")
 else:
-    print("\nNo new articles found.")
-    # Remove old file if it exists
     import os
     try:
-        os.remove(f"{WORKSPACE}/rss-new-articles.json")
+        os.remove(OUTPUT_FILE)
     except:
         pass
+    print("No new articles found.")
 
 PYTHON_SCRIPT
 
-echo "---"
 echo "RSS check completed at $(date)"
