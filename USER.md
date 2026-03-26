@@ -10,7 +10,7 @@
 - **Python** — considers himself a Pythonista, contributed to CPython core (one patch so far, hopes to contribute more)
 - **Esperanto** — actively learning, loves it
 - **Science fiction, urban fantasy, graphic novels** — voracious reader
-- **Rescue dog named Cookie** 🐕
+- **Rescue dog named Cookie** 🐕 — here's [her photo](assets/cookie.jpg)
 - **Self-hosting** — runs his own software services
 - Spending time with wife and dog
 - Inherently curious — wants to learn about and play with EVERYTHING
