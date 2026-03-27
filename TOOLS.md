@@ -53,6 +53,10 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - Latest parsed: `/home/feoh/.openclaw/workspace/rss-latest.json`
 - 19 feeds configured (see OPML or memory/2026-03-23.md)
 
+## Python Tools
+- **uv** — preferred package manager (NOT pip). Use `uv pip install` or `uv add` in the workspace venv
+- Virtual environment: `/home/feoh/.openclaw/workspace/.venv/` (contains feedparser)
+
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.

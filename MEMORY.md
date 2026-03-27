@@ -26,6 +26,7 @@
 ## Infrastructure
 - uv installed on host for Python package management
 - Python virtual environment: `/home/feoh/.openclaw/workspace/.venv/` (contains feedparser)
+- **uv** for Python package management (NOT pip)
 - Git repo at `/home/feoh/.openclaw/workspace/` — committed as "Simplificus"
 
 ## RSS Digest — Core Requirements (from Chris, 2026-03-26)
@@ -87,7 +88,8 @@ Check this list BEFORE making any changes to RSS scripts or cron jobs.
 
 ## Tools & Skills
 - Linkding: https://linkding.reedfish-regulus.ts.net/bookmarks
-- uv: preferred Python package manager
+- **uv** — preferred Python package manager (already installed, NOT pip)
+- **feedparser** for RSS parsing (installed via uv into .venv)
 
 ## Key Decisions (2026-03-23)
 - Use uv (not pip) for Python packages
