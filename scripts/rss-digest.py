@@ -10,6 +10,45 @@ import json
 import os
 import sys
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
+
+
+def get_saved_urls():
+    """Fetch all existing bookmark URLs from Linkding."""
+    import psycopg
+    import ollama
+    api_key = os.environ.get("LINKDING_API_KEY")
+    if not api_key:
+        return set()
+    
+    base_url = "https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
+    headers = {"Authorization": f"Token {api_key}"}
+    saved = set()
+    offset = 0
+    limit = 100
+    
+    while True:
+        import urllib.request
+        url = f"{base_url}?limit={limit}&offset={offset}"
+        req = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read())
+                results = data.get("results", [])
+                if not results:
+                    break
+                for item in results:
+                    if item.get("url"):
+                        saved.add(item["url"].rstrip("/"))
+                if len(results) < limit:
+                    break
+                offset += limit
+        except Exception as e:
+            print(f"Warning: could not fetch saved URLs from Linkding: {e}", file=sys.stderr)
+            break
+    
+    return saved
 
 FEEDS = [
     ("Terence Eden's Blog", "https://shkspr.mobi/blog", "https://shkspr.mobi/blog/feed/"),
@@ -49,8 +88,14 @@ FILTER_PATTERNS = [
     r"\b(ev|electric vehicle|electric car|tesla|charging station|charging cable)\b",
 ]
 
-def should_skip(entry):
+def should_skip(entry, saved_urls):
     """Return True if entry should be filtered out."""
+    # Skip if already saved to Linkding
+    entry_url = entry["url"].rstrip("/")
+    if entry_url in saved_urls:
+        return True
+    
+    # Filter Ars Technica EV articles
     if entry["feed"] == "Ars Technica":
         t = entry["title"].lower()
         for pat in FILTER_PATTERNS:
@@ -87,15 +132,18 @@ def parse_entry(entry, feed_title, blog_url):
     return {"title": title, "url": url, "date": dt, "feed": feed_title}
 
 
-def fetch_feeds():
+def fetch_feeds(saved_urls=None):
     """Fetch all feeds and return sorted entries."""
+    if saved_urls is None:
+        saved_urls = set()
+    
     entries = []
     for feed_title, blog_url, feed_url in FEEDS:
         try:
             f = feedparser.parse(feed_url, agent="RSS-Digest/1.0")
             for entry in f.entries[:5]:
                 e = parse_entry(entry, feed_title, blog_url)
-                if e['title'] and not should_skip(e):
+                if e['title'] and not should_skip(e, saved_urls):
                     entries.append(e)
         except Exception as e:
             print(f"Error fetching {feed_title}: {e}", file=sys.stderr)
@@ -123,9 +171,16 @@ if __name__ == "__main__":
     parser.add_argument("--limit", type=int, default=25, help="Max entries to show")
     parser.add_argument("--json", action="store_true", help="Output JSON instead of text")
     parser.add_argument("--save", metavar="FILE", help="Save entries to JSON file")
+    parser.add_argument("--no-filter", action="store_true", help="Skip Linkding filter")
     args = parser.parse_args()
     
-    entries = fetch_feeds()
+    # Fetch saved URLs from Linkding unless disabled
+    saved_urls = set()
+    if not args.no_filter:
+        saved_urls = get_saved_urls()
+        print(f"Filtered {len(saved_urls)} already-saved URLs", file=sys.stderr)
+    
+    entries = fetch_feeds(saved_urls=saved_urls)
     
     if args.json:
         print(json.dumps(entries, default=str, indent=2))
