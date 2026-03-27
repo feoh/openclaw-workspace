@@ -57,6 +57,10 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - **uv** — preferred package manager (NOT pip). Use `uv pip install` or `uv add` in the workspace venv
 - Virtual environment: `/home/feoh/.openclaw/workspace/.venv/` (contains feedparser)
 
----
-
-Add whatever helps you do your job. This is your cheat sheet.
+## PostgreSQL + pgvector
+- Host: localhost, Port: 5432
+- Database: `openclaw`
+- User: `simplificus`
+- Password: stored in `.env` (never commit this)
+- pgvector version: 0.6.0
+- Connection: `POSTGRES_*` vars in `.env`
