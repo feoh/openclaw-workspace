@@ -119,6 +119,8 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
+**🐍 Python:** Always use **uv** for package management — `uv pip install`, `uv add`, etc. Never use pip directly.
+
 **📝 Platform Formatting:**
 
 - **Discord/WhatsApp:** No markdown tables! Use bullet lists instead
