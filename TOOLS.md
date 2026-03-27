@@ -64,3 +64,10 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - Password: stored in `.env` (never commit this)
 - pgvector version: 0.6.0
 - Connection: `POSTGRES_*` vars in `.env`
+
+## Open Brain Memory System
+- Schema + tools in `scripts/openbrain-*.py`
+- Write: `python3 scripts/openbrain-write.py "title" --summary "..." --body "..." --tags "tag1,tag2"`
+- Search: `python3 scripts/openbrain-search.py "query" [--semantic] [--lane private] [--tag python]`
+- Embedding model: `nomic-embed-text` via Ollama (768-dim vectors)
+- Tables: `memory_objects` (private/controlled/public lanes, provenance, confidence)
