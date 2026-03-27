@@ -1,0 +1,15 @@
+{
+  "status": "warn",
+  "reasons": [
+    "vector column unpopulated"
+  ],
+  "mcp_probe_ok": true,
+  "db_reachable": true,
+  "db_error": null,
+  "mcp_error": null,
+  "curation_fresh": null,
+  "vector_column_populated": false,
+  "embedding_count": 0,
+  "generated_at": "2026-03-27T20:31:46.662766Z",
+  "fingerprint": "warn-2026-03-27"
+}

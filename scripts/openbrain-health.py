@@ -8,7 +8,7 @@ Run periodically via cron.
 import psycopg
 import os
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timezone
 from dotenv import load_dotenv
 import ollama
 load_dotenv()
