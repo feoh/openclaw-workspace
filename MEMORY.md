@@ -123,3 +123,45 @@ Check this list BEFORE making any changes to RSS scripts or cron jobs.
 - SSH private key accidentally exposed in commit — used git filter-branch to clean, regenerated key
 - Linkding POST requires trailing slash on URL (301 redirect drops body without it)
 - Deploy keys: each regeneration = new key, must update GitHub deploy key settings
+
+## Session Summary — 2026-03-27
+
+### Open Brain Memory System (Built Today)
+Chris provided a spec document for building a database-backed memory layer for OpenClaw. We built the complete system:
+
+**Infrastructure:**
+- PostgreSQL 16.13 + pgvector 0.6.0 on localhost:5432
+- Database: `openclaw`, User: `simplificus` (password in `.env`)
+- Embedding model: `nomic-embed-text` via Ollama (768-dim vectors)
+
+**Scripts created:**
+- `scripts/openbrain-schema.py` — creates memory_objects table
+- `scripts/openbrain-write.py` — save with auto-embedding
+- `scripts/openbrain-search.py` — keyword + semantic search
+- `scripts/openbrain-promote.py` — curation (private→controlled→public)
+- `scripts/openbrain-health.py` — JSON health snapshot
+- `scripts/openbrain-mcp.py` — MCP server for external tool integration
+
+**Schema fields:** id, title, summary, body, lane (private/controlled/public), obj_type, domain_tags, provenance, confidence, source_links, embedding, timestamps, curated, promoted_at
+
+**Spec compliance:** private-first, explicit promotion, health snapshots, fail-open
+
+### Other Accomplishments
+- Fixed RSS Feed Checker cron — now reports count, doesn't auto-save
+- Updated RSS digest format: numbered list with article number, title, link
+- Added AMZN stock check cron (6 AM EDT daily)
+- Removed obsolete VMs from IP assignment notes (zima, quartermaster, distra, retrodev)
+- Cookie is a Chiweenie (Dachshund × Chihuahua) — photo saved to assets/
+- uv emphasized as preferred Python package manager (not pip)
+
+### Cron Jobs (8 total)
+| Task | Schedule |
+|------|----------|
+| RSS Daily Digest | Daily 8 AM EDT |
+| RSS Feed Checker | 9 AM & 9 PM EDT |
+| AMZN Stock Check | Daily 6 AM EDT |
+| Daily News Digest | 6 PM EDT |
+| Track Linkding Saves | Noon EDT |
+| Weekly Memory Maintenance | Mon 9 AM EDT |
+| Oh My Zsh Plugin Monitor | Mon 10 AM EDT |
+| Pixelfed Ferret Watch | Thu 11 AM EDT |
