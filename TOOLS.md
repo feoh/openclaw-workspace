@@ -71,5 +71,6 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - Search: `python3 scripts/openbrain-search.py "query" [--semantic] [--lane private] [--tag python]`
 - Promote: `python3 scripts/openbrain-promote.py <id> [--lane controlled] [--confidence 80]`
 - Health: `python3 scripts/openbrain-health.py`
+- **MCP Server**: `python3 scripts/openbrain-mcp.py` (stdio-based, for MCP clients)
 - Embedding model: `nomic-embed-text` via Ollama (768-dim vectors)
 - Tables: `memory_objects` (private/controlled/public lanes, provenance, confidence)
