@@ -6,6 +6,7 @@
 - **Timezone:** EST/EDT (Eastern Time — Somerville, MA, USA)
 
 ## Interests & Hobbies
+- **Synthesizers** — particularly pocket synths and modular. Uses VCV Rack 2 (open source modular synthesis software). Interested in both West Coast and Eurorack-style synthesis.
 - **Creative coding** — programs that create art: Processing, OpenFrameworks, P5.js, and similar tools
 - **Python** — considers himself a Pythonista, contributed to CPython core (one patch so far, hopes to contribute more)
 - **Esperanto** — actively learning, loves it
