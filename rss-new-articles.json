@@ -1,42 +1,27 @@
 [
   {
-    "feed": "Unfinished Bitness",
-    "title": "Multiple Software Updates",
-    "url": "https://unfinishedbitness.info/2026/03/27/multiple-software-updates/"
+    "feed": "Terence Eden's Blog",
+    "title": "OpenBenches hits 40k",
+    "url": "https://shkspr.mobi/blog/2026/03/openbenches-hits-40k/"
   },
   {
     "feed": "Simon Willison's Weblog",
-    "title": "datasette-showboat 0.1a2",
-    "url": "https://simonwillison.net/2026/Mar/27/datasette-showboat/#atom-everything"
-  },
-  {
-    "feed": "Simon Willison's Weblog",
-    "title": "Quoting Richard Fontana",
-    "url": "https://simonwillison.net/2026/Mar/27/richard-fontana/#atom-everything"
-  },
-  {
-    "feed": "Simon Willison's Weblog",
-    "title": "Vibe coding SwiftUI apps is a lot of fun",
-    "url": "https://simonwillison.net/2026/Mar/27/vibe-coding-swiftui/#atom-everything"
+    "title": "Quoting Matt Webb",
+    "url": "https://simonwillison.net/2026/Mar/28/matt-webb/#atom-everything"
   },
   {
     "feed": "Ars Technica",
-    "title": "Playing Wolfenstein 3D with one hand in 2026",
-    "url": "https://arstechnica.com/gaming/2026/03/playing-wolfenstein-3d-with-one-hand-in-2026/"
+    "title": "Explanation for why we don't see two-foot-long dragonflies anymore fails",
+    "url": "https://arstechnica.com/science/2026/03/leading-explanation-for-ancient-giant-flying-insects-gets-squashed/"
   },
   {
     "feed": "Ars Technica",
-    "title": "With new plugins feature, OpenAI officially takes Codex beyond coding",
-    "url": "https://arstechnica.com/ai/2026/03/openai-brings-plugins-to-codex-closing-some-of-the-gap-with-claude-code/"
+    "title": "Causality optional? Testing the \"indefinite causal order\" superposition",
+    "url": "https://arstechnica.com/science/2026/03/getting-formal-about-quantum-mechanics-lack-of-causality/"
   },
   {
     "feed": "Ars Technica",
-    "title": "Outbreak linked to raw cheese grows; 9 cases total, one with kidney failure",
-    "url": "https://arstechnica.com/health/2026/03/kidney-failure-case-reported-in-raw-cheese-outbreak-maker-still-denies-link/"
-  },
-  {
-    "feed": "Ars Technica",
-    "title": "Judge irate as defendant joins by Zoom while driving\u2014then lies about it",
-    "url": "https://arstechnica.com/tech-policy/2026/03/judge-irate-as-defendant-joins-by-zoom-while-driving-then-lies-about-it/"
+    "title": "How new fishing tech can reduce bycatch of turtles and other creatures",
+    "url": "https://arstechnica.com/science/2026/03/how-new-fishing-tech-can-reduce-bycatch-of-turtles-and-other-creatures/"
   }
 ]
