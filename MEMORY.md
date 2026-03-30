@@ -1,5 +1,13 @@
 # MEMORY.md — Long-Term Memory
 
+## This Week (2026-03-23 to 2026-03-30)
+- Open Brain Memory System fully operational: PostgreSQL + pgvector + Ollama nomic-embed-text embeddings + 6 CRUD/health scripts + MCP server
+- RSS feeds expanded to 22 (added Nushell Blog, Lobsters)
+- **Critical fix noted**: rss-digest.py has HARDCODED feed list, does NOT read from OPML — must update script manually when adding feeds
+- News digest rewritten: 10 sources across 3 leanings (Conservative/Liberal/Balanced) + fact-check integration (PolitiFact + Snopes), concurrent fetching (~90s → ~15s)
+- BTC and ETH added to morning stock+crypto check cron (6 AM EDT)
+- Memory maintenance cron created: Monday 9AM EDT
+
 ## About Me (Simplificus)
 - Name: Simplificus 🧠
 - Identity established: 2026-03-23
