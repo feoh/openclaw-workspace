@@ -1,27 +1,22 @@
 [
   {
-    "feed": "Terence Eden's Blog",
-    "title": "OpenBenches hits 40k",
-    "url": "https://shkspr.mobi/blog/2026/03/openbenches-hits-40k/"
+    "feed": "Nushell Blog",
+    "title": "This week in Nushell #344",
+    "url": "https://www.nushell.sh/blog/2026-03-27-twin0344.html"
   },
   {
-    "feed": "Simon Willison's Weblog",
-    "title": "Quoting Matt Webb",
-    "url": "https://simonwillison.net/2026/Mar/28/matt-webb/#atom-everything"
+    "feed": "Nushell Blog",
+    "title": "This week in Nushell #343",
+    "url": "https://www.nushell.sh/blog/2026-03-20-twin0343.html"
   },
   {
-    "feed": "Ars Technica",
-    "title": "Explanation for why we don't see two-foot-long dragonflies anymore fails",
-    "url": "https://arstechnica.com/science/2026/03/leading-explanation-for-ancient-giant-flying-insects-gets-squashed/"
+    "feed": "Nushell Blog",
+    "title": "This week in Nushell #342",
+    "url": "https://www.nushell.sh/blog/2026-03-13-twin0342.html"
   },
   {
-    "feed": "Ars Technica",
-    "title": "Causality optional? Testing the \"indefinite causal order\" superposition",
-    "url": "https://arstechnica.com/science/2026/03/getting-formal-about-quantum-mechanics-lack-of-causality/"
-  },
-  {
-    "feed": "Ars Technica",
-    "title": "How new fishing tech can reduce bycatch of turtles and other creatures",
-    "url": "https://arstechnica.com/science/2026/03/how-new-fishing-tech-can-reduce-bycatch-of-turtles-and-other-creatures/"
+    "feed": "Nushell Blog",
+    "title": "This week in Nushell #341",
+    "url": "https://www.nushell.sh/blog/2026-03-06-twin0341.html"
   }
 ]
