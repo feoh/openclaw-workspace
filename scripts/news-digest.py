@@ -23,9 +23,9 @@ SOURCES = {
     "fox_news":    {"name": "Fox News",        "feed": "https://feeds.foxnews.com/foxnews/latest",                                  "leaning": "conservative"},
     "breitbart":   {"name": "Breitbart",        "feed": "https://feeds.feedburner.com/breitbart",                                    "leaning": "conservative"},
     "cnn":         {"name": "CNN",              "feed": "http://rss.cnn.com/rss/edition.rss",                                        "leaning": "liberal"},
-    "msnbc":       {"name": "MSNBC",            "feed": "https://www.msnbc.com/rss/latest",                                          "leaning": "liberal"},
-    "reuters":     {"name": "Reuters",          "feed": "https://feeds.reuters.com/reuters/topNews",                                 "leaning": "center"},
-    "ap_news":     {"name": "AP News",          "feed": "https://apnews.com/rss",                                                    "leaning": "center"},
+    "nbcnews":     {"name": "NBC News",         "feed": "https://feeds.nbcnews.com/nbcnews/public/news",                             "leaning": "liberal"},
+    "thehill":     {"name": "The Hill",         "feed": "https://thehill.com/news/feed/",                                            "leaning": "center"},
+    "politico":    {"name": "Politico",         "feed": "https://www.politico.com/rss/politicopicks.xml",                           "leaning": "center"},
     "bbc_world":   {"name": "BBC World",        "feed": "https://feeds.bbci.co.uk/news/world/rss.xml",                              "leaning": "center"},
     "npr":         {"name": "NPR",              "feed": "https://feeds.npr.org/1001/rss.xml",                                        "leaning": "center"},
     "wa_post":     {"name": "Washington Post",  "feed": "https://feeds.washingtonpost.com/rss/national",                            "leaning": "center"},
@@ -57,38 +57,52 @@ def title_keywords(title):
     return {w for w in words if w not in STOP_WORDS}
 
 
-def fetch_single(source_id, config):
-    try:
-        feed = feedparser.parse(config["feed"], agent="NewsDigest/1.0")
-        results = []
-        for entry in feed.entries[:8]:
-            title = clean_title(getattr(entry, 'title', ''))
-            link = getattr(entry, 'link', '') or ''
-            if not title or not link:
-                continue
-            date = None
-            for attr in ['published_parsed', 'updated_parsed']:
-                parsed = getattr(entry, attr, None)
-                if parsed:
-                    try:
-                        from time import mktime
-                        date = datetime.fromtimestamp(mktime(parsed))
-                        break
-                    except:
-                        pass
-            results.append({
-                "title": title,
-                "url": link,
-                "source": config["name"],
-                "source_id": source_id,
-                "leaning": config["leaning"],
-                "keywords": title_keywords(title),
-                "date": date,
-            })
-        return results
-    except Exception as e:
-        print(f"Error fetching {config['name']}: {e}", file=sys.stderr)
-        return []
+def fetch_single(source_id, config, retries=3, backoff=2):
+    import time
+    last_error = None
+    for attempt in range(1, retries + 1):
+        try:
+            feed = feedparser.parse(config["feed"], agent="NewsDigest/1.0")
+            # feedparser returns bozo=True on parse errors but may still have entries
+            if feed.get("bozo") and not feed.entries:
+                raise ValueError(f"Feed parse error: {feed.get('bozo_exception', 'unknown')}")
+            results = []
+            for entry in feed.entries[:8]:
+                title = clean_title(getattr(entry, 'title', ''))
+                link = getattr(entry, 'link', '') or ''
+                if not title or not link:
+                    continue
+                date = None
+                for attr in ['published_parsed', 'updated_parsed']:
+                    parsed = getattr(entry, attr, None)
+                    if parsed:
+                        try:
+                            from time import mktime
+                            date = datetime.fromtimestamp(mktime(parsed))
+                            break
+                        except:
+                            pass
+                results.append({
+                    "title": title,
+                    "url": link,
+                    "source": config["name"],
+                    "source_id": source_id,
+                    "leaning": config["leaning"],
+                    "keywords": title_keywords(title),
+                    "date": date,
+                })
+            if results:
+                return results
+            # Empty results — worth retrying
+            raise ValueError("No entries returned")
+        except Exception as e:
+            last_error = e
+            if attempt < retries:
+                print(f"  {config['name']} attempt {attempt} failed: {e} — retrying in {backoff}s", file=sys.stderr)
+                time.sleep(backoff)
+            else:
+                print(f"Error fetching {config['name']} after {retries} attempts: {last_error}", file=sys.stderr)
+    return []
 
 
 def fetch_fact_checks():
@@ -195,7 +209,15 @@ def format_digest(clusters, fact_checks, limit=5):
     ]
 
     # Sort clusters by total source count (most coverage = most important)
-    sorted_clusters = sorted(clusters, key=lambda c: len(c["headlines"]), reverse=True)
+    # Only include clusters with at least 2 sources — single-source stories aren't top news
+    sorted_clusters = sorted(
+        [c for c in clusters if len(c["headlines"]) >= 2],
+        key=lambda c: len(c["headlines"]),
+        reverse=True
+    )
+
+    if not sorted_clusters:
+        return f"**📰 Evening News Digest — {today}**\n⚠️ Not enough cross-source stories found to generate digest."
 
     for i, cluster in enumerate(sorted_clusters[:limit], 1):
         indicator = coverage_indicator(cluster)
