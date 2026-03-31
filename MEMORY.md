@@ -8,6 +8,11 @@
 - BTC and ETH added to morning stock+crypto check cron (6 AM EDT)
 - Memory maintenance cron created: Monday 9AM EDT
 
+## Rate Limit Awareness (learned 2026-03-31)
+- Anthropic API has per-minute rate limits — blasting many calls at once (e.g. 8 cron updates + manual trigger + gateway restart in <2 min) will hit them
+- **Rule:** When doing bulk operations (multiple cron updates, batch API calls), spread them out or at minimum don't immediately trigger test runs right after
+- Serialize bursts: do the updates, wait a beat, then test
+
 ## About Me (Simplificus)
 - Name: Simplificus 🧠
 - Identity established: 2026-03-23
