@@ -30,27 +30,21 @@ Balanced/Center: Reuters, AP, BBC, NPR, Washington Post, NY Times
 5. Label each with coverage indicator based on which outlets picked it up
 
 ## Fact Check
-- Include fact-check icon if available from PolitiFact/Snopes
-- ✅ true · ⚠️ mostly true · 🤔 half true · ❌ false · 🔍 unverified
+- **DISABLED** — fact-check feeds rarely match headlines and add noise/tokens
+- Do NOT include fact-check icons or fetch PolitiFact/Snopes feeds
 
 ## Example Output
 ```
 📰 Evening News Digest — 2026-03-31
 
-🟪✅ **1.** [Iran Ceasefire Talks Resume in Geneva](https://ap.org/...)
+🟪 **1.** [Iran Ceasefire Talks Resume in Geneva](https://ap.org/...)
    Reuters, AP, Fox News, CNN, BBC — 5 sources
 
-🟥🔍 **2.** [Border Arrests Hit Record Low Under New Policy](https://foxnews.com/...)
+🟥 **2.** [Border Arrests Hit Record Low Under New Policy](https://foxnews.com/...)
    Fox News, Breitbart — 2 sources
 
-🟦🔍 **3.** [Senate Democrats Block Budget Vote](https://cnn.com/...)
+🟦 **3.** [Senate Democrats Block Budget Vote](https://cnn.com/...)
    CNN, MSNBC, NPR — 3 sources
-
-⚖️🔍 **4.** [WHO Declares New Mpox Variant of Concern](https://bbc.co.uk/...)
-   BBC, Reuters, AP — 3 sources
-
-🟪🔍 **5.** [Tech Layoffs Continue as AI Reshapes Industry](https://...)
-   Fox News, CNN, NY Times — 3 sources
 ```
 
 ## Rules

@@ -32,11 +32,6 @@ SOURCES = {
     "ny_times":    {"name": "New York Times",   "feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",                "leaning": "center"},
 }
 
-FACT_CHECK_FEEDS = [
-    ("PolitiFact", "https://www.politifact.com/feed/"),
-    ("Snopes",     "https://snopes.com/feed/"),
-]
-
 # Stop words to ignore when matching stories
 STOP_WORDS = {
     'the','a','an','in','on','at','to','for','of','and','or','is','are','was','were',
@@ -105,50 +100,6 @@ def fetch_single(source_id, config, retries=3, backoff=2):
     return []
 
 
-def fetch_fact_checks():
-    checks = []
-    for source_name, url in FACT_CHECK_FEEDS:
-        try:
-            feed = feedparser.parse(url, agent="NewsDigest/1.0")
-            for entry in feed.entries[:20]:
-                title = clean_title(getattr(entry, 'title', ''))
-                link = getattr(entry, 'link', '') or ''
-                ruling = extract_ruling(title, source_name)
-                checks.append({"title": title, "url": link, "source": source_name, "ruling": ruling})
-        except Exception as e:
-            print(f"Error fetching {source_name}: {e}", file=sys.stderr)
-    return checks
-
-
-def extract_ruling(title, source):
-    t = title.lower()
-    if source == "PolitiFact":
-        for label, icon in [("pants on fire","🔥"),("mostly false","❌"),("false","❌"),
-                             ("half true","🤔"),("mostly true","⚠️"),("true","✅")]:
-            if label in t:
-                return icon
-    elif source == "Snopes":
-        if "false" in t: return "❌"
-        if "misleading" in t: return "🤔"
-        if "true" in t and "false" not in t: return "✅"
-        if "unproven" in t or "unverified" in t: return "🔍"
-    return "🔍"
-
-
-def match_fact_check(keywords, fact_checks):
-    best, best_score = None, 0
-    for fc in fact_checks:
-        overlap = len(keywords & fc_keywords(fc))
-        if overlap > best_score and overlap >= 3:
-            best_score = overlap
-            best = fc
-    return best
-
-
-def fc_keywords(fc):
-    return title_keywords(fc["title"])
-
-
 def group_stories(all_headlines):
     """Group headlines by topic using keyword overlap. Returns list of story clusters."""
     clusters = []
@@ -199,13 +150,12 @@ def best_headline(cluster):
     return cluster["headlines"][0]
 
 
-def format_digest(clusters, fact_checks, limit=5):
+def format_digest(clusters, limit=5):
     today = datetime.now().strftime("%Y-%m-%d")
     lines = [
         f"**📰 Evening News Digest — {today}**",
         "_Top stories across the political spectrum_\n",
-        "**Coverage:** 🟪 both sides · 🟥 conservative · 🟦 liberal · ⚖️ center",
-        "**Fact-check:** ✅ true · ⚠️ mostly true · 🤔 half true · ❌ false · 🔍 unverified\n",
+        "**Coverage:** 🟪 both sides · 🟥 conservative · 🟦 liberal · ⚖️ center\n",
     ]
 
     # Sort clusters by total source count (most coverage = most important)
@@ -223,16 +173,12 @@ def format_digest(clusters, fact_checks, limit=5):
         indicator = coverage_indicator(cluster)
         h = best_headline(cluster)
 
-        # Fact check
-        fc = match_fact_check(cluster["keywords"], fact_checks)
-        fc_icon = fc["ruling"] if fc else "🔍"
-
         # Source list (deduplicated)
         sources = list(dict.fromkeys(x["source"] for x in cluster["headlines"]))
         source_str = ", ".join(sources[:5])
         count = len(cluster["headlines"])
 
-        lines.append(f"{indicator}{fc_icon} **{i}.** [{h['title']}]({h['url']})")
+        lines.append(f"{indicator} **{i}.** [{h['title']}]({h['url']})")
         lines.append(f"   {source_str} — {count} source{'s' if count != 1 else ''}\n")
 
     return "\n".join(lines)
@@ -273,9 +219,6 @@ if __name__ == "__main__":
         print(f"⚠️ WARNING: Only {len(all_headlines)} headlines fetched — digest may be incomplete.", file=sys.stderr)
         errors.append(f"Low headline count: only {len(all_headlines)} fetched (expected 40+)")
 
-    print("Fetching fact checks...", file=sys.stderr, flush=True)
-    fact_checks = fetch_fact_checks()
-
     print("Grouping stories...", file=sys.stderr, flush=True)
     clusters = group_stories(all_headlines)
     print(f"Found {len(clusters)} story clusters", file=sys.stderr, flush=True)
@@ -291,7 +234,7 @@ if __name__ == "__main__":
             "count": len(c["headlines"]),
         } for c in sorted(clusters, key=lambda c: len(c["headlines"]), reverse=True)[:args.limit]], indent=2))
     else:
-        output = format_digest(clusters, fact_checks, limit=args.limit)
+        output = format_digest(clusters, limit=args.limit)
         if errors:
             output += "\n\n⚠️ **Digest warnings:**\n" + "\n".join(f"- {e}" for e in errors)
         if failed_sources:
