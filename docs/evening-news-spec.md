@@ -1,0 +1,64 @@
+# Evening News Digest — Feature Spec
+
+## Goal
+Gather headlines from news sites across the political spectrum and synthesize a report
+of the TOP 5 stories of the day, with an indicator showing where each story appeared.
+
+## Output Format
+- Top 5 stories only (not a raw feed dump)
+- Per story: headline, link, and a **coverage indicator**
+
+## Coverage Indicators
+- 🟥 = Covered only by conservative outlets
+- 🟦 = Covered only by liberal outlets  
+- 🟪 = Covered by BOTH conservative and liberal outlets (cross-spectrum coverage)
+- ⚖️ = Covered mainly by center/neutral outlets
+
+Cross-spectrum stories (🟪) are particularly notable — if both sides are covering it,
+it's probably important.
+
+## Sources
+Conservative: Fox News, Breitbart
+Liberal: CNN, MSNBC
+Balanced/Center: Reuters, AP, BBC, NPR, Washington Post, NY Times
+
+## Story Selection Logic
+1. Fetch top 5 headlines from each source
+2. Group stories by topic/subject (fuzzy match on keywords)
+3. Rank by number of sources covering the story (most coverage = most important)
+4. Pick top 5 stories
+5. Label each with coverage indicator based on which outlets picked it up
+
+## Fact Check
+- Include fact-check icon if available from PolitiFact/Snopes
+- ✅ true · ⚠️ mostly true · 🤔 half true · ❌ false · 🔍 unverified
+
+## Example Output
+```
+📰 Evening News Digest — 2026-03-31
+
+🟪✅ **1.** [Iran Ceasefire Talks Resume in Geneva](https://ap.org/...)
+   Reuters, AP, Fox News, CNN, BBC — 5 sources
+
+🟥🔍 **2.** [Border Arrests Hit Record Low Under New Policy](https://foxnews.com/...)
+   Fox News, Breitbart — 2 sources
+
+🟦🔍 **3.** [Senate Democrats Block Budget Vote](https://cnn.com/...)
+   CNN, MSNBC, NPR — 3 sources
+
+⚖️🔍 **4.** [WHO Declares New Mpox Variant of Concern](https://bbc.co.uk/...)
+   BBC, Reuters, AP — 3 sources
+
+🟪🔍 **5.** [Tech Layoffs Continue as AI Reshapes Industry](https://...)
+   Fox News, CNN, NY Times — 3 sources
+```
+
+## Rules
+- **CHECK THIS FILE before making any changes to the evening news report**
+- Do not dump raw feeds — synthesize top 5
+- Cross-spectrum (🟪) stories are the most valuable signal
+- Deliver to Discord at 6 PM EDT (10 PM UTC) daily
+- Script: `/home/feoh/.openclaw/workspace/scripts/news-digest.py`
+
+## Version History
+- 2026-03-31: Initial spec written per Chris's request
