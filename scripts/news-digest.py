@@ -223,18 +223,33 @@ if __name__ == "__main__":
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
 
+    errors = []
+
     print("Fetching headlines...", file=sys.stderr, flush=True)
     all_headlines = []
     seen_urls = set()
+    failed_sources = []
     with ThreadPoolExecutor(max_workers=10) as executor:
-        futures = {executor.submit(fetch_single, sid, cfg): sid for sid, cfg in SOURCES.items()}
+        futures = {executor.submit(fetch_single, sid, cfg): (sid, cfg) for sid, cfg in SOURCES.items()}
         for future in as_completed(futures):
-            for h in future.result():
-                if h["url"] not in seen_urls:
-                    seen_urls.add(h["url"])
-                    all_headlines.append(h)
+            sid, cfg = futures[future]
+            try:
+                results = future.result()
+                if not results:
+                    failed_sources.append(cfg["name"])
+                for h in results:
+                    if h["url"] not in seen_urls:
+                        seen_urls.add(h["url"])
+                        all_headlines.append(h)
+            except Exception as e:
+                failed_sources.append(cfg["name"])
+                errors.append(f"{cfg['name']}: {e}")
 
     print(f"Got {len(all_headlines)} headlines from {len(SOURCES)} sources", file=sys.stderr, flush=True)
+
+    if len(all_headlines) < 10:
+        print(f"⚠️ WARNING: Only {len(all_headlines)} headlines fetched — digest may be incomplete.", file=sys.stderr)
+        errors.append(f"Low headline count: only {len(all_headlines)} fetched (expected 40+)")
 
     print("Fetching fact checks...", file=sys.stderr, flush=True)
     fact_checks = fetch_fact_checks()
@@ -242,6 +257,9 @@ if __name__ == "__main__":
     print("Grouping stories...", file=sys.stderr, flush=True)
     clusters = group_stories(all_headlines)
     print(f"Found {len(clusters)} story clusters", file=sys.stderr, flush=True)
+
+    if len(clusters) < args.limit:
+        errors.append(f"Only {len(clusters)} story clusters found — could not produce {args.limit} top stories")
 
     if args.json:
         print(json.dumps([{
@@ -251,4 +269,9 @@ if __name__ == "__main__":
             "count": len(c["headlines"]),
         } for c in sorted(clusters, key=lambda c: len(c["headlines"]), reverse=True)[:args.limit]], indent=2))
     else:
-        print(format_digest(clusters, fact_checks, limit=args.limit))
+        output = format_digest(clusters, fact_checks, limit=args.limit)
+        if errors:
+            output += "\n\n⚠️ **Digest warnings:**\n" + "\n".join(f"- {e}" for e in errors)
+        if failed_sources:
+            output += f"\n- Failed to fetch: {', '.join(failed_sources)}"
+        print(output)
