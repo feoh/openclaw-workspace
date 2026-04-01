@@ -11,7 +11,7 @@ import os
 import sys
 from datetime import datetime
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(dotenv_path="/home/feoh/.openclaw/workspace/.env")
 
 
 def get_saved_urls():
@@ -20,6 +20,7 @@ def get_saved_urls():
     import ollama
     api_key = os.environ.get("LINKDING_API_KEY")
     if not api_key:
+        print("⚠️ WARNING: LINKDING_API_KEY not set — Linkding filter disabled, all articles will show", file=sys.stderr)
         return set()
     
     base_url = "https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
