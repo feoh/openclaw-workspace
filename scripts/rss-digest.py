@@ -51,38 +51,27 @@ def get_saved_urls():
     
     return saved
 
-FEEDS = [
-    ("Terence Eden's Blog", "https://shkspr.mobi/blog", "https://shkspr.mobi/blog/feed/"),
-    ("Unfinished Bitness", "https://unfinishedbitness.info", "https://unfinishedbitness.info/feed/"),
-    ("Blind Not Dumb", "https://www.feoh.org", "https://www.feoh.org/feed.atom"),
-    ("John P. Murphy", "https://johnpmurphy.net", "https://johnpmurphy.net/feed/"),
-    ("Zarf Updates", "https://blog.zarfhome.com", "https://blog.zarfhome.com/feeds/posts/default"),
-    ("Aeracode", "https://www.aeracode.org", "https://aeracode.org/feed/atom/"),
-    ("Anthony Shaw's blog", "https://tonybaloney.github.io", "https://tonybaloney.github.io/rss.xml"),
-    ("Deciphering Glyph", "https://blog.glyph.im", "https://blog.glyph.im/feeds/all.atom.xml"),
-    ("Hynek Schlawack", "https://hynek.me", "https://hynek.me/index.xml"),
-    ("Daniel Roy Greenfeld", "https://daniel.feldroy.com", "https://daniel.feldroy.com/feeds/atom.xml"),
-    ("Michael Kennedy", "https://mkennedy.codes", "https://mkennedy.codes/index.xml"),
-    ("Ned Batchelder's blog", "https://nedbatchelder.com/blog", "https://nedbatchelder.com/blog/rss.xml"),
-    ("Simon Willison's Weblog", "https://simonwillison.net", "https://simonwillison.net/atom/everything/"),
-    ("Tall, Snarky Canadian", "https://snarky.ca", "https://snarky.ca/rss/"),
-    ("Chris Morgan's blog", "https://chrismorgan.info", "https://chrismorgan.info/feed.xml"),
-    ("matklad", "https://matklad.github.io", "https://matklad.github.io/feed.xml"),
-    ("Ars Technica", "https://arstechnica.com", "https://arstechnica.com/feed/?t=d46dc635cfe2031785f81a4b0c4f7f73da4f3bbf"),
-    ("Kagi Blog", "https://blog.kagi.com", "https://blog.kagi.com/rss.xml"),
-    ("Fujinet News", "https://fujinet.online", "https://fujinet.online/feed/"),
-    ("Zed A. Shaw", "https://zedshaw.com", "https://zedshaw.com/feed.atom"),
-    ("Nushell Blog", "https://www.nushell.sh", "https://www.nushell.sh/atom.xml"),
-    ("Lobsters", "https://lobste.rs", "https://lobste.rs/top.rss"),
-]
+OPML_FILE = "/home/feoh/.openclaw/workspace/rss-feeds.opml"
 
-FEED_CATEGORIES = {
-    "All": ["Terence Eden's Blog", "Unfinished Bitness", "Fujinet News"],
-    "Fun": ["Blind Not Dumb", "John P. Murphy", "Zarf Updates"],
-    "Python": ["Aeracode", "Anthony Shaw's blog", "Deciphering Glyph", "Hynek Schlawack", "Daniel Roy Greenfeld", "Michael Kennedy", "Ned Batchelder's blog", "Simon Willison's Weblog", "Tall, Snarky Canadian"],
-    "Rust": ["Chris Morgan's blog", "matklad"],
-    "Technology": ["Ars Technica", "Kagi Blog", "Zed A. Shaw", "Fujinet News", "Nushell Blog", "Lobsters"],
-}
+def load_feeds_from_opml(opml_path=OPML_FILE):
+    """
+    Single source of truth: load feeds from rss-feeds.opml.
+    Returns list of (title, html_url, xml_url) tuples.
+    To add/remove feeds, edit rss-feeds.opml only.
+    """
+    import xml.etree.ElementTree as ET
+    tree = ET.parse(opml_path)
+    feeds = []
+    for outline in tree.iter("outline"):
+        xml_url = outline.get("xmlUrl")
+        if not xml_url:
+            continue
+        title = outline.get("title") or outline.get("text") or xml_url
+        html_url = outline.get("htmlUrl") or xml_url
+        feeds.append((title, html_url, xml_url))
+    return feeds
+
+FEEDS = load_feeds_from_opml()
 
 # Filter patterns — entries matching these (case-insensitive) are skipped
 FILTER_PATTERNS = [
