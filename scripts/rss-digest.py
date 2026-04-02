@@ -133,22 +133,64 @@ def parse_entry(entry, feed_title, blog_url):
     return {"title": title, "url": url, "date": dt, "feed": feed_title}
 
 
+STATE_FILE = "/home/feoh/.openclaw/workspace/rss-state.json"
+
+def load_seen_state():
+    """Load per-feed last-seen entry IDs."""
+    if os.path.exists(STATE_FILE):
+        with open(STATE_FILE) as f:
+            return json.load(f).get("last_seen", {})
+    return {}
+
+def save_seen_state(seen):
+    """Save updated per-feed last-seen entry IDs."""
+    with open(STATE_FILE, "w") as f:
+        json.dump({"last_seen": seen}, f, indent=2)
+
 def fetch_feeds(saved_urls=None):
-    """Fetch all feeds and return sorted entries."""
+    """Fetch all feeds and return only NEW entries since last run."""
     if saved_urls is None:
         saved_urls = set()
     
+    seen = load_seen_state()
+    new_seen = dict(seen)  # copy to update
     entries = []
+
     for feed_title, blog_url, feed_url in FEEDS:
         try:
             f = feedparser.parse(feed_url, agent="RSS-Digest/1.0")
-            for entry in f.entries[:5]:
+            last_seen_id = seen.get(feed_url)
+            feed_entries = []
+            new_last_id = None
+
+            for entry in f.entries[:10]:
+                # Use entry id, link, or guid as unique identifier
+                entry_id = (getattr(entry, 'id', None) or
+                           getattr(entry, 'link', None) or
+                           getattr(entry, 'guid', None) or '')
+
+                # First entry is the newest — record as new last_seen
+                if new_last_id is None and entry_id:
+                    new_last_id = entry_id
+
+                # Stop when we hit the last seen entry
+                if entry_id and entry_id == last_seen_id:
+                    break
+
                 e = parse_entry(entry, feed_title, blog_url)
                 if e['title'] and not should_skip(e, saved_urls):
-                    entries.append(e)
+                    feed_entries.append(e)
+
+            entries.extend(feed_entries)
+
+            # Update seen state to newest entry
+            if new_last_id:
+                new_seen[feed_url] = new_last_id
+
         except Exception as e:
             print(f"Error fetching {feed_title}: {e}", file=sys.stderr)
     
+    save_seen_state(new_seen)
     entries.sort(key=lambda x: x["date"] or datetime.min, reverse=True)
     return entries
 
