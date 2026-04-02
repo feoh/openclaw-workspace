@@ -36,6 +36,7 @@
  <outline title="Nushell Blog" text="Nushell Blog" xmlUrl="https://www.nushell.sh/atom.xml" htmlUrl="https://www.nushell.sh/blog" type="rss" />
  <outline title="Lobsters" text="Lobsters" xmlUrl="https://lobste.rs/top.rss" htmlUrl="https://lobste.rs/" type="rss" />
  <outline title="Zed A. Shaw" text="Zed A. Shaw" xmlUrl="https://zedshaw.com/feed.atom" htmlUrl="https://zedshaw.com/" type="rss" />
+ <outline title="StepSecurity Blog" text="StepSecurity Blog" xmlUrl="https://www.stepsecurity.io/blog/rss.xml" htmlUrl="https://www.stepsecurity.io/blog" type="rss" />
  </outline>
  </body>
 </opml>
