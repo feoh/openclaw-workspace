@@ -183,6 +183,14 @@ if __name__ == "__main__":
     
     entries = fetch_feeds(saved_urls=saved_urls)
     
+    # Always save the numbered list to a fixed file so "save #N" commands work correctly
+    LAST_DIGEST_FILE = "/home/feoh/.openclaw/workspace/data/rss-last-digest.json"
+    os.makedirs(os.path.dirname(LAST_DIGEST_FILE), exist_ok=True)
+    numbered = [{"num": i, "title": e["title"], "url": e["url"], "feed": e["feed"]} 
+                for i, e in enumerate(entries, 1)]
+    with open(LAST_DIGEST_FILE, "w") as f:
+        json.dump(numbered, f, default=str, indent=2)
+    
     if args.json:
         print(json.dumps(entries, default=str, indent=2))
     else:

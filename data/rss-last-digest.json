@@ -1,0 +1,230 @@
+[
+  {
+    "num": 1,
+    "title": "Artemis II, NASA's boldest mission in generations, launches crew to the Moon",
+    "url": "https://arstechnica.com/space/2026/04/four-astronauts-depart-for-the-moon-with-a-fiery-send-off-from-cape-canaveral/",
+    "feed": "Ars Technica"
+  },
+  {
+    "num": 2,
+    "title": "datasette-enrichments-llm 0.2a1",
+    "url": "https://simonwillison.net/2026/Apr/1/datasette-enrichments-llm-2/#atom-everything",
+    "feed": "Simon Willison's Weblog"
+  },
+  {
+    "num": 3,
+    "title": "datasette-enrichments-llm 0.2a0",
+    "url": "https://simonwillison.net/2026/Apr/1/datasette-enrichments-llm/#atom-everything",
+    "feed": "Simon Willison's Weblog"
+  },
+  {
+    "num": 4,
+    "title": "Reading leaked Claude Code source code",
+    "url": "https://lr0.org/blog/p/claude-code-source/",
+    "feed": "Lobsters"
+  },
+  {
+    "num": 5,
+    "title": "your hex editor should color-code bytes",
+    "url": "https://simonomi.dev/blog/color-code-your-bytes/",
+    "feed": "Lobsters"
+  },
+  {
+    "num": 6,
+    "title": "Historical GitHub Uptime Charts",
+    "url": "https://damrnelson.github.io/github-historical-uptime/",
+    "feed": "Lobsters"
+  },
+  {
+    "num": 7,
+    "title": "This week in Nushell #342",
+    "url": "https://www.nushell.sh/blog/2026-03-13-twin0342.html",
+    "feed": "Nushell Blog"
+  },
+  {
+    "num": 8,
+    "title": "This week in Nushell #341",
+    "url": "https://www.nushell.sh/blog/2026-03-06-twin0341.html",
+    "feed": "Nushell Blog"
+  },
+  {
+    "num": 9,
+    "title": "Raw+DC Database Pattern: A Retrospective",
+    "url": "https://mkennedy.codes/posts/raw-dc-a-retrospective/",
+    "feed": "Michael Kennedy"
+  },
+  {
+    "num": 10,
+    "title": "copilot edited an ad into my pr",
+    "url": "https://notes.zachmanson.com/copilot-edited-an-ad-into-my-pr/",
+    "feed": "Lobsters"
+  },
+  {
+    "num": 11,
+    "title": "Gig Review: Vitamin String Quartet at The Barbican \u2605\u2605\u2605\u2605\u2605",
+    "url": "https://shkspr.mobi/blog/2026/03/gig-review-vitamin-string-quartet-at-the-barbican/",
+    "feed": "Terence Eden's Blog"
+  },
+  {
+    "num": 12,
+    "title": "Mr. Paint Update",
+    "url": "https://unfinishedbitness.info/2026/03/28/mr-paint-update/",
+    "feed": "Unfinished Bitness"
+  },
+  {
+    "num": 13,
+    "title": "Fuji Do Reports",
+    "url": "https://unfinishedbitness.info/2026/03/25/fuji-do-reports/",
+    "feed": "Unfinished Bitness"
+  },
+  {
+    "num": 14,
+    "title": "Small Web Just Got Bigger",
+    "url": "https://blog.kagi.com/small-web-updates",
+    "feed": "Kagi Blog"
+  },
+  {
+    "num": 15,
+    "title": "State of WASI support for CPython: March 2026",
+    "url": "https://snarky.ca/state-of-wasi-support-for-cpython-march-2026/",
+    "feed": "Tall, Snarky Canadian"
+  },
+  {
+    "num": 16,
+    "title": "Pytest parameter functions",
+    "url": "https://nedbatchelder.com/blog/202602/pytest_parameter_functions",
+    "feed": "Ned Batchelder's blog"
+  },
+  {
+    "num": 17,
+    "title": "CLI subcommands with lazy imports",
+    "url": "https://snarky.ca/subcommands-with-lazy-imports/",
+    "feed": "Tall, Snarky Canadian"
+  },
+  {
+    "num": 18,
+    "title": "EdText",
+    "url": "https://nedbatchelder.com/blog/202602/edtext",
+    "feed": "Ned Batchelder's blog"
+  },
+  {
+    "num": 19,
+    "title": "Kagi Translate Arrives on Mobile",
+    "url": "https://blog.kagi.com/kagi-translate-mobile",
+    "feed": "Kagi Blog"
+  },
+  {
+    "num": 20,
+    "title": "We moved to Manila!",
+    "url": "https://daniel.feldroy.com/posts/2026-02-we-moved-to-manila",
+    "feed": "Daniel Roy Greenfeld"
+  },
+  {
+    "num": 21,
+    "title": "No more .html",
+    "url": "https://nedbatchelder.com/blog/202601/no_more_html",
+    "feed": "Ned Batchelder's blog"
+  },
+  {
+    "num": 22,
+    "title": "Orion 1.0 \u2734\ufe0e Browse Beyond",
+    "url": "https://blog.kagi.com/orion",
+    "feed": "Kagi Blog"
+  },
+  {
+    "num": 23,
+    "title": "Should I rewrite the Python Launcher for Unix in Python?",
+    "url": "https://snarky.ca/should-i-rewrite-the-python-launcher-for-unix-in-python/",
+    "feed": "Tall, Snarky Canadian"
+  },
+  {
+    "num": 24,
+    "title": "Kagi Hub Belgrade: A home base for Kagi members worldwide",
+    "url": "https://blog.kagi.com/kagi-hub",
+    "feed": "Kagi Blog"
+  },
+  {
+    "num": 25,
+    "title": "New Short Fiction for 2025",
+    "url": "https://johnpmurphy.net/2025/11/19/new-short-fiction-for-2025/",
+    "feed": "John P. Murphy"
+  },
+  {
+    "num": 26,
+    "title": "Python\u2019s True Superpower",
+    "url": "https://hynek.me/talks/python-superpower/",
+    "feed": "Hynek Schlawack"
+  },
+  {
+    "num": 27,
+    "title": "FujiNet-PC for Atari800 Emulator",
+    "url": "https://fujinet.online/2025/06/24/fujinet-pc-for-atari800-emulator/",
+    "feed": "Fujinet News"
+  },
+  {
+    "num": 28,
+    "title": "FujiNet Firmware 1.5 Released!",
+    "url": "https://fujinet.online/2025/04/02/fujinet-firmware-1-5-released/",
+    "feed": "Fujinet News"
+  },
+  {
+    "num": 29,
+    "title": "FujiNet at VCF East Apr. 4-6",
+    "url": "https://fujinet.online/2025/04/02/fujinet-at-vcf-east-apr-4-6/",
+    "feed": "Fujinet News"
+  },
+  {
+    "num": 30,
+    "title": "[Developers] When Doing HTTP GET, use Mode 12 !",
+    "url": "https://fujinet.online/2025/02/23/developers-when-doing-http-get-use-mode-12/",
+    "feed": "Fujinet News"
+  },
+  {
+    "num": 31,
+    "title": "[ATARI] Why the N tools?",
+    "url": "https://fujinet.online/2025/02/21/atari-why-the-n-tools/",
+    "feed": "Fujinet News"
+  },
+  {
+    "num": 32,
+    "title": "The Woman Who Kicked Me Out of the Country",
+    "url": "https://johnpmurphy.net/2024/08/18/the-woman-who-kicked-me-out-of-the-country/",
+    "feed": "John P. Murphy"
+  },
+  {
+    "num": 33,
+    "title": "How I Beta Read",
+    "url": "https://johnpmurphy.net/2024/07/22/how-i-beta-read/",
+    "feed": "John P. Murphy"
+  },
+  {
+    "num": 34,
+    "title": "Readercon Schedule, and What\u2019s New",
+    "url": "https://johnpmurphy.net/2024/07/04/readercon-schedule-and-whats-new/",
+    "feed": "John P. Murphy"
+  },
+  {
+    "num": 35,
+    "title": "An Electromagnetic Force",
+    "url": "https://www.aeracode.org/2024/06/05/emf-2024/",
+    "feed": "Aeracode"
+  },
+  {
+    "num": 36,
+    "title": "Boskone 2024 Schedule",
+    "url": "https://johnpmurphy.net/2024/01/28/boskone-2024-schedule/",
+    "feed": "John P. Murphy"
+  },
+  {
+    "num": 37,
+    "title": "U+: pretty Unicode code point literals for Rust",
+    "url": "https://chrismorgan.info/blog/U+/",
+    "feed": "Chris Morgan's blog"
+  },
+  {
+    "num": 38,
+    "title": "The Beggar Barons",
+    "url": "https://zedshaw.com/blog/2022-02-05-the-beggar-barons/",
+    "feed": "Zed A. Shaw"
+  }
+]
