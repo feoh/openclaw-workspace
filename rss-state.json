@@ -1,6 +1,6 @@
 {
   "last_seen": {
-    "https://shkspr.mobi/blog/feed/": "https://shkspr.mobi/blog/?p=68382",
+    "https://shkspr.mobi/blog/feed/": "https://shkspr.mobi/blog/?p=65027",
     "https://unfinishedbitness.info/feed/": "http://unfinishedbitness.info/?p=5741",
     "https://www.feoh.org/feed.atom": "https://www.feoh.org/posts/goodbye-blog-comments-you-were-fun-while-you-lasted.html",
     "https://johnpmurphy.net/feed/": "http://johnpmurphy.net/?p=6309",
@@ -10,17 +10,17 @@
     "https://blog.glyph.im/feeds/all.atom.xml": "tag:blog.glyph.im,2026-03-03:/2026/03/what-is-code-review-for.html",
     "https://hynek.me/index.xml": "https://hynek.me/talks/python-superpower/",
     "https://daniel.feldroy.com/feeds/atom.xml": "https://daniel.feldroy.com/posts/til-2025-11-default-code-block-languages-for-mkdocs",
-    "https://mkennedy.codes/index.xml": "https://mkennedy.codes/posts/fire-and-forget-at-textual/",
-    "https://simonwillison.net/atom/everything/": "https://simonwillison.net/2026/Mar/29/pretext/#atom-everything",
+    "https://mkennedy.codes/index.xml": "https://mkennedy.codes/posts/cutting-python-web-app-memory-over-31-percent/",
+    "https://simonwillison.net/atom/everything/": "https://simonwillison.net/2026/Apr/1/datasette-extract/#atom-everything",
     "https://snarky.ca/rss/": "69c4614dcbf08a00014ee51b",
     "https://chrismorgan.info/feed.xml": "https://chrismorgan.info/blog/U+/",
     "https://matklad.github.io/feed.xml": "https://matklad.github.io/2026/03/19/consensus-board-game",
-    "https://arstechnica.com/feed/?t=d46dc635cfe2031785f81a4b0c4f7f73da4f3bbf": "https://arstechnica.com/culture/2026/03/pints-meet-prop-bets-polymarkets-situation-room-pop-up-bar-in-dc/",
+    "https://arstechnica.com/feed/?t=d46dc635cfe2031785f81a4b0c4f7f73da4f3bbf": "https://arstechnica.com/gaming/2026/04/nvidias-new-app-lets-you-precompile-gaming-shaders-during-machine-idle-time/",
     "https://blog.kagi.com/rss.xml": "kagi-blog-post-13",
     "https://zedshaw.com/feed.atom": "https://zedshaw.com/blog/2022-02-05-the-beggar-barons/",
     "https://nedbatchelder.com/blog/rss.xml": "https://nedbatchelder.com/blog/202603/humanjson",
     "https://fujinet.online/feed/": "https://fujinet.online/?p=3678",
     "https://www.nushell.sh/atom.xml": "https://www.nushell.sh/blog/2026-03-27-twin0344.html",
-    "https://lobste.rs/top.rss": "https://lobste.rs/s/xpx9vi"
+    "https://lobste.rs/top.rss": "https://lobste.rs/s/0o60nu"
   }
 }

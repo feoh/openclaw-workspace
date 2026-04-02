@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "feed": "Terence Eden's Blog",
+    "title": "Random File Format",
+    "url": "https://shkspr.mobi/blog/2026/04/random-file-format/"
+  },
+  {
+    "feed": "Michael Kennedy",
+    "title": "Cutting Python Web App Memory Over 31%",
+    "url": "https://mkennedy.codes/posts/cutting-python-web-app-memory-over-31-percent/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "Nvidia rolls out its fix for PC gaming's \"compiling shaders\" wait times",
+    "url": "https://arstechnica.com/gaming/2026/04/nvidias-new-app-lets-you-precompile-gaming-shaders-during-machine-idle-time/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "Here's what that Claude Code source leak reveals about Anthropic's plans",
+    "url": "https://arstechnica.com/ai/2026/04/heres-what-that-claude-code-source-leak-reveals-about-anthropics-plans/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "Research roundup: 7 cool science stories we almost missed",
+    "url": "https://arstechnica.com/science/2026/04/research-roundup-7-cool-science-stories-we-almost-missed-3/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "Did Nazis escape on a UFO? Dev who asked the question just built the official White House app.",
+    "url": "https://arstechnica.com/tech-policy/2026/04/official-white-house-app-developer-also-a-ufo-conspiracy-theorist/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "Musk loves Grok\u2019s \u201croasts.\u201d Swiss official sues in attempt to neuter them.",
+    "url": "https://arstechnica.com/tech-policy/2026/04/grok-degrades-women-with-vulgar-roasts-swiss-govt-officials-lawsuit-says/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "SpaceX finally files for IPO, targets $1.75 trillion valuation",
+    "url": "https://arstechnica.com/space/2026/04/spacex-finally-files-for-ipo-targets-1-75-trillion-valuation/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "Trump defunding of NPR and PBS blocked by judge, but damage is already done",
+    "url": "https://arstechnica.com/tech-policy/2026/04/trump-defunding-of-npr-and-pbs-blocked-by-judge-but-damage-is-already-done/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "A word from Editor Moonshark about Artemis II",
+    "url": "https://arstechnica.com/staff/2026/04/a-word-from-editor-moonshark-about-artemis-ii/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "Kia shows off small cars in NY: The 2027 EV3 and 2027 Seltos Hybrid",
+    "url": "https://arstechnica.com/cars/2026/04/kia-shows-off-small-cars-in-ny-the-2027-ev3-and-2027-seltos-hybrid/"
+  },
+  {
+    "feed": "Ars Technica",
+    "title": "LIGO data hints at supernovae so powerful they leave nothing behind",
+    "url": "https://arstechnica.com/science/2026/04/black-hole-mergers-put-limits-on-star-destroying-supernovae/"
+  }
+]
