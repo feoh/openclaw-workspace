@@ -178,7 +178,7 @@ def format_digest(clusters, limit=5):
         source_str = ", ".join(sources[:5])
         count = len(cluster["headlines"])
 
-        lines.append(f"{indicator} **{i}.** [{h['title']}]({h['url']})")
+        lines.append(f"{indicator} [{h['title']}]({h['url']})")
         lines.append(f"   {source_str} — {count} source{'s' if count != 1 else ''}\n")
 
     return "\n".join(lines)

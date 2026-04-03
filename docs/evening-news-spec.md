@@ -37,15 +37,19 @@ Balanced/Center: Reuters, AP, BBC, NPR, Washington Post, NY Times
 ```
 📰 Evening News Digest — 2026-03-31
 
-🟪 **1.** [Iran Ceasefire Talks Resume in Geneva](https://ap.org/...)
+🟪 [Iran Ceasefire Talks Resume in Geneva](https://ap.org/...)
    Reuters, AP, Fox News, CNN, BBC — 5 sources
 
-🟥 **2.** [Border Arrests Hit Record Low Under New Policy](https://foxnews.com/...)
+🟥 [Border Arrests Hit Record Low Under New Policy](https://foxnews.com/...)
    Fox News, Breitbart — 2 sources
 
-🟦 **3.** [Senate Democrats Block Budget Vote](https://cnn.com/...)
+🟦 [Senate Democrats Block Budget Vote](https://cnn.com/...)
    CNN, MSNBC, NPR — 3 sources
 ```
+
+## No numbers — intentional
+News articles are NOT numbered. "save #N" always refers to the RSS digest only.
+News articles are for reading, not saving to Linkding.
 
 ## Rules
 - **CHECK THIS FILE before making any changes to the evening news report**
