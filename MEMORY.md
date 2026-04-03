@@ -8,6 +8,11 @@
 - BTC and ETH added to morning stock+crypto check cron (6 AM EDT)
 - Memory maintenance cron created: Monday 9AM EDT
 
+## Post-restart protocol (established 2026-04-03)
+After every gateway restart, always send a "sign of life" to Discord:
+**"🦞 Back online — OpenClaw [version], model: claude-sonnet-4-6, session active."**
+Never leave Chris wondering if I came back up.
+
 ## Rate Limit Awareness (learned 2026-03-31)
 - Anthropic API has per-minute rate limits — blasting many calls at once (e.g. 8 cron updates + manual trigger + gateway restart in <2 min) will hit them
 - **Rule:** When doing bulk operations (multiple cron updates, batch API calls), spread them out or at minimum don't immediately trigger test runs right after
