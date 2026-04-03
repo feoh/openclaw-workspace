@@ -1,10 +1,21 @@
 # MEMORY.md — Long-Term Memory
 
+## This Week (2026-03-31 to 2026-04-03)
+- RSS deduplication rewritten: tracks shown URLs in `data/rss-shown-urls.json` (NOT per-feed last-seen)
+- RSS feeds now read from OPML only — `rss-feeds.opml` is single source of truth
+- StepSecurity Blog added to feeds (23 total)
+- Evening news: removed numbers — **"save #N" is RSS digest only, never news**
+- Evening news spec saved to `docs/evening-news-spec.md` — check before changing
+- Security audit completed: 0 criticals after fixes (Control UI origins, rate limiting, plugin pinned)
+- Stray SSH key `id_ed25519_chrisgloria` deleted from puppy
+- Post-restart sign-of-life protocol established
+- RSS save workflow fixed: `rss-save.py` uses cached `data/rss-last-digest.json` — numbers always match
+
 ## This Week (2026-03-23 to 2026-03-30)
 - Open Brain Memory System fully operational: PostgreSQL + pgvector + Ollama nomic-embed-text embeddings + 6 CRUD/health scripts + MCP server
 - RSS feeds expanded to 22 (added Nushell Blog, Lobsters)
-- **Critical fix noted**: rss-digest.py has HARDCODED feed list, does NOT read from OPML — must update script manually when adding feeds
-- News digest rewritten: 10 sources across 3 leanings (Conservative/Liberal/Balanced) + fact-check integration (PolitiFact + Snopes), concurrent fetching (~90s → ~15s)
+- **FIXED**: rss-digest.py now reads from OPML — no more hardcoded list
+- News digest rewritten: 10 sources across 3 leanings, concurrent fetching
 - BTC and ETH added to morning stock+crypto check cron (6 AM EDT)
 - Memory maintenance cron created: Monday 9AM EDT
 
