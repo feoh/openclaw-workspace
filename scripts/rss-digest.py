@@ -78,13 +78,18 @@ FILTER_PATTERNS = [
     r"\b(ev|electric vehicle|electric car|tesla|charging station|charging cable)\b",
 ]
 
-def should_skip(entry, saved_urls):
+def should_skip(entry, saved_urls, shown_urls=None):
     """Return True if entry should be filtered out."""
-    # Skip if already saved to Linkding
     entry_url = entry["url"].rstrip("/")
+
+    # Skip if already saved to Linkding
     if entry_url in saved_urls:
         return True
-    
+
+    # Skip if already shown in a previous digest
+    if shown_urls and entry_url in shown_urls:
+        return True
+
     # Filter Ars Technica EV articles
     if entry["feed"] == "Ars Technica":
         t = entry["title"].lower()
@@ -122,64 +127,40 @@ def parse_entry(entry, feed_title, blog_url):
     return {"title": title, "url": url, "date": dt, "feed": feed_title}
 
 
-STATE_FILE = "/home/feoh/.openclaw/workspace/rss-state.json"
+SHOWN_FILE = "/home/feoh/.openclaw/workspace/data/rss-shown-urls.json"
 
-def load_seen_state():
-    """Load per-feed last-seen entry IDs."""
-    if os.path.exists(STATE_FILE):
-        with open(STATE_FILE) as f:
-            return json.load(f).get("last_seen", {})
-    return {}
+def load_shown_urls():
+    """Load URLs that have already been shown in a digest."""
+    if os.path.exists(SHOWN_FILE):
+        with open(SHOWN_FILE) as f:
+            return set(json.load(f))
+    return set()
 
-def save_seen_state(seen):
-    """Save updated per-feed last-seen entry IDs."""
-    with open(STATE_FILE, "w") as f:
-        json.dump({"last_seen": seen}, f, indent=2)
+def save_shown_urls(shown):
+    """Save the set of URLs already shown."""
+    os.makedirs(os.path.dirname(SHOWN_FILE), exist_ok=True)
+    with open(SHOWN_FILE, "w") as f:
+        json.dump(sorted(shown), f, indent=2)
 
-def fetch_feeds(saved_urls=None):
-    """Fetch all feeds and return only NEW entries since last run."""
+def fetch_feeds(saved_urls=None, shown_urls=None):
+    """Fetch all feeds and return entries not yet shown to the user."""
     if saved_urls is None:
         saved_urls = set()
-    
-    seen = load_seen_state()
-    new_seen = dict(seen)  # copy to update
+    if shown_urls is None:
+        shown_urls = set()
+
     entries = []
 
     for feed_title, blog_url, feed_url in FEEDS:
         try:
             f = feedparser.parse(feed_url, agent="RSS-Digest/1.0")
-            last_seen_id = seen.get(feed_url)
-            feed_entries = []
-            new_last_id = None
-
             for entry in f.entries[:10]:
-                # Use entry id, link, or guid as unique identifier
-                entry_id = (getattr(entry, 'id', None) or
-                           getattr(entry, 'link', None) or
-                           getattr(entry, 'guid', None) or '')
-
-                # First entry is the newest — record as new last_seen
-                if new_last_id is None and entry_id:
-                    new_last_id = entry_id
-
-                # Stop when we hit the last seen entry
-                if entry_id and entry_id == last_seen_id:
-                    break
-
                 e = parse_entry(entry, feed_title, blog_url)
-                if e['title'] and not should_skip(e, saved_urls):
-                    feed_entries.append(e)
-
-            entries.extend(feed_entries)
-
-            # Update seen state to newest entry
-            if new_last_id:
-                new_seen[feed_url] = new_last_id
-
+                if e['title'] and not should_skip(e, saved_urls, shown_urls):
+                    entries.append(e)
         except Exception as e:
             print(f"Error fetching {feed_title}: {e}", file=sys.stderr)
-    
-    save_seen_state(new_seen)
+
     entries.sort(key=lambda x: x["date"] or datetime.min, reverse=True)
     return entries
 
@@ -211,22 +192,31 @@ if __name__ == "__main__":
     if not args.no_filter:
         saved_urls = get_saved_urls()
         print(f"Filtered {len(saved_urls)} already-saved URLs", file=sys.stderr)
-    
-    entries = fetch_feeds(saved_urls=saved_urls)
-    
+
+    # Load previously shown URLs
+    shown_urls = load_shown_urls()
+    print(f"Filtered {len(shown_urls)} already-shown URLs", file=sys.stderr)
+
+    entries = fetch_feeds(saved_urls=saved_urls, shown_urls=shown_urls)
+
     # Always save the numbered list to a fixed file so "save #N" commands work correctly
     LAST_DIGEST_FILE = "/home/feoh/.openclaw/workspace/data/rss-last-digest.json"
     os.makedirs(os.path.dirname(LAST_DIGEST_FILE), exist_ok=True)
-    numbered = [{"num": i, "title": e["title"], "url": e["url"], "feed": e["feed"]} 
+    numbered = [{"num": i, "title": e["title"], "url": e["url"], "feed": e["feed"]}
                 for i, e in enumerate(entries, 1)]
     with open(LAST_DIGEST_FILE, "w") as f:
         json.dump(numbered, f, default=str, indent=2)
-    
+
     if args.json:
         print(json.dumps(entries, default=str, indent=2))
     else:
         print(format_digest(entries, limit=args.limit))
-    
+
+    # Record shown URLs AFTER output — these won't appear in future digests
+    new_shown = shown_urls | {e["url"].rstrip("/") for e in entries}
+    save_shown_urls(new_shown)
+    print(f"Recorded {len(entries)} new URLs as shown ({len(new_shown)} total)", file=sys.stderr)
+
     if args.save:
         with open(args.save, "w") as f:
             json.dump(entries, f, default=str, indent=2)
