@@ -1,42 +1,62 @@
 [
   {
     "feed": "Terence Eden's Blog",
-    "title": "Book Review: Superintelligence - Paths, Dangers, Strategies by Nick Bostrom \u2605\u2605\u2605\u2605\u2bea",
-    "url": "https://shkspr.mobi/blog/2026/04/book-review-superintelligence-paths-dangers-strategies-by-nick-bostrom/"
-  },
-  {
-    "feed": "Simon Willison's Weblog",
-    "title": "Can JavaScript Escape a CSP Meta Tag Inside an Iframe?",
-    "url": "https://simonwillison.net/2026/Apr/3/test-csp-iframe-escape/#atom-everything"
-  },
-  {
-    "feed": "Simon Willison's Weblog",
-    "title": "The Axios supply chain attack used individually targeted social engineering",
-    "url": "https://simonwillison.net/2026/Apr/3/supply-chain-social-engineering/#atom-everything"
+    "title": "Welcome to RSS Club!",
+    "url": "https://shkspr.mobi/blog/2026/04/welcome-to-rss-club/"
   },
   {
     "feed": "Ars Technica",
-    "title": "Trump ignores biggest reasons his AI data center buildout is failing",
-    "url": "https://arstechnica.com/tech-policy/2026/04/sad-trumps-ai-data-center-push-is-failing-blame-his-own-tariffs/"
+    "title": "Tech companies are trying to neuter Colorado\u2019s landmark right-to-repair law",
+    "url": "https://arstechnica.com/tech-policy/2026/04/tech-companies-are-trying-to-neuter-colorados-landmark-right-to-repair-law/"
   },
   {
-    "feed": "Ars Technica",
-    "title": "OpenClaw gives users yet another reason to be freaked out about security",
-    "url": "https://arstechnica.com/security/2026/04/heres-why-its-prudent-for-openclaw-users-to-assume-compromise/"
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "Absurd In Production",
+    "url": "https://lucumr.pocoo.org/2026/4/4/absurd-in-production/"
   },
   {
-    "feed": "Ars Technica",
-    "title": "Netflix must refund customers for years of price hikes, Italian court rules",
-    "url": "https://arstechnica.com/gadgets/2026/04/netflix-ordered-to-refund-subscribers-up-to-e500-for-unlawful-price-hikes/"
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "Some Things Just Take Time",
+    "url": "https://lucumr.pocoo.org/2026/3/20/some-things-just-take-time/"
   },
   {
-    "feed": "Ars Technica",
-    "title": "EV adoption in America: Who's winning, who's losing?",
-    "url": "https://arstechnica.com/cars/2026/04/ev-adoption-in-america-whos-winning-whos-losing/"
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "AI And The Ship of Theseus",
+    "url": "https://lucumr.pocoo.org/2026/3/5/theseus/"
   },
   {
-    "feed": "Ars Technica",
-    "title": "OpenAI takes on another \"side quest,\" buys tech-focused talk show TBPN",
-    "url": "https://arstechnica.com/ai/2026/04/openai-takes-on-another-side-quest-buys-tech-focused-talk-show-tbpn/"
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "The Final Bottleneck",
+    "url": "https://lucumr.pocoo.org/2026/2/13/the-final-bottleneck/"
+  },
+  {
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "A Language For Agents",
+    "url": "https://lucumr.pocoo.org/2026/2/9/a-language-for-agents/"
+  },
+  {
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "Pi: The Minimal Agent Within OpenClaw",
+    "url": "https://lucumr.pocoo.org/2026/1/31/pi/"
+  },
+  {
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "Colin and Earendil",
+    "url": "https://lucumr.pocoo.org/2026/1/27/earendil/"
+  },
+  {
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "Agent Psychosis: Are We Going Insane?",
+    "url": "https://lucumr.pocoo.org/2026/1/18/agent-psychosis/"
+  },
+  {
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "Porting MiniJinja to Go With an Agent",
+    "url": "https://lucumr.pocoo.org/2026/1/14/minijinja-go-port/"
+  },
+  {
+    "feed": "Armin Ronacher's Thoughts and Writings",
+    "title": "Advent of Slop: A Guest Post by Claude",
+    "url": "https://lucumr.pocoo.org/2025/12/23/advent-of-slop/"
   }
 ]

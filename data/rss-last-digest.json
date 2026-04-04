@@ -1,542 +1,92 @@
 [
   {
     "num": 1,
-    "title": "10 Layers Deep: How StepSecurity Stops TeamPCP's Trivy Supply Chain Attack on GitHub Actions",
-    "url": "https://www.stepsecurity.io/blog/10-layers-deep-how-stepsecurity-stops-teampcps-trivy-supply-chain-attack-on-github-actions",
-    "feed": "StepSecurity Blog"
-  },
-  {
-    "num": 2,
-    "title": "Four astronauts are now inexorably bound for the Moon",
-    "url": "https://arstechnica.com/space/2026/04/four-astronauts-are-now-inexorably-bound-for-the-moon/",
-    "feed": "Ars Technica"
-  },
-  {
-    "num": 3,
-    "title": "Perplexity's \"Incognito Mode\" is a \"sham,\" lawsuit says",
-    "url": "https://arstechnica.com/tech-policy/2026/04/perplexitys-incognito-mode-is-a-sham-lawsuit-says/",
-    "feed": "Ars Technica"
-  },
-  {
-    "num": 4,
-    "title": "Highlights from my conversation about agentic engineering on Lenny's Podcast",
-    "url": "https://simonwillison.net/2026/Apr/2/lennys-podcast/#atom-everything",
+    "title": "Quoting Kyle Daigle",
+    "url": "https://simonwillison.net/2026/Apr/4/kyle-daigle/#atom-everything",
     "feed": "Simon Willison's Weblog"
   },
   {
+    "num": 2,
+    "title": "Vulnerability Research Is Cooked",
+    "url": "https://simonwillison.net/2026/Apr/3/vulnerability-research-is-cooked/#atom-everything",
+    "feed": "Simon Willison's Weblog"
+  },
+  {
+    "num": 3,
+    "title": "The cognitive impact of coding agents",
+    "url": "https://simonwillison.net/2026/Apr/3/cognitive-cost/#atom-everything",
+    "feed": "Simon Willison's Weblog"
+  },
+  {
+    "num": 4,
+    "title": "Trump proposes steep cut to NASA budget as astronauts head for the Moon",
+    "url": "https://arstechnica.com/space/2026/04/trump-proposes-steep-cut-to-nasa-budget-as-astronauts-head-for-the-moon/",
+    "feed": "Ars Technica"
+  },
+  {
     "num": 5,
-    "title": "SpaceX tries to convince FCC that Amazon put satellites into wrong altitude",
-    "url": "https://arstechnica.com/tech-policy/2026/04/spacex-claims-amazon-leo-launches-could-crash-into-starlink-satellites/",
+    "title": "Ice Age dice show early Native Americans may have understood probability",
+    "url": "https://arstechnica.com/science/2026/04/ice-age-dice-show-early-native-americans-may-have-understood-probability/",
     "feed": "Ars Technica"
   },
   {
     "num": 6,
-    "title": "Google Vids gets AI upgrade with Veo and Lyria models, directable AI avatars",
-    "url": "https://arstechnica.com/ai/2026/04/google-vids-gets-ai-upgrade-with-veo-and-lyria-models-directable-ai-avatars/",
+    "title": "As Artemis II zooms to the Moon, everything seems to be going swimmingly",
+    "url": "https://arstechnica.com/space/2026/04/as-artemis-ii-zooms-to-the-moon-everything-seems-to-be-going-swimmingly/",
     "feed": "Ars Technica"
   },
   {
     "num": 7,
-    "title": "Male octopuses guided through mating by female hormones",
-    "url": "https://arstechnica.com/science/2026/04/male-octopuses-guided-through-mating-by-female-hormones/",
-    "feed": "Ars Technica"
+    "title": "Quoting Willy Tarreau",
+    "url": "https://simonwillison.net/2026/Apr/3/willy-tarreau/#atom-everything",
+    "feed": "Simon Willison's Weblog"
   },
   {
     "num": 8,
-    "title": "Gemma 4: Byte for byte, the most capable open models",
-    "url": "https://simonwillison.net/2026/Apr/2/gemma-4/#atom-everything",
+    "title": "Quoting Daniel Stenberg",
+    "url": "https://simonwillison.net/2026/Apr/3/daniel-stenberg/#atom-everything",
     "feed": "Simon Willison's Weblog"
   },
   {
     "num": 9,
-    "title": "llm-gemini 0.30",
-    "url": "https://simonwillison.net/2026/Apr/2/llm-gemini/#atom-everything",
+    "title": "Quoting Greg Kroah-Hartman",
+    "url": "https://simonwillison.net/2026/Apr/3/greg-kroah-hartman/#atom-everything",
     "feed": "Simon Willison's Weblog"
   },
   {
     "num": 10,
-    "title": "New fossil deposits show complex animal groups predating the Cambrian",
-    "url": "https://arstechnica.com/science/2026/04/new-fossil-deposits-show-complex-animal-groups-predating-the-cambrian/",
+    "title": "Elon Musk insists banks working on SpaceX IPO must buy Grok subscriptions",
+    "url": "https://arstechnica.com/tech-policy/2026/04/elon-musk-insists-banks-working-on-spacex-ipo-must-buy-grok-subscriptions/",
     "feed": "Ars Technica"
   },
   {
     "num": 11,
-    "title": "New Rowhammer attacks give complete control of machines running Nvidia GPUs",
-    "url": "https://arstechnica.com/security/2026/04/new-rowhammer-attacks-give-complete-control-of-machines-running-nvidia-gpus/",
+    "title": "\"Cognitive surrender\" leads AI users to abandon logical thinking, research finds",
+    "url": "https://arstechnica.com/ai/2026/04/research-finds-ai-users-scarily-willing-to-surrender-their-cognition-to-llms/",
     "feed": "Ars Technica"
   },
   {
     "num": 12,
-    "title": "Renewables dominate 2025's newly installed generating capacity",
-    "url": "https://arstechnica.com/science/2026/04/globally-86-percent-of-the-new-generating-capacity-was-renewable-in-2025/",
-    "feed": "Ars Technica"
+    "title": "Can JavaScript Escape a CSP Meta Tag Inside an Iframe?",
+    "url": "https://simonwillison.net/2026/Apr/3/test-csp-iframe-escape/#atom-everything",
+    "feed": "Simon Willison's Weblog"
   },
   {
     "num": 13,
-    "title": "Google announces Gemma 4 open AI models, switches to Apache 2.0 license",
-    "url": "https://arstechnica.com/ai/2026/04/google-announces-gemma-4-open-ai-models-switches-to-apache-2-0-license/",
+    "title": "OpenAI takes on another \"side quest,\" buys tech-focused talk show TBPN",
+    "url": "https://arstechnica.com/ai/2026/04/openai-takes-on-another-side-quest-buys-tech-focused-talk-show-tbpn/",
     "feed": "Ars Technica"
   },
   {
     "num": 14,
-    "title": "This Ford is the quickest production car at the N\u00fcrburgring, ever",
-    "url": "https://arstechnica.com/cars/2026/04/a-production-ford-sets-third-fastest-time-ever-at-the-nurburgring/",
-    "feed": "Ars Technica"
+    "title": "Book Review: Superintelligence - Paths, Dangers, Strategies by Nick Bostrom \u2605\u2605\u2605\u2605\u2bea",
+    "url": "https://shkspr.mobi/blog/2026/04/book-review-superintelligence-paths-dangers-strategies-by-nick-bostrom/",
+    "feed": "Terence Eden's Blog"
   },
   {
     "num": 15,
-    "title": "Every dependency you add is a supply chain attack waiting to happen",
-    "url": "https://benhoyt.com/writings/dependencies/",
+    "title": "I used AI. It worked. I hated it",
+    "url": "https://taggart-tech.com/reckoning/",
     "feed": "Lobsters"
-  },
-  {
-    "num": 16,
-    "title": "Concert Review: London Philharmonic - Pictures at an Exhibition \u2605\u2605\u2605\u2605\u2605",
-    "url": "https://shkspr.mobi/blog/2026/04/concert-review-london-philharmonic-pictures-at-an-exhibition/",
-    "feed": "Terence Eden's Blog"
-  },
-  {
-    "num": 17,
-    "title": "Malicious IoliteLabs VSCode Extensions Target Solidity Developers on Windows, macOS, and Linux with Backdoor",
-    "url": "https://www.stepsecurity.io/blog/malicious-iolitelabs-vscode-extensions-target-solidity-developers-on-windows-macos-and-linux-with-backdoor",
-    "feed": "StepSecurity Blog"
-  },
-  {
-    "num": 18,
-    "title": "TeamPCP Plants WAV Steganography Credential Stealer in telnyx PyPI Package",
-    "url": "https://www.stepsecurity.io/blog/teampcp-plants-wav-steganography-credential-stealer-in-telnyx-pypi-package",
-    "feed": "StepSecurity Blog"
-  },
-  {
-    "num": 19,
-    "title": "March 2026 sponsors-only newsletter",
-    "url": "https://simonwillison.net/2026/Apr/2/march-newsletter/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 20,
-    "title": "datasette-llm 0.1a6",
-    "url": "https://simonwillison.net/2026/Apr/1/datasette-llm-2/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 21,
-    "title": "What Would You See Changed in Haskell?",
-    "url": "https://blog.haskell.org/what-would-you-see-changed-in-haskell/",
-    "feed": "Lobsters"
-  },
-  {
-    "num": 22,
-    "title": "Random File Format",
-    "url": "https://shkspr.mobi/blog/2026/04/random-file-format/",
-    "feed": "Terence Eden's Blog"
-  },
-  {
-    "num": 23,
-    "title": "The Self-Cancelling Subscription",
-    "url": "https://predr.ag/blog/the-self-cancelling-subscription/",
-    "feed": "Lobsters"
-  },
-  {
-    "num": 24,
-    "title": "datasette-extract 0.3a0",
-    "url": "https://simonwillison.net/2026/Apr/1/datasette-extract/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 25,
-    "title": "datasette-enrichments-llm 0.2a0",
-    "url": "https://simonwillison.net/2026/Apr/1/datasette-enrichments-llm/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 26,
-    "title": "datasette-llm-usage 0.2a0",
-    "url": "https://simonwillison.net/2026/Apr/1/datasette-llm-usage/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 27,
-    "title": "datasette-llm 0.1a5",
-    "url": "https://simonwillison.net/2026/Apr/1/datasette-llm/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 28,
-    "title": "This week in Nushell #340",
-    "url": "https://www.nushell.sh/blog/2026-02-27-twin0340.html",
-    "feed": "Nushell Blog"
-  },
-  {
-    "num": 29,
-    "title": "This week in Nushell #339",
-    "url": "https://www.nushell.sh/blog/2026-02-20-twin0339.html",
-    "feed": "Nushell Blog"
-  },
-  {
-    "num": 30,
-    "title": "This week in Nushell #338",
-    "url": "https://www.nushell.sh/blog/2026-02-13-twin0338.html",
-    "feed": "Nushell Blog"
-  },
-  {
-    "num": 31,
-    "title": "This week in Nushell #337",
-    "url": "https://www.nushell.sh/blog/2026-02-06-twin0337.html",
-    "feed": "Nushell Blog"
-  },
-  {
-    "num": 32,
-    "title": "This week in Nushell #336",
-    "url": "https://www.nushell.sh/blog/2026-01-30-twin0336.html",
-    "feed": "Nushell Blog"
-  },
-  {
-    "num": 33,
-    "title": "Gig Review: Vitamin String Quartet at The Barbican \u2605\u2605\u2605\u2605\u2605",
-    "url": "https://shkspr.mobi/blog/2026/03/gig-review-vitamin-string-quartet-at-the-barbican/",
-    "feed": "Terence Eden's Blog"
-  },
-  {
-    "num": 34,
-    "title": "Okapi, or \u201cWhat if ripgrep Could Edit?\u201d",
-    "url": "https://kocharhook.com/post/6/",
-    "feed": "Lobsters"
-  },
-  {
-    "num": 35,
-    "title": "The Cognitive Dark Forest",
-    "url": "https://ryelang.org/blog/posts/cognitive-dark-forest/",
-    "feed": "Lobsters"
-  },
-  {
-    "num": 36,
-    "title": "litellm: Credential Stealer Hidden in PyPI Wheel",
-    "url": "https://www.stepsecurity.io/blog/litellm-credential-stealer-hidden-in-pypi-wheel",
-    "feed": "StepSecurity Blog"
-  },
-  {
-    "num": 37,
-    "title": "Checkmarx KICS GitHub Action Compromised: Malware Injected in All Git Tags",
-    "url": "https://www.stepsecurity.io/blog/checkmarx-kics-github-action-compromised-malware-injected-in-all-git-tags",
-    "feed": "StepSecurity Blog"
-  },
-  {
-    "num": 38,
-    "title": "CanisterWorm: How a Self-Propagating npm Worm Is Spreading Backdoors Across the Ecosystem",
-    "url": "https://www.stepsecurity.io/blog/canisterworm-how-a-self-propagating-npm-worm-is-spreading-backdoors-across-the-ecosystem",
-    "feed": "StepSecurity Blog"
-  },
-  {
-    "num": 39,
-    "title": "Trivy Compromised a Second Time - Malicious v0.69.4 Release, aquasecurity/setup-trivy, aquasecurity/trivy-action GitHub Actions Compromised",
-    "url": "https://www.stepsecurity.io/blog/trivy-compromised-a-second-time---malicious-v0-69-4-release",
-    "feed": "StepSecurity Blog"
-  },
-  {
-    "num": 40,
-    "title": "bittensor-wallet 4.0.2 Compromised on PyPI - Backdoor Exfiltrates Private Keys",
-    "url": "https://www.stepsecurity.io/blog/bittensor-wallet-4-0-2-compromised-on-pypi---backdoor-exfiltrates-private-keys",
-    "feed": "StepSecurity Blog"
-  },
-  {
-    "num": 41,
-    "title": "Malicious npm Releases Found in Popular React Native Packages - 130K+ Monthly Downloads Compromised",
-    "url": "https://www.stepsecurity.io/blog/malicious-npm-releases-found-in-popular-react-native-packages---130k-monthly-downloads-compromised",
-    "feed": "StepSecurity Blog"
-  },
-  {
-    "num": 42,
-    "title": "Fuji Do Reports",
-    "url": "https://unfinishedbitness.info/2026/03/25/fuji-do-reports/",
-    "feed": "Unfinished Bitness"
-  },
-  {
-    "num": 43,
-    "title": "I'm OK being left behind, thanks!",
-    "url": "https://shkspr.mobi/blog/2026/03/im-ok-being-left-behind-thanks/",
-    "feed": "Terence Eden's Blog"
-  },
-  {
-    "num": 44,
-    "title": "Finding the right Bottom Hole paper",
-    "url": "https://shkspr.mobi/blog/2026/03/finding-the-right-bottom-hole-paper/",
-    "feed": "Terence Eden's Blog"
-  },
-  {
-    "num": 45,
-    "title": "Some updates to ActivityBot",
-    "url": "https://shkspr.mobi/blog/2026/03/some-updates-to-activitybot/",
-    "feed": "Terence Eden's Blog"
-  },
-  {
-    "num": 46,
-    "title": "Small Web Just Got Bigger",
-    "url": "https://blog.kagi.com/small-web-updates",
-    "feed": "Kagi Blog"
-  },
-  {
-    "num": 47,
-    "title": "State of WASI support for CPython: March 2026",
-    "url": "https://snarky.ca/state-of-wasi-support-for-cpython-march-2026/",
-    "feed": "Tall, Snarky Canadian"
-  },
-  {
-    "num": 48,
-    "title": "Pytest parameter functions",
-    "url": "https://nedbatchelder.com/blog/202602/pytest_parameter_functions",
-    "feed": "Ned Batchelder's blog"
-  },
-  {
-    "num": 49,
-    "title": "CLI subcommands with lazy imports",
-    "url": "https://snarky.ca/subcommands-with-lazy-imports/",
-    "feed": "Tall, Snarky Canadian"
-  },
-  {
-    "num": 50,
-    "title": "A8 C Library v1.60",
-    "url": "https://unfinishedbitness.info/2026/02/21/a8-c-library-v1-60/",
-    "feed": "Unfinished Bitness"
-  },
-  {
-    "num": 51,
-    "title": "One Click Atari!",
-    "url": "https://unfinishedbitness.info/2026/02/15/one-click-atari/",
-    "feed": "Unfinished Bitness"
-  },
-  {
-    "num": 52,
-    "title": "Dr. Love",
-    "url": "https://unfinishedbitness.info/2026/02/13/dr-love/",
-    "feed": "Unfinished Bitness"
-  },
-  {
-    "num": 53,
-    "title": "Kagi Translate Arrives on Mobile",
-    "url": "https://blog.kagi.com/kagi-translate-mobile",
-    "feed": "Kagi Blog"
-  },
-  {
-    "num": 54,
-    "title": "We moved to Manila!",
-    "url": "https://daniel.feldroy.com/posts/2026-02-we-moved-to-manila",
-    "feed": "Inside the head of Daniel Roy Greenfeld"
-  },
-  {
-    "num": 55,
-    "title": "Mr. Paint",
-    "url": "https://unfinishedbitness.info/2026/02/01/mr-paint/",
-    "feed": "Unfinished Bitness"
-  },
-  {
-    "num": 56,
-    "title": "A testing conundrum",
-    "url": "https://nedbatchelder.com/blog/202512/a_testing_conundrum",
-    "feed": "Ned Batchelder's blog"
-  },
-  {
-    "num": 57,
-    "title": "Orion 1.0 \u2734\ufe0e Browse Beyond",
-    "url": "https://blog.kagi.com/orion",
-    "feed": "Kagi Blog"
-  },
-  {
-    "num": 58,
-    "title": "Kagi Hub Belgrade: A home base for Kagi members worldwide",
-    "url": "https://blog.kagi.com/kagi-hub",
-    "feed": "Kagi Blog"
-  },
-  {
-    "num": 59,
-    "title": "Introducing Kagi Assistants",
-    "url": "https://blog.kagi.com/kagi-assistants",
-    "feed": "Kagi Blog"
-  },
-  {
-    "num": 60,
-    "title": "New Short Fiction for 2025",
-    "url": "https://johnpmurphy.net/2025/11/19/new-short-fiction-for-2025/",
-    "feed": "John P. Murphy"
-  },
-  {
-    "num": 61,
-    "title": "Autism Adulthood, 3rd edition",
-    "url": "https://nedbatchelder.com/blog/202511/autism_adulthood_3rd_edition",
-    "feed": "Ned Batchelder's blog"
-  },
-  {
-    "num": 62,
-    "title": "Why it took 4 years to get a lock files specification",
-    "url": "https://snarky.ca/why-it-took-4-years-to-get-a-lock-files-specification/",
-    "feed": "Tall, Snarky Canadian"
-  },
-  {
-    "num": 63,
-    "title": "Introducing Kagi News",
-    "url": "https://blog.kagi.com/kagi-news",
-    "feed": "Kagi Blog"
-  },
-  {
-    "num": 64,
-    "title": "Building a Better Web Takes a Village: Introducing Kagi Specials",
-    "url": "https://blog.kagi.com/kagi-specials",
-    "feed": "Kagi Blog"
-  },
-  {
-    "num": 65,
-    "title": "FujiNet-PC for Atari800 Emulator",
-    "url": "https://fujinet.online/2025/06/24/fujinet-pc-for-atari800-emulator/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 66,
-    "title": "Unravelling t-strings",
-    "url": "https://snarky.ca/unravelling-t-strings/",
-    "feed": "Tall, Snarky Canadian"
-  },
-  {
-    "num": 67,
-    "title": "FujiNet Firmware 1.5 Released!",
-    "url": "https://fujinet.online/2025/04/02/fujinet-firmware-1-5-released/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 68,
-    "title": "FujiNet at VCF East Apr. 4-6",
-    "url": "https://fujinet.online/2025/04/02/fujinet-at-vcf-east-apr-4-6/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 69,
-    "title": "Why I won't be attending PyCon US this year",
-    "url": "https://snarky.ca/why-i-wont-be-attending-pycon-us-this-year/",
-    "feed": "Tall, Snarky Canadian"
-  },
-  {
-    "num": 70,
-    "title": "[Developers] When Doing HTTP GET, use Mode 12 !",
-    "url": "https://fujinet.online/2025/02/23/developers-when-doing-http-get-use-mode-12/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 71,
-    "title": "[ATARI] Why the N tools?",
-    "url": "https://fujinet.online/2025/02/21/atari-why-the-n-tools/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 72,
-    "title": "Burst Mode",
-    "url": "https://fujinet.online/2025/02/14/burst-mode/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 73,
-    "title": "ATARI NDEV.COM Update \u2013 2025-02-14",
-    "url": "https://fujinet.online/2025/02/14/atari-ndev-com-update-2025-02-14/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 74,
-    "title": "Programming for the IBM PC FujiNet",
-    "url": "https://fujinet.online/2025/02/01/programming-for-the-ibm-pc-fujinet/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 75,
-    "title": "For ATARI users: How to create your own SpartaDOS X Cartridge + FujiNet Tools (using SIDE3 as an example.)",
-    "url": "https://fujinet.online/2025/01/29/for-atari-users-how-to-create-your-own-spartados-x-cartridge-fujinet-tools-using-side3-as-an-example/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 76,
-    "title": "ATARI: SpartaDOS X 4.50 ROM for Ultimate 1MB with FujiNet tools.",
-    "url": "https://fujinet.online/2025/01/28/atari-spartados-x-4-50-rom-for-ultimate-1mb-with-fujinet-tools/",
-    "feed": "Fujinet News"
-  },
-  {
-    "num": 77,
-    "title": "My impressions of Gleam",
-    "url": "https://snarky.ca/my-impressions-of-gleam/",
-    "feed": "Tall, Snarky Canadian"
-  },
-  {
-    "num": 78,
-    "title": "What the PSF Conduct WG does",
-    "url": "https://snarky.ca/what-the-psf-conduct-wg-does/",
-    "feed": "Tall, Snarky Canadian"
-  },
-  {
-    "num": 79,
-    "title": "The Woman Who Kicked Me Out of the Country",
-    "url": "https://johnpmurphy.net/2024/08/18/the-woman-who-kicked-me-out-of-the-country/",
-    "feed": "John P. Murphy"
-  },
-  {
-    "num": 80,
-    "title": "How I Beta Read",
-    "url": "https://johnpmurphy.net/2024/07/22/how-i-beta-read/",
-    "feed": "John P. Murphy"
-  },
-  {
-    "num": 81,
-    "title": "Readercon Schedule, and What\u2019s New",
-    "url": "https://johnpmurphy.net/2024/07/04/readercon-schedule-and-whats-new/",
-    "feed": "John P. Murphy"
-  },
-  {
-    "num": 82,
-    "title": "An Electromagnetic Force",
-    "url": "https://www.aeracode.org/2024/06/05/emf-2024/",
-    "feed": "Aeracode"
-  },
-  {
-    "num": 83,
-    "title": "Boskone 2024 Schedule",
-    "url": "https://johnpmurphy.net/2024/01/28/boskone-2024-schedule/",
-    "feed": "John P. Murphy"
-  },
-  {
-    "num": 84,
-    "title": "\u201cGetting the \u2018Cyber\u2019 Part Right\u201d Link Roundup",
-    "url": "https://johnpmurphy.net/2022/09/07/getting-the-cyber-part-right-link-roundup/",
-    "feed": "John P. Murphy"
-  },
-  {
-    "num": 85,
-    "title": "Worldcon Schedule",
-    "url": "https://johnpmurphy.net/2022/08/13/worldcon-schedule/",
-    "feed": "John P. Murphy"
-  },
-  {
-    "num": 86,
-    "title": "U+: pretty Unicode code point literals for Rust",
-    "url": "https://chrismorgan.info/blog/U+/",
-    "feed": "Chris Morgan's blog"
-  },
-  {
-    "num": 87,
-    "title": "The Beggar Barons",
-    "url": "https://zedshaw.com/blog/2022-02-05-the-beggar-barons/",
-    "feed": "Zed A. Shaw"
-  },
-  {
-    "num": 88,
-    "title": "A Murder a Day",
-    "url": "https://johnpmurphy.net/2022/01/11/a-murder-a-day/",
-    "feed": "John P. Murphy"
-  },
-  {
-    "num": 89,
-    "title": "The Restaurant That Wasn\u2019t There",
-    "url": "https://johnpmurphy.net/2021/12/14/the-restaurant-that-wasnt-there/",
-    "feed": "John P. Murphy"
-  },
-  {
-    "num": 90,
-    "title": "Welcome Manchester Library Fans!",
-    "url": "https://johnpmurphy.net/2021/04/07/welcome-manchester-library-fans/",
-    "feed": "John P. Murphy"
   }
 ]
