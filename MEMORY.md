@@ -1,5 +1,10 @@
 # MEMORY.md — Long-Term Memory
 
+## This Week (2026-04-04)
+- Guido van Rossum website monitor: daily check, `scripts/web-change-tracker.py` (reusable)
+- Goodreads activity monitor: every 4h, posts 📚 updates to Discord (NOT in OPML)
+- Chris's Goodreads: https://www.goodreads.com/user/show/799620-christopher-patti
+
 ## This Week (2026-03-31 to 2026-04-03)
 - RSS deduplication rewritten: tracks shown URLs in `data/rss-shown-urls.json` (NOT per-feed last-seen)
 - RSS feeds now read from OPML only — `rss-feeds.opml` is single source of truth
