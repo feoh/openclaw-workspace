@@ -37,7 +37,6 @@
  <outline title="Lobsters" text="Lobsters" xmlUrl="https://lobste.rs/top.rss" htmlUrl="https://lobste.rs/" type="rss" />
  <outline title="Zed A. Shaw" text="Zed A. Shaw" xmlUrl="https://zedshaw.com/feed.atom" htmlUrl="https://zedshaw.com/" type="rss" />
  <outline title="StepSecurity Blog" text="StepSecurity Blog" xmlUrl="https://www.stepsecurity.io/blog/rss.xml" htmlUrl="https://www.stepsecurity.io/blog" type="rss" />
- <outline title="Goodreads — Christopher" text="Goodreads — Christopher" xmlUrl="https://www.goodreads.com/user/updates_rss/799620" htmlUrl="https://www.goodreads.com/user/show/799620-christopher-patti" type="rss" />
  </outline>
  </body>
 </opml>
