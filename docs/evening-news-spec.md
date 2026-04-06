@@ -18,7 +18,7 @@ Cross-spectrum stories (🟪) are particularly notable — if both sides are cov
 it's probably important.
 
 ## Sources
-Conservative: Fox News, Breitbart
+Conservative: Fox News, Breitbart, Newsmax
 Liberal: CNN, MSNBC
 Balanced/Center: Reuters, AP, BBC, NPR, Washington Post, NY Times
 
