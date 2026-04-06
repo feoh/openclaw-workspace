@@ -1,5 +1,11 @@
 # MEMORY.md — Long-Term Memory
 
+## This Week (2026-04-06)
+- Model locked in: **anthropic/claude-sonnet-4-6** — Chris tested Qwen2.5 7B locally, decided to stay with Claude. Do NOT switch to Qwen or local models.
+- RSS Feed Checker cron now uses `rss-digest.py` (same as morning digest) — both write to `data/rss-last-digest.json`, so "save #N" always matches the most recently delivered digest regardless of which cron ran
+- Armin Ronacher's blog added to OPML → **24 feeds total**
+- Anthropic 529 overload errors: known issue, surfaced to user rather than silently retried. Chris is on paid plan. Feature request raised with OpenClaw devs for retry-with-backoff.
+
 ## This Week (2026-04-04)
 - Guido van Rossum website monitor: daily check, `scripts/web-change-tracker.py` (reusable)
 - Goodreads activity monitor: every 4h, posts 📚 updates to Discord (NOT in OPML)
