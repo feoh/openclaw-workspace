@@ -1,92 +1,50 @@
 [
   {
     "num": 1,
-    "title": "Quoting Kyle Daigle",
-    "url": "https://simonwillison.net/2026/Apr/4/kyle-daigle/#atom-everything",
-    "feed": "Simon Willison's Weblog"
+    "title": "Behind the Scenes: How StepSecurity Detected and Helped Remediate the Largest npm Supply Chain Attack",
+    "url": "https://www.stepsecurity.io/blog/behind-the-scenes-how-stepsecurity-detected-and-helped-remediate-the-largest-npm-supply-chain-attack",
+    "feed": "StepSecurity Blog"
   },
   {
     "num": 2,
-    "title": "Vulnerability Research Is Cooked",
-    "url": "https://simonwillison.net/2026/Apr/3/vulnerability-research-is-cooked/#atom-everything",
-    "feed": "Simon Willison's Weblog"
+    "title": "NASA's Moon ship and rocket seem to be working well, so what about the landers?",
+    "url": "https://arstechnica.com/space/2026/04/nasas-moon-ship-and-rocket-seem-to-be-working-well-so-what-about-the-landers/",
+    "feed": "Ars Technica"
   },
   {
     "num": 3,
-    "title": "The cognitive impact of coding agents",
-    "url": "https://simonwillison.net/2026/Apr/3/cognitive-cost/#atom-everything",
-    "feed": "Simon Willison's Weblog"
+    "title": "Teardown of unreleased LG Rollable shows why rollable phones aren't a thing",
+    "url": "https://arstechnica.com/gadgets/2026/04/teardown-of-unreleased-lg-rollable-shows-why-rollable-phones-arent-a-thing/",
+    "feed": "Ars Technica"
   },
   {
     "num": 4,
-    "title": "Trump proposes steep cut to NASA budget as astronauts head for the Moon",
-    "url": "https://arstechnica.com/space/2026/04/trump-proposes-steep-cut-to-nasa-budget-as-astronauts-head-for-the-moon/",
+    "title": "Why will today's lunar flyby only beam back low-resolution video?",
+    "url": "https://arstechnica.com/space/2026/04/video-from-artemis-ii-flyby-of-the-moon-will-not-initially-look-spectacular/",
     "feed": "Ars Technica"
   },
   {
     "num": 5,
-    "title": "Ice Age dice show early Native Americans may have understood probability",
-    "url": "https://arstechnica.com/science/2026/04/ice-age-dice-show-early-native-americans-may-have-understood-probability/",
+    "title": "What Memento reveals about human nature, 25 years later",
+    "url": "https://arstechnica.com/culture/2026/04/memento-turns-25/",
     "feed": "Ars Technica"
   },
   {
     "num": 6,
-    "title": "As Artemis II zooms to the Moon, everything seems to be going swimmingly",
-    "url": "https://arstechnica.com/space/2026/04/as-artemis-ii-zooms-to-the-moon-everything-seems-to-be-going-swimmingly/",
-    "feed": "Ars Technica"
-  },
-  {
-    "num": 7,
-    "title": "Quoting Willy Tarreau",
-    "url": "https://simonwillison.net/2026/Apr/3/willy-tarreau/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 8,
-    "title": "Quoting Daniel Stenberg",
-    "url": "https://simonwillison.net/2026/Apr/3/daniel-stenberg/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 9,
-    "title": "Quoting Greg Kroah-Hartman",
-    "url": "https://simonwillison.net/2026/Apr/3/greg-kroah-hartman/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 10,
-    "title": "Elon Musk insists banks working on SpaceX IPO must buy Grok subscriptions",
-    "url": "https://arstechnica.com/tech-policy/2026/04/elon-musk-insists-banks-working-on-spacex-ipo-must-buy-grok-subscriptions/",
-    "feed": "Ars Technica"
-  },
-  {
-    "num": 11,
-    "title": "\"Cognitive surrender\" leads AI users to abandon logical thinking, research finds",
-    "url": "https://arstechnica.com/ai/2026/04/research-finds-ai-users-scarily-willing-to-surrender-their-cognition-to-llms/",
-    "feed": "Ars Technica"
-  },
-  {
-    "num": 12,
-    "title": "Can JavaScript Escape a CSP Meta Tag Inside an Iframe?",
-    "url": "https://simonwillison.net/2026/Apr/3/test-csp-iframe-escape/#atom-everything",
-    "feed": "Simon Willison's Weblog"
-  },
-  {
-    "num": 13,
-    "title": "OpenAI takes on another \"side quest,\" buys tech-focused talk show TBPN",
-    "url": "https://arstechnica.com/ai/2026/04/openai-takes-on-another-side-quest-buys-tech-focused-talk-show-tbpn/",
-    "feed": "Ars Technica"
-  },
-  {
-    "num": 14,
-    "title": "Book Review: Superintelligence - Paths, Dangers, Strategies by Nick Bostrom \u2605\u2605\u2605\u2605\u2bea",
-    "url": "https://shkspr.mobi/blog/2026/04/book-review-superintelligence-paths-dangers-strategies-by-nick-bostrom/",
+    "title": "[RSS Club] Banana for scale",
+    "url": "https://shkspr.mobi/blog/2026/04/rss-club-banana-for-scale/",
     "feed": "Terence Eden's Blog"
   },
   {
-    "num": 15,
-    "title": "I used AI. It worked. I hated it",
-    "url": "https://taggart-tech.com/reckoning/",
+    "num": 7,
+    "title": "Stamp It! All Programs Must Report Their Version",
+    "url": "https://michael.stapelberg.ch/posts/2026-04-05-stamp-it-all-programs-must-report-their-version/",
+    "feed": "Lobsters"
+  },
+  {
+    "num": 8,
+    "title": "Eight years of wanting, three months of building with AI",
+    "url": "https://lalitm.com/post/building-syntaqlite-ai/",
     "feed": "Lobsters"
   }
 ]
