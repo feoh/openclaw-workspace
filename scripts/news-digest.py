@@ -23,6 +23,8 @@ SOURCES = {
     "fox_news":    {"name": "Fox News",        "feed": "https://feeds.foxnews.com/foxnews/latest",                                  "leaning": "conservative"},
     "breitbart":   {"name": "Breitbart",        "feed": "https://feeds.feedburner.com/breitbart",                                    "leaning": "conservative"},
     "newsmax":     {"name": "Newsmax",          "feed": "https://www.newsmax.com/rss/news/1",                                        "leaning": "conservative"},
+    "aljazeera":   {"name": "Al Jazeera",       "feed": "https://www.aljazeera.com/xml/rss/all.xml",                                "leaning": "center"},
+    "haaretz":     {"name": "Haaretz",          "feed": "https://www.haaretz.com/srv/all-headlines-rss",                            "leaning": "center"},
     "cnn":         {"name": "CNN",              "feed": "http://rss.cnn.com/rss/edition.rss",                                        "leaning": "liberal"},
     "nbcnews":     {"name": "NBC News",         "feed": "https://feeds.nbcnews.com/nbcnews/public/news",                             "leaning": "liberal"},
     "thehill":     {"name": "The Hill",         "feed": "https://thehill.com/news/feed/",                                            "leaning": "center"},

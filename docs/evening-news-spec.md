@@ -20,7 +20,7 @@ it's probably important.
 ## Sources
 Conservative: Fox News, Breitbart, Newsmax
 Liberal: CNN, MSNBC
-Balanced/Center: Reuters, AP, BBC, NPR, Washington Post, NY Times
+Balanced/Center: BBC, NPR, The Hill, Politico, Washington Post, NY Times, Al Jazeera, Haaretz
 
 ## Story Selection Logic
 1. Fetch top 5 headlines from each source
