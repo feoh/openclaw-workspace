@@ -28,6 +28,14 @@ The backup script copies these files/directories from the workspace when present
 
 It also writes a `MANIFEST.txt` file into each backup directory.
 
+In addition, the script attempts a compressed PostgreSQL dump of the Open Brain database:
+
+- `postgres-openclaw-YYYYMMDDTHHMMSSZ.sql.gz`
+
+The database dump is written directly under:
+
+- `/nas/container_configs/openclaw`
+
 ## Script
 
 Backup script location:
@@ -57,8 +65,9 @@ Meaning:
 Backups are stored like:
 
 - `/nas/container_configs/openclaw/critical-state-YYYYMMDDTHHMMSSZ`
+- `/nas/container_configs/openclaw/postgres-openclaw-YYYYMMDDTHHMMSSZ.sql.gz`
 
-After each run, the script keeps the **newest 3** backup directories and removes older ones.
+After each run, the script keeps the **newest 3** backup directories and the **newest 3** database dumps, removing older ones.
 
 ## Logs
 
@@ -85,4 +94,4 @@ ls -1dt /nas/container_configs/openclaw/critical-state-*
 
 ## Security Note
 
-The backup includes `.env` and the workspace SSH keypair when present. That means secrets and private keys may be copied into the NAS backup set. This is intentional for disaster recovery, but access to `/nas/container_configs/openclaw` should be treated as highly sensitive.
+The backup includes `.env`, the workspace SSH keypair, and a PostgreSQL dump when available. That means secrets, private keys, and database contents may be copied into the NAS backup set. This is intentional for disaster recovery, but access to `/nas/container_configs/openclaw` should be treated as highly sensitive.
