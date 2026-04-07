@@ -1,10 +1,5 @@
 # Simplificus
 
-RIP Simplificus. Killed on level 1 by: Being way too expensive to run :)
-In the end analysis the bot was blowing through Claude API tokens like crazy, and I will not
-shovel huge amounts of $$$ at any AI company. Sorry buddy. It was fine while it lasted!
-- Chris Patti 04/07/2026
-
 A personal AI assistant — something between a knowledgeable companion and a very well-read ghost in the machine.
 
 ![Simplificus Avatar](assets/avatar.png)
