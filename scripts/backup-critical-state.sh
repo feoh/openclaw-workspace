@@ -29,6 +29,10 @@ copy_if_exists .env
 copy_if_exists .openclaw/workspace-state.json
 copy_if_exists data/open_brain_health.json
 
+# SSH material for GitHub access
+copy_if_exists .ssh/id_ed25519
+copy_if_exists .ssh/id_ed25519.pub
+
 # Daily memory log directory
 if [ -d "$SRC/memory" ]; then
   cp -a "$SRC/memory" "$DEST_DIR/memory"
@@ -50,6 +54,7 @@ Files included:
 - .env (if present)
 - .openclaw/workspace-state.json (if present)
 - data/open_brain_health.json (if present)
+- .ssh/id_ed25519 and .ssh/id_ed25519.pub (if present)
 - memory/ directory (if present)
 MANIFEST
 

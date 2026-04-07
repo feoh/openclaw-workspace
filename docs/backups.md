@@ -22,6 +22,8 @@ The backup script copies these files/directories from the workspace when present
 - `.env`
 - `.openclaw/workspace-state.json`
 - `data/open_brain_health.json`
+- `.ssh/id_ed25519`
+- `.ssh/id_ed25519.pub`
 - `memory/`
 
 It also writes a `MANIFEST.txt` file into each backup directory.
@@ -83,4 +85,4 @@ ls -1dt /nas/container_configs/openclaw/critical-state-*
 
 ## Security Note
 
-The backup includes `.env` when present. That means secrets may be copied into the NAS backup set. This is intentional for disaster recovery, but access to `/nas/container_configs/openclaw` should be treated as sensitive.
+The backup includes `.env` and the workspace SSH keypair when present. That means secrets and private keys may be copied into the NAS backup set. This is intentional for disaster recovery, but access to `/nas/container_configs/openclaw` should be treated as highly sensitive.
