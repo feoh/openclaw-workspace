@@ -38,6 +38,7 @@
  <outline title="Zed A. Shaw" text="Zed A. Shaw" xmlUrl="https://zedshaw.com/feed.atom" htmlUrl="https://zedshaw.com/" type="rss" />
  <outline title="StepSecurity Blog" text="StepSecurity Blog" xmlUrl="https://www.stepsecurity.io/blog/rss.xml" htmlUrl="https://www.stepsecurity.io/blog" type="rss" />
  <outline title="Armin Ronacher's Thoughts and Writings" text="Armin Ronacher's Thoughts and Writings" xmlUrl="https://lucumr.pocoo.org/feed.atom" htmlUrl="https://lucumr.pocoo.org/" type="rss" />
+ <outline title="AtariAge News" text="AtariAge News" xmlUrl="https://www.atariage.com/news/rss.php" htmlUrl="https://www.atariage.com" type="rss" />
  </outline>
  </body>
 </opml>
