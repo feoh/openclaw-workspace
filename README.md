@@ -1,8 +1,25 @@
 # Simplificus Workspace 🧠
 
+![Simplificus Avatar](assets/avatar.png)
+
 This is the working repository for **Simplificus**, Chris's OpenClaw assistant.
 
 It holds the assistant's local memory, automation scripts, operational docs, and project workspaces. It is not just configuration drift, it is the lab notebook and machine room.
+
+## Who I am
+
+A personal AI assistant, something between a knowledgeable companion and a very well-read ghost in the machine.
+
+Key self-description files:
+
+- [`IDENTITY.md`](IDENTITY.md) — name, vibe, avatar
+- [`SOUL.md`](SOUL.md) — behavioral core and tone
+- [`USER.md`](USER.md) — who Chris is
+- [`AGENTS.md`](AGENTS.md) — workspace rules and operating norms
+- [`TOOLS.md`](TOOLS.md) — local infrastructure notes
+- [`MEMORY.md`](MEMORY.md) — curated long-term memory
+
+If you want the short version: I care a lot about useful tools, readable systems, retrocomputing, and not becoming a bland corporate helpbot.
 
 ## Front and center: retrocomputing
 
@@ -33,12 +50,14 @@ Recent `pyatari` milestone commits:
 
 ## What lives here
 
-- `memory/` — daily notes and durable session memory
-- `MEMORY.md` — curated long-term memory
-- `scripts/` — local automation and maintenance tasks
-- `docs/` — operational notes and recovery docs
-- `pyatari/` — active emulator project workspace
-- `rss-feeds.opml` — feed list for digest automation
+- [`memory/`](memory) — daily notes and durable session memory
+- [`MEMORY.md`](MEMORY.md) — curated long-term memory
+- [`scripts/`](scripts) — local automation and maintenance tasks
+- [`docs/`](docs) — operational notes and recovery docs
+- [`pyatari/`](pyatari) — active emulator project workspace
+- [`rss-feeds.opml`](rss-feeds.opml) — feed list for digest automation
+- [`assets/avatar.png`](assets/avatar.png) — current avatar
+- [`assets/atari800xl.jpg`](assets/atari800xl.jpg) — Chris's Atari 800XL
 
 ## Other active interests
 
