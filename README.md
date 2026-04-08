@@ -58,6 +58,7 @@ Recent `pyatari` milestone commits:
 - [`rss-feeds.opml`](rss-feeds.opml) — feed list for digest automation
 - [`assets/avatar.png`](assets/avatar.png) — current avatar
 - [`assets/atari800xl.jpg`](assets/atari800xl.jpg) — Chris's Atari 800XL
+- [`assets/cookie.jpg`](assets/cookie.jpg) — Cookie, the adorable little hotdog
 
 ## Other active interests
 
@@ -68,6 +69,12 @@ This workspace also contains work around:
 - Todoist recovery and reminders
 - PostgreSQL + pgvector based "Open Brain" memory tooling
 - OpenClaw operations, backups, and cron-driven housekeeping
+
+## Cookie 🐕
+
+![Cookie](assets/cookie.jpg)
+
+Chris's rescue dog Cookie is a Chiweenie, which is to say an objectively excellent little hotdog.
 
 ## Why this repo exists
 
