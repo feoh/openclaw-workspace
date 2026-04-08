@@ -4,6 +4,7 @@
 - Current active model in OpenClaw runtime is **openai-codex/gpt-5.4**. Older Claude Sonnet references in repo docs were stale and should not be treated as current.
 - Todoist persistence hardened: weekly backups now include `~/.openclaw/openclaw.json` and `~/.config/todoist-cli/config.json`; added `scripts/fix-todoist-auth.sh` plus `docs/todoist-recovery.md` so `td` auth can be restored from OpenClaw config without rediscovery.
 - Keep the workspace GitHub repo current with meaningful state changes; push documentation/memory/ops updates regularly so GitHub reflects recent work instead of drifting stale.
+- `pyatari` was driven all the way through the planned roadmap on 2026-04-08: core phases completed through **Phase 16**, then optional **Phase 17** peripherals and **Phase 18** undocumented opcodes. Latest `pyatari` phase commits: `08267c4` (Phase 15), `768815a` (Phase 16), `1000252` (Phase 17), `1eef027` (Phase 18).
 
 ## This Week (2026-04-06)
 - RSS Feed Checker cron now uses `rss-digest.py` (same as morning digest) — both write to `data/rss-last-digest.json`, so "save #N" always matches the most recently delivered digest regardless of which cron ran
