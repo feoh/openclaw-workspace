@@ -26,7 +26,23 @@ These changes are machine-local and are **not committed to git**:
 
 - `~/.openclaw/openclaw.json`
 - `~/.openclaw/extensions/todoist/`
+- `~/.config/todoist-cli/config.json`
 - global npm installation of `@doist/todoist-cli`
+
+The important split-brain detail is:
+
+- OpenClaw plugin token lives in `~/.openclaw/openclaw.json`
+- `td` CLI auth may also need its own cached credentials in `~/.config/todoist-cli/config.json`
+
+If `td` loses auth but the plugin token still exists, recover with:
+
+```bash
+/home/feoh/.openclaw/workspace/scripts/fix-todoist-auth.sh
+```
+
+See also:
+
+- `/home/feoh/.openclaw/workspace/docs/todoist-recovery.md`
 
 ## Node Migration Note
 

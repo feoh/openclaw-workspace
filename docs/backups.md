@@ -26,6 +26,16 @@ The backup script copies these files/directories from the workspace when present
 - `.ssh/id_ed25519.pub`
 - `memory/`
 
+It also copies these host-level recovery files when present:
+
+- `~/.openclaw/openclaw.json`
+- `~/.config/todoist-cli/config.json`
+
+They are stored inside the backup under:
+
+- `host-home/.openclaw/openclaw.json`
+- `host-home/.config/todoist-cli/config.json`
+
 It also writes a `MANIFEST.txt` file into each backup directory.
 
 In addition, the script attempts a compressed PostgreSQL dump of the Open Brain database:
@@ -84,7 +94,10 @@ To restore manually:
 1. Pick the desired backup directory under `/nas/container_configs/openclaw/`
 2. Copy files back into `/home/feoh/.openclaw/workspace/`
 3. Be careful with `.env` because it may contain secrets
-4. Be careful not to overwrite newer memory files accidentally
+4. Restore host-level config files back to their original locations if needed:
+   - `host-home/.openclaw/openclaw.json` → `~/.openclaw/openclaw.json`
+   - `host-home/.config/todoist-cli/config.json` → `~/.config/todoist-cli/config.json`
+5. Be careful not to overwrite newer memory files accidentally
 
 Example manual inspection:
 
@@ -94,4 +107,4 @@ ls -1dt /nas/container_configs/openclaw/critical-state-*
 
 ## Security Note
 
-The backup includes `.env`, the workspace SSH keypair, and a PostgreSQL dump when available. That means secrets, private keys, and database contents may be copied into the NAS backup set. This is intentional for disaster recovery, but access to `/nas/container_configs/openclaw` should be treated as highly sensitive.
+The backup includes `.env`, the workspace SSH keypair, host-level OpenClaw/Todoist auth files, and a PostgreSQL dump when available. That means secrets, private keys, API tokens, and database contents may be copied into the NAS backup set. This is intentional for disaster recovery, but access to `/nas/container_configs/openclaw` should be treated as highly sensitive.

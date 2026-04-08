@@ -1,7 +1,11 @@
 # MEMORY.md — Long-Term Memory
 
+## This Week (2026-04-08)
+- Current active model in OpenClaw runtime is **openai-codex/gpt-5.4**. Older Claude Sonnet references in repo docs were stale and should not be treated as current.
+- Todoist persistence hardened: weekly backups now include `~/.openclaw/openclaw.json` and `~/.config/todoist-cli/config.json`; added `scripts/fix-todoist-auth.sh` plus `docs/todoist-recovery.md` so `td` auth can be restored from OpenClaw config without rediscovery.
+- Keep the workspace GitHub repo current with meaningful state changes; push documentation/memory/ops updates regularly so GitHub reflects recent work instead of drifting stale.
+
 ## This Week (2026-04-06)
-- Model locked in: **anthropic/claude-sonnet-4-6** — Chris tested Qwen2.5 7B locally, decided to stay with Claude. Do NOT switch to Qwen or local models.
 - RSS Feed Checker cron now uses `rss-digest.py` (same as morning digest) — both write to `data/rss-last-digest.json`, so "save #N" always matches the most recently delivered digest regardless of which cron ran
 - Armin Ronacher's blog added to OPML → **24 feeds total**
 - Anthropic 529 overload errors: known issue, surfaced to user rather than silently retried. Chris is on paid plan. Feature request raised with OpenClaw devs for retry-with-backoff.
@@ -32,7 +36,8 @@
 
 ## Post-restart protocol (established 2026-04-03)
 After every gateway restart, always send a "sign of life" to Discord:
-**"🦞 Back online — OpenClaw [version], model: claude-sonnet-4-6, session active."**
+**"🦞 Back online — OpenClaw [version], model: [current model], session active."**
+Use the actual current runtime model, not a stale hardcoded one.
 Never leave Chris wondering if I came back up.
 
 ## Rate Limit Awareness (learned 2026-03-31)

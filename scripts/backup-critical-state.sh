@@ -26,6 +26,15 @@ copy_if_exists() {
   fi
 }
 
+copy_absolute_if_exists() {
+  local source_path="$1"
+  local dest_rel="$2"
+  if [ -e "$source_path" ]; then
+    mkdir -p "$DEST_DIR/$(dirname "$dest_rel")"
+    cp -a "$source_path" "$DEST_DIR/$dest_rel"
+  fi
+}
+
 # Core identity / memory / config
 copy_if_exists AGENTS.md
 copy_if_exists SOUL.md
@@ -46,6 +55,10 @@ copy_if_exists .ssh/id_ed25519.pub
 if [ -d "$SRC/memory" ]; then
   cp -a "$SRC/memory" "$DEST_DIR/memory"
 fi
+
+# Host-level OpenClaw and Todoist auth/config needed for recovery
+copy_absolute_if_exists "$HOME/.openclaw/openclaw.json" "host-home/.openclaw/openclaw.json"
+copy_absolute_if_exists "$HOME/.config/todoist-cli/config.json" "host-home/.config/todoist-cli/config.json"
 
 # PostgreSQL Open Brain dump (best effort)
 if command -v pg_dump >/dev/null 2>&1 && [ -n "${POSTGRES_PASSWORD:-}" ]; then
@@ -78,6 +91,8 @@ Files included:
 - data/open_brain_health.json (if present)
 - .ssh/id_ed25519 and .ssh/id_ed25519.pub (if present)
 - memory/ directory (if present)
+- host-home/.openclaw/openclaw.json (if present)
+- host-home/.config/todoist-cli/config.json (if present)
 Database dump:
 - $DB_STATUS
 MANIFEST
