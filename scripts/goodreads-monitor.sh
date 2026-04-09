@@ -6,9 +6,12 @@ STATE_FILE="$WORKSPACE/data/goodreads-last-seen.txt"
 FEED_URL="https://www.goodreads.com/user/updates_rss/799620"
 mkdir -p "$WORKSPACE/data"
 
+trap 'status=$?; echo "GOODREADS_MONITOR_FAILED (exit $status)" >&2' ERR
+
 python3 <<'PY'
-import os, urllib.request, xml.etree.ElementTree as ET
-from email.utils import parsedate_to_datetime
+import os
+import urllib.request
+import xml.etree.ElementTree as ET
 
 feed_url = "https://www.goodreads.com/user/updates_rss/799620"
 state_file = "/home/feoh/.openclaw/workspace/data/goodreads-last-seen.txt"
@@ -19,14 +22,12 @@ with urllib.request.urlopen(req, timeout=20) as r:
 root = ET.fromstring(xml)
 items = root.findall('.//item')
 if not items:
-    print('NO_ITEMS')
-    raise SystemExit(0)
+    raise RuntimeError('Goodreads feed returned no items')
 
 first = items[0]
 guid = (first.findtext('guid') or '').strip()
-title = (first.findtext('title') or '').strip()
-link = (first.findtext('link') or '').strip()
-pub = (first.findtext('pubDate') or '').strip()
+if not guid:
+    raise RuntimeError('Goodreads feed first item missing guid')
 
 last = None
 if os.path.exists(state_file):
@@ -36,11 +37,9 @@ if os.path.exists(state_file):
 if not last:
     with open(state_file, 'w') as f:
         f.write(guid)
-    print(f'BASELINE_SET {guid}')
     raise SystemExit(0)
 
 if guid == last:
-    print('NO_CHANGE')
     raise SystemExit(0)
 
 new_items = []
@@ -52,7 +51,6 @@ for item in items:
         'guid': g,
         'title': (item.findtext('title') or '').strip(),
         'link': (item.findtext('link') or '').strip(),
-        'pubDate': (item.findtext('pubDate') or '').strip(),
     })
 
 with open(state_file, 'w') as f:
