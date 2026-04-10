@@ -29,4 +29,5 @@
 
 ## Context
 
-_(Build this over time as we chat)_
+- **Recent Goodreads drift:** lately reading across speculative fiction, espionage/history, and politically sharp nonfiction. Recent titles include *The Regicide Report*, *A Dead Djinn in Cairo*, *A Conjuring of Ravens*, *Targeted: Beirut*, and *Motherland: A Feminist History of Modern Russia, from Revolution to Autocracy*.
+- Tends to have both a current read and a wider to-read queue going at once.
