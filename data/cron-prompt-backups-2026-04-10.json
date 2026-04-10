@@ -1,0 +1,46 @@
+{
+  "backed_up_at_utc": "2026-04-10T14:25:00Z",
+  "purpose": "Pre-hardening backup of live cron prompt payloads for rollback",
+  "jobs": {
+    "aadac9ab-8f7d-4637-ae67-81a97beb542c": {
+      "name": "RSS Daily Digest",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run `/home/feoh/.openclaw/workspace/.venv/bin/python /home/feoh/.openclaw/workspace/scripts/rss-digest.py --limit 25` and post the digest output to chat if successful. If there are no entries, say so briefly.",
+        "timeoutSeconds": 180
+      }
+    },
+    "5fc401f4-7db7-4116-82a1-4b92f45bd037": {
+      "name": "RSS Feed Checker",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run `/home/feoh/.openclaw/workspace/.venv/bin/python /home/feoh/.openclaw/workspace/scripts/rss-digest.py --limit 25` and post a short feed-check summary to chat. If there are no new items, reply briefly with that fact.",
+        "timeoutSeconds": 180
+      }
+    },
+    "60e93e8f-43dc-4180-8f28-397dc901607e": {
+      "name": "Daily News Digest",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run `/home/feoh/.openclaw/workspace/.venv/bin/python /home/feoh/.openclaw/workspace/scripts/news-digest.py` and deliver the script output to chat as directly as possible. Preserve the coverage markers exactly as produced, including 🟪 🟥 🟦 ⚖️. Do not paraphrase, summarize away, normalize, or replace the marker legend. If the script emits warnings, include them after the digest unchanged.",
+        "timeoutSeconds": 180
+      }
+    },
+    "74e52379-d7ec-48f0-9fa7-bd4f783d0958": {
+      "name": "Daily On This Day in History",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Find one interesting 'On this day in history' fact for today's date. Include the year, a concise 1-3 sentence description of the event, and a direct source link to the article/page you used. Prefer reputable history/reference sources. Post it in a friendly concise format suitable for Discord.",
+        "timeoutSeconds": 120
+      }
+    },
+    "4dd3add6-c148-443d-972a-80c923a5e6ef": {
+      "name": "Goodreads Activity Monitor",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run `/home/feoh/.openclaw/workspace/scripts/goodreads-monitor.sh`.\n\nRules:\n- If the command exits nonzero or prints anything to stderr, report the failure clearly.\n- If stdout is completely empty and the command succeeded, reply exactly `NO_REPLY`.\n- If stdout contains Goodreads activity, send that activity to chat in a concise readable form.\n- Do not ever send `NO_CHANGE`.\n- Do not send a baseline/setup message.",
+        "timeoutSeconds": 120
+      }
+    }
+  }
+}

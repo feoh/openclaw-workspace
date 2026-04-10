@@ -199,13 +199,18 @@ if __name__ == "__main__":
 
     entries = fetch_feeds(saved_urls=saved_urls, shown_urls=shown_urls)
 
-    # Always save the numbered list to a fixed file so "save #N" commands work correctly
+    # Save the numbered list to a fixed file so "save #N" commands work correctly.
+    # Important: do NOT wipe the previous digest cache when there are no new entries,
+    # or users lose the numbering from the last delivered digest.
     LAST_DIGEST_FILE = "/home/feoh/.openclaw/workspace/data/rss-last-digest.json"
     os.makedirs(os.path.dirname(LAST_DIGEST_FILE), exist_ok=True)
     numbered = [{"num": i, "title": e["title"], "url": e["url"], "feed": e["feed"]}
                 for i, e in enumerate(entries, 1)]
-    with open(LAST_DIGEST_FILE, "w") as f:
-        json.dump(numbered, f, default=str, indent=2)
+    if numbered:
+        with open(LAST_DIGEST_FILE, "w") as f:
+            json.dump(numbered, f, default=str, indent=2)
+    else:
+        print("No new entries, preserving previous rss-last-digest.json numbering", file=sys.stderr)
 
     if args.json:
         print(json.dumps(entries, default=str, indent=2))
