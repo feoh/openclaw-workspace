@@ -31,6 +31,7 @@ SOURCES = {
     "politico":    {"name": "Politico",         "feed": "https://www.politico.com/rss/politicopicks.xml",                           "leaning": "center"},
     "bbc_world":   {"name": "BBC World",        "feed": "https://feeds.bbci.co.uk/news/world/rss.xml",                              "leaning": "center"},
     "npr":         {"name": "NPR",              "feed": "https://feeds.npr.org/1001/rss.xml",                                        "leaning": "center"},
+    "propublica":  {"name": "ProPublica",       "feed": "https://www.propublica.org/feeds/propublica/main",                         "leaning": "center"},
     "wa_post":     {"name": "Washington Post",  "feed": "https://feeds.washingtonpost.com/rss/national",                            "leaning": "center"},
     "ny_times":    {"name": "New York Times",   "feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",                "leaning": "center"},
 }
