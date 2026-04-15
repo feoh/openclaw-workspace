@@ -121,6 +121,10 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 **🐍 Python:** Always use **uv** for package management — `uv pip install`, `uv add`, etc. Never use pip directly.
 
+- For workspace Python tasks, always use the workspace virtualenv interpreter: `/home/feoh/.openclaw/workspace/.venv/bin/python`
+- Do not use system Python for workspace work. Leave system Python untouched.
+- Manage workspace Python and dependencies with `uv`.
+
 **📝 Platform Formatting:**
 
 - **Discord/WhatsApp:** No markdown tables! Use bullet lists instead

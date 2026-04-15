@@ -55,7 +55,10 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ## Python Tools
 - **uv** — preferred package manager (NOT pip). Use `uv pip install` or `uv add` in the workspace venv
-- Virtual environment: `/home/feoh/.openclaw/workspace/.venv/` (contains feedparser)
+- Virtual environment: `/home/feoh/.openclaw/workspace/.venv/`
+- **Always use the Python inside the workspace virtualenv**: `/home/feoh/.openclaw/workspace/.venv/bin/python`
+- **Do not use system Python for workspace tasks**. Leave system Python untouched.
+- Manage workspace Python dependencies with `uv` only.
 
 ## PostgreSQL + pgvector
 - Host: localhost, Port: 5432
