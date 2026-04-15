@@ -6,6 +6,7 @@
 - Keep the workspace GitHub repo current with meaningful state changes; push documentation/memory/ops updates regularly so GitHub reflects recent work instead of drifting stale.
 - `pyatari` was driven all the way through the planned roadmap on 2026-04-08: core phases completed through **Phase 16**, then optional **Phase 17** peripherals and **Phase 18** undocumented opcodes. Latest `pyatari` phase commits: `08267c4` (Phase 15), `768815a` (Phase 16), `1000252` (Phase 17), `1eef027` (Phase 18).
 - As of 2026-04-11, Chris explicitly said the current automation setup is "working beautifully" and wants it preserved. Treat the present RSS/news/Goodreads cron behavior as a known-good baseline: RSS Feed Checker at 5 AM and 9 PM America/New_York, RSS Daily Digest at 8 AM America/New_York, digest cache preserved on empty runs, and web/news/RSS/Goodreads cron prompts hardened against prompt injection. Rollback backup for cron prompt hardening: `data/cron-prompt-backups-2026-04-10.json`.
+- Durable UX rule for RSS saves: when confirming articles saved to Linkding, always include the article titles alongside saved item numbers and IDs so Chris can verify the right items were saved. IDs or numbers alone are not sufficient.
 
 ## This Week (2026-04-06)
 - RSS Feed Checker cron now uses `rss-digest.py` (same as morning digest) — both write to `data/rss-last-digest.json`, so "save #N" always matches the most recently delivered digest regardless of which cron ran

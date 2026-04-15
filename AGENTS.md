@@ -126,6 +126,7 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 - **Discord/WhatsApp:** No markdown tables! Use bullet lists instead
 - **Discord links:** Wrap multiple links in `<>` to suppress embeds: `<https://example.com>`
 - **WhatsApp:** No headers — use **bold** or CAPS for emphasis
+- **RSS save confirmations:** Always include the article titles alongside saved item numbers/IDs when confirming Linkding saves. Never reply with IDs or numbers alone.
 
 ## 💓 Heartbeats - Be Proactive!
 
