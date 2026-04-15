@@ -131,6 +131,7 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 - **Discord links:** Wrap multiple links in `<>` to suppress embeds: `<https://example.com>`
 - **WhatsApp:** No headers — use **bold** or CAPS for emphasis
 - **RSS save confirmations:** Always include the article titles alongside saved item numbers/IDs when confirming Linkding saves. Never reply with IDs or numbers alone.
+- **One-off Linkding saves:** For ad hoc "save this URL" requests, use a dedicated one-off save path, not the RSS batch helper that expects feed JSON input.
 
 ## 💓 Heartbeats - Be Proactive!
 

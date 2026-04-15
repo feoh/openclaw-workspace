@@ -44,6 +44,8 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - API Key: `<LINKDING_API_KEY>` — stored locally, never commit this
 - Tag for "toread": `toread`
 - Known working POST format: `{"url": "<url>", "tag_names": ["toread"]}`
+- For one-off user requests like "save this URL to Linkding", use a dedicated ad hoc save path, not the RSS batch pipeline.
+- `scripts/save-to-linkding.py` is batch-oriented and expects `rss-new-articles.json`; do not use it for single-URL saves.
 - Linkding already has 3420+ bookmarks saved (as of 2026-03-23)
 
 ### RSS Feeds
