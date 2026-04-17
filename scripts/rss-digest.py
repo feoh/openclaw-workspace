@@ -80,12 +80,14 @@ FILTER_PATTERNS = [
 
 DEFAULT_FEED_ENTRY_LIMIT = 10
 FEED_BACKFILL_LIMITS = {
-    # High-volume feed, worth a deeper scan so older-but-still-recent items
+    # High-volume feeds, worth a deeper scan so older-but-still-recent items
     # don't silently fall out before we ever show them.
     "Ars Technica": 50,
+    "Lobsters": 50,
 }
 FEED_BACKFILL_DAYS = {
     "Ars Technica": 60,
+    "Lobsters": 60,
 }
 
 def should_skip(entry, saved_urls, shown_urls=None):
