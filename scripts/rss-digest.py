@@ -9,7 +9,7 @@ import re
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
 load_dotenv(dotenv_path="/home/feoh/.openclaw/workspace/.env")
 
@@ -77,6 +77,16 @@ FEEDS = load_feeds_from_opml()
 FILTER_PATTERNS = [
     r"\b(ev|electric vehicle|electric car|tesla|charging station|charging cable)\b",
 ]
+
+DEFAULT_FEED_ENTRY_LIMIT = 10
+FEED_BACKFILL_LIMITS = {
+    # High-volume feed, worth a deeper scan so older-but-still-recent items
+    # don't silently fall out before we ever show them.
+    "Ars Technica": 50,
+}
+FEED_BACKFILL_DAYS = {
+    "Ars Technica": 60,
+}
 
 def should_skip(entry, saved_urls, shown_urls=None):
     """Return True if entry should be filtered out."""
@@ -150,13 +160,22 @@ def fetch_feeds(saved_urls=None, shown_urls=None):
         shown_urls = set()
 
     entries = []
+    now = datetime.now()
 
     for feed_title, blog_url, feed_url in FEEDS:
         try:
             f = feedparser.parse(feed_url, agent="RSS-Digest/1.0")
-            for entry in f.entries[:10]:
+            entry_limit = FEED_BACKFILL_LIMITS.get(feed_title, DEFAULT_FEED_ENTRY_LIMIT)
+            backfill_days = FEED_BACKFILL_DAYS.get(feed_title)
+            cutoff = None if backfill_days is None else now - timedelta(days=backfill_days)
+
+            for entry in f.entries[:entry_limit]:
                 e = parse_entry(entry, feed_title, blog_url)
-                if e['title'] and not should_skip(e, saved_urls, shown_urls):
+                if not e['title']:
+                    continue
+                if cutoff and e['date'] and e['date'] < cutoff:
+                    continue
+                if not should_skip(e, saved_urls, shown_urls):
                     entries.append(e)
         except Exception as e:
             print(f"Error fetching {feed_title}: {e}", file=sys.stderr)
