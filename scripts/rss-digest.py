@@ -206,6 +206,7 @@ if __name__ == "__main__":
     parser.add_argument("--json", action="store_true", help="Output JSON instead of text")
     parser.add_argument("--save", metavar="FILE", help="Save entries to JSON file")
     parser.add_argument("--no-filter", action="store_true", help="Skip Linkding filter")
+    parser.add_argument("--peek", action="store_true", help="Preview entries without recording them as shown or replacing rss-last-digest.json")
     args = parser.parse_args()
     
     # Fetch saved URLs from Linkding unless disabled
@@ -224,14 +225,17 @@ if __name__ == "__main__":
     # Important: do NOT wipe the previous digest cache when there are no new entries,
     # or users lose the numbering from the last delivered digest.
     LAST_DIGEST_FILE = "/home/feoh/.openclaw/workspace/data/rss-last-digest.json"
-    os.makedirs(os.path.dirname(LAST_DIGEST_FILE), exist_ok=True)
     numbered = [{"num": i, "title": e["title"], "url": e["url"], "feed": e["feed"]}
                 for i, e in enumerate(entries, 1)]
-    if numbered:
-        with open(LAST_DIGEST_FILE, "w") as f:
-            json.dump(numbered, f, default=str, indent=2)
+    if args.peek:
+        print("Peek mode: preserving rss-last-digest.json numbering", file=sys.stderr)
     else:
-        print("No new entries, preserving previous rss-last-digest.json numbering", file=sys.stderr)
+        os.makedirs(os.path.dirname(LAST_DIGEST_FILE), exist_ok=True)
+        if numbered:
+            with open(LAST_DIGEST_FILE, "w") as f:
+                json.dump(numbered, f, default=str, indent=2)
+        else:
+            print("No new entries, preserving previous rss-last-digest.json numbering", file=sys.stderr)
 
     if args.json:
         print(json.dumps(entries, default=str, indent=2))
@@ -239,9 +243,12 @@ if __name__ == "__main__":
         print(format_digest(entries, limit=args.limit))
 
     # Record shown URLs AFTER output — these won't appear in future digests
-    new_shown = shown_urls | {e["url"].rstrip("/") for e in entries}
-    save_shown_urls(new_shown)
-    print(f"Recorded {len(entries)} new URLs as shown ({len(new_shown)} total)", file=sys.stderr)
+    if args.peek:
+        print("Peek mode: not recording URLs as shown", file=sys.stderr)
+    else:
+        new_shown = shown_urls | {e["url"].rstrip("/") for e in entries}
+        save_shown_urls(new_shown)
+        print(f"Recorded {len(entries)} new URLs as shown ({len(new_shown)} total)", file=sys.stderr)
 
     if args.save:
         with open(args.save, "w") as f:
