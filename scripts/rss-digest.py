@@ -140,6 +140,15 @@ def parse_entry(entry, feed_title, blog_url):
 
 
 SHOWN_FILE = "/home/feoh/.openclaw/workspace/data/rss-shown-urls.json"
+LINKDING_TRACKING_FILE = "/home/feoh/.openclaw/workspace/linkding-saved.json"
+LINKDING_SIGNALS_FILE = "/home/feoh/.openclaw/workspace/data/linkding-recommendation-signals.json"
+
+PREFERENCE_STOPWORDS = {
+    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'how',
+    'in', 'into', 'is', 'it', 'its', 'of', 'on', 'or', 'that', 'the', 'this',
+    'to', 'what', 'when', 'with', 'your'
+}
+
 
 def load_shown_urls():
     """Load URLs that have already been shown in a digest."""
@@ -153,6 +162,82 @@ def save_shown_urls(shown):
     os.makedirs(os.path.dirname(SHOWN_FILE), exist_ok=True)
     with open(SHOWN_FILE, "w") as f:
         json.dump(sorted(shown), f, indent=2)
+
+def load_preference_model():
+    """Load lightweight Linkding-derived preference signals for digest highlighting."""
+    model = {
+        'domains': set(),
+        'sites': set(),
+        'keywords': set(),
+    }
+
+    try:
+        with open(LINKDING_SIGNALS_FILE) as f:
+            signals = json.load(f)
+        model['domains'] = {
+            item['name'].lower() for item in signals.get('top_domains', [])[:10]
+            if item.get('count', 0) >= 2 and item.get('name')
+        }
+        model['sites'] = {
+            item['name'].lower() for item in signals.get('top_sites', [])[:10]
+            if item.get('count', 0) >= 2 and item.get('name')
+        }
+    except Exception:
+        pass
+
+    try:
+        with open(LINKDING_TRACKING_FILE) as f:
+            tracking = json.load(f)
+        articles = tracking.get('articles', [])[-200:]
+        keyword_counts = {}
+        for article in articles:
+            text = f"{article.get('title', '')} {article.get('website_name', '')}".lower()
+            for token in re.findall(r"[a-z0-9][a-z0-9+.-]{2,}", text):
+                if token in PREFERENCE_STOPWORDS or token.isdigit():
+                    continue
+                keyword_counts[token] = keyword_counts.get(token, 0) + 1
+        model['keywords'] = {
+            token for token, count in keyword_counts.items()
+            if count >= 3
+        }
+    except Exception:
+        pass
+
+    return model
+
+
+def annotate_preferences(entries, preference_model):
+    """Mark entries that look aligned with saved Linkding interests."""
+    if not entries:
+        return entries
+
+    domains = preference_model.get('domains', set())
+    sites = preference_model.get('sites', set())
+    keywords = preference_model.get('keywords', set())
+
+    for entry in entries:
+        score = 0
+        url = entry.get('url', '').lower()
+        title = entry.get('title', '').lower()
+        feed = entry.get('feed', '').lower()
+
+        if any(domain and domain in url for domain in domains):
+            score += 2
+        if feed in sites:
+            score += 2
+
+        title_tokens = {
+            token for token in re.findall(r"[a-z0-9][a-z0-9+.-]{2,}", title)
+            if token not in PREFERENCE_STOPWORDS and not token.isdigit()
+        }
+        overlap = len(title_tokens & keywords)
+        score += min(overlap, 3)
+
+        entry['preferred'] = score >= 2
+        entry['preference_score'] = score
+
+    return entries
+
 
 def fetch_feeds(saved_urls=None, shown_urls=None):
     """Fetch all feeds and return entries not yet shown to the user."""
@@ -183,7 +268,8 @@ def fetch_feeds(saved_urls=None, shown_urls=None):
             print(f"Error fetching {feed_title}: {e}", file=sys.stderr)
 
     entries.sort(key=lambda x: x["date"] or datetime.min, reverse=True)
-    return entries
+    preference_model = load_preference_model()
+    return annotate_preferences(entries, preference_model)
 
 
 def format_digest(entries, limit=25):
@@ -193,7 +279,8 @@ def format_digest(entries, limit=25):
     
     for i, e in enumerate(entries[:limit], 1):
         date_str = e["date"].strftime("%Y-%m-%d") if e["date"] else "????-??-??"
-        lines.append(f"**{i}.** [{e['title']}]({e['url']})")
+        marker = " ⭐" if e.get('preferred') else ""
+        lines.append(f"**{i}.** [{e['title']}]({e['url']}){marker}")
         lines.append(f"_{date_str} · {e['feed']}_\n")
     
     return "\n".join(lines)
