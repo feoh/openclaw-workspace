@@ -37,6 +37,7 @@ import os
 from collections import Counter
 from datetime import datetime, timezone
 from urllib.parse import urlparse
+import re
 
 WORKSPACE = "/home/feoh/.openclaw/workspace"
 TRACKING_FILE = f"{WORKSPACE}/linkding-saved.json"
@@ -116,16 +117,56 @@ data["seen_ids"] = seen_ids_list
 with open(TRACKING_FILE, "w") as f:
     json.dump(data, f, indent=2)
 
+STOPWORDS = {
+    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'how',
+    'in', 'into', 'is', 'it', 'its', 'of', 'on', 'or', 'that', 'the', 'this',
+    'to', 'what', 'when', 'with', 'your'
+}
+NOISY_TERMS = {
+    'you', 'why', 'just', 'not', 'earned', 'badge', 'chris', 'untappd'
+}
+NOISY_DOMAINS = {
+    't.co', 'x.com', 'twitter.com', 'www.twitter.com', 'untappd.com',
+    'foursquare.com', 'bit.ly', 'feedproxy.google.com'
+}
+
+
 def domain_of(url: str) -> str:
     try:
         return urlparse(url).netloc.lower()
     except Exception:
         return ""
 
-recent = articles[-200:]
-domain_counts = Counter(domain_of(a.get("url", "")) for a in recent if a.get("url"))
+
+def tokenize(text: str):
+    return [
+        token for token in re.findall(r"[a-z0-9][a-z0-9+.-]{2,}", (text or '').lower())
+        if token not in STOPWORDS and token not in NOISY_TERMS and not token.isdigit()
+    ]
+
+recent = articles[-300:]
+domain_counts = Counter(
+    domain for domain in (domain_of(a.get("url", "")) for a in recent if a.get("url"))
+    if domain and domain not in NOISY_DOMAINS
+)
 tag_counts = Counter(tag for a in recent for tag in a.get("tags", []))
-website_counts = Counter((a.get("website_name") or domain_of(a.get("url", ""))) for a in recent)
+website_counts = Counter(
+    site for site in ((a.get("website_name") or domain_of(a.get("url", ""))) for a in recent)
+    if site and site.lower() not in NOISY_DOMAINS
+)
+title_term_counts = Counter()
+title_bigram_counts = Counter()
+for article in recent:
+    article_domain = domain_of(article.get("url", ""))
+    if article_domain in NOISY_DOMAINS:
+        continue
+    title_tokens = tokenize(article.get("title", ""))
+    desc_tokens = tokenize(article.get("description", ""))
+    title_term_counts.update(title_tokens)
+    title_term_counts.update(desc_tokens[:12])
+    title_bigram_counts.update(
+        f"{a} {b}" for a, b in zip(title_tokens, title_tokens[1:])
+    )
 
 signals = {
     "updated_at": datetime.now(timezone.utc).isoformat(),
@@ -134,6 +175,8 @@ signals = {
     "top_domains": [{"name": k, "count": v} for k, v in domain_counts.most_common(15) if k],
     "top_tags": [{"name": k, "count": v} for k, v in tag_counts.most_common(20) if k],
     "top_sites": [{"name": k, "count": v} for k, v in website_counts.most_common(15) if k],
+    "top_title_terms": [{"name": k, "count": v} for k, v in title_term_counts.most_common(25) if k],
+    "top_title_bigrams": [{"name": k, "count": v} for k, v in title_bigram_counts.most_common(20) if k],
     "recent_new": [
         {
             "id": a.get("id"),
@@ -153,6 +196,7 @@ with open(SIGNALS_FILE, "w") as f:
 if new_articles:
     top_domains_str = ", ".join(f"{d['name']} ({d['count']})" for d in signals["top_domains"][:5]) or "none"
     top_tags_str = ", ".join(f"{t['name']} ({t['count']})" for t in signals["top_tags"][:8]) or "none"
+    top_terms_str = ", ".join(f"{t['name']} ({t['count']})" for t in signals["top_title_terms"][:10]) or "none"
 
     sample_lines = []
     for a in new_articles[-10:]:
@@ -163,7 +207,7 @@ if new_articles:
     title = f"Linkding toread sync — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
     summary = (
         f"Synced {new_count} new Linkding 'toread' bookmarks. "
-        f"Current top domains: {top_domains_str}. Top tags: {top_tags_str}."
+        f"Current top domains: {top_domains_str}. Top tags: {top_tags_str}. Top title terms: {top_terms_str}."
     )
     body = (
         "This memory object captures newly saved Linkding bookmarks tagged 'toread' "
@@ -171,7 +215,8 @@ if new_articles:
         f"Tracked total: {len(articles)}\n"
         f"New this run: {new_count}\n"
         f"Top domains: {top_domains_str}\n"
-        f"Top tags: {top_tags_str}\n\n"
+        f"Top tags: {top_tags_str}\n"
+        f"Top title terms: {top_terms_str}\n\n"
         "Recent examples from this run:\n" + "\n".join(sample_lines)
     )
 

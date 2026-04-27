@@ -148,6 +148,28 @@ PREFERENCE_STOPWORDS = {
     'in', 'into', 'is', 'it', 'its', 'of', 'on', 'or', 'that', 'the', 'this',
     'to', 'what', 'when', 'with', 'your'
 }
+NOISY_DOMAINS = {
+    't.co', 'x.com', 'twitter.com', 'www.twitter.com', 'untappd.com',
+    'foursquare.com', 'bit.ly', 'feedproxy.google.com'
+}
+NOISY_TERMS = {
+    'you', 'why', 'just', 'not', 'earned', 'badge', 'chris', 'untappd'
+}
+
+
+def tokenize_preference_text(text):
+    return {
+        token for token in re.findall(r"[a-z0-9][a-z0-9+.-]{2,}", (text or '').lower())
+        if token not in PREFERENCE_STOPWORDS and token not in NOISY_TERMS and not token.isdigit()
+    }
+
+
+def extract_bigrams(text):
+    tokens = [
+        token for token in re.findall(r"[a-z0-9][a-z0-9+.-]{2,}", (text or '').lower())
+        if token not in PREFERENCE_STOPWORDS and not token.isdigit()
+    ]
+    return {f"{a} {b}" for a, b in zip(tokens, tokens[1:])}
 
 
 def load_shown_urls():
@@ -164,11 +186,13 @@ def save_shown_urls(shown):
         json.dump(sorted(shown), f, indent=2)
 
 def load_preference_model():
-    """Load lightweight Linkding-derived preference signals for digest highlighting."""
+    """Load Linkding-derived preference signals for digest highlighting."""
     model = {
         'domains': set(),
         'sites': set(),
         'keywords': set(),
+        'bigrams': set(),
+        'feed_keywords': set(),
     }
 
     try:
@@ -176,10 +200,18 @@ def load_preference_model():
             signals = json.load(f)
         model['domains'] = {
             item['name'].lower() for item in signals.get('top_domains', [])[:10]
-            if item.get('count', 0) >= 2 and item.get('name')
+            if item.get('count', 0) >= 3 and item.get('name') and item['name'].lower() not in NOISY_DOMAINS
         }
         model['sites'] = {
             item['name'].lower() for item in signals.get('top_sites', [])[:10]
+            if item.get('count', 0) >= 3 and item.get('name') and item['name'].lower() not in NOISY_DOMAINS
+        }
+        model['keywords'] |= {
+            item['name'].lower() for item in signals.get('top_title_terms', [])[:20]
+            if item.get('count', 0) >= 2 and item.get('name')
+        }
+        model['bigrams'] |= {
+            item['name'].lower() for item in signals.get('top_title_bigrams', [])[:15]
             if item.get('count', 0) >= 2 and item.get('name')
         }
     except Exception:
@@ -188,18 +220,27 @@ def load_preference_model():
     try:
         with open(LINKDING_TRACKING_FILE) as f:
             tracking = json.load(f)
-        articles = tracking.get('articles', [])[-200:]
+        articles = tracking.get('articles', [])[-250:]
         keyword_counts = {}
+        bigram_counts = {}
+        feed_keyword_counts = {}
         for article in articles:
-            text = f"{article.get('title', '')} {article.get('website_name', '')}".lower()
-            for token in re.findall(r"[a-z0-9][a-z0-9+.-]{2,}", text):
-                if token in PREFERENCE_STOPWORDS or token.isdigit():
-                    continue
+            title = article.get('title', '')
+            description = article.get('description', '')
+            website_name = article.get('website_name', '')
+            article_url = article.get('url', '').lower()
+            combined = f"{title} {description}"
+            if any(domain in article_url for domain in NOISY_DOMAINS):
+                continue
+            for token in tokenize_preference_text(combined):
                 keyword_counts[token] = keyword_counts.get(token, 0) + 1
-        model['keywords'] = {
-            token for token, count in keyword_counts.items()
-            if count >= 3
-        }
+            for bigram in extract_bigrams(title):
+                bigram_counts[bigram] = bigram_counts.get(bigram, 0) + 1
+            for token in tokenize_preference_text(website_name):
+                feed_keyword_counts[token] = feed_keyword_counts.get(token, 0) + 1
+        model['keywords'] |= {token for token, count in keyword_counts.items() if count >= 3}
+        model['bigrams'] |= {token for token, count in bigram_counts.items() if count >= 2}
+        model['feed_keywords'] = {token for token, count in feed_keyword_counts.items() if count >= 2}
     except Exception:
         pass
 
@@ -214,24 +255,29 @@ def annotate_preferences(entries, preference_model):
     domains = preference_model.get('domains', set())
     sites = preference_model.get('sites', set())
     keywords = preference_model.get('keywords', set())
+    bigrams = preference_model.get('bigrams', set())
+    feed_keywords = preference_model.get('feed_keywords', set())
 
     for entry in entries:
         score = 0
         url = entry.get('url', '').lower()
-        title = entry.get('title', '').lower()
+        title = entry.get('title', '')
+        title_lower = title.lower()
         feed = entry.get('feed', '').lower()
 
         if any(domain and domain in url for domain in domains):
             score += 2
         if feed in sites:
-            score += 2
+            score += 1
 
-        title_tokens = {
-            token for token in re.findall(r"[a-z0-9][a-z0-9+.-]{2,}", title)
-            if token not in PREFERENCE_STOPWORDS and not token.isdigit()
-        }
-        overlap = len(title_tokens & keywords)
-        score += min(overlap, 3)
+        title_tokens = tokenize_preference_text(title)
+        title_bigrams = extract_bigrams(title)
+        feed_tokens = tokenize_preference_text(feed)
+
+        score += min(len(title_tokens & keywords), 4)
+        score += min(2 * len(title_bigrams & bigrams), 4)
+        if feed_tokens & feed_keywords:
+            score += 1
 
         entry['preferred'] = score >= 2
         entry['preference_score'] = score
