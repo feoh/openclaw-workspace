@@ -429,13 +429,16 @@ if __name__ == "__main__":
     print(f"Filtered {len(shown_urls)} already-shown URLs", file=sys.stderr)
 
     entries = fetch_feeds(saved_urls=saved_urls, shown_urls=shown_urls)
+    displayed_entries = entries[:args.limit]
 
     # Save the numbered list to a fixed file so "save #N" commands work correctly.
     # Important: do NOT wipe the previous digest cache when there are no new entries,
     # or users lose the numbering from the last delivered digest.
+    # Keep this limited to the entries that were actually shown so numbering matches
+    # what the user saw in chat.
     LAST_DIGEST_FILE = "/home/feoh/.openclaw/workspace/data/rss-last-digest.json"
     numbered = [{"num": i, "title": e["title"], "url": e["url"], "feed": e["feed"]}
-                for i, e in enumerate(entries, 1)]
+                for i, e in enumerate(displayed_entries, 1)]
     if args.peek:
         print("Peek mode: preserving rss-last-digest.json numbering", file=sys.stderr)
     else:
@@ -444,20 +447,20 @@ if __name__ == "__main__":
             with open(LAST_DIGEST_FILE, "w") as f:
                 json.dump(numbered, f, default=str, indent=2)
         else:
-            print("No new entries, preserving previous rss-last-digest.json numbering", file=sys.stderr)
+            print("No displayed entries, preserving previous rss-last-digest.json numbering", file=sys.stderr)
 
     if args.json:
         print(json.dumps(entries, default=str, indent=2))
     else:
         print(format_digest(entries, limit=args.limit))
 
-    # Record shown URLs AFTER output — these won't appear in future digests
+    # Record shown URLs AFTER output — only mark entries that were actually displayed.
     if args.peek:
         print("Peek mode: not recording URLs as shown", file=sys.stderr)
     else:
-        new_shown = shown_urls | {e["url"].rstrip("/") for e in entries}
+        new_shown = shown_urls | {e["url"].rstrip("/") for e in displayed_entries}
         save_shown_urls(new_shown)
-        print(f"Recorded {len(entries)} new URLs as shown ({len(new_shown)} total)", file=sys.stderr)
+        print(f"Recorded {len(displayed_entries)} displayed URLs as shown ({len(new_shown)} total)", file=sys.stderr)
 
     if args.save:
         with open(args.save, "w") as f:
