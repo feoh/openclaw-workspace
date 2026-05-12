@@ -15,6 +15,7 @@ import html
 import re
 import json
 import sys
+import urllib.request
 from datetime import datetime
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -56,15 +57,66 @@ def title_keywords(title):
     return {w for w in words if w not in STOP_WORDS}
 
 
+XML_INVALID_CHAR_RE = re.compile(r"[^\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD]")
+
+
+def download_feed(url):
+    header_profiles = [
+        {
+            "User-Agent": "NewsDigest/1.0 (+OpenClaw)",
+            "Accept": "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.1",
+            "Accept-Language": "en-US,en;q=0.8",
+        },
+        {
+            # Some feeds (notably Politico behind Cloudflare) reject minimal bot-like headers.
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+            "Accept": "application/rss+xml,application/xml,text/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": "https://www.politico.com/",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+        },
+    ]
+    last_error = None
+    for headers in header_profiles:
+        req = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                return resp.read()
+        except Exception as e:
+            last_error = e
+    raise last_error
+
+
+def sanitize_xml_bytes(raw_bytes):
+    text = raw_bytes.decode("utf-8", "replace")
+    text = XML_INVALID_CHAR_RE.sub("", text)
+    text = re.sub(r"&(?!#\d+;|#x[0-9A-Fa-f]+;|[A-Za-z][A-Za-z0-9._:-]*;)", "&amp;", text)
+    return text.encode("utf-8")
+
+
+def parse_feed_with_recovery(url):
+    raw = download_feed(url)
+    feed = feedparser.parse(raw)
+    if feed.entries or not feed.get("bozo"):
+        return feed
+
+    sanitized = sanitize_xml_bytes(raw)
+    repaired = feedparser.parse(sanitized)
+    if repaired.entries:
+        repaired["recovered_from_bozo"] = True
+        repaired["original_bozo_exception"] = repr(feed.get("bozo_exception", "unknown"))
+        return repaired
+
+    raise ValueError(f"Feed parse error: {feed.get('bozo_exception', 'unknown')}")
+
+
 def fetch_single(source_id, config, retries=3, backoff=2):
     import time
     last_error = None
     for attempt in range(1, retries + 1):
         try:
-            feed = feedparser.parse(config["feed"], agent="NewsDigest/1.0")
-            # feedparser returns bozo=True on parse errors but may still have entries
-            if feed.get("bozo") and not feed.entries:
-                raise ValueError(f"Feed parse error: {feed.get('bozo_exception', 'unknown')}")
+            feed = parse_feed_with_recovery(config["feed"])
             results = []
             for entry in feed.entries[:8]:
                 title = clean_title(getattr(entry, 'title', ''))
@@ -91,8 +143,12 @@ def fetch_single(source_id, config, retries=3, backoff=2):
                     "date": date,
                 })
             if results:
+                if feed.get("recovered_from_bozo"):
+                    print(
+                        f"  {config['name']} feed recovered after sanitizing malformed XML ({feed.get('original_bozo_exception', 'unknown')})",
+                        file=sys.stderr,
+                    )
                 return results
-            # Empty results — worth retrying
             raise ValueError("No entries returned")
         except Exception as e:
             last_error = e

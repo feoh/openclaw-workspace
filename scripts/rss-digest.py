@@ -10,6 +10,7 @@ import json
 import os
 import sys
 from datetime import datetime, timedelta
+from urllib.parse import urlparse
 from dotenv import load_dotenv
 load_dotenv(dotenv_path="/home/feoh/.openclaw/workspace/.env")
 
@@ -146,7 +147,11 @@ LINKDING_SIGNALS_FILE = "/home/feoh/.openclaw/workspace/data/linkding-recommenda
 PREFERENCE_STOPWORDS = {
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'how',
     'in', 'into', 'is', 'it', 'its', 'of', 'on', 'or', 'that', 'the', 'this',
-    'to', 'what', 'when', 'with', 'your'
+    'to', 'what', 'when', 'with', 'your', 'can', 'could', 'have', 'has', 'had',
+    'all', 'than', 'then', 'they', 'their', 'there', 'them', 'more', 'most',
+    'after', 'before', 'over', 'under', 'into', 'onto', 'about', 'because',
+    'through', 'while', 'where', 'who', 'whose', 'which', 'will', 'would',
+    'should', 'just', 'now', 'out', 'new'
 }
 NOISY_DOMAINS = {
     't.co', 'x.com', 'twitter.com', 'www.twitter.com', 'untappd.com',
@@ -172,6 +177,13 @@ def extract_bigrams(text):
     return {f"{a} {b}" for a, b in zip(tokens, tokens[1:])}
 
 
+def domain_of(url):
+    try:
+        return urlparse((url or '').strip()).netloc.lower()
+    except Exception:
+        return ''
+
+
 def load_shown_urls():
     """Load URLs that have already been shown in a digest."""
     if os.path.exists(SHOWN_FILE):
@@ -188,32 +200,42 @@ def save_shown_urls(shown):
 def load_preference_model():
     """Load Linkding-derived preference signals for digest highlighting."""
     model = {
-        'domains': set(),
-        'sites': set(),
-        'keywords': set(),
-        'bigrams': set(),
-        'feed_keywords': set(),
+        'domain_weights': {},
+        'site_weights': {},
+        'keyword_weights': {},
+        'bigram_weights': {},
+        'feed_keyword_weights': {},
+        'tag_weights': {},
+        'model_version': 1,
     }
+
+    def normalized_weight_map(rows, minimum_count=1):
+        usable = [row for row in rows if row.get('name') and row.get('count', 0) >= minimum_count]
+        if not usable:
+            return {}
+        max_weight = max(float(row.get('weight', row.get('count', 0) or 0.0)) for row in usable) or 1.0
+        weights = {}
+        for row in usable:
+            raw_weight = float(row.get('weight', row.get('count', 0) or 0.0))
+            weights[row['name'].lower()] = raw_weight / max_weight
+        return weights
 
     try:
         with open(LINKDING_SIGNALS_FILE) as f:
             signals = json.load(f)
-        model['domains'] = {
-            item['name'].lower() for item in signals.get('top_domains', [])[:10]
-            if item.get('count', 0) >= 3 and item.get('name') and item['name'].lower() not in NOISY_DOMAINS
+        model['model_version'] = signals.get('model_version', 1)
+        model['domain_weights'] = {
+            k: v for k, v in normalized_weight_map(signals.get('top_domains', []), minimum_count=2).items()
+            if k not in NOISY_DOMAINS
         }
-        model['sites'] = {
-            item['name'].lower() for item in signals.get('top_sites', [])[:10]
-            if item.get('count', 0) >= 3 and item.get('name') and item['name'].lower() not in NOISY_DOMAINS
+        model['site_weights'] = {
+            k: v for k, v in normalized_weight_map(signals.get('top_sites', []), minimum_count=2).items()
+            if k not in NOISY_DOMAINS
         }
-        model['keywords'] |= {
-            item['name'].lower() for item in signals.get('top_title_terms', [])[:20]
-            if item.get('count', 0) >= 2 and item.get('name')
-        }
-        model['bigrams'] |= {
-            item['name'].lower() for item in signals.get('top_title_bigrams', [])[:15]
-            if item.get('count', 0) >= 2 and item.get('name')
-        }
+        model['keyword_weights'] = normalized_weight_map(signals.get('top_title_terms', []), minimum_count=2)
+        model['bigram_weights'] = normalized_weight_map(signals.get('top_title_bigrams', []), minimum_count=2)
+        model['feed_keyword_weights'] = normalized_weight_map(signals.get('top_feed_terms', []), minimum_count=2)
+        model['tag_weights'] = normalized_weight_map(signals.get('top_tags', []), minimum_count=2)
     except Exception:
         pass
 
@@ -238,9 +260,21 @@ def load_preference_model():
                 bigram_counts[bigram] = bigram_counts.get(bigram, 0) + 1
             for token in tokenize_preference_text(website_name):
                 feed_keyword_counts[token] = feed_keyword_counts.get(token, 0) + 1
-        model['keywords'] |= {token for token, count in keyword_counts.items() if count >= 3}
-        model['bigrams'] |= {token for token, count in bigram_counts.items() if count >= 2}
-        model['feed_keywords'] = {token for token, count in feed_keyword_counts.items() if count >= 2}
+        if not model['keyword_weights']:
+            max_count = max(keyword_counts.values(), default=1)
+            model['keyword_weights'] = {
+                token: count / max_count for token, count in keyword_counts.items() if count >= 3
+            }
+        if not model['bigram_weights']:
+            max_count = max(bigram_counts.values(), default=1)
+            model['bigram_weights'] = {
+                token: count / max_count for token, count in bigram_counts.items() if count >= 2
+            }
+        if not model['feed_keyword_weights']:
+            max_count = max(feed_keyword_counts.values(), default=1)
+            model['feed_keyword_weights'] = {
+                token: count / max_count for token, count in feed_keyword_counts.items() if count >= 2
+            }
     except Exception:
         pass
 
@@ -252,37 +286,79 @@ def annotate_preferences(entries, preference_model):
     if not entries:
         return entries
 
-    domains = preference_model.get('domains', set())
-    sites = preference_model.get('sites', set())
-    keywords = preference_model.get('keywords', set())
-    bigrams = preference_model.get('bigrams', set())
-    feed_keywords = preference_model.get('feed_keywords', set())
+    domain_weights = preference_model.get('domain_weights', {})
+    site_weights = preference_model.get('site_weights', {})
+    keyword_weights = preference_model.get('keyword_weights', {})
+    bigram_weights = preference_model.get('bigram_weights', {})
+    feed_keyword_weights = preference_model.get('feed_keyword_weights', {})
+
+    scored_entries = []
 
     for entry in entries:
-        score = 0
+        score = 0.0
+        reasons = []
         url = entry.get('url', '').lower()
         title = entry.get('title', '')
-        title_lower = title.lower()
         feed = entry.get('feed', '').lower()
+        domain = domain_of(url)
 
-        if any(domain and domain in url for domain in domains):
-            score += 2
-        if feed in sites:
-            score += 1
+        domain_weight = max(domain_weights.get(domain, 0.0), site_weights.get(domain, 0.0))
+        if domain_weight:
+            contribution = 2.6 * domain_weight
+            score += contribution
+            reasons.append((contribution, f"likes {domain}"))
 
         title_tokens = tokenize_preference_text(title)
         title_bigrams = extract_bigrams(title)
         feed_tokens = tokenize_preference_text(feed)
 
-        score += min(len(title_tokens & keywords), 4)
-        score += min(2 * len(title_bigrams & bigrams), 4)
-        if feed_tokens & feed_keywords:
-            score += 1
+        matched_terms = sorted(
+            ((keyword_weights[token], token) for token in title_tokens if token in keyword_weights),
+            reverse=True,
+        )[:4]
+        if matched_terms:
+            contribution = sum(weight for weight, _ in matched_terms) * 1.15
+            score += contribution
+            reasons.append((contribution, "title terms: " + ", ".join(token for _, token in matched_terms[:3])))
 
-        entry['preferred'] = score >= 2
-        entry['preference_score'] = score
+        matched_bigrams = sorted(
+            ((bigram_weights[bigram], bigram) for bigram in title_bigrams if bigram in bigram_weights),
+            reverse=True,
+        )[:2]
+        if matched_bigrams:
+            contribution = sum(weight for weight, _ in matched_bigrams) * 1.5
+            score += contribution
+            reasons.append((contribution, "phrase match: " + ", ".join(bigram for _, bigram in matched_bigrams)))
 
-    return entries
+        matched_feed_terms = sorted(
+            ((feed_keyword_weights[token], token) for token in feed_tokens if token in feed_keyword_weights),
+            reverse=True,
+        )[:3]
+        if matched_feed_terms:
+            contribution = sum(weight for weight, _ in matched_feed_terms) * 0.8
+            score += contribution
+            reasons.append((contribution, "feed match: " + ", ".join(token for _, token in matched_feed_terms[:2])))
+
+        exact_feed_weight = site_weights.get(feed, 0.0)
+        if exact_feed_weight:
+            contribution = 1.2 * exact_feed_weight
+            score += contribution
+            reasons.append((contribution, f"often saves from {feed}"))
+
+        entry['preference_score'] = round(score, 3)
+        entry['preference_reasons'] = [reason for _, reason in sorted(reasons, reverse=True)[:3]]
+        scored_entries.append(entry)
+
+    positive_scores = sorted(entry['preference_score'] for entry in scored_entries if entry['preference_score'] > 0)
+    threshold = 0.6
+    if positive_scores:
+        percentile_index = max(0, int(0.60 * (len(positive_scores) - 1)))
+        threshold = max(threshold, positive_scores[percentile_index])
+
+    for entry in scored_entries:
+        entry['preferred'] = entry['preference_score'] >= threshold and entry['preference_score'] > 0
+
+    return scored_entries
 
 
 def fetch_feeds(saved_urls=None, shown_urls=None):

@@ -1,5 +1,10 @@
 # MEMORY.md — Long-Term Memory
 
+## This Week (2026-05-12)
+- Chris wants code/config/doc fixes committed and pushed to the workspace GitHub repo by default; do not wait to be asked after a fix that should stick.
+- During longer task work, provide visible progress updates instead of going silent for long stretches.
+- Politico feed regression on 2026-05-12 was a fetch-header problem (HTTP 403/Cloudflare), not malformed XML; `scripts/news-digest.py` now falls back to browser-like headers when lightweight RSS headers are rejected.
+
 ## This Week (2026-04-08)
 - Current active model in OpenClaw runtime is **openai-codex/gpt-5.4**. Older Claude Sonnet references in repo docs were stale and should not be treated as current.
 - Python environment rule: always use the workspace virtualenv interpreter for workspace tasks (`/home/feoh/.openclaw/workspace/.venv/bin/python`), leave system Python untouched, and manage workspace dependencies with `uv`.

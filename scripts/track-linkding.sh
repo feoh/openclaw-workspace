@@ -11,6 +11,7 @@ TRACKING_FILE="$WORKSPACE/linkding-saved.json"
 SIGNALS_FILE="$WORKSPACE/data/linkding-recommendation-signals.json"
 LINKDING_URL="https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
 OPENBRAIN_WRITE="$WORKSPACE/scripts/openbrain-write.py"
+VENV_PYTHON="$WORKSPACE/.venv/bin/python"
 
 cd "$WORKSPACE" || exit 1
 mkdir -p "$WORKSPACE/data"
@@ -30,14 +31,15 @@ if [[ -z "$API_KEY" ]]; then
   exit 1
 fi
 
-python3 << 'PYTHON_SCRIPT'
+"$VENV_PYTHON" << 'PYTHON_SCRIPT'
 import json
 import subprocess
 import os
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 import re
+import math
 
 WORKSPACE = "/home/feoh/.openclaw/workspace"
 TRACKING_FILE = f"{WORKSPACE}/linkding-saved.json"
@@ -46,6 +48,9 @@ LINKDING_URL = "https://linkding.reedfish-regulus.ts.net/api/bookmarks/"
 API_KEY = os.environ.get("LINKDING_API_KEY", "")
 OPENBRAIN_WRITE = f"{WORKSPACE}/scripts/openbrain-write.py"
 VENV_PYTHON = f"{WORKSPACE}/.venv/bin/python"
+HISTORY_LIMIT = 5000
+RECENT_WINDOW = 400
+HALF_LIFE_DAYS = 180
 
 # Load existing tracking data
 try:
@@ -108,19 +113,14 @@ while True:
     if offset > 5000:
         break
 
-# Keep last 500 tracked records / IDs
-articles = articles[-500:]
-seen_ids_list = list(seen_ids)[-500:]
-data["articles"] = articles
-data["seen_ids"] = seen_ids_list
-
-with open(TRACKING_FILE, "w") as f:
-    json.dump(data, f, indent=2)
-
 STOPWORDS = {
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'how',
     'in', 'into', 'is', 'it', 'its', 'of', 'on', 'or', 'that', 'the', 'this',
-    'to', 'what', 'when', 'with', 'your'
+    'to', 'what', 'when', 'with', 'your', 'can', 'could', 'have', 'has', 'had',
+    'all', 'than', 'then', 'they', 'their', 'there', 'them', 'more', 'most',
+    'after', 'before', 'over', 'under', 'onto', 'about', 'because', 'through',
+    'while', 'where', 'who', 'whose', 'which', 'will', 'would', 'should',
+    'just', 'now', 'out', 'new'
 }
 NOISY_TERMS = {
     'you', 'why', 'just', 'not', 'earned', 'badge', 'chris', 'untappd'
@@ -138,45 +138,126 @@ def domain_of(url: str) -> str:
         return ""
 
 
+def parse_saved_at(value: str):
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+
 def tokenize(text: str):
     return [
         token for token in re.findall(r"[a-z0-9][a-z0-9+.-]{2,}", (text or '').lower())
         if token not in STOPWORDS and token not in NOISY_TERMS and not token.isdigit()
     ]
 
-recent = articles[-300:]
-domain_counts = Counter(
-    domain for domain in (domain_of(a.get("url", "")) for a in recent if a.get("url"))
-    if domain and domain not in NOISY_DOMAINS
-)
-tag_counts = Counter(tag for a in recent for tag in a.get("tags", []))
-website_counts = Counter(
-    site for site in ((a.get("website_name") or domain_of(a.get("url", ""))) for a in recent)
-    if site and site.lower() not in NOISY_DOMAINS
-)
+
+def normalize_label(text: str) -> str:
+    return re.sub(r"\s+", " ", (text or "").strip().lower())
+
+
+def decay_weight(saved_at: str, now_dt: datetime) -> float:
+    parsed = parse_saved_at(saved_at)
+    if not parsed:
+        return 0.15
+    age_days = max((now_dt - parsed).total_seconds() / 86400.0, 0.0)
+    return max(0.05, math.pow(0.5, age_days / HALF_LIFE_DAYS))
+
+
+def weighted_rows(counter, count_counter=None, limit=25, min_weight=0.0, min_count=1):
+    rows = []
+    for name, weight in counter.items():
+        count = int(count_counter.get(name, 0)) if count_counter else 0
+        if weight < min_weight or count < min_count or not name:
+            continue
+        rows.append({"name": name, "weight": round(weight, 4), "count": count})
+    rows.sort(key=lambda row: (row["weight"], row["count"], row["name"]), reverse=True)
+    return rows[:limit]
+
+
+articles.sort(key=lambda a: (parse_saved_at(a.get("saved_at", "")) or datetime.min.replace(tzinfo=timezone.utc), a.get("id", 0)))
+articles = articles[-HISTORY_LIMIT:]
+new_articles.sort(key=lambda a: (parse_saved_at(a.get("saved_at", "")) or datetime.min.replace(tzinfo=timezone.utc), a.get("id", 0)))
+seen_ids_list = [a.get("id") for a in articles if a.get("id")][-HISTORY_LIMIT:]
+data["articles"] = articles
+data["seen_ids"] = seen_ids_list
+
+with open(TRACKING_FILE, "w") as f:
+    json.dump(data, f, indent=2)
+
+recent = articles[-RECENT_WINDOW:]
+now_dt = datetime.now(timezone.utc)
+domain_counts = Counter()
+domain_weights = defaultdict(float)
+tag_counts = Counter()
+tag_weights = defaultdict(float)
+website_counts = Counter()
+website_weights = defaultdict(float)
 title_term_counts = Counter()
+title_term_weights = defaultdict(float)
 title_bigram_counts = Counter()
+title_bigram_weights = defaultdict(float)
+feed_term_counts = Counter()
+feed_term_weights = defaultdict(float)
+recent_cutoff = None
+if recent:
+    recent_cutoff = parse_saved_at(recent[0].get("saved_at", ""))
+
 for article in recent:
     article_domain = domain_of(article.get("url", ""))
     if article_domain in NOISY_DOMAINS:
         continue
+    weight = decay_weight(article.get("saved_at", ""), now_dt)
+
+    if article_domain:
+        domain_counts[article_domain] += 1
+        domain_weights[article_domain] += weight
+
+    website_name = normalize_label(article.get("website_name") or article_domain)
+    if website_name and website_name not in NOISY_DOMAINS:
+        website_counts[website_name] += 1
+        website_weights[website_name] += weight
+
+    for tag in article.get("tags", []):
+        norm_tag = normalize_label(tag)
+        if norm_tag and norm_tag != "toread":
+            tag_counts[norm_tag] += 1
+            tag_weights[norm_tag] += weight
+
     title_tokens = tokenize(article.get("title", ""))
     desc_tokens = tokenize(article.get("description", ""))
-    title_term_counts.update(title_tokens)
-    title_term_counts.update(desc_tokens[:12])
-    title_bigram_counts.update(
-        f"{a} {b}" for a, b in zip(title_tokens, title_tokens[1:])
-    )
+    for token in title_tokens:
+        title_term_counts[token] += 1
+        title_term_weights[token] += weight * 1.0
+    for token in desc_tokens[:12]:
+        title_term_counts[token] += 1
+        title_term_weights[token] += weight * 0.35
+    for bigram in (f"{a} {b}" for a, b in zip(title_tokens, title_tokens[1:])):
+        title_bigram_counts[bigram] += 1
+        title_bigram_weights[bigram] += weight
+    for token in tokenize(article.get("website_name", "")):
+        feed_term_counts[token] += 1
+        feed_term_weights[token] += weight
 
 signals = {
     "updated_at": datetime.now(timezone.utc).isoformat(),
     "tracked_count": len(articles),
     "new_count": new_count,
-    "top_domains": [{"name": k, "count": v} for k, v in domain_counts.most_common(15) if k],
-    "top_tags": [{"name": k, "count": v} for k, v in tag_counts.most_common(20) if k],
-    "top_sites": [{"name": k, "count": v} for k, v in website_counts.most_common(15) if k],
-    "top_title_terms": [{"name": k, "count": v} for k, v in title_term_counts.most_common(25) if k],
-    "top_title_bigrams": [{"name": k, "count": v} for k, v in title_bigram_counts.most_common(20) if k],
+    "model_version": 2,
+    "training": {
+        "history_limit": HISTORY_LIMIT,
+        "recent_window": len(recent),
+        "half_life_days": HALF_LIFE_DAYS,
+        "recent_oldest_saved_at": recent_cutoff.isoformat() if recent_cutoff else None,
+    },
+    "top_domains": weighted_rows(domain_weights, domain_counts, limit=20, min_weight=0.35, min_count=2),
+    "top_tags": weighted_rows(tag_weights, tag_counts, limit=25, min_weight=0.25, min_count=2),
+    "top_sites": weighted_rows(website_weights, website_counts, limit=20, min_weight=0.35, min_count=2),
+    "top_title_terms": weighted_rows(title_term_weights, title_term_counts, limit=35, min_weight=0.35, min_count=2),
+    "top_title_bigrams": weighted_rows(title_bigram_weights, title_bigram_counts, limit=25, min_weight=0.25, min_count=2),
+    "top_feed_terms": weighted_rows(feed_term_weights, feed_term_counts, limit=20, min_weight=0.25, min_count=2),
     "recent_new": [
         {
             "id": a.get("id"),
