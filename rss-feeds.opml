@@ -12,6 +12,7 @@
  <outline text="Fun">
  <outline title="Blind Not Dumb" text="Blind Not Dumb" xmlUrl="https://www.feoh.org/feed.atom" htmlUrl="https://www.feoh.org/" type="rss" />
  <outline title="John P. Murphy" text="John P. Murphy" xmlUrl="https://johnpmurphy.net/feed/" htmlUrl="https://johnpmurphy.net" description="Award-nominated author of science fiction and fantasy" type="rss" />
+ <outline title="Nosebook" text="Nosebook" xmlUrl="https://leetusman.com/nosebook/feed.xml" htmlUrl="https://leetusman.com/nosebook/" type="rss" />
  <outline title="Zarf Updates" text="Zarf Updates" xmlUrl="https://blog.zarfhome.com/feeds/posts/default" htmlUrl="https://blog.zarfhome.com/" type="rss" />
  </outline>
  <outline text="Python">
