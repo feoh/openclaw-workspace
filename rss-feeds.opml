@@ -24,6 +24,8 @@
  <outline title="Inside the head of Daniel Roy Greenfeld" text="Inside the head of Daniel Roy Greenfeld" xmlUrl="https://daniel.feldroy.com/feeds/atom.xml" htmlUrl="https://daniel.feldroy.com" type="rss" />
  <outline title="Michael Kennedy" text="Michael Kennedy" xmlUrl="https://mkennedy.codes/index.xml" htmlUrl="https://mkennedy.codes/" type="rss" />
  <outline title="Ned Batchelder's blog" text="Ned Batchelder's blog" xmlUrl="https://nedbatchelder.com/blog/rss.xml" htmlUrl="https://nedbatchelder.com/blog" type="rss" />
+ <outline title="PyPI Blog" text="PyPI Blog" xmlUrl="https://blog.pypi.org/feed_rss_updated.xml" htmlUrl="https://blog.pypi.org/" type="rss" />
+ <outline title="Python Software Foundation News" text="Python Software Foundation News" xmlUrl="https://pyfound.blogspot.com/feeds/posts/default?alt=rss" htmlUrl="https://pyfound.blogspot.com/" type="rss" />
  <outline title="Simon Willison's Weblog" text="Simon Willison's Weblog" xmlUrl="https://simonwillison.net/atom/everything/" htmlUrl="http://simonwillison.net/" type="rss" />
  <outline title="Tall, Snarky Canadian" text="Tall, Snarky Canadian" xmlUrl="https://snarky.ca/rss/" htmlUrl="https://snarky.ca/" type="rss" />
  </outline>
@@ -39,6 +41,7 @@
  <outline title="Lobsters" text="Lobsters" xmlUrl="https://lobste.rs/rss" htmlUrl="https://lobste.rs/" type="rss" />
  <outline title="Zed A. Shaw" text="Zed A. Shaw" xmlUrl="https://zedshaw.com/feed.atom" htmlUrl="https://zedshaw.com/" type="rss" />
  <outline title="StepSecurity Blog" text="StepSecurity Blog" xmlUrl="https://www.stepsecurity.io/blog/rss.xml" htmlUrl="https://www.stepsecurity.io/blog" type="rss" />
+ <outline title="Mike's House" text="Mike's House" xmlUrl="https://www.miketheman.net/feed/" htmlUrl="https://www.miketheman.net/" type="rss" />
  <outline title="Armin Ronacher's Thoughts and Writings" text="Armin Ronacher's Thoughts and Writings" xmlUrl="https://lucumr.pocoo.org/feed.atom" htmlUrl="https://lucumr.pocoo.org/" type="rss" />
  <outline title="AtariAge News" text="AtariAge News" xmlUrl="https://www.atariage.com/news/rss.php" htmlUrl="https://www.atariage.com" type="rss" />
  <outline title="Planet KDE" text="Planet KDE" xmlUrl="https://planet.kde.org/index.xml" htmlUrl="https://planet.kde.org/" type="rss" />
