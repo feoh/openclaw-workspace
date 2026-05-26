@@ -159,3 +159,11 @@ def probe_embedding_backend() -> tuple[bool, str | None]:
         return True, None
     except Exception as exc:
         return False, str(exc)
+
+
+if __name__ == "__main__":
+    print("openbrain_embedding.py is a helper module, not a standalone command.")
+    print("Use one of these instead:")
+    print("  python scripts/openbrain-health.py")
+    print("  python scripts/openbrain-search.py \"query\" --semantic")
+    print("  python scripts/openbrain-write.py \"title\" --summary \"...\"")
