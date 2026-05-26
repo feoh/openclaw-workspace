@@ -182,6 +182,7 @@ openclaw cron list
 - Goodreads monitor
 - Todoist reminder
 - backup job
+- recent backup artifacts on the destination path/NAS
 - Git push from workspace
 
 ---
@@ -192,7 +193,7 @@ Before retiring the old server:
 
 1. Run one manual RSS/news test.
 2. Confirm Discord delivery works.
-3. Confirm backups still point where expected.
+3. Confirm backups still point where expected, and verify with real artifacts on the destination rather than only trusting scheduler config or logs.
 4. Confirm secrets are valid.
 5. Confirm the repo can push.
 6. Confirm database-backed features if applicable.
@@ -240,6 +241,7 @@ If the goal is a safer environment, specifically do this on the new server:
 Most likely trouble spots:
 
 - absolute paths in cron payloads
+- stale backup docs that no longer match the live scheduler path
 - missing `.env`
 - missing Todoist config
 - missing workspace SSH key

@@ -60,15 +60,22 @@ Manual run:
 
 ## Schedule
 
-Installed user cron entry:
+The backup cadence currently observed on this host is:
 
-```cron
-17 3 * * 1 /home/feoh/.openclaw/workspace/scripts/backup-critical-state.sh >> /home/feoh/.openclaw/workspace/data/backup-critical-state.log 2>&1
-```
+- `2026-05-11 03:17 UTC`
+- `2026-05-18 03:17 UTC`
+- `2026-05-25 03:17 UTC`
 
-Meaning:
+That is consistent with a weekly run at roughly:
 
 - **Every Monday at 03:17 UTC**
+
+Important:
+
+- Older documentation claimed this was installed via a user crontab entry.
+- On `2026-05-26`, that exact entry was **not** present in `crontab -l`.
+- The backup artifacts themselves are real and recent, but the current scheduler source was not identified during that verification pass.
+- Treat the weekly cadence as verified; treat the exact scheduler mechanism as still needing traceability cleanup.
 
 ## Retention
 
@@ -81,9 +88,28 @@ After each run, the script keeps the **newest 3** backup directories and the **n
 
 ## Logs
 
-Cron output is appended to:
+Older documentation claimed cron output was appended to:
 
 - `/home/feoh/.openclaw/workspace/data/backup-critical-state.log`
+
+On `2026-05-26`, that file was **not** present on the host.
+
+So at the moment:
+
+- backup artifacts on the NAS are the primary proof that runs succeeded
+- the expected local backup log path should be treated as stale documentation until the live scheduler path is traced
+
+## Verification Notes
+
+Careful validation performed on `2026-05-26` showed:
+
+- `/nas/container_configs` is mounted read-write over NFS
+- the newest three backup directories and PostgreSQL dumps exist
+- the newest backup is `critical-state-20260525T031717Z`
+- the newest dump is `postgres-openclaw-20260525T031717Z.sql.gz`
+- the newest dump passes `gzip -t`
+- the newest backup directory contains expected files including `MANIFEST.txt`, `.env`, `MEMORY.md`, `memory/`, SSH keys, and host OpenClaw config
+- a live create/write/delete test on `/nas/container_configs/openclaw` succeeded during validation
 
 ## Restore Notes
 
