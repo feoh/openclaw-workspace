@@ -7,9 +7,10 @@ Creates the memory_objects table with all required fields per the Open Brain spe
 import psycopg
 import os
 from dotenv import load_dotenv
+from openbrain_embedding import get_vector_dimensions, describe_backend
 load_dotenv()
 
-SCHEMA_SQL = """
+SCHEMA_SQL_TEMPLATE = """
 -- Open Brain Memory Objects table
 CREATE TABLE IF NOT EXISTS memory_objects (
     id              SERIAL PRIMARY KEY,
@@ -22,7 +23,7 @@ CREATE TABLE IF NOT EXISTS memory_objects (
     provenance      TEXT,
     confidence      INTEGER DEFAULT 50,              -- 0-100
     source_links    TEXT[] DEFAULT '{}',
-    embedding       vector(1536),                     -- optional semantic index
+    embedding       vector({embedding_dimensions}),    -- optional semantic index
     created_at      TIMESTAMP DEFAULT NOW(),
     updated_at      TIMESTAMP DEFAULT NOW(),
     freshness_ts    TIMESTAMP DEFAULT NOW(),
@@ -59,9 +60,10 @@ def main():
         user='simplificus', password=os.environ.get('POSTGRES_PASSWORD', '')
     )
     
-    conn.execute(SCHEMA_SQL)
+    embedding_dimensions = get_vector_dimensions()
+    conn.execute(SCHEMA_SQL_TEMPLATE.format(embedding_dimensions=embedding_dimensions))
     conn.commit()
-    print("Schema created successfully!")
+    print(f"Schema created successfully for {describe_backend()} ({embedding_dimensions} dims)!")
     
     # Verify
     result = conn.execute("""

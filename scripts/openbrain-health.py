@@ -8,9 +8,9 @@ Run periodically via cron.
 import psycopg
 import os
 import json
-from datetime import datetime, timezone, timezone
+from datetime import datetime, timezone
 from dotenv import load_dotenv
-import ollama
+from openbrain_embedding import probe_embedding_backend, describe_backend
 load_dotenv()
 
 HEALTH_FILE = "/home/feoh/.openclaw/workspace/data/open_brain_health.json"
@@ -31,13 +31,9 @@ def check_db_reachable():
         return False, str(e)
 
 
-def check_mcp_probe():
-    """Check if Ollama is responsive."""
-    try:
-        models = ollama.list()
-        return True, None
-    except Exception as e:
-        return False, str(e)
+def check_embedding_probe():
+    """Check if the configured embedding backend is responsive."""
+    return probe_embedding_backend()
 
 
 def check_vector_column():
@@ -72,11 +68,11 @@ def check_curation_fresh():
         return None
 
 
-def get_status(db_ok, mcp_ok, vector_populated):
+def get_status(db_ok, embedding_ok, vector_populated):
     if not db_ok:
         return "critical", ["database unreachable"]
-    if not mcp_ok:
-        return "warn", ["MCP/Ollama probe failed"]
+    if not embedding_ok:
+        return "warn", ["embedding backend probe failed"]
     if not vector_populated:
         return "warn", ["vector column unpopulated"]
     return "ok", []
@@ -85,19 +81,20 @@ def get_status(db_ok, mcp_ok, vector_populated):
 def write_health_snapshot():
     # Run checks
     db_ok, db_err = check_db_reachable()
-    mcp_ok, mcp_err = check_mcp_probe()
+    embedding_ok, embedding_err = check_embedding_probe()
     vector_populated, embed_count = check_vector_column()
     last_curation = check_curation_fresh()
     
-    status, reasons = get_status(db_ok, mcp_ok, vector_populated)
+    status, reasons = get_status(db_ok, embedding_ok, vector_populated)
     
     snapshot = {
         "status": status,
         "reasons": reasons,
-        "mcp_probe_ok": mcp_ok,
+        "embedding_backend": describe_backend(),
+        "embedding_probe_ok": embedding_ok,
         "db_reachable": db_ok,
         "db_error": db_err if not db_ok else None,
-        "mcp_error": mcp_err if not mcp_ok else None,
+        "embedding_error": embedding_err if not embedding_ok else None,
         "curation_fresh": last_curation.isoformat() if last_curation else None,
         "vector_column_populated": vector_populated,
         "embedding_count": embed_count,
@@ -118,6 +115,7 @@ if __name__ == '__main__':
     snapshot = write_health_snapshot()
     print(f"Health snapshot written: {snapshot['status'].upper()}")
     print(f"  DB reachable: {snapshot['db_reachable']}")
-    print(f"  MCP probe OK: {snapshot['mcp_probe_ok']}")
+    print(f"  Embedding backend: {snapshot['embedding_backend']}")
+    print(f"  Embedding probe OK: {snapshot['embedding_probe_ok']}")
     print(f"  Embeddings: {snapshot['embedding_count']}")
     print(f"  File: {HEALTH_FILE}")

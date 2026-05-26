@@ -9,20 +9,8 @@ import os
 import sys
 import argparse
 from dotenv import load_dotenv
-import ollama
+from openbrain_embedding import generate_embedding, describe_backend
 load_dotenv()
-
-
-def generate_embedding(text):
-    """Generate embedding using nomic-embed-text via Ollama."""
-    if not text:
-        return None
-    try:
-        response = ollama.embeddings(model='nomic-embed-text', prompt=text[:10000])
-        return response['embedding']
-    except Exception as e:
-        print(f"Warning: embedding generation failed: {e}", file=sys.stderr)
-        return None
 
 
 def write_memory(title, summary, body, lane='private', obj_type='note', 
@@ -38,7 +26,12 @@ def write_memory(title, summary, body, lane='private', obj_type='note',
     
     # Combine text for embedding
     embed_text = f"{title} {summary} {body}" if body else f"{title} {summary}"
-    embedding = generate_embedding(embed_text) if generate_embed else None
+    embedding = None
+    if generate_embed:
+        try:
+            embedding = generate_embedding(embed_text, input_type="document")
+        except Exception as e:
+            print(f"Warning: embedding generation failed via {describe_backend()}: {e}", file=sys.stderr)
     
     result = conn.execute("""
         INSERT INTO memory_objects (title, summary, body, lane, obj_type, domain_tags, provenance, source_links, embedding)

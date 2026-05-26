@@ -77,5 +77,9 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - Promote: `python3 scripts/openbrain-promote.py <id> [--lane controlled] [--confidence 80]`
 - Health: `python3 scripts/openbrain-health.py`
 - **MCP Server**: `python3 scripts/openbrain-mcp.py` (stdio-based, for MCP clients)
-- Embedding model: `nomic-embed-text` via Ollama (768-dim vectors)
+- Embedding backend is env-configurable via `OPENBRAIN_EMBEDDING_PROVIDER`
+- `openai`: set `OPENAI_API_KEY` or `OPENBRAIN_OPENAI_API_KEY`
+- `ollama`: uses `OPENBRAIN_EMBEDDING_MODEL` (default `nomic-embed-text`)
+- `none`: keyword-only portability / migration mode
+- `OPENBRAIN_EMBEDDING_DIMENSIONS` can override schema vector size for fresh installs
 - Tables: `memory_objects` (private/controlled/public lanes, provenance, confidence)

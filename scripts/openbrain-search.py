@@ -7,8 +7,9 @@ Usage: python3 openbrain-search.py "query" [--lane private] [--type note] [--lim
 import psycopg
 import os
 import argparse
+import sys
 from dotenv import load_dotenv
-import ollama
+from openbrain_embedding import generate_embedding, describe_backend
 load_dotenv()
 
 
@@ -43,7 +44,7 @@ def search_memory_keyword(query, lane=None, obj_type=None, domain_tag=None, limi
 
 
 def search_memory_semantic(query, lane=None, obj_type=None, domain_tag=None, limit=10, include_body=False):
-    """Vector similarity search using Ollama embeddings."""
+    """Vector similarity search using the configured embedding backend."""
     conn = psycopg.connect(
         host='localhost', port=5432, dbname='openclaw',
         user='simplificus', password=os.environ.get('POSTGRES_PASSWORD', '')
@@ -51,10 +52,13 @@ def search_memory_semantic(query, lane=None, obj_type=None, domain_tag=None, lim
     
     # Generate embedding for query
     try:
-        response = ollama.embeddings(model='nomic-embed-text', prompt=query)
-        query_embedding = response['embedding']
+        query_embedding = generate_embedding(query, input_type="query")
     except Exception as e:
-        print(f"Warning: embedding generation failed: {e}", file=sys.stderr)
+        print(f"Warning: embedding generation failed via {describe_backend()}: {e}", file=sys.stderr)
+        return []
+
+    if not query_embedding:
+        print("Warning: semantic search unavailable because no embedding provider is configured", file=sys.stderr)
         return []
     
     # Build SQL with vector similarity

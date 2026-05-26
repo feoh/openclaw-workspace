@@ -10,14 +10,17 @@ For the full design and rationale, see:
 You need:
 - PostgreSQL 16+
 - pgvector
-- Ollama
 - Python 3
 - a virtualenv with:
   - `psycopg`
   - `python-dotenv`
-  - `ollama`
   - `mcp`
   - `pydantic`
+
+Optional embedding backends:
+- OpenAI-compatible embeddings over HTTPS
+- Ollama
+- no embedding backend at all, if keyword-only mode is acceptable
 
 ## 2. Create the database
 
@@ -41,9 +44,29 @@ POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
 ```
 
+For embeddings, choose one:
+
+```env
+# Remote OpenAI-compatible path
+OPENBRAIN_EMBEDDING_PROVIDER=openai
+OPENAI_API_KEY=your_api_key_here
+OPENBRAIN_EMBEDDING_MODEL=text-embedding-3-small
+```
+
+```env
+# Local Ollama path
+OPENBRAIN_EMBEDDING_PROVIDER=ollama
+OPENBRAIN_EMBEDDING_MODEL=nomic-embed-text
+```
+
+```env
+# Keyword-only / migration path
+OPENBRAIN_EMBEDDING_PROVIDER=none
+```
+
 ## 4. Pick your embedding model and verify dimension
 
-If using Ollama with `nomic-embed-text`, verify the returned vector size before creating the table.
+Verify the returned vector size before creating the table.
 
 The table’s `embedding vector(N)` must match the model’s real output dimension.
 
@@ -106,7 +129,7 @@ Insert a memory object with:
 Search `title`, `summary`, and `body` using SQL text matching.
 
 ### Semantic search
-- embed the query with Ollama
+- embed the query with the configured embedding backend
 - compare against `embedding`
 - rank by vector distance
 
@@ -130,7 +153,7 @@ Also set:
 1. load env
 2. connect to Postgres
 3. build embedding text from title + summary + body
-4. ask Ollama for embedding
+4. ask the configured embedding backend for embedding
 5. insert row
 6. if embedding fails, still write the row
 
@@ -156,7 +179,7 @@ Use pgvector distance operators against the query embedding.
 
 At minimum, monitor:
 - database reachable
-- Ollama reachable
+- embedding backend reachable
 - memory table exists
 - some rows have embeddings
 

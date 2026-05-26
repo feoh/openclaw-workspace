@@ -15,9 +15,8 @@ load_dotenv()
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import Tool, TextContent
-from pydantic import AnyUrl
 import psycopg
-import ollama
+from openbrain_embedding import generate_embedding, probe_embedding_backend, describe_backend
 
 # Open Brain MCP Server instance
 server = Server("openbrain")
@@ -132,10 +131,11 @@ async def tool_search(args):
         if semantic:
             # Vector similarity search
             try:
-                response = ollama.embeddings(model='nomic-embed-text', prompt=query)
-                query_embedding = response['embedding']
+                query_embedding = generate_embedding(query, input_type="query")
             except Exception as e:
                 return [TextContent(type="text", text=f"Embedding generation failed: {e}")]
+            if not query_embedding:
+                return [TextContent(type="text", text="Semantic search unavailable because no embedding provider is configured.")]
             
             sql = """
                 SELECT id, title, summary, lane, obj_type, domain_tags, confidence, 
@@ -162,10 +162,12 @@ async def tool_search(args):
             sql += " AND %s = ANY(domain_tags)"
             params.append(domain_tag)
         
-        sql += f" ORDER BY similarity DESC LIMIT {limit}"
-        
         if semantic:
+            sql += " ORDER BY embedding <=> %s::vector LIMIT %s"
             params.append(query_embedding)
+            params.append(limit)
+        else:
+            sql += f" ORDER BY similarity DESC LIMIT {limit}"
         
         result = conn.execute(sql, params)
         rows = result.fetchall()
@@ -206,9 +208,8 @@ async def tool_write(args):
         # Generate embedding
         embed_text = f"{title} {summary} {body}"
         try:
-            response = ollama.embeddings(model='nomic-embed-text', prompt=embed_text)
-            embedding = response['embedding']
-        except:
+            embedding = generate_embedding(embed_text, input_type="document")
+        except Exception:
             embedding = None
         
         result = conn.execute("""
@@ -304,12 +305,18 @@ async def tool_health(args):
         
         conn.close()
         
+        backend = describe_backend()
+        probe_ok, probe_error = probe_embedding_backend()
         lines = [
             "**Open Brain Health: OK**",
             f"Total objects: {total}",
             f"With embeddings: {with_embed}",
+            f"Embedding backend: {backend}",
+            f"Embedding probe: {'ok' if probe_ok else 'warn'}",
             "By lane:"
         ]
+        if probe_error:
+            lines.append(f"Probe detail: {probe_error}")
         for lane, count in by_lane:
             lines.append(f"  - {lane}: {count}")
         

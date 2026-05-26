@@ -9,7 +9,7 @@ Open Brain is a lightweight structured memory layer for agents.
 It combines:
 - PostgreSQL for durable storage
 - pgvector for semantic similarity search
-- Ollama embeddings for local vector generation
+- an env-configured embedding backend for vector generation
 - a small set of Python scripts for write, search, promotion, health checks, and MCP exposure
 
 The design goal is simple:
@@ -34,7 +34,7 @@ The design goal is simple:
    - Semantic search is additive, not required for basic function.
 
 4. **Graceful degradation**
-   - If Ollama or embeddings fail, writes can still succeed.
+   - If the embedding backend fails, writes can still succeed.
    - The system should still function as a keyword memory store.
 
 5. **Operational simplicity**
@@ -46,14 +46,16 @@ The design goal is simple:
 Current implementation:
 - PostgreSQL 16+
 - pgvector extension
-- Ollama
-- embedding model: `nomic-embed-text`
 - Python with:
   - `psycopg`
   - `python-dotenv`
-  - `ollama`
   - `mcp`
   - `pydantic`
+
+Embedding backend is selected at runtime:
+- `openai` via HTTPS API
+- `ollama` for local inference
+- `none` for keyword-only mode
 
 ## Environment and secrets
 
@@ -100,14 +102,7 @@ CREATE TABLE IF NOT EXISTS memory_objects (
 
 ### Important note about embedding size
 
-The current schema declares:
-- `embedding vector(1536)`
-
-But the documented operational model in this workspace is:
-- `nomic-embed-text` via Ollama
-- 768-dimensional embeddings
-
-So if you are implementing this fresh, **verify your actual embedding dimension first** and make the pgvector column match it.
+The schema script now derives its default vector size from the configured backend, but you should still verify your actual embedding dimension first and make the pgvector column match it.
 
 In other words:
 - if your embedding model returns 768 dimensions, use `vector(768)`
@@ -241,13 +236,13 @@ Purpose:
 1. Load env vars.
 2. Connect to PostgreSQL.
 3. Build embedding input from title + summary + body.
-4. Ask Ollama for an embedding using `nomic-embed-text`.
+4. Ask the configured embedding backend for an embedding.
 5. Insert row into `memory_objects`.
 6. Commit and return the new object ID.
 
 ### Failure handling
 
-If embedding generation fails:
+If embedding generation fails, or if embeddings are explicitly disabled:
 - emit a warning
 - continue writing the object with `embedding = NULL`
 
