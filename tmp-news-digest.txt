@@ -1,0 +1,24 @@
+Fetching headlines...
+Got 105 headlines from 14 sources
+Grouping stories...
+Found 73 story clusters
+**📰 Evening News Digest — 2026-05-17**
+_Top stories across the political spectrum_
+
+**Coverage:** 🟪 both sides · 🟥 conservative · 🟦 liberal · ⚖️ center
+
+🟪 [GOP lawmakers battle as conservatives press for third budget reconciliation bill](https://thehill.com/homenews/house/5880546-gop-reconciliation-bill-pentagon-fraud/)
+   The Hill, NBC News, Politico, Fox News, Newsmax — 9 sources
+
+🟥 [Trump warns Iran ‘clock is ticking’ as peace negotiations stall](https://thehill.com/homenews/administration/5882193-trump-iran-clock-ticking/)
+   The Hill, Al Jazeera, Politico, Newsmax, ProPublica — 5 sources
+
+🟦 [Large-scale Ukrainian drone attack kills three in Moscow region, says Russia](https://www.bbc.com/news/articles/c5ye480kxpmo?at_medium=RSS&at_campaign=rss)
+   BBC World, Al Jazeera, NPR, NBC News, Haaretz — 5 sources
+
+⚖️ [WHO declares Ebola outbreak in DR Congo an international emergency](https://www.bbc.com/news/articles/c2l2p0wwzzdo?at_medium=RSS&at_campaign=rss)
+   BBC World, Al Jazeera — 4 sources
+
+🟥 [Taiwan representative to US responds to Trump’s stance on arms sales](https://thehill.com/policy/international/5882121-taiwan-trusts-trump-arms-sales/)
+   The Hill, BBC World, Newsmax — 3 sources
+
